@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping List — Misophonia Protocol</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf8f4;--white:#fff;--border:#e4e0d8;--border-light:#f4f0e8;
+  --text:#2a2824;--text-mid:#4a4540;--text-muted:#8a7f70;
+  --green-dark:#2d4a28;--green-mid:#4a7a42;--green-light:#e8f0e5;--green-border:#b8d4b0;
+  --amber:#b87a1a;--amber-light:#fdf3e0;--amber-border:#e8c878;
+  --rose:#a83050;--rose-light:#fdf0f3;--rose-border:#e8b0c0;
+  --blue-dark:#2a4a6a;--blue-light:#eef4fb;--blue-border:#b8cfe8;
+  --purple:#6a4082;--purple-light:#f5eeff;--purple-border:#c8b0f0;
+  --topbar-h:54px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--topbar-h)+18px)}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;font-size:15px}
+h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* ── TOPBAR ── */
+#topbar{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:10px;padding:0 18px;border-bottom:2px solid #1a3018}
+#topbar .logo{font-family:'Lora',serif;font-size:14.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0}
+#topbar .vbadge{font-size:9.5px;font-weight:600;background:rgba(255,255,255,.12);color:#a8d4a0;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px 6px;letter-spacing:.05em;flex-shrink:0}
+.sat-links{display:flex;gap:4px;margin-left:auto;flex-shrink:0}
+.sat-link{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
+.sat-link:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
+.sat-link.active{background:rgba(255,255,255,.18);color:#fff}
+
+/* ── MAIN ── */
+#main{margin-top:var(--topbar-h);padding:36px 44px 80px;max-width:1060px}
+
+/* ── PAGE HEADER ── */
+.page-header{margin-bottom:32px}
+.stag{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:inline-flex;align-items:center;gap:7px;color:var(--green-mid)}
+h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;color:var(--green-dark);margin-bottom:8px}
+.page-sub{font-size:14px;color:var(--text-muted);max-width:680px;line-height:1.6}
+
+/* ── LEGEND ── */
+.legend{display:flex;flex-wrap:wrap;gap:12px;padding:12px 18px;background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:28px;align-items:center}
+.legend-label{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text-muted);margin-right:4px}
+.leg-item{display:flex;align-items:center;gap:6px;font-size:12.5px;color:var(--text-mid)}
+.status-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.sd-have{background:var(--green-mid)}.sd-refill{background:var(--amber)}.sd-need{background:var(--rose)}.sd-future{background:var(--border)}
+
+/* ── SECTION HEADER ── */
+.section-header{display:flex;align-items:baseline;gap:10px;margin:32px 0 10px;padding-bottom:7px;border-bottom:2px solid var(--green-border)}
+.section-header h2{font-family:'Lora',serif;font-size:18px;font-weight:500;color:var(--green-dark)}
+.section-header .item-count{font-size:11px;color:var(--text-muted);font-family:'DM Mono',monospace}
+
+/* ── SHOPPING TABLE ── */
+.shop-table{width:100%;border-collapse:collapse;margin-bottom:6px;font-size:13.5px;background:var(--white);border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.shop-table th{text-align:left;padding:7px 14px;background:var(--green-light);color:var(--green-dark);font-family:'DM Sans',sans-serif;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-bottom:2px solid var(--green-border)}
+.shop-table th:first-child{border-radius:0}
+.shop-table td{padding:9px 14px;color:var(--text-mid);border-bottom:1px solid var(--border-light);vertical-align:top;line-height:1.5}
+.shop-table tr:last-child td{border-bottom:none}
+.shop-table tr:hover td{background:#fdfcf9}
+
+/* Status cell */
+.sc-status{width:36px;text-align:center;padding:9px 8px}
+.status-badge{display:inline-block;width:10px;height:10px;border-radius:50%;cursor:pointer;transition:transform .15s}
+.status-badge:hover{transform:scale(1.3)}
+.sb-have{background:var(--green-mid)}.sb-refill{background:var(--amber)}.sb-need{background:var(--rose)}.sb-future{background:var(--border)}
+
+/* Item name */
+.item-name{font-weight:500;color:var(--text);font-size:13.5px;min-width:180px}
+.item-sub{font-size:11.5px;color:var(--text-muted);font-weight:400;margin-top:1px;font-family:'DM Mono',monospace}
+
+/* Phase tag */
+.ph-tag{display:inline-block;font-family:'DM Sans',sans-serif;font-size:9.5px;font-weight:600;padding:2px 7px;border-radius:8px;letter-spacing:.03em;white-space:nowrap}
+.ph-0{background:var(--purple-light);color:var(--purple)}
+.ph-1{background:var(--green-light);color:var(--green-dark)}
+.ph-2{background:var(--blue-light);color:var(--blue-dark)}
+.ph-3{background:var(--amber-light);color:var(--amber)}
+.ph-4{background:var(--rose-light);color:var(--rose)}
+.ph-5{background:var(--purple-light);color:var(--purple)}
+.ph-run{background:#e8f0e5;color:var(--green-mid)}
+
+/* Notes */
+.item-notes{font-size:12.5px;color:var(--text-muted);line-height:1.5}
+.item-notes strong{color:var(--text-mid)}
+
+/* Status text (clickable cycle) */
+.status-text{font-size:11px;font-family:'DM Mono',monospace;color:var(--text-muted);cursor:pointer;user-select:none;transition:color .15s}
+.status-text:hover{color:var(--text)}
+
+/* ── SUMMARY BAR ── */
+.sb-item{display:flex;flex-direction:column;align-items:center;gap:3px}
+
+
+
+
+
+/* ── INFO BOX ── */
+.ia{background:var(--amber-light);border:1px solid var(--amber-border);border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:13.5px;color:var(--text-mid);line-height:1.65}
+.ia strong{color:var(--amber)}
+.ig{background:var(--green-light);border:1px solid var(--green-border);border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:13.5px;color:var(--text-mid);line-height:1.65}
+.ig strong{color:var(--green-dark)}
+
+
+/* ── YEAR SUPPLY COLUMN ── */
+.col-year{min-width:148px}
+.yr-ok{color:var(--green-mid);font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif}
+.yr-warn{color:var(--amber);font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif}
+.yr-gap{color:var(--rose);font-size:12px;font-weight:600;font-family:'DM Sans',sans-serif}
+.yr-act{font-size:11px;color:var(--text-muted);font-family:'DM Mono',monospace;margin-top:3px;line-height:1.4}
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  #main{padding:24px 18px 60px}
+  .shop-table{font-size:12.5px}
+  .item-name{min-width:140px}
+  .col-year{display:none}
+}
+@media(max-width:640px){
+  .sat-link{font-size:9.5px;padding:3px 8px}
+  #topbar .logo{font-size:13px}
+  .col-notes{display:none}
+  h1.st{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header id="topbar">
+  <span class="logo">The Misophonia Rewiring &amp; Wellness Protocol</span>
+  <span class="vbadge">V9.2</span>
+  <nav class="sat-links">
+    <a href="protocol.html" class="sat-link">Protocol</a>
+    <a href="cheatsheet.html" class="sat-link">Cheat Sheet</a>
+    <a href="glossary.html" class="sat-link">Glossary</a>
+    <a href="exercises.html" class="sat-link">Exercises</a>
+    <a href="diet.html" class="sat-link">Diet</a>
+    <a href="shopping.html" class="sat-link active">Shopping List</a>
+    <a href="log.html" class="sat-link">Log</a>
+  </nav>
+</header>
+
+<div id="main">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="stag">Protocol Resources</div>
+    <h1 class="st">Shopping List</h1>
+    <p class="page-sub">Complete inventory of everything the protocol requires — organized by category. Supplement tables include a <strong>Year Supply</strong> column showing estimated reorder quantities for a full year. Click any status dot to update procurement status.</p>
+  </div>
+
+  <!-- STATUS LEGEND -->
+  <div class="legend">
+    <span class="legend-label">Status key:</span>
+    <span class="leg-item"><span class="status-dot sd-have"></span> Have it</span>
+    <span class="leg-item"><span class="status-dot sd-refill"></span> Need refill</span>
+    <span class="leg-item"><span class="status-dot sd-need"></span> Still need</span>
+    <span class="leg-item"><span class="status-dot sd-future"></span> Future phase</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 1. DEVICES & HARDWARE -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Devices &amp; Hardware</h2></div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Phase / Use</th>
+        <th class="col-notes">Notes &amp; Specs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Shokz OpenRun Pro 2</div><div class="item-sub">Bone conduction headphones</div></td>
+        <td><span class="ph-tag ph-1">Phase 1 — Week 1</span></td>
+        <td class="col-notes"><span class="item-notes">Delivered April 8. Meeting support — leave ear canals open, pink noise via cheekbones. IP55 sweat resistant. Used at all communal events throughout all phases.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">HeartMath Inner Balance</div><div class="item-sub">Ear clip HRV biofeedback</div></td>
+        <td><span class="ph-tag ph-1">Phase 1 — Month 2</span></td>
+        <td class="col-notes"><span class="item-notes">HRV biofeedback, 20 min daily. Cardiac coherence training. One of the permanent practices. ⚑ Always use headphones — never play app audio through phone speaker.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Nuropod</div><div class="item-sub">tVNS earclip device (Parasym US brand)</div></td>
+        <td><span class="ph-tag ph-2">Phase 2+</span></td>
+        <td class="col-notes"><span class="item-notes">US brand name for Nurosym — same device, same technology. Order from nuropod.com (not nurosym.com). ~$900. Left ear cymba concha. 25Hz, 200–300µs, 0.5–1.0 mA. Order before Phase 2.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">ActivaDose tDCS Starter Kit (2mA)</div><div class="item-sub">Caputron — caputron.com</div></td>
+        <td><span class="ph-tag ph-3">Phase 3+</span></td>
+        <td class="col-notes"><span class="item-notes">~$399 from caputron.com. 2mA version + 3″×3″ sponge electrodes. FDA-cleared, real-time impedance compensation. 1.5–2.0 mA, 20 min before CC. F3 anode / right supraorbital reference. Not within 5 hrs of sleep.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-future" data-status="future" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">tDCS Sponge Electrode Refills</div><div class="item-sub">3″×3″ sponge inserts + saline</div></td>
+        <td><span class="ph-tag ph-3">Phase 3+</span></td>
+        <td class="col-notes"><span class="item-notes">Included in ActivaDose Starter Kit. Reorder sponge inserts as they wear. Saline for conductivity. No gel needed with sponge electrodes.</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- 2. SLEEP & PROTECTION GEAR -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Sleep &amp; Daily Protection Gear</h2></div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Phase / Use</th>
+        <th class="col-notes">Notes &amp; Specs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Blackout Sleep Mask (Manta)</div><div class="item-sub">Well-fitting contoured design</div></td>
+        <td><span class="ph-tag ph-1">Phase 1 — Week 1</span></td>
+        <td class="col-notes"><span class="item-notes">Non-negotiable on Hamakua Coast. Any light suppresses melatonin. Must fit well — no light leakage at nose bridge. Runs all phases.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">LectroFan EVO</div><div class="item-sub">22 non-looping sound variations</div></td>
+        <td><span class="ph-tag ph-1">Phase 1 — Week 1</span></td>
+        <td class="col-notes"><span class="item-notes">Enhances slow-wave sleep and overnight memory consolidation. Critical for cementing CC gains. Also used via bone conduction headphones during meetings.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">3M Micropore Paper Tape</div><div class="item-sub">Soft medical-grade, 1" or ½"</div></td>
+        <td><span class="ph-tag ph-1">Phase 1 — trial</span></td>
+        <td class="col-notes"><span class="item-notes">Mouth taping trial (1–2 weeks). Small vertical strip over lips. Nasal breathing activates parasympathetic tone. Discontinue if anxiety arises.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Foam Earplugs</div><div class="item-sub">High-attenuation, NRR 30+</div></td>
+        <td><span class="ph-tag ph-run">All phases</span></td>
+        <td class="col-notes"><span class="item-notes">Current coping tool. Backup to bone conduction at community events. High-load day support. Keep supply on hand. Keep at every community event location.</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 3. SUPPLEMENTS — CORE (Phase 1, Week 1) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Supplements — Core Stack <span style="font-weight:400;font-size:14px;color:var(--text-muted)">(Phase 1, Week 1)</span></h2></div>
+  <div class="ig"><strong>Introduce all of these in Week 1.</strong> If any causes unexpected effects, hold and reassess before adding the next.</div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Dose / Timing</th>
+        <th class="col-notes">Notes &amp; Specs</th>
+        <th class="col-year">Year Supply</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Creatine Monohydrate</div><div class="item-sub">Unflavored powder</div></td>
+        <td><span class="item-notes">5g on waking in water<br><em>Currently running 10g/day — reduce to 5g</em></span></td>
+        <td class="col-notes"><span class="item-notes">Brain energy metabolism, sensory processing efficiency. Critical on plant-forward diet. Best existing supplement practice. Pause 48–72 hrs before bloodwork.</span></td>
+      
+        <td class="col-year"><div class="yr-warn">~230 days gap</div><div class="yr-act">Order 1kg Creapure powder</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">L. reuteri — BioGaia Gastrus</div><div class="item-sub">Chewable tablets, refrigerated</div></td>
+        <td><span class="item-notes">1–2 tabs on waking<br><em>Chew — do not swallow whole</em></span></td>
+        <td class="col-notes"><span class="item-notes">Stimulates oxytocin via vagal nerve signaling. Must chew. Refrigerate. Avoid near antibiotics. BioGaia Gastrus specifically — contains both L. reuteri ATCC 6475 and DSM 17938.</span></td>
+      
+        <td class="col-year"><div class="yr-gap">~335 days gap</div><div class="yr-act">Order 22+ bottles (60-tab format)<br>~$550/yr — buy in bulk</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Krill Oil</div><div class="item-sub">CGN Premium w/ SUPERBABoost® 1000mg</div></td>
+        <td><span class="item-notes">2–3 softgels morning with food<br><em>Skip on oily fish days. Pause 1 wk pre-SGB.</em></span></td>
+        <td class="col-notes"><span class="item-notes">EPA+DHA in phospholipid form — critical for neuronal membrane incorporation during active rewiring. iHerb confirmed. Combined target with algae: 2–3g EPA+DHA daily.</span></td>
+      
+        <td class="col-year"><div class="yr-gap">~185 active days gap</div><div class="yr-act">Order 8 more 60-softgel bottles</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Algae Oil</div><div class="item-sub">High EPA+DHA (vegan)</div></td>
+        <td><span class="item-notes">2–4 softgels morning with food<br><em>Skip on oily fish days. Pause 1 wk pre-SGB.</em></span></td>
+        <td class="col-notes"><span class="item-notes">Tops up total EPA+DHA dose in triglyceride form. Krill provides phospholipid form; algae provides volume. Both needed. ~585–1170mg EPA+DHA per 2 softgels.</span></td>
+      
+        <td class="col-year"><div class="yr-warn">~163 active days gap</div><div class="yr-act">Order 5 more bottles</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Lion's Mane</div><div class="item-sub">Dual-extracted, beta-glucan content specified</div></td>
+        <td><span class="item-notes">2g morning with food<br><em>Never skip — not weekends, not microdose off-cycles</em></span></td>
+        <td class="col-notes"><span class="item-notes">NGF upregulation and synaptogenesis. Must be dual-extracted with stated beta-glucan %. Single-extraction products are inadequate. Synergistic with psilocybin.</span></td>
+      
+        <td class="col-year"><div class="yr-warn">~275 days gap</div><div class="yr-act">Order 2 bridge bottles now;<br>switch to home-grown from Phase 3+</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Vitamin D3 / K2 (MK-7)</div><div class="item-sub">Combined capsule preferred</div></td>
+        <td><span class="item-notes">2000–5000 IU D3 + 100mcg K2 morning with fat</span></td>
+        <td class="col-notes"><span class="item-notes">Neuroplasticity substrate, immune regulation. K2 must be MK-7 form. Take with fat-containing food for absorption. Confirm D3 level at baseline bloodwork.</span></td>
+      
+        <td class="col-year"><div class="yr-warn">~185 days gap</div><div class="yr-act">Order 2 more bottles</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">B-Complex (Methylated)</div><div class="item-sub">Methylfolate + methylcobalamin on label</div></td>
+        <td><span class="item-notes">1 capsule morning only<br><em>Not in afternoon — can increase alertness</em></span></td>
+        <td class="col-notes"><span class="item-notes">Methylation support, neurotransmitter synthesis. Must confirm methylfolate (not folic acid) and methylcobalamin on label. Morning only.</span></td>
+      
+        <td class="col-year"><div class="yr-gap">~335 days gap</div><div class="yr-act">Find 60-90 cap format;<br>order 4–5 larger bottles</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Vitamin B12 Sublingual</div><div class="item-sub">Methylcobalamin, 1000mcg</div></td>
+        <td><span class="item-notes">1000mcg morning<br><em>Dissolve under tongue</em></span></td>
+        <td class="col-notes"><span class="item-notes">Essential in plant-forward diet. Sublingual methylcobalamin specifically. Dissolve fully under tongue — do not swallow immediately.</span></td>
+      
+        <td class="col-year"><div class="yr-gap">~305 days gap</div><div class="yr-act">Order 6 more bottles</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Magnesium L-Threonate</div><div class="item-sub">e.g. Magtein®</div></td>
+        <td><span class="item-notes">2000mg bedtime<br><em>Do not substitute oxide or citrate</em></span></td>
+        <td class="col-notes"><span class="item-notes">Brain-specific magnesium delivery. Sleep depth, synaptic plasticity. L-Threonate form specifically crosses blood-brain barrier. Run alongside Magnesium Glycinate — complementary.</span></td>
+      
+        <td class="col-year"><div class="yr-gap">~275 days gap</div><div class="yr-act">Order 6 more containers<br>(~$210–270 total)</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Magnesium Glycinate</div><div class="item-sub">400mg elemental, not oxide or citrate</div></td>
+        <td><span class="item-notes">400mg elemental bedtime<br><em>Separate from zinc if supplementing</em></span></td>
+        <td class="col-notes"><span class="item-notes">Calming, sleep architecture, muscle relaxation. Glycinate form only. Check elemental Mg content on label. Run alongside L-Threonate every night.</span></td>
+      
+        <td class="col-year"><div class="yr-warn">~245 days gap</div><div class="yr-act">Order 4 more bottles</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Glycine</div><div class="item-sub">Powder, pure</div></td>
+        <td><span class="item-notes">3g bedtime<br><em>Can mix in water or take capsules</em></span></td>
+        <td class="col-notes"><span class="item-notes">Reduces core body temperature at sleep onset. Improves sleep quality and next-morning alertness. Plain glycine powder is cost-effective and tasteless in water.</span></td>
+      
+        <td class="col-year"><div class="yr-ok">✓ Nearly covered</div><div class="yr-act">~333 days ordered;<br>small refill near year end</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Apigenin</div><div class="item-sub">50mg capsules</div></td>
+        <td><span class="item-notes">50mg bedtime<br><em>Avoid on nights drinking alcohol</em></span></td>
+        <td class="col-notes"><span class="item-notes">Mild anxiolytic, promotes sleep onset, reduces nighttime cortisol. May potentiate alcohol — avoid on drinking nights. Part of the permanent sleep stack.</span></td>
+      
+        <td class="col-year"><div class="yr-ok">✓ Covered</div><div class="yr-act">~360 days ordered</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Melatonin</div><div class="item-sub">0.5mg only — low dose</div></td>
+        <td><span class="item-notes">0.5mg bedtime<br><em>First 4–6 weeks only, then taper off</em></span></td>
+        <td class="col-notes"><span class="item-notes">Low dose is as effective as high dose for sleep onset rhythm. Use only to establish initial rhythm. Taper by halving over 1–2 weeks, then discontinue. The sleep protocol is the long-term mechanism.</span></td>
+      
+        <td class="col-year"><div class="yr-ok">✓ Temporary only</div><div class="yr-act">4–6 weeks only; 60 caps sufficient</div></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 4. SUPPLEMENTS — PHASE 1 WAVE 2 & 3 -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Supplements — Phase 1 Later Waves <span style="font-weight:400;font-size:14px;color:var(--text-muted)">(Week 3 &amp; Month 2)</span></h2></div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Dose / Timing</th>
+        <th class="col-notes">Notes &amp; Specs</th>
+        <th class="col-year">Year Supply</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Bacopa</div><div class="item-sub">Doctor's Best w/ Synapsa™ (or Bacognize)</div></td>
+        <td><span class="item-notes">320mg morning with food<br><em>Week 3 onward. Takes 4–6 wks full effect.</em></span></td>
+        <td class="col-notes"><span class="item-notes">Extinction learning specifically — most directly relevant supplement for the CC mechanism. Take with food (reduces nausea risk). Never skip. iHerb confirmed.</span></td>
+      
+        <td class="col-year"><div class="yr-warn">~104 days gap</div><div class="yr-act">Order 2 more bottles</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">NMN Sublingual</div><div class="item-sub">500mg, sublingual-formulated tablets</div></td>
+        <td><span class="item-notes">500mg, dissolve under tongue before other supplements<br><em>Month 2 onward. Empty stomach preferred.</em></span></td>
+        <td class="col-notes"><span class="item-notes">NAD+ precursor — fuels cellular machinery neuroplasticity runs on. Sublingual tablets specifically for best absorption. Take before other morning supplements. Pause 48–72 hrs before bloodwork.</span></td>
+      
+        <td class="col-year"><div class="yr-warn">~125 days gap</div><div class="yr-act">Order 1 more 90g container</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Phosphatidylserine</div><div class="item-sub">300mg, soy- or sunflower-derived</div></td>
+        <td><span class="item-notes">300mg midday with meal<br><em>Month 2 onward. Not in evening.</em></span></td>
+        <td class="col-notes"><span class="item-notes">Cortisol blunting, fear extinction support. Not in evening — can occasionally interfere with sleep. Take with afternoon meal. Continues through all phases.</span></td>
+      
+        <td class="col-year"><div class="yr-gap">⚑ ~225 days gap — URGENT</div><div class="yr-act">Order 6 more 120-cap bottles<br>Runs out Month 4</div></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 5. SUPPLEMENTS — PHASE 2 ADDITIONS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Supplements — Phase 2 Additions</h2></div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Dose / Timing</th>
+        <th class="col-notes">Notes &amp; Specs</th>
+        <th class="col-year">Year Supply</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Ashwagandha (KSM-66)</div><div class="item-sub">KSM-66 extract, 600mg</div></td>
+        <td><span class="item-notes">600mg morning with food<br><em>Skip on MDMA session days only</em></span></td>
+        <td class="col-notes"><span class="item-notes">HPA axis regulation, cortisol blunting, stress resilience. KSM-66 extract specifically. Morning only (evening restlessness risk). Continue on psilocybin macrodose days — no interaction.</span></td>
+      
+        <td class="col-year"><div class="yr-warn">~35 days gap</div><div class="yr-act">Order 1 more bottle</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Lithium Orotate</div><div class="item-sub">5mg tablets (nutritional dose)</div></td>
+        <td><span class="item-notes">5mg morning with food<br><em>Do not exceed 10mg/day. Not with pharmaceutical lithium.</em></span></td>
+        <td class="col-notes"><span class="item-notes">Hippocampal neurogenesis, BDNF upregulation, extinction learning support. Nutritional dose only (5mg). Not pharmaceutical lithium. Pause 2 wks before bloodwork.</span></td>
+      
+        <td class="col-year"><div class="yr-ok">✓ Covered</div><div class="yr-act">~360 days ordered.<br>Do not reorder — protocol scrutiny item</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">NAC (N-Acetyl Cysteine)</div><div class="item-sub">600mg capsules</div></td>
+        <td><span class="item-notes">600mg morning + 600mg midday<br><em>Stop 3 days before MDMA. Resume 48 hrs after.</em></span></td>
+        <td class="col-notes"><span class="item-notes">Glutamate modulation, antioxidant. Targets anticipatory-dread rumination layer. Continue on psilocybin days (no interaction). Two doses daily for consistent coverage. Pause 1 wk pre-SGB.</span></td>
+      
+        <td class="col-year"><div class="yr-warn">~180 days gap</div><div class="yr-act">Order 2 more 250-cap bottles</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">L-Theanine</div><div class="item-sub">CGN AlphaWave® 200mg — item #83280</div></td>
+        <td><span class="item-notes">200mg, 30 min before CC session (CC days only)<br><em>Not within 3 hrs of sleep</em></span></td>
+        <td class="col-notes"><span class="item-notes">Promotes alpha-wave activity, calm alertness. Morning matcha already provides ~300–400mg baseline. Supplement dose adds to that on CC days. iHerb confirmed item #83280.</span></td>
+      
+        <td class="col-year"><div class="yr-ok">✓ Cut from protocol</div><div class="yr-act">Use what's in hand;<br>do not reorder</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Kava (Noble)</div><div class="item-sub">Medium-grind noble kava root powder</div></td>
+        <td><span class="item-notes">2–4 tbsp, 45–60 min before high-trigger context<br><em>Max 3x/week situational. Noble kava only.</em></span></td>
+        <td class="col-notes"><span class="item-notes">Pre-exposure anxiolytic. Noble kava only — not instant, not extract, not tudei. Prepare with cool water (hot degrades kavalactones). Avoid on macrodose/MDMA days and with alcohol.</span></td>
+      
+        <td class="col-year"><div class="yr-gap">None on hand</div><div class="yr-act">Order ~3 lbs noble kava<br>(Wakacon or Gourmet Hawaiian)</div></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 6. SUPPLEMENTS — PHASE 3 (Microdosing Stack) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Supplements — Phase 3 Additions <span style="font-weight:400;font-size:14px;color:var(--text-muted)">(Microdosing stack)</span></h2></div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Dose / Timing</th>
+        <th class="col-notes">Notes &amp; Specs</th>
+        <th class="col-year">Year Supply</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Niacin (Flush) — Nicotinic Acid</div><div class="item-sub">NOT niacinamide / NOT "no-flush"</div></td>
+        <td><span class="item-notes">100–200mg at 10am, Mon–Thu (microdose days)<br><em>Must produce flush — non-flush is ineffective</em></span></td>
+        <td class="col-notes"><span class="item-notes">Stamets Stack component. Must be nicotinic acid (flush niacin). Non-flush / niacinamide / inositol hexanicotinate do NOT work for this purpose. Flush (warmth, redness) resolves in 30–60 min.</span></td>
+      
+        <td class="col-year"><div class="yr-warn">~26 tabs gap</div><div class="yr-act">Order 1 more 100-tab pack</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-future" data-status="future" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Precision Scale (0.001g)</div><div class="item-sub">Milligram scale for microdosing</div></td>
+        <td><span class="item-notes">Used every microdose (0.10–0.15g target)<br><em>Weigh every dose — never estimate</em></span></td>
+        <td class="col-notes"><span class="item-notes">Required for safe microdosing. Must read to 0.001g (1mg) resolution. Weigh every dose without exception. 0.07–0.08g if any perception at standard dose.</span></td>
+      
+        <td class="col-year"><div class="yr-ok">One-time purchase</div><div class="yr-act">~$20 Amazon (Gemini-20)</div></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 7. SUPPLEMENTS — PHASE 4 (Post-MDMA) -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Supplements — Phase 4 Additions <span style="font-weight:400;font-size:14px;color:var(--text-muted)">(post-MDMA serotonin replenishment)</span></h2></div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Dose / Timing</th>
+        <th class="col-notes">Notes &amp; Specs</th>
+        <th class="col-year">Year Supply</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">5-HTP</div><div class="item-sub">100mg capsules</div></td>
+        <td><span class="item-notes">100mg/day for 3 days<br><em>Begin 24 hrs after MDMA session only. Not after psilocybin.</em></span></td>
+        <td class="col-notes"><span class="item-notes">Serotonin replenishment after MDMA (which depletes serotonin via excess release). Indicated for MDMA specifically. 3-day course only. Do not use outside post-MDMA context. Avoid 24 hrs before any session.</span></td>
+      
+        <td class="col-year"><div class="yr-ok">✓ Covered</div><div class="yr-act">60 caps ordered;<br>~6 caps needed per MDMA session</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">EGCG (Green Tea Extract)</div><div class="item-sub">400mg standardized</div></td>
+        <td><span class="item-notes">400mg/day for 3 days<br><em>With 5-HTP, beginning 24 hrs after MDMA only</em></span></td>
+        <td class="col-notes"><span class="item-notes">Neuroprotective antioxidant used in 3-day post-MDMA protocol alongside 5-HTP. Also available via matcha and green tea in daily nutrition. Standardized extract for this protocol use.</span></td>
+      
+        <td class="col-year"><div class="yr-ok">✓ Covered</div><div class="yr-act">90 caps ordered;<br>~6 caps needed per MDMA session</div></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 8. SUPPLEMENTS — PHASE 5 ADDITIONS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Supplements — Phase 5 Additions <span style="font-weight:400;font-size:14px;color:var(--text-muted)">(wellness deepening)</span></h2></div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Dose / Timing</th>
+        <th class="col-notes">Notes &amp; Specs</th>
+        <th class="col-year">Year Supply</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Resveratrol</div><div class="item-sub">500mg, trans-resveratrol</div></td>
+        <td><span class="item-notes">500mg morning with fat-containing food, weekdays only<br><em>Pause 1 week pre-SGB. Not with blood thinners.</em></span></td>
+        <td class="col-notes"><span class="item-notes">Sirtuin activation, NAD+ pathway support, anti-inflammatory. Synergistic with NMN. Weekdays only — off weekends. Mild energizing properties — morning only. Pause 1 wk pre-SGB.</span></td>
+      
+        <td class="col-year"><div class="yr-warn">Borderline</div><div class="yr-act">90 caps ordered; add 1 bottle<br>if Phase 5 starts before Mar 2027</div></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Berberine</div><div class="item-sub">500mg capsules</div></td>
+        <td><span class="item-notes">500mg midday with meal, 3x/week non-training days only<br><em>Not daily. Not on resistance training days.</em></span></td>
+        <td class="col-notes"><span class="item-notes">AMPK activation, blood sugar regulation, metabolic health. Not on resistance training days (may blunt anabolic signaling). Not with antibiotics. 3x/week maximum.</span></td>
+      
+        <td class="col-year"><div class="yr-ok">✓ Likely covered</div><div class="yr-act">In hand; ~50–60 uses in Phase 5<br>Reassess at Phase 5 gate</div></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 9. CONTROLLED SUBSTANCES & PRESCRIPTION -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Controlled Substances &amp; Prescription</h2></div>
+  <div class="ia"><strong>Legal note:</strong> Psilocybin and MDMA are Schedule I in the US. Hawaii has no state-level decriminalization. Know your legal context. Propranolol requires a physician prescription. MDMA testing with all three reagents is mandatory for every batch.</div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Phase / Protocol Use</th>
+        <th class="col-notes">Notes &amp; Specs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Psilocybin (dried mushrooms)</div><div class="item-sub">Weighed, sourced responsibly</div></td>
+        <td><span class="ph-tag ph-1">Phase 0–5</span></td>
+        <td class="col-notes"><span class="item-notes">Session 0: 1.5–2g. Phases 1–2 orientation: 1.5–2g. Phase 2 Session 1: 2.5g. Phase 3: 2.5–3g. Phase 4: 2.5–3.5g. Phase 5: 2–3g q2–3 months. Microdose: 0.1–0.15g Mon–Thu. Weigh every dose on 0.001g scale.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-future" data-status="future" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">MDMA</div><div class="item-sub">Tested with all 3 reagents every batch</div></td>
+        <td><span class="ph-tag ph-3">Phase 3–4</span></td>
+        <td class="col-notes"><span class="item-notes">Session 1 (Phase 3): 75mg. Session 2 (Phase 4): 75–100mg. Maximum 2 sessions in 12 months. Minimum 6-week interval. Test with Marquis + Simon's + fentanyl strips — every batch, no exceptions.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-future" data-status="future" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Propranolol</div><div class="item-sub">10–20mg, prescription required</div></td>
+        <td><span class="ph-tag ph-3">Phase 3–5</span></td>
+        <td class="col-notes"><span class="item-notes">Beta-blocker for memory reconsolidation. 10–20mg taken 60–90 min before CC session. Requires physician prescription. Not for asthma or low baseline HR. Not within 48 hrs of macrodose or MDMA.</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 11. DIAGNOSTICS & MEDICAL TESTING -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Diagnostics &amp; Medical Testing</h2></div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Phase / Timing</th>
+        <th class="col-notes">Notes &amp; Provider</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">SGB / DSR — Phase 0</div><div class="item-sub">Bilateral Dual Sympathetic Reset</div></td>
+        <td><span class="ph-tag ph-0">Phase 0</span></td>
+        <td class="col-notes"><span class="item-notes"><strong>Base Clinic Akasaka</strong> — Dr. Yoshioka Kohei (bc-cl.jp). ~¥11,000/session. Inquiry submitted, auto-confirm received. April 30 evening preferred; May 7 firm fallback. Ultrasound guidance non-negotiable.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Comprehensive Bloodwork</div><div class="item-sub">Full baseline panel</div></td>
+        <td><span class="ph-tag ph-0">Phase 0 (Tokyo)</span></td>
+        <td class="col-notes"><span class="item-notes"><strong>Tokyo Medical and Surgical Clinic (TMSC)</strong>. Metabolic panel, CBC, lipids + ApoB, full thyroid + TPO Ab, hormones, hsCRP, homocysteine, micronutrients (D, B12, ferritin, zinc, Mg RBC), glucose, HbA1c, fasting insulin, IGF-1.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Salivary Cortisol Panel</div><div class="item-sub">Diurnal 4-point HPA axis profile</div></td>
+        <td><span class="ph-tag ph-0">Phase 0 (Tokyo)</span></td>
+        <td class="col-notes"><span class="item-notes"><strong>Base Clinic Akasaka</strong> — adrenal stress index. Diurnal cortisol rhythm across 4 time points. Pre-protocol stress hormone baseline. Repeat at Year 1 completion.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">NAD+ Blood Level</div><div class="item-sub">Cellular NAD+ before supplementation</div></td>
+        <td><span class="ph-tag ph-0">Phase 0 (Tokyo)</span></td>
+        <td class="col-notes"><span class="item-notes"><strong>N2 Clinic at Hotel Chinzanso</strong>. Actual cellular NAD+ status before NMN begins. Calibrates dosing. Longitudinal baseline for cellular renewal work. Repeat at Year 1.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-future" data-status="future" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Omega-3 Index</div><div class="item-sub">OmegaQuant mail-in test</div></td>
+        <td><span class="ph-tag ph-5">Year 1 completion</span></td>
+        <td class="col-notes"><span class="item-notes"><strong>OmegaQuant</strong> (omegaquant.com) — mail-in blood spot, no physician required. Measures EPA+DHA as % of total RBC fatty acids. Goal: 8–12% range. Confirms krill + algae protocol is working.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-future" data-status="future" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Epigenetic Age Test</div><div class="item-sub">TruAge or Elysium Index</div></td>
+        <td><span class="ph-tag ph-5">Year 1 completion</span></td>
+        <td class="col-notes"><span class="item-notes"><strong>TruAge</strong> or <strong>Elysium Index</strong>. Primary longitudinal wellness measure. Biological vs. chronological age gap. Baseline before Year 1 end; repeat annually Year 2+.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">SSP — Primary Course</div><div class="item-sub">Unyte-iLs, licensed provider required</div></td>
+        <td><span class="ph-tag ph-1">Phase 1 — Month 2</span></td>
+        <td class="col-notes"><span class="item-notes">Safe and Sound Protocol. 5 hours total — 30–60 min/session over 1–2 weeks. Requires Unyte-iLs licensed provider. Book before Month 2. Refresher in Phase 4 (non-optional). Headphones required.</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 12. TOOLS & EQUIPMENT -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Tools &amp; Equipment</h2></div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Phase / Use</th>
+        <th class="col-notes">Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Kava Strainer Bags</div><div class="item-sub">Muslin or mesh, reusable</div></td>
+        <td><span class="ph-tag ph-2">Phase 2+</span></td>
+        <td class="col-notes"><span class="item-notes">Required for traditional kava preparation. Knead and squeeze 5–10 min in cool water. Reusable — rinse well after use. Not needed for instant kava (which protocol does not use).</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-future" data-status="future" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Journal / Notebook</div><div class="item-sub">Dedicated protocol journal</div></td>
+        <td><span class="ph-tag ph-run">All phases</span></td>
+        <td class="col-notes"><span class="item-notes">Post-session integration notes, CC SUDs logs, weekly hierarchy re-ratings, IFS exchanges, felt-sense notes. Analog preferred for macrodose and MDMA integration — no screens during landing phase.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Headphones (Over-ear)</div><div class="item-sub">For CC sessions, SSP, EMDR, Yoga Nidra</div></td>
+        <td><span class="ph-tag ph-1">Phase 1+</span></td>
+        <td class="col-notes"><span class="item-notes">CC sessions require stereo headphones for dual-ear delivery (positive music in dominant ear, trigger in non-dominant). SSP requires headphones not speakers. Also for Yoga Nidra and EMDR bilateral tones.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Trigger Sound Library</div><div class="item-sub">Organized by SUDs level, 3–5 recordings per type</div></td>
+        <td><span class="ph-tag ph-1">Phase 1 — Week 4</span></td>
+        <td class="col-notes"><span class="item-notes">Build before first CC session. Sources: FOAMS database (Zenodo — 32 files, 8 sound classes), Freesound.org, yt-dlp for YouTube, self-recording. 3–5 distinct recordings per trigger per hierarchy band. Organize by SUDs level.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Paired Stimuli Playlist</div><div class="item-sub">3–5 pieces, 30–40 min total</div></td>
+        <td><span class="ph-tag ph-1">Phase 1 — before CC</span></td>
+        <td class="col-notes"><span class="item-notes">Music producing genuine positive emotion — chills, warmth, uplift. Test weekly. Replace any piece that stops producing genuine response. Non-negotiable before first CC session. Build with buffer — needs to work reliably.</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 13. APPS & SERVICES -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Apps &amp; Services</h2></div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Phase / Use</th>
+        <th class="col-notes">Notes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Yoga Nidra Tracks</div><div class="item-sub">20-min sleep + 40-min open awareness</div></td>
+        <td><span class="ph-tag ph-1">Phase 1 — Week 1</span></td>
+        <td class="col-notes"><span class="item-notes">Need 20-min sleep-specific track for nightly use; 35–45-min open-awareness track when intensive work is running. Also a 20-min sleep track for night waking. Yoga Nidra Network, Insight Timer, or equivalent.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">EMDR Bilateral Audio App</div><div class="item-sub">Alternating L-R tones at ~1Hz</div></td>
+        <td><span class="ph-tag ph-3">Phase 3+</span></td>
+        <td class="col-notes"><span class="item-notes">Brain.fm bilateral or EMDR Therapy app. Alternating left-right tones at ~1Hz. Headphones required. Used for self-directed EMDR sessions on SUDs 4–7 interpersonal memories.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">HeartMath App</div><div class="item-sub">Inner Balance app (iOS/Android)</div></td>
+        <td><span class="ph-tag ph-1">Phase 1 — Month 2</span></td>
+        <td class="col-notes"><span class="item-notes">Required for HeartMath Inner Balance device. Provides real-time coherence feedback. Resonance breathing at 6 breaths/min guided. Free companion app.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">yt-dlp</div><div class="item-sub">YouTube audio extraction (CLI tool)</div></td>
+        <td><span class="ph-tag ph-1">Phase 1 (library build)</span></td>
+        <td class="col-notes"><span class="item-notes">For building trigger sound library from YouTube sources. Free, command-line. Install via pip or homebrew. Used once for library build; keep for updates.</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- 14. FOOD & PANTRY ITEMS -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="section-header"><h2>Food &amp; Pantry Items</h2></div>
+  <div class="ig"><strong>Food-based protocol components</strong> — not supplements, but each has a specific mechanistic role. Keep stocked as part of the regular shop.</div>
+  <table class="shop-table">
+    <thead>
+      <tr>
+        <th class="sc-status">Status</th>
+        <th>Item</th>
+        <th>Frequency / Use</th>
+        <th class="col-notes">Mechanism</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Matcha (ceremonial grade)</div></td>
+        <td><span class="item-notes">Daily, morning with or after first meal</span></td>
+        <td class="col-notes"><span class="item-notes">~300–400mg L-theanine per cup + EGCG + moderate caffeine. More L-theanine than supplement capsules. Space 1 hr from iron-rich meals (EGCG inhibits absorption).</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Kukicha or Sencha Green Tea</div></td>
+        <td><span class="item-notes">Daily, afternoon (2–3 hrs before sleep)</span></td>
+        <td class="col-notes"><span class="item-notes">Lower caffeine than matcha. EGCG, trace L-theanine. Wind-down ritual quality. Space 1 hr from iron-rich meals.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Wheat Germ</div></td>
+        <td><span class="item-notes">1–2 tbsp daily in smoothie or oats</span></td>
+        <td class="col-notes"><span class="item-notes">Highest spermidine concentration per gram of any food. Triggers autophagy — cellular clearing between plasticity events. Shelf-stable in fridge after opening.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Capers</div></td>
+        <td><span class="item-notes">Daily — add to anything</span></td>
+        <td class="col-notes"><span class="item-notes">Highest quercetin food source (~20mg/tbsp). Clears senescent cells, reduces inflammation. Senolytic. Phase 5 emphasizes deliberate daily inclusion, but useful throughout.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Apple Cider Vinegar</div></td>
+        <td><span class="item-notes">1 tbsp before meals</span></td>
+        <td class="col-notes"><span class="item-notes">AMPK activation, blood sugar management. Dilute in water. Same AMPK pathway as berberine but food-based, safe daily.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Ground Flaxseed</div></td>
+        <td><span class="item-notes">Daily in smoothies or oats</span></td>
+        <td class="col-notes"><span class="item-notes">ALA (omega-3 precursor), lignans, polyphenols. Keep refrigerated after grinding/opening. Grind fresh when possible for freshness.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Mustard Powder</div></td>
+        <td><span class="item-notes">Add when cooking brassicas</span></td>
+        <td class="col-notes"><span class="item-notes">Restores sulforaphane production in cooked broccoli/cauliflower (myrosinase enzyme replacement). Also: chop brassicas 40 min before cooking to pre-activate sulforaphane.</span></td>
+      </tr>
+      <tr>
+        <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
+        <td><div class="item-name">Dark Chocolate 85%+</div></td>
+        <td><span class="item-notes">Daily</span></td>
+        <td class="col-notes"><span class="item-notes">Theobromine, flavanols. Anti-inflammatory. Protocol food, not indulgence framing. 85% minimum cocoa content.</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:40px;padding:14px 0;border-top:1px solid var(--border);font-size:12px;color:var(--text-muted);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+    <span>Shopping List — Misophonia Rewiring &amp; Wellness Protocol V9.2</span>
+    <span>Click any status dot to cycle: <strong style="color:var(--green-mid)">have</strong> → <strong style="color:var(--amber)">refill</strong> → <strong style="color:var(--rose)">need</strong> → <strong style="color:var(--text-muted)">future</strong></span>
+  </div>
+
+</div><!-- end #main -->
+
+<script>
+// Status cycle order and labels
+const STATUS_CYCLE = ['have', 'refill', 'need', 'future'];
+const STATUS_LABELS = { have: 'Have it', refill: 'Need refill', need: 'Still need', future: 'Future phase' };
+
+function cycleStatus(el) {
+  const current = el.dataset.status;
+  const idx = STATUS_CYCLE.indexOf(current);
+  const next = STATUS_CYCLE[(idx + 1) % STATUS_CYCLE.length];
+  el.dataset.status = next;
+  el.className = 'status-badge sb-' + next;
+  el.title = STATUS_LABELS[next] + ' — click to update';
+  saveState();
+}
+
+
+// Persist state in localStorage
+function saveState() {
+  const all = document.querySelectorAll('.status-badge');
+  const state = [];
+  all.forEach(el => state.push(el.dataset.status));
+  try { localStorage.setItem('protocol-shopping-v1', JSON.stringify(state)); } catch(e) {}
+}
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem('protocol-shopping-v1');
+    if (!saved) return;
+    const state = JSON.parse(saved);
+    const all = document.querySelectorAll('.status-badge');
+    all.forEach((el, i) => {
+      if (state[i] && STATUS_CYCLE.includes(state[i])) {
+        el.dataset.status = state[i];
+        el.className = 'status-badge sb-' + state[i];
+        el.title = STATUS_LABELS[state[i]] + ' — click to update';
+      }
+    });
+  } catch(e) {}
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadState();
+});
+</script>
+</body>
+</html>

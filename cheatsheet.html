@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Protocol Cheat Sheet — V9.2</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#faf8f4;--white:#fff;--border:#e4e0d8;--border-light:#f4f0e8;--text:#2a2824;--text-mid:#4a4540;--text-muted:#8a7f70;--green-dark:#2d4a28;--green-mid:#4a7a42;--green-light:#e8f0e5;--green-border:#b8d4b0;--amber:#b87a1a;--amber-light:#fdf3e0;--amber-border:#e8c878;--rose:#a83050;--rose-light:#fdf0f3;--rose-border:#e8b0c0;--blue-dark:#2a4a6a;--blue-light:#eef4fb;--blue-border:#b8cfe8;--purple:#6a4082;--purple-light:#f5eeff;--purple-border:#c8b0f0;--topbar-h:54px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.65;font-size:14px}
+h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+#topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:8px;padding:0 16px;border-bottom:2px solid #1a3018}
+.tbar-logo{font-family:'Lora',serif;font-size:13.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0}
+.tbar-badge{font-size:9px;font-weight:600;background:rgba(255,255,255,.12);color:#a8d4a0;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px 6px;flex-shrink:0}
+.tbar-sep{width:1px;height:22px;background:rgba(255,255,255,.15);flex-shrink:0;margin:0 4px}
+.tbar-links{display:flex;gap:4px;flex-wrap:wrap}
+.tbar-link{font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
+.tbar-link:hover{background:rgba(255,255,255,.12);color:#fff}
+.tbar-link.here{background:rgba(255,255,255,.22);color:#fff;border-color:rgba(255,255,255,.4)}
+.page{margin-top:var(--topbar-h);padding:20px 18px 60px;max-width:960px;margin-left:auto;margin-right:auto}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-start;margin-bottom:18px;padding:14px 16px;background:var(--white);border:1px solid var(--border);border-radius:12px}
+.ctrl-group{display:flex;flex-direction:column;gap:5px}
+.ctrl-label{font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+.ctrl-pills{display:flex;gap:4px;flex-wrap:wrap}
+.pill{font-size:11.5px;font-weight:500;padding:5px 12px;border-radius:20px;border:1px solid var(--border);background:var(--white);color:var(--text-mid);cursor:pointer;transition:all .12s;white-space:nowrap}
+.pill:hover{border-color:var(--green-mid);color:var(--green-dark)}
+.pill.sel-ph{background:var(--green-dark);color:#fff;border-color:var(--green-dark)}
+.pill.sel-g{background:#edf7ec;color:#2d6a28;border-color:#8bc88a;font-weight:600}
+.pill.sel-y{background:#fdf8e8;color:#8a6800;border-color:#e8c848;font-weight:600}
+.pill.sel-r{background:#fdf0f0;color:#a03030;border-color:#e88080;font-weight:600}
+.day-tab{font-size:12px;font-weight:500;padding:5px 15px;border-radius:20px;border:1px solid var(--border);background:var(--white);color:var(--text-mid);cursor:pointer;transition:all .12s}
+.day-tab.active{background:var(--green-mid);color:#fff;border-color:var(--green-mid)}
+.mode-banner{border-radius:10px;padding:10px 15px;margin-bottom:16px;font-size:13px;font-weight:500;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.mb-g{background:#edf7ec;border:1.5px solid #8bc88a;color:#2d6a28}
+.mb-y{background:#fdf8e8;border:1.5px solid #e8c848;color:#8a6800}
+.mb-r{background:#fdf0f0;border:1.5px solid #e88080;color:#a03030}
+.grid{display:grid;grid-template-columns:1fr 330px;gap:14px;align-items:start}
+@media(max-width:740px){.grid{grid-template-columns:1fr}}
+.card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:14px}
+.card-head{padding:9px 15px;border-bottom:1px solid var(--border-light);display:flex;align-items:center;justify-content:space-between}
+.card-head h3{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.ch-green .card-head{background:var(--green-light);border-bottom-color:var(--green-border)}.ch-green .card-head h3{color:var(--green-dark)}
+.ch-purple .card-head{background:var(--purple-light);border-bottom-color:var(--purple-border)}.ch-purple .card-head h3{color:var(--purple)}
+.ch-blue .card-head{background:var(--blue-light);border-bottom-color:var(--blue-border)}.ch-blue .card-head h3{color:var(--blue-dark)}
+.gr{display:flex;gap:10px;padding:7px 15px;border-bottom:1px solid var(--border-light);font-size:12.5px}
+.gr:last-child{border-bottom:none}
+.gl{color:var(--text-muted);min-width:108px;flex-shrink:0;font-size:11.5px}
+.gv{color:var(--text-mid);flex:1;font-weight:500;line-height:1.4}
+.sr{display:flex;gap:10px;padding:5px 15px;border-bottom:1px solid var(--border-light);font-size:12.5px;align-items:baseline}
+.sr:last-child{border-bottom:none}
+.st{color:var(--text-muted);font-size:10.5px;font-family:'DM Mono',monospace;white-space:nowrap;min-width:56px;flex-shrink:0}
+.sa{color:var(--text-mid);flex:1;line-height:1.4}
+.sa strong{color:var(--text)}
+.tb-block{border-bottom:1px solid var(--border-light)}
+.tb-block:last-child{border-bottom:none}
+.tb-lbl{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);padding:7px 15px 3px;background:var(--border-light)}
+.sup-r{display:flex;justify-content:space-between;align-items:baseline;padding:5px 15px;border-bottom:1px solid var(--border-light);font-size:12.5px;gap:8px}
+.sup-r:last-child{border-bottom:none}
+.sn{font-weight:500;color:var(--text);flex:1}
+.sd{color:var(--text-muted);font-family:'DM Mono',monospace;font-size:10.5px;white-space:nowrap}
+.pause-alert{background:var(--amber-light);border:1px solid var(--amber-border);border-radius:8px;padding:9px 13px;font-size:12.5px;color:#7a5010;margin-bottom:12px;line-height:1.5;display:none}
+.pause-alert strong{color:#6a4000}
+.lookup-body{padding:11px 15px}
+#li{width:100%;padding:7px 11px;border:1px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:13px;color:var(--text);background:var(--cream);outline:none}
+#li:focus{border-color:var(--green-mid);background:var(--white)}
+#lr{margin-top:9px}
+.li{padding:6px 9px;border-radius:6px;font-size:12.5px;color:var(--text-mid);cursor:pointer;margin-bottom:3px;transition:background .1s}
+.li:hover{background:var(--green-light);color:var(--green-dark)}
+.li .lk{font-weight:600;color:var(--text)}
+.li .lv{color:var(--text-muted);font-size:11px;display:block;margin-top:1px}
+</style>
+</head>
+<body>
+<header id="topbar">
+  <span class="tbar-logo">Protocol</span>
+  <span class="tbar-badge">V9.2</span>
+  <div class="tbar-sep"></div>
+  <nav class="tbar-links">
+    <a href="protocol.html" class="tbar-link">&#8592; Main Protocol</a>
+    <a href="cheatsheet.html" class="tbar-link here">Cheat Sheet</a>
+    <a href="glossary.html" class="tbar-link">Glossary</a>
+    <a href="exercises.html" class="tbar-link">Exercises</a>
+    <a href="diet.html" class="tbar-link">Diet</a>
+    <a href="shopping.html" class="tbar-link">Shopping</a>
+    <a href="log.html" class="tbar-link">Log</a>
+  </nav>
+</header>
+<div class="page">
+<div class="controls">
+  <div class="ctrl-group">
+    <div class="ctrl-label">Phase</div>
+    <div class="ctrl-pills" id="pp">
+      <button class="pill" onclick="sP(0)">0</button>
+      <button class="pill sel-ph" onclick="sP(1)">1 — Soil</button>
+      <button class="pill" onclick="sP(2)">2 — First Contact</button>
+      <button class="pill" onclick="sP(3)">3 — Building</button>
+      <button class="pill" onclick="sP(4)">4 — Full Stack</button>
+      <button class="pill" onclick="sP(5)">5 — Consolidation</button>
+    </div>
+  </div>
+  <div class="ctrl-group">
+    <div class="ctrl-label">Today's Mode</div>
+    <div class="ctrl-pills" id="mp">
+      <button class="pill sel-g" onclick="sM('g')">&#127ython Green</button>
+      <button class="pill" onclick="sM('y')">&#127ython Yellow</button>
+      <button class="pill" onclick="sM('r')">&#127ython Red</button>
+    </div>
+  </div>
+  <div class="ctrl-group">
+    <div class="ctrl-label">Day Type</div>
+    <div class="ctrl-pills">
+      <button class="day-tab active" id="tt" onclick="sD('t')">Training Day</button>
+      <button class="day-tab" id="at" onclick="sD('a')">Aerobic Day</button>
+    </div>
+  </div>
+</div>
+<div id="mb" class="mode-banner mb-g">&#129onda <span id="mt">Green — Full protocol. Active rewiring available.</span></div>
+<div class="grid">
+  <div>
+    <div class="card ch-green" id="gc"></div>
+    <div class="card ch-green" id="sc"><div class="card-head"><h3 id="sh">Training Day Schedule</h3></div><div id="sb"></div></div>
+  </div>
+  <div>
+    <div class="pause-alert" id="pa"></div>
+    <div class="card ch-purple"><div class="card-head"><h3>Today's Stack</h3></div><div id="stb"></div></div>
+    <div class="card ch-blue"><div class="card-head"><h3>Quick Lookup</h3></div><div class="lookup-body"><input type="text" id="li" placeholder="Search supplement, practice, concept…" oninput="dL(this.value)"><div id="lr"></div></div></div>
+  </div>
+</div>
+</div>
+<script>
+var S={p:1,m:'g',d:'t'};
+var PH={
+0:{n:'Pre-Protocol',s:'Phase 0',g:[['Focus','Session 0 psilocybin, DSR SGB, diagnostic baseline'],['CC','None'],['Key tasks','Bloodwork, cortisol, NAD+ test, Assembly Checklist'],['SGB','Dual Sympathetic Reset — right then left, 24–72h apart']],
+t:[['Morning','Phase 0 supplements: Creatine, Lion\'s Mane, D3/K2, B-complex, B12, Mag L-Threonate, Mag Glycinate, Glycine, Apigenin'],['Session 0 day','Light breakfast, dose morning (1.5–2g), rest all day after'],['Post-SGB Day 1','Rest only. Log ambient SUDs.'],['Post-SGB Day 2+','Normal activity. Supplements resume 48h after final SGB.'],['Evening','Yoga Nidra, bedtime supplements, 9:30pm sleep']],
+a:[['7:00am','Waterfall: Zone 2 + cold plunge 3–5 min (50 min total). Fallback: Zone 2 45 min + cold shower 30–60 sec.'],['7:50am','Return, change'],['Morning','Phase 0 supplements taken before or after waterfall'],['Work blocks','10am–12pm and 2–5pm when applicable. No extended procedures during blocks.'],['6:00pm','Final meal'],['Evening','Yoga Nidra, bedtime supplements']],
+pa:'Pre-SGB: pause krill, algae, NAC, vitamin E 1 week before. No microdosing 7 days before. No alcohol 7 days before. Resume supplements 48h after.'},
+1:{n:'Establishing the Soil',s:'Phase 1 — 8–10 weeks',g:[['CC work','None — hierarchy mapped only, re-rated every Sunday'],['New devices','Bone conduction headphones (Wk 1), HeartMath Inner Balance (Mo 2)'],['Psilocybin','1–2 orientation sessions (1.5–2g, no agenda)'],['SSP','Primary course, Month 2 Weeks 3–4'],['Practices','Somatic release simplified (Wk 3), Qi-Gong (Wk 4), HeartMath (Mo 2)']],
+t:[['5:30am','Wake. Fixed time. Bright light immediately.'],['5:35am','Creatine 5g + L. reuteri (chew)'],['5:42am','Resistance training 30–45 min'],['6:30am','Protein smoothie immediately after'],['6:45am','Morning supplements (NMN sublingual first from Mo 2)'],['7:00am','Somatic release — simplified 10 min (from Wk 3)'],['7:15am','Qi-Gong — 15 min (from Wk 4)'],['7:35am','HeartMath — 20 min (from Mo 2)'],['7:55am','Matcha'],['8:00am','Morning meeting — meeting support on'],['10:00am','WORK BLOCK 1 (10am–12pm) — supplements & smoothie OK; no CC, training, or practices >20 min solo'],['12:00pm','Lunch. Phosphatidylserine 300mg with meal (Mo 2+). Green tea.'],['2:00pm','WORK BLOCK 2 (2pm–5pm) — same constraints'],['5:00pm','Free time / leadership meeting Mon (support on)'],['6:00pm','Final meal — by 6:00pm'],['8:00pm','Bedtime supplements → warm shower → Yoga Nidra 20 min'],['9:00pm','Screens off'],['9:30pm','Sleep: pink noise, blackout mask']],
+a:[['5:30am','Wake. Bright light.'],['5:35am','Creatine + L. reuteri'],['5:40am','Somatic release — simplified 10 min (from Wk 3)'],['5:52am','Qi-Gong — 15 min (from Wk 4)'],['6:10am','HeartMath — 20 min (from Mo 2)'],['6:30am','Morning supplements'],['6:45am','Matcha'],['7:00am','Waterfall: Zone 2 + cold plunge 3–5 min (50 min total). Fallback: Zone 2 45 min + cold shower 30–60 sec.'],['7:50am','Return, change'],['8:00am','Morning meeting — meeting support on'],['10:00am','WORK BLOCK 1 (10am–12pm) — first meal 10am+ (maintain fast). Supplements OK.'],['12:00pm','Lunch. Phosphatidylserine with meal (Mo 2+). Green tea.'],['2:00pm','WORK BLOCK 2 (2pm–5pm) — supplements OK; no CC or practices >20 min solo'],['5:00pm','Free time or gentle walk'],['6:00pm','Final meal — by 6:00pm'],['8:00pm','Bedtime supplements → warm shower → Yoga Nidra → sleep']],pa:''},
+2:{n:'First Contact',s:'Phase 2 — 6–8 weeks',g:[['CC work','Begins. SUDs 1–4. 3–4 sessions/week, Green days only'],['tVNS','Nurosym during all standalone CC sessions'],['Session 1','First therapeutic macrodose 2.5g — Weeks 5–8'],['ACT','Daily 2–3 min defusion practice. The Happiness Trap.'],['New supps','Ashwagandha, Lithium Orotate, NAC ×2, L-Theanine (CC days)']],
+t:[['5:30am','Wake. Fixed time. Bright light.'],['5:35am','Creatine + L. reuteri'],['5:42am','Resistance training 30–45 min'],['6:30am','Protein smoothie'],['6:45am','Morning supplements (NMN first)'],['7:10am','Somatic release — simplified 10 min'],['7:25am','Qi-Gong — 15 min'],['7:45am','HeartMath — 20 min'],['8:00am','Morning meeting — meeting support on'],['10:00am','WORK BLOCK 1 (10am–12pm) — supplements OK; no CC or practices >20 min solo'],['12:00pm','CC days: somatic release (10 min) → resonance breathing → tVNS → CC Technique 1 (20–30 min, 4–6 reps) → post note. Then: NAC 2nd + Phosphatidylserine + lunch.'],['2:00pm','WORK BLOCK 2 (2pm–5pm) — supplements OK'],['5:00pm','Free time / leadership meeting Mon'],['6:00pm','Final meal — by 6:00pm'],['8:00pm','Bedtime → warm shower → Yoga Nidra 20 min'],['9:30pm','Sleep']],
+a:[['5:30am','Wake. Bright light.'],['5:35am','Creatine + L. reuteri'],['5:40am','Somatic release — simplified'],['5:52am','Qi-Gong — 15 min'],['6:10am','HeartMath — 20 min'],['6:30am','Morning supplements. Matcha.'],['7:00am','Waterfall: Zone 2 + cold plunge 3–5 min (50 min total). Fallback: Zone 2 + cold shower.'],['7:50am','Return, change'],['8:00am','Morning meeting — meeting support on'],['10:00am','WORK BLOCK 1 (10am–12pm) — first meal 10am+ (maintain fast). Supplements OK.'],['12:00pm','Lunch. NAC 2nd + Phosphatidylserine. Green tea.'],['2:00pm','WORK BLOCK 2 (2pm–5pm) — supplements OK'],['5:00pm','CC session (when scheduled): somatic → tVNS → CC Technique 1. BDNF elevated from morning. Non-CC days: free time.'],['6:00pm','Final meal (by 6:30pm on CC days)'],['8:00pm','Bedtime → warm shower → Yoga Nidra']],pa:''},
+3:{n:'Building Capacity',s:'Phase 3 — 8–10 weeks',g:[['CC work','SUDs 3–6. 4–5×/week with tDCS + tVNS'],['tDCS','20 min before CC, F3 anodal 1.5–2.0 mA'],['Muse S','Daily 20 min morning after HeartMath'],['Modalities','EMDR 2–3×/wk, IFS 1–2×/wk, Propranolol-assisted CC (Rx needed)'],['Microdosing','Stamets stack Mon–Thu 10am (psilocybin + niacin flush)'],['MDMA','Session 1 — Phase 3 second half (75mg)']],
+t:[['5:30am','Wake. Fixed time. Bright light.'],['5:35am','Creatine + L. reuteri'],['5:42am','Resistance training 30–45 min'],['6:30am','Protein smoothie'],['6:45am','Morning supplements (NMN sublingual first)'],['7:10am','Somatic release — full sequence (10–15 min)'],['7:30am','Qi-Gong — 15 min'],['7:45am','HeartMath — 20 min'],['8:05am','Muse S — 20 min. Matcha.'],['8:00am','Morning meeting — meeting support on (if block cannot fit: supps → simplified somatic → meeting; HM + Muse S shift post-meeting)'],['10:00am','Microdosing Mon–Thu (shift to 10:30am if during meeting). WORK BLOCK 1 (10am–12pm) — supplements OK; no CC or practices >20 min solo.'],['12:00pm','Lunch. NAC 2nd + Phosphatidylserine. Green tea. Propranolol days: take propranolol now.'],['12:05pm','CC days: somatic (full, 20–25 min) → tDCS (20 min) → CC with tVNS (35–45 min). L-Theanine 30 min before CC.'],['1:35pm','Post-CC note. EMDR (2–3×/wk). IFS (1–2×/wk). Propranolol days: CC starts 1:30pm, runs to ~2:15pm.'],['2:00pm','WORK BLOCK 2 (2pm–5pm) — starts when CC finishes on CC days'],['5:00pm','Free time / leadership meeting Mon'],['6:00pm','Final meal — by 6:00pm'],['8:00pm','Bedtime → warm shower → Yoga Nidra 30–35 min']],
+a:[['5:30am','Wake. Bright light.'],['5:35am','Creatine + L. reuteri'],['5:40am','Somatic release — full (10–15 min)'],['5:55am','Qi-Gong — 15 min'],['6:10am','HeartMath — 20 min'],['6:30am','Muse S — 20 min'],['6:50am','Morning supplements (NMN first). Matcha.'],['7:00am','Waterfall: Zone 2 + cold plunge 3–5 min (50 min total). Fallback: Zone 2 + cold shower.'],['7:50am','Return, change'],['8:00am','Morning meeting — meeting support on'],['10:00am','Microdosing Mon–Thu. WORK BLOCK 1 (10am–12pm) — first meal 10am+ (maintain fast). Supplements OK.'],['12:00pm','Lunch. NAC 2nd + Phosphatidylserine. Green tea.'],['2:00pm','WORK BLOCK 2 (2pm–5pm) — supplements OK'],['5:00pm','CC session (when scheduled): somatic (full) → tDCS → CC with tVNS → EMDR/IFS. BDNF elevated from morning. Non-CC days: free time.'],['6:00pm','Final meal (by 6:30pm on CC days)'],['8:00pm','Bedtime → warm shower → Yoga Nidra 30–35 min']],pa:''},
+4:{n:'Full Stack',s:'Phase 4 — 6–8 weeks',g:[['SGB course','4–6 sessions at phase opening'],['Window 1 (Days 1–3)','Post-SGB: rest, log ambient SUDs. No CC.'],['Window 2 (Days 7–14)','SSP Refresher — mandatory'],['Window 3 (Wks 2–3)','Propranolol CC: SUDs 6–8'],['Window 4 (Wks 4–5)','Intensive CC 5–6×/wk from SGB+psilocybin reset'],['MDMA Session 2','Week 6 — interpersonal layer at depth'],['Sleep','8+ hours every night. 40–45 min Yoga Nidra. Non-negotiable.']],
+t:[['Window 1','Post-SGB stabilization: rest, light walks, Yoga Nidra 40–45 min. No CC/tDCS/tVNS/EMDR.'],['Window 2','SSP Refresher: full morning block daily, SSP 30–60 min/day. No standalone CC on SSP days.'],['Window 3','Full morning block. CC in 12–2pm gap: propranolol at 12pm → somatic → tDCS → CC+tVNS → EMDR. 3–4×/wk. Work blocks 10am–12pm and 2pm–5pm.'],['Window 4','5:30am wake. Full morning block. CC in 12–2pm gap 5–6×/wk: somatic → tDCS → CC+tVNS → EMDR → IFS. Work Block 2 starts when CC finishes.'],['Week 6','MDMA Session 2 (75–100mg). NAC stopped 3 days prior. Ashwagandha skipped session day.'],['Every night','Yoga Nidra 40–45 min. Sleep 8+ hours. Absolute non-negotiable in Phase 4.']],
+a:[['Windows 1–4','Waterfall at 7:00am, return 7:50am. Same morning-block structure as Phase 3 aerobic days.'],['Work blocks','10am–12pm and 2–5pm. Supplements OK during blocks. No CC during work blocks.'],['CC on aerobic days','5pm (after work block 2): somatic (full) → tDCS → CC+tVNS → EMDR/IFS. BDNF from morning waterfall still elevated.'],['Every night','Yoga Nidra 40–45 min. Sleep 8+ hours.']],
+pa:'Krill + algae: pause 1 week before SGB course, resume 48h after last session. NAC: stop 3 days before MDMA Session 2. Microdosing: pause 1 week before macrodose and MDMA Session 2.'},
+5:{n:'Consolidation',s:'Phase 5 — ongoing',g:[['CC','2–3×/wk early Phase 5 → 1–2×/wk mid → as needed'],['Psilocybin','Every 2–3 months, 2.0–3.0g'],['Microdosing','Stamets stack continues Mon–Thu'],['New supps','Resveratrol 500mg (weekdays), Berberine 500mg (3×/wk non-training)'],['Re-entry','Deliberate re-entry: avoidance inventory shrinking by choice']],
+t:[['5:30am','Wake. Fixed time. Bright light.'],['5:35am','Creatine + L. reuteri'],['5:42am','Resistance training 30–45 min'],['6:30am','Protein smoothie'],['6:45am','Morning supplements (NMN + Resveratrol weekdays)'],['7:10am','Somatic release — full (10–15 min)'],['7:30am','Qi-Gong — 15 min'],['7:45am','HeartMath — 20 min (permanent daily practice)'],['8:05am','Muse S — 20 min (4–5×/wk)'],['8:00am','Morning meeting — meeting support reducing by choice'],['10:00am','Microdosing Mon–Thu. WORK BLOCK 1 (10am–12pm) — supplements OK; no CC or practices >20 min solo.'],['12:00pm','Lunch. NAC + Phosphatidylserine + Berberine (non-training days). Green tea. CC days: somatic → tDCS → CC+tVNS in 12–2pm window.'],['2:00pm','WORK BLOCK 2 (2pm–5pm) — supplements OK'],['5:00pm','Free time / leadership meeting Mon'],['6:00pm','Final meal — by 6:00pm'],['8:00pm','Bedtime → warm shower → Yoga Nidra 40–45 min']],
+a:[['5:30am','Wake. Bright light.'],['5:35am','Creatine + L. reuteri'],['5:40am','Somatic release — full (10–15 min)'],['5:55am','Qi-Gong — 15 min'],['6:10am','HeartMath — 20 min'],['6:30am','Muse S — 20 min'],['6:50am','Morning supplements (NMN + Resveratrol weekdays). Matcha.'],['7:00am','Waterfall: Zone 2 + cold plunge 3–5 min (50 min total). Fallback: Zone 2 + cold shower.'],['7:50am','Return, change'],['8:00am','Morning meeting — support as needed'],['10:00am','Microdosing Mon–Thu. WORK BLOCK 1 (10am–12pm) — first meal 10am+ (maintain fast). Supplements OK.'],['12:00pm','Lunch. NAC + Phosphatidylserine. Green tea.'],['2:00pm','WORK BLOCK 2 (2pm–5pm) — supplements OK'],['5:00pm','CC session (when scheduled): somatic → tDCS → CC+tVNS. BDNF elevated. Non-CC days: free time.'],['6:00pm','Final meal (by 6:30pm on CC days)'],['8:00pm','Bedtime → warm shower → Yoga Nidra 40–45 min']],pa:''}
+};
+var SP={
+0:{'On Waking':[['Creatine','5g'],['L. reuteri','1–2 tabs, chew']],'Morning':[["Lion's Mane",'2g'],['D3/K2','2000–5000 IU + 100mcg K2 MK-7'],['B-complex','1 cap (methylated)'],['B12','1000mcg sublingual']],'Bedtime':[['Mag L-Threonate','2000mg'],['Mag Glycinate','400mg el.'],['Glycine','3g'],['Apigenin','50mg']]},
+1:{'On Waking':[['Creatine','5g'],['L. reuteri','1–2 tabs, chew']],'Morning':[['NMN','500mg sublingual — Mo 2+, before other supps'],['Krill oil','2–3 sg (skip fish days, pause pre-SGB)'],['Algae oil','2–4 sg (combined target 2–3g EPA+DHA)'],["Lion's Mane",'2g — never skip'],['Bacopa','320mg — Wk 3+, with food'],['D3/K2','2000–5000 IU + 100mcg K2'],['B-complex','methylated'],['B12','1000mcg sublingual']],'Afternoon':[['Phosphatidylserine','300mg — Mo 2+, not evening']],'Bedtime':[['Mag L-Threonate','2000mg'],['Mag Glycinate','400mg el.'],['Glycine','3g'],['Apigenin','50mg'],['Melatonin','0.5mg — first 4–6 wks only then stop']]},
+2:{'On Waking':[['Creatine','5g'],['L. reuteri','1–2 tabs, chew']],'Morning':[['NMN','500mg sublingual first, empty stomach'],['Krill oil','2–3 sg'],['Algae oil','2–4 sg'],["Lion's Mane",'2g'],['Bacopa','320mg with food'],['Ashwagandha (KSM-66)','600mg — skip MDMA day only'],['Lithium Orotate','5mg — max 10mg/day'],['NAC','600mg (1st)'],['D3/K2',''],['B-complex','methylated'],['B12','1000mcg sublingual']],'Midday':[['NAC','600mg (2nd)'],['Phosphatidylserine','300mg, not evening']],'Pre-CC (CC days)':[['L-Theanine','200mg — 30 min before, not within 3h of sleep']],'Bedtime':[['Mag L-Threonate','2000mg'],['Mag Glycinate','400mg'],['Glycine','3g'],['Apigenin','50mg']]},
+3:{'On Waking':[['Creatine','5g'],['L. reuteri','1–2 tabs, chew']],'Morning':[['NMN','500mg sublingual first'],['Krill oil','2–3 sg'],['Algae oil','2–4 sg'],["Lion's Mane",'2g'],['Bacopa','320mg'],['Ashwagandha','600mg'],['Lithium Orotate','5mg'],['NAC','600mg (1st)'],['D3/K2',''],['B-complex','methylated'],['B12','1000mcg sublingual']],'10am Mon–Thu':[['Psilocybin','0.1–0.15g (weigh every time on 0.001g scale)'],['Niacin flush','100–200mg — must produce redness/warmth']],'Midday':[['NAC','600mg (2nd)'],['Phosphatidylserine','300mg']],'Pre-CC (CC days)':[['L-Theanine','200mg — 30 min before']],'Bedtime':[['Mag L-Threonate','2000mg'],['Mag Glycinate','400mg'],['Glycine','3g'],['Apigenin','50mg']]},
+4:{'On Waking':[['Creatine','5g'],['L. reuteri','1–2 tabs, chew']],'Morning':[['NMN','500mg sublingual first'],['Krill oil','2–3 sg — pause 1wk before SGB, resume 48h after'],['Algae oil','2–4 sg — same pause rule'],["Lion's Mane",'2g'],['Bacopa','320mg'],['Ashwagandha','600mg — skip MDMA session day'],['Lithium Orotate','5mg'],['NAC','600mg — stop 3 days pre-MDMA, resume 48h after'],['D3/K2',''],['B-complex',''],['B12','1000mcg sublingual']],'10am Mon–Thu':[['Psilocybin microdose','0.1–0.15g'],['Niacin flush','100–200mg']],'Midday':[['NAC','600mg (2nd)'],['Phosphatidylserine','300mg']],'Pre-CC (CC days)':[['L-Theanine','200mg']],'Post-MDMA only (24h after, 3 days)':[['5-HTP','100mg'],['EGCG','400mg']],'Bedtime':[['Mag L-Threonate','2000mg'],['Mag Glycinate','400mg'],['Glycine','3g'],['Apigenin','50mg']]},
+5:{'On Waking':[['Creatine','5g'],['L. reuteri','1–2 tabs, chew']],'Morning':[['NMN','500mg sublingual first'],['Resveratrol','500mg — weekdays only, with fat-containing food'],['Krill oil','2–3 sg'],['Algae oil','2–4 sg'],["Lion's Mane",'2g'],['Bacopa','320mg'],['Ashwagandha','600mg'],['Lithium Orotate','5mg'],['NAC','600mg (1st)'],['D3/K2',''],['B-complex',''],['B12','1000mcg sublingual']],'10am Mon–Thu':[['Psilocybin microdose','0.1–0.15g'],['Niacin flush','100–200mg']],'Midday':[['NAC','600mg (2nd)'],['Phosphatidylserine','300mg'],['Berberine','500mg — non-training days only, 3×/wk']],'Pre-CC (CC days)':[['L-Theanine','200mg']],'Bedtime':[['Mag L-Threonate','2000mg'],['Mag Glycinate','400mg'],['Glycine','3g'],['Apigenin','50mg']]}
+};
+var LDB=[
+{k:'NMN',v:'500mg sublingual, empty stomach, morning. NAD+ precursor. Month 2 onward.'},
+{k:"Lion's Mane",v:'2g dual-extracted, morning with food. NGF + synaptogenesis. Never skip, never cycle off.'},
+{k:'Bacopa',v:'320mg with food, Week 3 Phase 1+. Extinction learning specifically. 4–6 weeks to full effect.'},
+{k:'Ashwagandha',v:'600mg morning. HPA axis modulation. Skip MDMA session day only. Continue on macrodose days.'},
+{k:'Magnesium L-Threonate',v:'2000mg bedtime. Brain-specific Mg delivery. Sleep depth + synaptic plasticity.'},
+{k:'Magnesium Glycinate',v:'400mg elemental bedtime. Calming, sleep architecture. Not oxide or citrate.'},
+{k:'NAC',v:'600mg ×2 (morning + midday). Phase 2+. Stop 3 days before MDMA, resume 48h after. Continue on psilocybin days.'},
+{k:'Krill oil',v:'2–3 softgels morning. Phospholipid EPA+DHA. Skip fish days. Pause 1wk before SGB, resume 48h after.'},
+{k:'Algae oil',v:'2–4 softgels morning. Triglyceride EPA+DHA. Combined target with krill: 2–3g daily. Same pauses as krill.'},
+{k:'Lithium Orotate',v:'5mg morning Phase 2+. Hippocampal neurogenesis. Max 10mg/day. Not with pharmaceutical lithium.'},
+{k:'Phosphatidylserine',v:'300mg afternoon with meal. Cortisol blunting, fear extinction. Not in evening.'},
+{k:'Creatine',v:'5g on waking daily. Brain energy metabolism. Never skip.'},
+{k:'L. reuteri',v:'1–2 tabs on waking, chewed. Gut-brain axis, oxytocin via vagal signaling.'},
+{k:'L-Theanine',v:'200mg pre-CC session only, 30 min before. Not within 3h of sleep. Matcha already provides baseline.'},
+{k:'Niacin flush',v:'100–200mg at 10am with microdose. Must produce flush (redness, warmth 30–60 min). Non-flush niacin does not work.'},
+{k:'Microdosing',v:'Psilocybin 0.1–0.15g Mon–Thu 10am. Weigh every dose. Pause 1 week before any macrodose or MDMA session.'},
+{k:'Resveratrol',v:'500mg weekdays only with fat-containing food. Phase 5+. Sirtuin activation. Pause 1wk before SGB.'},
+{k:'Berberine',v:'500mg Phase 5+. Non-training days only, 3×/week. AMPK activation. Not with antibiotics.'},
+{k:'Apigenin',v:'50mg bedtime. Mild anxiolytic, sleep onset. Avoid nights drinking.'},
+{k:'Glycine',v:'3g bedtime. Lowers core body temperature for sleep onset. Improves next-morning alertness.'},
+{k:'5-HTP',v:'100mg post-MDMA sessions only. With EGCG 400mg. Begin 24h after MDMA, for 3 days. Not after psilocybin.'},
+{k:'Melatonin',v:'0.5mg bedtime. Phase 1 first 4–6 weeks only. Taper by halving dose over 1–2 weeks, then stop permanently.'},
+{k:'HeartMath',v:'20 min daily morning. 6 breaths/min (5s in, 5s out). Recall genuinely felt positive emotion. Emotion creates coherence — breathing alone is insufficient.'},
+{k:'Muse S',v:'20 min morning after HeartMath. Alpha-theta neurofeedback. The return to target after drifting is the training. Not within 2h of sleep.'},
+{k:'tVNS',v:'Nurosym earclip, left ear (cymba concha). 25Hz, 200–300µs, 0.5–1.0mA. No sensation should be felt. Start 2–3 min before CC. Run throughout.'},
+{k:'tDCS',v:'F3 anodal + right supraorbital. 1.5–2.0mA, 20 min immediately before CC. Not within 5h of sleep. Not within 24h of macrodose or MDMA.'},
+{k:'SSP',v:'Safe and Sound Protocol. Unyte-iLs, 5h total. Headphones only. No standalone CC on SSP days. Phase 1 Mo 2 primary + Phase 4 Days 7–14 refresher.'},
+{k:'SGB',v:'Stellate Ganglion Block. Dual Sympathetic Reset: right then left, 24–72h apart. Phase 0 + Phase 4 opening. Ultrasound guidance required.'},
+{k:'Propranolol',v:'10–20mg, 60–90 min before CC. Phase 3 second half + Phase 4 Wks 2–3. Requires prescription. Not within 48h of macrodose or MDMA.'},
+{k:'Kava',v:'Noble kava only. 2–4 tbsp medium-grind, 2 cups room-temp water, knead 5–10 min. Drink full. Take 45–60 min before. Max 3×/week. No alcohol, no macrodose/MDMA days.'},
+{k:'Yoga Nidra',v:'Every evening, never skip. Ph1–2: 20 min. Ph3: 30–35 min. Ph4+: 40–45 min. Must include open awareness of external sounds phase.'},
+{k:'Somatic release',v:'Ph1: simplified 7–10 min morning. Ph3+: full sequence 10–15 min morning + 20–25 min pre-CC. Full instructions on Exercises page.'},
+{k:'Qi-Gong',v:'15 min daily from Phase 1 Week 4. Shaking practice 5 min + flowing practice 10 min. Full instructions on Exercises page.'},
+{k:'CC',v:'Counterconditioning. Entry: SUDs 0–2, tension below 4/10, resonance breathing. Technique 1: dual exposure 4–6 reps. Green days only. Training days: CC in 12–2pm gap. Aerobic days: CC at 5pm. Never during work blocks (10am–12pm, 2–5pm).'},
+{k:'EMDR',v:'2–3×/wk post-CC. Bilateral audio tones. Targets interpersonal trigger memories. Self-directed appropriate for SUDs 4–7.'},
+{k:'IFS',v:'Internal Family Systems. 1–2×/wk self-directed. Ask the protector: "What are you trying to protect me from?" 15–20 min, write immediately after.'},
+{k:'ACT',v:'Daily 2–3 min: prefix trigger thoughts with "I notice I am having the thought that…" Values-based action weekly. The Happiness Trap by Russ Harris.'},
+{k:'Physiological sigh',v:'Double inhale through nose (sniff, top it off) + long exhale through mouth. Fastest autonomic reset. Use in-moment after any trigger.'},
+{k:'Tactical Brake',v:'Activate if 3+ warning signs (sleep poor 3+ nights, CC backfiring consistently, rising rumination, resentment toward protocol). Min 48h. No CC, no macrodosing, no EMDR.'},
+{k:'The Pulse',v:'72h post-session = highest neuroplasticity window. Day 1 rest. Days 2–3 max CC effort. Days 2–7 daily CC with tVNS. Governs every integration week.'},
+{k:'A-MISO-S',v:'Misophonia severity questionnaire. Track monthly from Phase 0 baseline (score 18). 25% reduction = ~13–14 = Phase 2 benchmark.'},
+{k:'SUDs',v:'Subjective Units of Distress 0–10. Re-rate hierarchy every Sunday. CC advance criterion: 4 consecutive reps at SUDs ≤2 across multiple sessions.'},
+{k:'Work blocks',v:'10am–12pm and 2pm–5pm daily. Supplements and smoothie OK. No CC, training, waterfall, or practices >20 min solo. CC sits in the 12–2pm gap on training days, or at 5pm on aerobic days.'},
+{k:'Meeting support',v:'Bone conduction headphones + pink noise at barely audible volume. Prevents thalamic gain increase from near-silence. Use at all meetings and meals.'},
+{k:'Cold plunge / Waterfall',v:'Waterfall 7:00–7:50am daily (aerobic days). Zone 2 climb + cold plunge 3–5 min. BDNF peaks ~2h post-exercise (~10am). CC on aerobic days scheduled at 5pm when BDNF is still elevated. Fallback: Zone 2 45 min + cold shower 30–60 sec.'},
+{k:'Matcha timing',v:'Morning with or after first meal. 300–400mg L-theanine + EGCG + caffeine. Space 1h from iron-rich meals.'},
+{k:'Green tea timing',v:'Afternoon 2–3h before sleep (kukicha or sencha). EGCG + trace L-theanine. Space 1h from iron-rich meals.'},
+{k:'Fish days',v:'Skip krill oil and algae oil supplements on days eating oily fish (sardines, mackerel, salmon).'},
+{k:'Berberine training days',v:'Skip berberine on resistance training days. Resistance training days + berberine is contraindicated.'},
+{k:'Mouth taping',v:'3M Micropore tape vertically over lips. Trial 1–2 weeks. If improves sleep depth continue. If anxiety/discomfort stop.'}
+];
+function rG(p){var d=PH[p];var cs={0:'var(--purple)',1:'var(--green-mid)',2:'var(--blue-dark)',3:'var(--amber)',4:'var(--rose)',5:'var(--purple)'};var bg={0:'var(--purple-light)',1:'var(--green-light)',2:'var(--blue-light)',3:'var(--amber-light)',4:'var(--rose-light)',5:'var(--purple-light)'};var br={0:'var(--purple-border)',1:'var(--green-border)',2:'var(--blue-border)',3:'var(--amber-border)',4:'var(--rose-border)',5:'var(--purple-border)'};var h='<div class="card-head" style="background:'+bg[p]+';border-bottom:1px solid '+br[p]+'"><h3 style="color:'+cs[p]+'">'+d.s+' — '+d.n+'</h3></div><div>';d.g.forEach(function(r){h+='<div class="gr"><span class="gl">'+r[0]+'</span><span class="gv">'+r[1]+'</span></div>';});h+='</div>';document.getElementById('gc').innerHTML=h;}
+function rS(p,day){var d=PH[p];var rows=day==='t'?d.t:d.a;document.getElementById('sh').textContent=day==='t'?'Training Day Schedule':'Aerobic / Waterfall Day Schedule';var h='';rows.forEach(function(r){h+='<div class="sr"><span class="st">'+r[0]+'</span><span class="sa">'+r[1]+'</span></div>';});document.getElementById('sb').innerHTML=h;}
+function rSP(p){var data=SP[p];var h='';Object.keys(data).forEach(function(t){h+='<div class="tb-block"><div class="tb-lbl">'+t+'</div>';data[t].forEach(function(r){h+='<div class="sup-r"><span class="sn">'+r[0]+'</span><span class="sd">'+r[1]+'</span></div>';});h+='</div>';});document.getElementById('stb').innerHTML=h;}
+function rPA(p){var el=document.getElementById('pa');if(PH[p].pa){el.innerHTML='<strong>Pause rules for Phase '+p+':</strong> '+PH[p].pa;el.style.display='block';}else{el.style.display='none';}}
+function rMB(m){var el=document.getElementById('mb');var te=document.getElementById('mt');el.className='mode-banner';if(m==='g'){el.classList.add('mb-g');te.textContent='Green — Full protocol. Active rewiring available.';}else if(m==='y'){el.classList.add('mb-y');te.textContent='Yellow — Support day. No CC, no hierarchy work, no deliberate exposure. Full supplement + support layer.';}else{el.classList.add('mb-r');te.textContent='Red — Tactical Brake. All active rewiring suspended. Minimum 48h. Double support layer. No CC, no macrodosing, no EMDR.';}}
+function sP(p){S.p=p;document.querySelectorAll('#pp .pill').forEach(function(b,i){b.classList.toggle('sel-ph',i===p);});rG(p);rS(p,S.d);rSP(p);rPA(p);}
+function sM(m){S.m=m;document.querySelectorAll('#mp .pill').forEach(function(b){b.classList.remove('sel-g','sel-y','sel-r');});var cls={'g':'sel-g','y':'sel-y','r':'sel-r'};document.querySelectorAll('#mp .pill')[['g','y','r'].indexOf(m)].classList.add(cls[m]);rMB(m);}
+function sD(d){S.d=d;document.getElementById('tt').classList.toggle('active',d==='t');document.getElementById('at').classList.toggle('active',d==='a');rS(S.p,d);}
+function dL(q){var el=document.getElementById('lr');if(!q.trim()){el.innerHTML='';return;}var ql=q.toLowerCase();var res=LDB.filter(function(i){return i.k.toLowerCase().includes(ql)||i.v.toLowerCase().includes(ql);}).slice(0,6);if(!res.length){el.innerHTML='<div style="font-size:12px;color:var(--text-muted);padding:4px 0">No results</div>';return;}el.innerHTML=res.map(function(r){return'<div class="li"><span class="lk">'+r.k+'</span><span class="lv">'+r.v+'</span></div>';}).join('');}
+window.addEventListener('DOMContentLoaded',function(){rG(1);rS(1,'t');rSP(1);rPA(1);rMB('g');});
+// Fix the mode pill initialization
+document.querySelectorAll('#mp .pill')[0].textContent='🟢 Green';
+document.querySelectorAll('#mp .pill')[1].textContent='🟡 Yellow';
+document.querySelectorAll('#mp .pill')[2].textContent='🔴 Red';
+</script>
+</body>
+</html>

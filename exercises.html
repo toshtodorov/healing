@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exercises — Protocol V9.2</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#faf8f4;--white:#fff;--border:#e4e0d8;--border-light:#f4f0e8;--text:#2a2824;--text-mid:#4a4540;--text-muted:#8a7f70;--green-dark:#2d4a28;--green-mid:#4a7a42;--green-light:#e8f0e5;--green-border:#b8d4b0;--amber:#b87a1a;--amber-light:#fdf3e0;--amber-border:#e8c878;--rose:#a83050;--rose-light:#fdf0f3;--rose-border:#e8b0c0;--blue-dark:#2a4a6a;--blue-light:#eef4fb;--blue-border:#b8cfe8;--purple:#6a4082;--purple-light:#f5eeff;--purple-border:#c8b0f0;--topbar-h:54px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;font-size:14.5px}
+h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+#topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:8px;padding:0 16px;border-bottom:2px solid #1a3018}
+.tbar-logo{font-family:'Lora',serif;font-size:13.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0}
+.tbar-badge{font-size:9px;font-weight:600;background:rgba(255,255,255,.12);color:#a8d4a0;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px 6px;flex-shrink:0}
+.tbar-sep{width:1px;height:22px;background:rgba(255,255,255,.15);flex-shrink:0;margin:0 4px}
+.tbar-links{display:flex;gap:4px;flex-wrap:wrap}
+.tbar-link{font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
+.tbar-link:hover{background:rgba(255,255,255,.12);color:#fff}
+.tbar-link.here{background:rgba(255,255,255,.22);color:#fff;border-color:rgba(255,255,255,.4)}
+.page{margin-top:var(--topbar-h);padding:28px 24px 70px;max-width:860px;margin-left:auto;margin-right:auto}
+.page-title{font-family:'Lora',serif;font-size:26px;font-weight:600;color:var(--green-dark);margin-bottom:6px}
+.page-sub{font-size:13.5px;color:var(--text-muted);margin-bottom:24px}
+/* Jump nav */
+.jump-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;padding:12px 14px;background:var(--white);border:1px solid var(--border);border-radius:10px}
+.jn{font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;text-decoration:none;color:var(--green-dark);background:var(--green-light);border:1px solid var(--green-border);transition:all .12s;white-space:nowrap}
+.jn:hover{background:var(--green-dark);color:#fff}
+/* Category sections */
+.cat-section{margin-bottom:48px;scroll-margin-top:74px}
+.cat-header{border-radius:12px;padding:20px 24px;margin-bottom:20px}
+.cat-header.resistance{background:linear-gradient(135deg,#f0f6ec,#e4f0df);border:1px solid var(--green-border)}
+.cat-header.zone2{background:linear-gradient(135deg,#edf3fb,#e0ecf8);border:1px solid var(--blue-border)}
+.cat-header.qigong{background:linear-gradient(135deg,#fdf6e8,#f8eccc);border:1px solid var(--amber-border)}
+.cat-header.somatic{background:linear-gradient(135deg,#f5eeff,#ede0ff);border:1px solid var(--purple-border)}
+.cat-tag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.resistance .cat-tag{color:var(--green-mid)}
+.zone2 .cat-tag{color:var(--blue-dark)}
+.qigong .cat-tag{color:var(--amber)}
+.somatic .cat-tag{color:var(--purple)}
+.cat-header h2{font-size:22px;font-weight:600;margin-bottom:6px}
+.resistance h2{color:var(--green-dark)}
+.zone2 h2{color:var(--blue-dark)}
+.qigong h2{color:var(--amber)}
+.somatic h2{color:var(--purple)}
+.cat-header .meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+.meta-item{font-size:12.5px;color:var(--text-muted)}
+.meta-item strong{color:var(--text-mid)}
+/* Why box */
+.why-box{border-radius:8px;padding:12px 16px;margin-bottom:18px;font-size:13.5px;line-height:1.65}
+.why-g{background:var(--green-light);border:1px solid var(--green-border)}.why-g strong{color:var(--green-dark)}
+.why-b{background:var(--blue-light);border:1px solid var(--blue-border)}.why-b strong{color:var(--blue-dark)}
+.why-a{background:var(--amber-light);border:1px solid var(--amber-border)}.why-a strong{color:var(--amber)}
+.why-p{background:var(--purple-light);border:1px solid var(--purple-border)}.why-p strong{color:var(--purple)}
+/* Movement cards */
+.movement-card{background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:12px;overflow:hidden}
+.mc-head{display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--border-light);background:var(--green-light);cursor:pointer;user-select:none}
+.mc-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:600;color:var(--green-mid);min-width:24px}
+.mc-name{font-family:'Lora',serif;font-size:15.5px;color:var(--green-dark);flex:1}
+.mc-tag{font-size:10px;font-weight:500;padding:2px 8px;border-radius:8px;background:var(--green-dark);color:#e8f4e4}
+.mc-arrow{font-size:10px;color:var(--text-muted);transition:transform .2s}
+.mc-head.open .mc-arrow{transform:rotate(90deg)}
+.mc-body{display:none;padding:14px 16px}
+.mc-body.open{display:block}
+.mc-body h4{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin:12px 0 6px}
+.mc-body h4:first-child{margin-top:0}
+.mc-body p{font-size:13.5px;color:var(--text-mid);margin-bottom:8px;line-height:1.6}
+.mc-body ul{padding-left:16px;margin-bottom:10px}
+.mc-body li{font-size:13.5px;color:var(--text-mid);margin-bottom:5px;line-height:1.55}
+.exercise-row{display:flex;align-items:baseline;gap:10px;padding:5px 0;border-bottom:1px solid var(--border-light);font-size:13px}
+.exercise-row:last-child{border-bottom:none}
+.er-name{font-weight:500;color:var(--text);min-width:160px}
+.er-detail{color:var(--text-muted);flex:1}
+/* Step cards */
+.step-card{background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;padding:14px 18px;display:flex;gap:14px}
+.step-num{font-family:'DM Mono',monospace;font-size:18px;font-weight:600;color:var(--border);min-width:28px;flex-shrink:0;line-height:1.2}
+.step-body h4{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px}
+.step-body p{font-size:13.5px;color:var(--text-mid);line-height:1.6;margin:0}
+.step-body .duration{font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);margin-bottom:4px;display:block}
+/* Version toggle */
+.version-toggle{display:flex;gap:6px;margin-bottom:16px}
+.vt-btn{font-size:12px;font-weight:500;padding:6px 16px;border-radius:20px;border:1px solid var(--border);background:var(--white);color:var(--text-mid);cursor:pointer;transition:all .12s}
+.vt-btn.active{background:var(--purple);color:#fff;border-color:var(--purple)}
+/* Alert */
+.alert{border-radius:8px;padding:10px 15px;font-size:13px;line-height:1.55;margin-bottom:14px}
+.alert-green{background:var(--green-light);border:1px solid var(--green-border);color:var(--text-mid)}.alert-green strong{color:var(--green-dark)}
+.alert-amber{background:var(--amber-light);border:1px solid var(--amber-border);color:var(--text-mid)}.alert-amber strong{color:var(--amber)}
+.alert-blue{background:var(--blue-light);border:1px solid var(--blue-border);color:var(--text-mid)}.alert-blue strong{color:var(--blue-dark)}
+/* Protocol box */
+.proto-box{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:14px}
+.proto-box h4{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
+.proto-row{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--border-light);font-size:13.5px}
+.proto-row:last-child{border-bottom:none}
+.pr-l{color:var(--text-muted);min-width:110px;flex-shrink:0;font-size:12.5px}
+.pr-v{color:var(--text-mid);flex:1}
+@media(max-width:600px){.cat-header{padding:14px 16px}.cat-header h2{font-size:18px}.step-card{padding:12px 14px}}
+</style>
+</head>
+<body>
+<header id="topbar">
+  <span class="tbar-logo">Protocol</span>
+  <span class="tbar-badge">V9.2</span>
+  <div class="tbar-sep"></div>
+  <nav class="tbar-links">
+    <a href="protocol.html" class="tbar-link">&#8592; Main Protocol</a>
+    <a href="cheatsheet.html" class="tbar-link">Cheat Sheet</a>
+    <a href="glossary.html" class="tbar-link">Glossary</a>
+    <a href="exercises.html" class="tbar-link here">Exercises</a>
+    <a href="diet.html" class="tbar-link">Diet</a>
+    <a href="shopping.html" class="tbar-link">Shopping</a>
+    <a href="log.html" class="tbar-link">Log</a>  </nav>
+</header>
+<div class="page">
+  <h1 class="page-title">Movement &amp; Exercise</h1>
+  <p class="page-sub">Complete program — assumes minimal prior experience. Expand any movement for full instructions.</p>
+
+  <nav class="jump-nav">
+    <a class="jn" href="#resistance">Resistance Training</a>
+    <a class="jn" href="#zone2">Zone 2 / Waterfall</a>
+    <a class="jn" href="#qigong">Qi-Gong</a>
+    <a class="jn" href="#somatic">Somatic Release</a>
+  </nav>
+
+  <!-- ── RESISTANCE TRAINING ── -->
+  <section class="cat-section resistance" id="resistance">
+    <div class="cat-header resistance">
+      <div class="cat-tag">Resistance Training</div>
+      <h2>Strength Work</h2>
+      <p style="font-size:13.5px;color:var(--text-mid);margin-top:4px">3 sessions per week · 30–45 minutes · Protein smoothie immediately after</p>
+      <div class="meta">
+        <span class="meta-item">&#128337; <strong>When:</strong> Training day mornings, 5:42am</span>
+        <span class="meta-item">&#128170; <strong>Phases:</strong> All phases, never interrupted</span>
+      </div>
+    </div>
+
+    <div class="why-box why-g">
+      <strong>Why this matters neurologically:</strong> Resistance training builds the anterior midcingulate cortex (aMCC) — the brain region governing voluntary override of involuntary responses. The aMCC strengthens specifically through aversive voluntary effort: the last reps you want to skip, the set that is genuinely uncomfortable, the moment you choose to continue. This is the cortical region needed to override the misophonic threat response. <strong>The discomfort is not incidental — it is the mechanism.</strong>
+    </div>
+
+    <div class="alert alert-green">
+      <strong>Structure:</strong> 5 movement patterns, 2–3 exercises per session covering all patterns. 3 sets per exercise for beginners, building to 4. Rest 60–90 seconds between sets. The sequence matters less than covering all patterns across the week.
+    </div>
+
+    <!-- Pattern 1: Squat -->
+    <div class="movement-card">
+      <div class="mc-head" onclick="toggleMC(this)">
+        <span class="mc-num">01</span>
+        <span class="mc-name">Squat</span>
+        <span class="mc-tag">Lower body</span>
+        <span class="mc-arrow">&#9658;</span>
+      </div>
+      <div class="mc-body">
+        <h4>What it is</h4>
+        <p>Bending at hips and knees to lower your body, then standing back up. Builds quads, glutes, hamstrings, and core. The single most important human movement pattern.</p>
+        <h4>Beginner starting point</h4>
+        <div class="exercise-row"><span class="er-name">Box squat</span><span class="er-detail">Squat to a chair or box, barely touch it, stand. 3 sets × 8–10 reps. Teaches depth without fear of falling.</span></div>
+        <div class="exercise-row"><span class="er-name">Bodyweight squat</span><span class="er-detail">Once box squat is solid. 3 sets × 10–12. Arms forward for balance.</span></div>
+        <div class="exercise-row"><span class="er-name">Goblet squat</span><span class="er-detail">Hold one weight at chest (dumbbell or water jug). 3 sets × 8–10. The weight helps you stay upright.</span></div>
+        <h4>Form cues</h4>
+        <ul>
+          <li>Feet shoulder-width apart, toes pointed slightly out (15–30°)</li>
+          <li>Push knees outward — in the same direction as toes</li>
+          <li>Keep chest up, do not round the back</li>
+          <li>Lower until thighs are parallel to floor (or as low as comfortable)</li>
+          <li>Drive through the whole foot to stand — not just toes</li>
+        </ul>
+        <h4>Sets &amp; reps</h4>
+        <p>Beginner: 3 sets × 8–10. Build to 3 × 12, then add load. Intermediate: 4 sets × 6–8 with weight.</p>
+        <h4>Progress when</h4>
+        <p>When 3 sets × 12 feels easy with good form, add load or try a more challenging variation.</p>
+      </div>
+    </div>
+
+    <!-- Pattern 2: Hip Hinge -->
+    <div class="movement-card">
+      <div class="mc-head" onclick="toggleMC(this)">
+        <span class="mc-num">02</span>
+        <span class="mc-name">Hip Hinge</span>
+        <span class="mc-tag">Posterior chain</span>
+        <span class="mc-arrow">&#9658;</span>
+      </div>
+      <div class="mc-body">
+        <h4>What it is</h4>
+        <p>Pushing the hips back and hinging forward while keeping the back flat, then returning upright using the glutes and hamstrings. The foundation of all pulling from the floor.</p>
+        <h4>Learn the pattern first</h4>
+        <p>Stand one foot from a wall. Push your hips back until they touch the wall. That is the hinge. Feel how the hamstrings load — that is correct. Do not squat down. Do not round your back.</p>
+        <div class="exercise-row"><span class="er-name">Romanian deadlift (RDL)</span><span class="er-detail">Hold light weights at thighs, hinge back keeping weights close to legs. Hands reach mid-shin. 3×8–10.</span></div>
+        <div class="exercise-row"><span class="er-name">Kettlebell swing (if available)</span><span class="er-detail">Explosive hip hinge. Best learned from a video first. 3×10–12.</span></div>
+        <div class="exercise-row"><span class="er-name">Deadlift (when form is solid)</span><span class="er-detail">Start light. More demanding, more reward. 3×5–6 with load.</span></div>
+        <h4>Form cues</h4>
+        <ul>
+          <li>Back stays flat — do not round at the lower back</li>
+          <li>Hinge at the hip, not the waist</li>
+          <li>Feel the hamstrings loading as you go down</li>
+          <li>Squeeze glutes to come back up, not lower back</li>
+          <li>Soft bend in the knees — this is not a squat</li>
+        </ul>
+        <h4>Sets &amp; reps</h4>
+        <p>3 sets × 8–10. The last 2–3 reps should require real effort. That effort is what builds the aMCC.</p>
+      </div>
+    </div>
+
+    <!-- Pattern 3: Push -->
+    <div class="movement-card">
+      <div class="mc-head" onclick="toggleMC(this)">
+        <span class="mc-num">03</span>
+        <span class="mc-name">Push</span>
+        <span class="mc-tag">Upper body / chest / shoulders</span>
+        <span class="mc-arrow">&#9658;</span>
+      </div>
+      <div class="mc-body">
+        <h4>What it is</h4>
+        <p>Moving a weight (or your own body) away from you. Builds chest, shoulders, triceps. Divided into horizontal push (pressing forward) and vertical push (pressing overhead).</p>
+        <h4>Exercises — Beginner to Intermediate</h4>
+        <div class="exercise-row"><span class="er-name">Wall push-up</span><span class="er-detail">Absolute beginner starting point. Hands on wall, lean and push. 3×10–15.</span></div>
+        <div class="exercise-row"><span class="er-name">Incline push-up</span><span class="er-detail">Hands on a bench or step. Harder than wall, easier than floor. 3×8–12.</span></div>
+        <div class="exercise-row"><span class="er-name">Push-up</span><span class="er-detail">Full floor push-up. Hands slightly wider than shoulders. 3×6–10 building to 15+.</span></div>
+        <div class="exercise-row"><span class="er-name">Dumbbell shoulder press</span><span class="er-detail">Seated or standing, press weights overhead. 3×8–10.</span></div>
+        <h4>Form cues (push-up)</h4>
+        <ul>
+          <li>Body is a straight line from head to heels — do not let hips sag or pike up</li>
+          <li>Lower chest to 1–2 inches from floor before pressing up</li>
+          <li>Elbows track at 45° from body — not flared out to 90°</li>
+          <li>Squeeze glutes and abs throughout</li>
+        </ul>
+        <h4>Sets &amp; reps</h4>
+        <p>3 sets × 6–15 (depending on variation). Once 3×15 is achievable, progress to a harder variation.</p>
+      </div>
+    </div>
+
+    <!-- Pattern 4: Pull -->
+    <div class="movement-card">
+      <div class="mc-head" onclick="toggleMC(this)">
+        <span class="mc-num">04</span>
+        <span class="mc-name">Pull</span>
+        <span class="mc-tag">Upper body / back / biceps</span>
+        <span class="mc-arrow">&#9658;</span>
+      </div>
+      <div class="mc-body">
+        <h4>What it is</h4>
+        <p>Moving a weight toward you, or moving your body toward a fixed point. Builds the upper back, rear deltoids, and biceps. Often underdeveloped relative to pushing. Critical for posture.</p>
+        <h4>Exercises — No gym required</h4>
+        <div class="exercise-row"><span class="er-name">Band pull-apart</span><span class="er-detail">Resistance band held at shoulder height, pull apart. 3×15. Accessible anywhere.</span></div>
+        <div class="exercise-row"><span class="er-name">Inverted row (table or low bar)</span><span class="er-detail">Lie under a sturdy table, grip edge, pull chest up. 3×8–10. Excellent pull alternative to pull-ups.</span></div>
+        <div class="exercise-row"><span class="er-name">Dumbbell row</span><span class="er-detail">One hand on bench, row weight to hip. 3×8–10 each side. Pull the elbow back, not the hand up.</span></div>
+        <div class="exercise-row"><span class="er-name">Pull-up (if available)</span><span class="er-detail">Full body weight. Start with negatives (jump up, lower slowly). 3×3–5.</span></div>
+        <h4>Form cues (dumbbell row)</h4>
+        <ul>
+          <li>Back flat and parallel to floor — do not twist the torso</li>
+          <li>Drive the elbow toward the ceiling, not the hand toward the shoulder</li>
+          <li>Pause briefly at the top — feel the scapula squeeze</li>
+          <li>Lower slowly with control — do not drop it</li>
+        </ul>
+        <h4>Sets &amp; reps</h4>
+        <p>3 sets × 8–12. This pattern often needs more work than pushing — if in doubt, do an extra set of pulling.</p>
+      </div>
+    </div>
+
+    <!-- Pattern 5: Carry -->
+    <div class="movement-card">
+      <div class="mc-head" onclick="toggleMC(this)">
+        <span class="mc-num">05</span>
+        <span class="mc-name">Carry</span>
+        <span class="mc-tag">Full body / core / grip</span>
+        <span class="mc-arrow">&#9658;</span>
+      </div>
+      <div class="mc-body">
+        <h4>What it is</h4>
+        <p>Walking while holding a load. Trains the core and grip under real-world stress, builds total-body stability, and has disproportionate benefits relative to its apparent simplicity.</p>
+        <h4>Exercises</h4>
+        <div class="exercise-row"><span class="er-name">Farmer carry (both hands)</span><span class="er-detail">Pick up two heavy objects (dumbbells, bags of rice, water jugs), walk 20–30m. 3–4 sets. Moderate pace, tall posture.</span></div>
+        <div class="exercise-row"><span class="er-name">Suitcase carry (one hand)</span><span class="er-detail">One-sided. Harder on core — resist leaning toward the weight. 3 sets each side × 20m.</span></div>
+        <div class="exercise-row"><span class="er-name">Overhead carry</span><span class="er-detail">One weight pressed overhead, walk. Advanced. Only when overhead pressing is solid.</span></div>
+        <h4>Form cues</h4>
+        <ul>
+          <li>Stand tall — shoulders back, head neutral, ribs down</li>
+          <li>Do not lean to the side of the weight (suitcase carry)</li>
+          <li>Breathe normally throughout</li>
+          <li>Grip firmly but do not white-knuckle</li>
+        </ul>
+        <h4>Sets &amp; reps</h4>
+        <p>3–4 sets × 20–30 meters or 30–40 seconds. Load should be heavy enough that grip is challenged by the end.</p>
+        <h4>Load suggestion</h4>
+        <p>Beginners: whatever fills a shopping bag in each hand. Progress by increasing load or distance. The carry is done when form breaks — not when the timer ends.</p>
+      </div>
+    </div>
+
+    <div class="proto-box" style="margin-top:18px">
+      <h4>Weekly template</h4>
+      <div class="proto-row"><span class="pr-l">Session A</span><span class="pr-v">Squat + Pull + Carry</span></div>
+      <div class="proto-row"><span class="pr-l">Session B</span><span class="pr-v">Hip Hinge + Push + Carry</span></div>
+      <div class="proto-row"><span class="pr-l">Session C</span><span class="pr-v">Squat + Push + Pull (lighter carry)</span></div>
+      <div class="proto-row"><span class="pr-l">Rest</span><span class="pr-v">Protein smoothie immediately after every session. No berberine on training days.</span></div>
+    </div>
+  </section>
+
+  <!-- ── ZONE 2 / WATERFALL ── -->
+  <section class="cat-section zone2" id="zone2">
+    <div class="cat-header zone2">
+      <div class="cat-tag">Zone 2 Aerobic</div>
+      <h2>Zone 2 &amp; Waterfall</h2>
+      <p style="font-size:13.5px;color:var(--text-mid);margin-top:4px">2 sessions per week · 45–60 minutes · BDNF peak ~2 hours post-exercise</p>
+      <div class="meta">
+        <span class="meta-item">&#128337; <strong>When:</strong> Aerobic day, ~1:00pm</span>
+        <span class="meta-item">&#127939; <strong>Venue:</strong> Waterfall preferred, any Zone 2 works</span>
+      </div>
+    </div>
+
+    <div class="why-box why-b">
+      <strong>Why this matters:</strong> Zone 2 aerobic exercise is the primary non-pharmacological BDNF upregulator. BDNF peaks approximately 2 hours post-exercise — this is why CC sessions are scheduled ~2 hours after returning on aerobic days. The cold plunge adds a norepinephrine surge of 200–300% lasting hours, and activates the diving reflex for an immediate vagal tone boost. Schedule CC to land inside this combined window.
+    </div>
+
+    <div class="proto-box">
+      <h4>How to find Zone 2 intensity</h4>
+      <div class="proto-row"><span class="pr-l">The feel</span><span class="pr-v">You can hold a full conversation in sentences, but breathing is noticeably elevated. You would not want to sing. If you cannot speak in sentences: too hard. If you feel like you could do this all day with zero effort: too easy.</span></div>
+      <div class="proto-row"><span class="pr-l">Heart rate</span><span class="pr-v">Roughly 60–70% of your maximum. A rough estimate of max HR: 220 minus age. Zone 2 = that number × 0.6 to 0.7. For age 35: max ~185, Zone 2 = 111–130 bpm.</span></div>
+      <div class="proto-row"><span class="pr-l">Duration</span><span class="pr-v">45–60 minutes at this steady pace. The continuity matters — not intervals.</span></div>
+      <div class="proto-row"><span class="pr-l">Feel test</span><span class="pr-v">At the end, you should feel pleasantly tired but not depleted. You should be able to carry a conversation within 5 minutes of stopping.</span></div>
+    </div>
+
+    <h3 style="font-family:'Lora',serif;font-size:17px;color:var(--blue-dark);margin:20px 0 12px">Waterfall Protocol</h3>
+    <div class="step-card">
+      <span class="step-num">01</span>
+      <div class="step-body"><span class="duration">Outward climb: 45–60 min</span><h4>Zone 2 climb to the waterfall</h4><p>Maintain conversational pace throughout the climb. This is the aerobic work. Do not race. On the steeper sections where pace naturally forces you above Zone 2, slow down or pause briefly. Consistency of Zone 2 effort matters more than covering maximum distance.</p></div>
+    </div>
+    <div class="step-card">
+      <span class="step-num">02</span>
+      <div class="step-body"><span class="duration">At the waterfall: 3–5 min</span><h4>Cold plunge</h4><p>Enter slowly. Full immersion or as deep as conditions allow. Target 3–5 minutes. The first 30–60 seconds involve a cold shock response — shallow rapid breathing. Allow it to settle into slow deep breaths. That transition is the nervous system shift. The norepinephrine surge begins within the first 30 seconds and peaks around 3 minutes.</p><p>Do not hyperventilate before or during. If conditions are unsafe (high flow, unstable footing), skip the plunge and take the cold shower fallback.</p></div>
+    </div>
+    <div class="step-card">
+      <span class="step-num">03</span>
+      <div class="step-body"><span class="duration">Return walk: natural pace</span><h4>Walk back</h4><p>Natural pace. Allow body temperature to normalize. This is recovery time. Arrive home ready to eat, then rest before the CC session window opens.</p></div>
+    </div>
+
+    <div class="alert alert-blue" style="margin-top:14px">
+      <strong>Fallback when waterfall is unavailable:</strong> Any Zone 2 movement for 45–60 minutes (brisk walk, cycling, swimming, rowing) followed by a cold shower finish of 30–60 seconds. The session matters more than the venue. Do not skip the aerobic session because the waterfall is inaccessible.
+    </div>
+    <div class="alert alert-green">
+      <strong>CC scheduling on aerobic days:</strong> Return from waterfall, eat a small meal, rest for ~1 hour. The CC session begins ~2 hours after returning home. This places it at the BDNF peak. Do not rush the post-exercise rest — it is part of the protocol.
+    </div>
+  </section>
+
+  <!-- ── QI-GONG ── -->
+  <section class="cat-section qigong" id="qigong">
+    <div class="cat-header qigong">
+      <div class="cat-tag">Morning Practice</div>
+      <h2>Qi-Gong</h2>
+      <p style="font-size:13.5px;color:var(--text-mid);margin-top:4px">15 minutes · Every morning · Begins Phase 1 Week 4</p>
+      <div class="meta">
+        <span class="meta-item">&#128337; <strong>Training days:</strong> 7:15am (after somatic release)</span>
+        <span class="meta-item">&#128337; <strong>Aerobic days:</strong> 6:00am (after somatic release)</span>
+      </div>
+    </div>
+
+    <div class="why-box why-a">
+      <strong>Why this matters:</strong> Overnight somatic bracing (elevated shoulders, held jaw, shallow chest breathing) keeps the brainstem in low-level alert regardless of actual threat. The shaking practice physically breaks this overnight pattern in 3–5 minutes. The flowing practice trains the capacity to have strong somatic sensation without flooding — directly relevant to what CC requires from the nervous system.
+    </div>
+
+    <h3 style="font-family:'Lora',serif;font-size:17px;color:var(--amber);margin-bottom:14px">Part 1: Shaking Practice</h3>
+    <div class="step-card">
+      <span class="step-num">01</span>
+      <div class="step-body"><span class="duration">Duration: 5 minutes</span><h4>Setup position</h4><p>Stand with feet hip-width apart, soft bend in the knees (knees never locked). Spine relaxed, not rigid. Arms hanging loose at sides.</p></div>
+    </div>
+    <div class="step-card">
+      <span class="step-num">02</span>
+      <div class="step-body"><span class="duration">First 2 minutes: gentle</span><h4>Begin bouncing from the knees</h4><p>Small, gentle rhythmic bouncing — rising no more than 1–2 cm. Let the bounce travel upward through hips, belly, chest, shoulders, arms, jaw. You are not doing the shaking. You are letting the bouncing shake you. Keep everything soft — soft jaw, soft belly, soft hands.</p></div>
+    </div>
+    <div class="step-card">
+      <span class="step-num">03</span>
+      <div class="step-body"><span class="duration">Minutes 2–4: allow it to build</span><h4>Let the shake amplify naturally</h4><p>The shaking may intensify on its own — allow this. Arms may start swinging loosely, jaw may chatter slightly, hands may flap. This is the pattern being broken. Do not control or suppress it. If it feels odd, that is normal for the first week.</p></div>
+    </div>
+    <div class="step-card">
+      <span class="step-num">04</span>
+      <div class="step-body"><span class="duration">Final 1 minute: slow to stillness</span><h4>Gradual deceleration</h4><p>Slow the bouncing progressively over the final minute until standing completely still. Take three slow breaths. Notice the difference between how the body feels now vs one minute ago. That difference is the point.</p></div>
+    </div>
+
+    <h3 style="font-family:'Lora',serif;font-size:17px;color:var(--amber);margin:20px 0 14px">Part 2: Flowing Practice</h3>
+    <div class="step-card">
+      <span class="step-num">05</span>
+      <div class="step-body"><span class="duration">Duration: 10 minutes</span><h4>Transition into flow</h4><p>From the post-shaking stillness, begin slow intentional movement. There is no fixed routine. The principle: slow, fluid arm and torso movement that generates internal warmth and physical aliveness while the external appearance remains calm and controlled.</p></div>
+    </div>
+    <div class="step-card">
+      <span class="step-num">06</span>
+      <div class="step-body"><span class="duration">Movement options</span><h4>Suggested movements to combine freely</h4>
+        <ul style="margin-top:6px">
+          <li>Slow arm circles — one arm, then both, forward and backward</li>
+          <li>Torso rotation — arms trailing like wet cloth</li>
+          <li>Slow lateral side bend — arm overhead, arc to each side</li>
+          <li>Rising and sinking on the knees — like waves</li>
+          <li>Slow weight shift side to side, arms floating</li>
+        </ul>
+        <p style="margin-top:6px">Move at roughly half your normal pace. There is no wrong sequence. The quality is: internal sensation present, external appearance soft.</p>
+      </div>
+    </div>
+
+    <div class="alert alert-amber">
+      <strong>Minimum version (significant illness or fatigue):</strong> Shaking practice only, 3 minutes. Even on difficult mornings this 3-minute version breaks the overnight bracing pattern. Do not skip entirely.
+    </div>
+  </section>
+
+  <!-- ── SOMATIC RELEASE ── -->
+  <section class="cat-section somatic" id="somatic">
+    <div class="cat-header somatic">
+      <div class="cat-tag">Somatic Release</div>
+      <h2>Somatic Release Protocol</h2>
+      <p style="font-size:13.5px;color:var(--text-mid);margin-top:4px">Two versions — Phase 1 simplified · Phase 3 full sequence</p>
+      <div class="meta">
+        <span class="meta-item">&#127793; <strong>Phase 1:</strong> 7–10 min · Morning</span>
+        <span class="meta-item">&#127793; <strong>Phase 3+:</strong> 10–15 min morning · 20–25 min pre-CC</span>
+      </div>
+    </div>
+
+    <div class="why-box why-p">
+      <strong>Why this matters:</strong> Chronic misophonic hypervigilance creates sustained defensive bracing: shoulders elevated, jaw clenched, psoas contracted, breath shallow. This muscular tension signals ongoing danger to the brainstem, keeping the nervous system in anticipatory alert regardless of whether any trigger is present. The somatic release protocol directly interrupts this feedback loop. Body tension at CC session start is one of the strongest predictors of session quality — the pre-CC sequence is not optional.
+    </div>
+
+    <div class="version-toggle">
+      <button class="vt-btn active" id="v1-btn" onclick="showVersion('v1')">Phase 1 — Simplified</button>
+      <button class="vt-btn" id="v2-btn" onclick="showVersion('v2')">Phase 3+ — Full Sequence</button>
+    </div>
+
+    <!-- Version 1 -->
+    <div id="v1">
+      <div class="alert alert-blue" style="margin-bottom:16px">
+        <strong>7–10 minutes · Every morning from Phase 1 Week 3.</strong> Run before the day's demands begin. Do not skip even when time is short — 7 minutes is sufficient.
+      </div>
+      <div class="step-card">
+        <span class="step-num">01</span>
+        <div class="step-body"><span class="duration">5 minutes</span><h4>Constructive Rest Position</h4><p>Lie on your back on the floor (not a soft mattress). Knees bent, feet flat on the floor hip-width apart. Hands resting on your lower belly. Close your eyes. Allow the lower back to release toward the floor — do not force it, just stop holding it up. Breathe into your hands — feel the belly rise on the inhale. Jaw released, lips slightly parted. Eyes soft. Do not try to relax. Just stop efforting.</p></div>
+      </div>
+      <div class="step-card">
+        <span class="step-num">02</span>
+        <div class="step-body"><span class="duration">2–3 minutes</span><h4>Diaphragmatic Reset</h4><p>Keeping the constructive rest position, shift to counted breathing. Inhale slowly for 4 counts — belly rises, chest stays relatively still. Hold gently for 2 counts. Exhale slowly for 6 counts. On each exhale, allow the jaw to release slightly further. Allow the shoulders to drop. The exhale is longer than the inhale — this is intentional. The extended exhale activates the parasympathetic nervous system directly.</p></div>
+      </div>
+    </div>
+
+    <!-- Version 2 -->
+    <div id="v2" style="display:none">
+      <div class="alert alert-blue" style="margin-bottom:16px">
+        <strong>Morning (10–15 min):</strong> All steps at a calm pace. <strong>Pre-CC (20–25 min):</strong> Full sequence with more time in each step. Body tension at session start directly predicts session quality.
+      </div>
+      <div class="step-card">
+        <span class="step-num">01</span>
+        <div class="step-body"><span class="duration">5 minutes</span><h4>Constructive Rest</h4><p>Lie on back, knees bent, feet flat, hands on lower belly. Lower back releases toward floor. Breathe into hands. Jaw released, eyes soft. Allow, do not force.</p></div>
+      </div>
+      <div class="step-card">
+        <span class="step-num">02</span>
+        <div class="step-body"><span class="duration">5 minutes</span><h4>Psoas Release</h4><p>From constructive rest, allow one knee to slowly drop outward to the side — do not push it down, let gravity take it. Hold for 2 full minutes. Then slowly bring it back to center. Repeat on the other side for 2 minutes. The remaining time: both knees together, hands on belly.</p><p style="margin-top:6px;font-size:13px;color:var(--purple)"><strong>What it should feel like:</strong> A gradual releasing sensation deep in the hip and lower back, possibly spreading into the belly. Not a stretch. Not pain. Release.</p><p style="font-size:13px;color:var(--amber)"><strong>If it produces anxiety or sharp pain:</strong> Return both knees to center and remain in constructive rest. Do not force.</p></div>
+      </div>
+      <div class="step-card">
+        <span class="step-num">03</span>
+        <div class="step-body"><span class="duration">3 minutes</span><h4>Hip Circles</h4><p>Stand up slowly. Feet hip-width, hands on hips. Begin slow circles with the hips — as large and slow as comfortable. 1 full minute in one direction. 1 full minute in the other direction. 1 minute of figure-eights. Move as slowly as possible. This is not exercise. It is the hip releasing accumulated compression from the psoas work.</p></div>
+      </div>
+      <div class="step-card">
+        <span class="step-num">04</span>
+        <div class="step-body"><span class="duration">3 minutes</span><h4>Shoulder and Neck Release</h4><p><strong>Head semicircles (1 min):</strong> Slow head semicircles forward only — ear toward shoulder, chin toward chest, ear toward other shoulder. Never roll the head backward. Move at one-quarter normal speed.<br><br><strong>Shoulder shrugs (1 min):</strong> Raise both shoulders toward ears, hold 3 seconds, then drop them completely. Repeat slowly. Each drop should be a release, not a controlled lowering.<br><br><strong>Jaw release (1 min):</strong> Let the jaw drop open. Hold 5 seconds. Let it close. Repeat. Allow any tension held in the jaw to release. The jaw holds an enormous amount of nervous system tension.</p></div>
+      </div>
+      <div class="step-card">
+        <span class="step-num">05</span>
+        <div class="step-body"><span class="duration">3 minutes</span><h4>Diaphragmatic Reset</h4><p>Standing or sitting. Inhale 4 counts into the belly (belly expands, chest relatively still). Pause 2 counts. Exhale 6 counts with an audible, intentional release — a slow "haaah" is fine. On each exhale, allow the jaw to drop. Allow the shoulders to soften. Three rounds of this should be enough to feel a clear shift in baseline tension.</p></div>
+      </div>
+      <div class="step-card">
+        <span class="step-num">06</span>
+        <div class="step-body"><span class="duration">2 minutes</span><h4>Integration</h4><p>Stand normally. Notice the body without trying to change anything. Shake hands loosely at sides for 10 seconds. Take one slow breath. Scan from feet to crown: where is tension still held? You do not have to fix it. Just noticing it is enough to reduce it. The sequence is complete.</p></div>
+      </div>
+      <div class="alert alert-amber" style="margin-top:6px">
+        <strong>Important:</strong> Do not force sharp pain in any position. The psoas release should feel like release, not stretch. If any position produces significant anxiety, return to constructive rest and stay there for the remaining time. The simplified version is always available as a fallback.
+      </div>
+    </div>
+  </section>
+</div>
+<script>
+function toggleMC(head){
+  head.classList.toggle('open');
+  var body=head.nextElementSibling;
+  body.classList.toggle('open');
+}
+function showVersion(v){
+  document.getElementById('v1').style.display = v==='v1'?'block':'none';
+  document.getElementById('v2').style.display = v==='v2'?'block':'none';
+  document.getElementById('v1-btn').classList.toggle('active', v==='v1');
+  document.getElementById('v2-btn').classList.toggle('active', v==='v2');
+}
+</script>
+</body>
+</html>

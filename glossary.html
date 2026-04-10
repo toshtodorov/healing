@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossary — Protocol V9.2</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#faf8f4;--white:#fff;--border:#e4e0d8;--border-light:#f4f0e8;--text:#2a2824;--text-mid:#4a4540;--text-muted:#8a7f70;--green-dark:#2d4a28;--green-mid:#4a7a42;--green-light:#e8f0e5;--green-border:#b8d4b0;--amber:#b87a1a;--amber-light:#fdf3e0;--amber-border:#e8c878;--rose:#a83050;--rose-light:#fdf0f3;--rose-border:#e8b0c0;--blue-dark:#2a4a6a;--blue-light:#eef4fb;--blue-border:#b8cfe8;--purple:#6a4082;--purple-light:#f5eeff;--purple-border:#c8b0f0;--topbar-h:54px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;font-size:14.5px}
+h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+#topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:8px;padding:0 16px;border-bottom:2px solid #1a3018}
+.tbar-logo{font-family:'Lora',serif;font-size:13.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0}
+.tbar-badge{font-size:9px;font-weight:600;background:rgba(255,255,255,.12);color:#a8d4a0;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px 6px;flex-shrink:0}
+.tbar-sep{width:1px;height:22px;background:rgba(255,255,255,.15);flex-shrink:0;margin:0 4px}
+.tbar-links{display:flex;gap:4px;flex-wrap:wrap}
+.tbar-link{font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
+.tbar-link:hover{background:rgba(255,255,255,.12);color:#fff}
+.tbar-link.here{background:rgba(255,255,255,.22);color:#fff;border-color:rgba(255,255,255,.4)}
+.page{margin-top:var(--topbar-h);padding:28px 24px 70px;max-width:860px;margin-left:auto;margin-right:auto}
+.page-title{font-family:'Lora',serif;font-size:26px;font-weight:600;color:var(--green-dark);margin-bottom:6px}
+.page-sub{font-size:13.5px;color:var(--text-muted);margin-bottom:20px}
+.search-bar{display:flex;gap:8px;margin-bottom:18px}
+#gs{flex:1;padding:9px 14px;border:1px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);outline:none}
+#gs:focus{border-color:var(--green-mid)}
+.alpha-nav{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:22px;padding:10px 12px;background:var(--white);border:1px solid var(--border);border-radius:8px}
+.an{font-size:12px;font-weight:600;padding:3px 7px;border-radius:6px;text-decoration:none;color:var(--text-muted);transition:all .1s}
+.an:hover,.an.has-entries{color:var(--green-dark);background:var(--green-light)}
+.cluster-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
+.cf{font-size:12px;font-weight:500;padding:5px 13px;border-radius:20px;border:1px solid var(--border);background:var(--white);color:var(--text-mid);cursor:pointer;transition:all .12s}
+.cf:hover{border-color:var(--green-mid);color:var(--green-dark)}
+.cf.active{background:var(--green-dark);color:#fff;border-color:var(--green-dark)}
+.entry{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:16px 20px;margin-bottom:10px;scroll-margin-top:74px}
+.entry.hidden{display:none}
+.e-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px}
+.e-name{font-family:'Lora',serif;font-size:16.5px;font-weight:600;color:var(--green-dark);flex:1}
+.e-cluster{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;flex-shrink:0;margin-top:3px}
+.cl-concept{background:var(--green-light);color:var(--green-dark)}
+.cl-device{background:var(--blue-light);color:var(--blue-dark)}
+.cl-substance{background:var(--purple-light);color:var(--purple)}
+.cl-technique{background:var(--amber-light);color:var(--amber)}
+.cl-measure{background:var(--rose-light);color:var(--rose)}
+.e-def{font-size:14px;color:var(--text-mid);margin-bottom:6px;line-height:1.65}
+.e-role{font-size:12.5px;color:var(--text-muted);line-height:1.55}
+.e-role strong{color:var(--text-mid)}
+.e-link{font-size:11.5px;color:var(--green-mid);text-decoration:none;margin-top:5px;display:inline-block}
+.e-link:hover{text-decoration:underline}
+.letter-divider{font-family:'DM Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--text-muted);padding:12px 0 4px;border-top:1px solid var(--border-light);margin-top:8px}
+.letter-divider:first-child{border-top:none;margin-top:0;padding-top:0}
+#no-results{display:none;text-align:center;padding:32px;color:var(--text-muted);font-size:14px}
+</style>
+</head>
+<body>
+<header id="topbar">
+  <span class="tbar-logo">Protocol</span>
+  <span class="tbar-badge">V9.2</span>
+  <div class="tbar-sep"></div>
+  <nav class="tbar-links">
+    <a href="protocol.html" class="tbar-link">&#8592; Main Protocol</a>
+    <a href="cheatsheet.html" class="tbar-link">Cheat Sheet</a>
+    <a href="glossary.html" class="tbar-link here">Glossary</a>
+    <a href="exercises.html" class="tbar-link">Exercises</a>
+    <a href="diet.html" class="tbar-link">Diet</a>
+    <a href="shopping.html" class="tbar-link">Shopping</a>
+    <a href="log.html" class="tbar-link">Log</a>  </nav>
+</header>
+<div class="page">
+  <h1 class="page-title">Glossary</h1>
+  <p class="page-sub">Key concepts, tools, substances, and measurements — what each is and how it fits the protocol.</p>
+  <div class="search-bar">
+    <input type="text" id="gs" placeholder="Search any term…" oninput="filterEntries()">
+  </div>
+  <div class="cluster-filter">
+    <button class="cf active" data-cluster="all" onclick="setCluster('all',this)">All</button>
+    <button class="cf" data-cluster="concept" onclick="setCluster('concept',this)">Concepts</button>
+    <button class="cf" data-cluster="device" onclick="setCluster('device',this)">Devices</button>
+    <button class="cf" data-cluster="substance" onclick="setCluster('substance',this)">Substances</button>
+    <button class="cf" data-cluster="technique" onclick="setCluster('technique',this)">Techniques</button>
+    <button class="cf" data-cluster="measure" onclick="setCluster('measure',this)">Measurements</button>
+  </div>
+  <div id="entries">
+
+<div class="letter-divider">A</div>
+
+<div class="entry" data-cluster="measure" data-name="a-miso-s">
+<div class="e-head"><span class="e-name">A-MISO-S</span><span class="e-cluster cl-measure">Measurement</span></div>
+<div class="e-def">Amsterdam Misophonia Scale — Severity. A 6-item self-report questionnaire that measures misophonia severity on a scale of 0–24. Scores: 0–4 subclinical, 5–9 mild, 10–14 moderate, 15–19 severe, 20–24 extreme.</div>
+<div class="e-role"><strong>Protocol role:</strong> Primary outcome measure. Baseline score at Phase 0 = 18 (severe range). A 25% reduction (score ~13–14) is the Phase 2 benchmark. Measured monthly. Trajectory across all phases tells the clinical story.</div>
+</div>
+
+<div class="entry" data-cluster="concept" data-name="anticipatory dread">
+<div class="e-head"><span class="e-name">Anticipatory Dread</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Pre-exposure anxiety that activates before any trigger sound occurs, keeping the nervous system in a state of pre-activation. The third trigger layer in misophonia, distinct from the acoustic response itself.</div>
+<div class="e-role"><strong>Protocol role:</strong> Addressed by SGB, HRV biofeedback, Yoga Nidra, kava, and tVNS. Must be reduced before effective CC work can begin — CC attempted from a chronically pre-activated state works against a significant headwind.</div>
+</div>
+
+<div class="entry" data-cluster="technique" data-name="act">
+<div class="e-head"><span class="e-name">ACT — Acceptance and Commitment Therapy</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">A behavioral therapy approach that uses acceptance, defusion, and values-based action to reduce the impact of difficult thoughts and feelings without requiring their elimination.</div>
+<div class="e-role"><strong>Protocol role:</strong> Begins Phase 2. Self-directed daily. Addresses the secondary suffering layer — distress about having the distress. Does not reduce the trigger response (CC does that). Makes the period before CC completes its work livable. Primary practice: defusion — prefixing trigger thoughts with "I notice I am having the thought that…"</div>
+<a href="protocol.html#p2-act" class="e-link">&#8594; Protocol section 6D</a>
+</div>
+
+<div class="letter-divider">B</div>
+
+<div class="entry" data-cluster="concept" data-name="bdnf">
+<div class="e-head"><span class="e-name">BDNF</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Brain-Derived Neurotrophic Factor. A protein that supports the growth, maintenance, and survival of neurons, and is a key driver of synaptic plasticity — the ability of synapses to strengthen or weaken.</div>
+<div class="e-role"><strong>Protocol role:</strong> Elevated by psilocybin, Zone 2 exercise, Lion's Mane, Lithium Orotate, and cold exposure. BDNF peaks ~2 hours post-Zone 2 aerobic exercise — this is why CC sessions are scheduled ~2 hours after returning from the waterfall. The Pulse strategy exploits the post-session BDNF elevation.</div>
+</div>
+
+<div class="letter-divider">C</div>
+
+<div class="entry" data-cluster="technique" data-name="cc counterconditioning">
+<div class="e-head"><span class="e-name">CC — Counterconditioning</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">A behavioral rewriting mechanism that works by actively pairing a conditioned aversive stimulus (trigger sound) with a genuinely felt positive emotional state, building a competing association strong enough to inhibit the threat response over time.</div>
+<div class="e-role"><strong>Protocol role:</strong> The primary behavioral rewriting mechanism. Begins Phase 2. Distinct from exposure therapy, which relies on habituation — CC writes a new competing circuit rather than attempting to extinguish the old one through repeated exposure. Requires: calm nervous system, genuine positive emotional state, neuroplasticity window, and sleep consolidation.</div>
+<a href="protocol.html#p2-cc" class="e-link">&#8594; Protocol section 6A</a>
+</div>
+
+<div class="entry" data-cluster="concept" data-name="convergence window">
+<div class="e-head"><span class="e-name">Convergence Window</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The Phase 4 period during which all protocol tools run simultaneously at full depth from a reset autonomic baseline — the single highest-leverage intervention window in the 12-month protocol.</div>
+<div class="e-role"><strong>Protocol role:</strong> Phase 4 is the convergence. What makes it different from Phase 3 is not new tools but new conditions: SGB-reset baseline, nervous system fully prepared, dedicated reduced-trigger environment, and all tools calibrated through Phase 3.</div>
+</div>
+
+<div class="letter-divider">D</div>
+
+<div class="entry" data-cluster="concept" data-name="defusion">
+<div class="e-head"><span class="e-name">Defusion</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">An ACT technique that creates psychological distance between a person and a thought by observing the thought rather than from inside it. The canonical form: prefixing a thought with "I notice I am having the thought that…"</div>
+<div class="e-role"><strong>Protocol role:</strong> Daily ambient practice from Phase 2. Used against trigger-related thoughts, anticipatory spirals, and self-criticism. Does not suppress or argue with content — creates enough distance to interrupt the automatic cascade.</div>
+</div>
+
+<div class="entry" data-cluster="substance" data-name="dsr dual sympathetic reset">
+<div class="e-head"><span class="e-name">DSR — Dual Sympathetic Reset</span><span class="e-cluster cl-substance">Substance / Procedure</span></div>
+<div class="e-def">A specific SGB protocol using bilateral injections — right stellate ganglion first, then left ganglion 24–72 hours later. Both injections produce a more complete and durable sympathetic reset than a single unilateral procedure.</div>
+<div class="e-role"><strong>Protocol role:</strong> The minimum SGB intervention in Phase 0 and Phase 4. Ultrasound guidance is non-negotiable. Effect develops over 1–4 weeks and can persist months to years.</div>
+<a href="protocol.html#p0-sgb" class="e-link">&#8594; Protocol section 1B</a>
+</div>
+
+<div class="letter-divider">E</div>
+
+<div class="entry" data-cluster="technique" data-name="emdr">
+<div class="e-head"><span class="e-name">EMDR — Eye Movement Desensitization and Reprocessing</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">A trauma processing technique that uses bilateral sensory stimulation (typically alternating audio tones) while a distressing memory is held in mind, enabling the memory to reprocess with reduced emotional charge while preserving factual content.</div>
+<div class="e-role"><strong>Protocol role:</strong> Begins Phase 3. 2–3 sessions/week post-CC. Targets the interpersonal-violation layer — specific memories where the trigger is relational, not merely acoustic. Standard CC does not reach these. Self-directed EMDR appropriate for SUDs 4–7 material.</div>
+<a href="protocol.html#p3-emdr" class="e-link">&#8594; Protocol section 7D</a>
+</div>
+
+<div class="letter-divider">F</div>
+
+<div class="entry" data-cluster="concept" data-name="felt-sense gate">
+<div class="e-head"><span class="e-name">Felt-Sense Gate</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A phase transition criterion based on subjective felt experience rather than a calendar or checklist. A phase whose criteria are technically met but not yet genuinely felt is not ready for transition.</div>
+<div class="e-role"><strong>Protocol role:</strong> Every phase transition in the protocol is a felt-sense gate. The principle: a phase that has not been fully absorbed cannot support what the next phase asks of it. "Not just technically checkable" is the key distinction.</div>
+</div>
+
+<div class="letter-divider">H</div>
+
+<div class="entry" data-cluster="device" data-name="heartmath">
+<div class="e-head"><span class="e-name">HeartMath Inner Balance</span><span class="e-cluster cl-device">Device</span></div>
+<div class="e-def">An ear clip sensor + app that measures heart rate variability in real time and provides feedback on cardiac coherence — a state of high HRV order that reflects robust vagal tone and emotional regulation capacity.</div>
+<div class="e-role"><strong>Protocol role:</strong> Begins Phase 1 Month 2. Daily 20 min morning. Protocol: 6 breaths/min (5s in, 5s out) + a genuinely felt positive emotion. The emotion is what produces coherence — breathing alone is insufficient. Permanent daily practice in Phase 5 and Year 2.</div>
+<a href="protocol.html#p1-heartmath" class="e-link">&#8594; Protocol section 4F</a>
+</div>
+
+<div class="entry" data-cluster="concept" data-name="hrv">
+<div class="e-head"><span class="e-name">HRV — Heart Rate Variability</span><span class="e-cluster cl-measure">Measurement</span></div>
+<div class="e-def">The variation in time between consecutive heartbeats. Higher HRV reflects greater parasympathetic tone, better stress recovery capacity, and more flexible autonomic regulation. Lower HRV reflects sympathetic dominance and reduced resilience.</div>
+<div class="e-role"><strong>Protocol role:</strong> Primary longitudinal physiological feedback. Tracked from Phase 1 Day 1. A rising HRV trend over months confirms the substrate work is succeeding. Weekly trend (not daily) is the meaningful metric.</div>
+</div>
+
+<div class="letter-divider">I</div>
+
+<div class="entry" data-cluster="technique" data-name="ifs">
+<div class="e-head"><span class="e-name">IFS — Internal Family Systems</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">A psychotherapy model that treats the mind as a system of distinct sub-personalities or "parts," each with their own roles and motivations. Therapeutic change occurs through developing a curious, compassionate relationship with parts rather than suppressing them.</div>
+<div class="e-role"><strong>Protocol role:</strong> Begins Phase 3. 1–2 self-directed sessions/week. Addresses the misophonic protector part — the anger, the rage — not as pathology but as a part doing what it learned to do. Meeting it with curiosity can dissolve its need to protect from the inside.</div>
+<a href="protocol.html#p3-ifs" class="e-link">&#8594; Protocol section 7E</a>
+</div>
+
+<div class="letter-divider">K</div>
+
+<div class="entry" data-cluster="substance" data-name="kava">
+<div class="e-head"><span class="e-name">Kava</span><span class="e-cluster cl-substance">Substance</span></div>
+<div class="e-def">A traditional Pacific Island plant medicine with GABAergic and kavalactone-mediated anxiolytic effects. Unlike alcohol, does not impair cognition, disrupt sleep, or produce next-day effects.</div>
+<div class="e-role"><strong>Protocol role:</strong> Begins Phase 2. Situational use (max 3×/week), 45–60 min before high-trigger community contexts or challenging CC sessions. Reduces the anticipatory-dread layer. Noble kava only — not instant, extract, or tudei. As CC progresses, kava's role naturally decreases.</div>
+<a href="protocol.html#p2-kava" class="e-link">&#8594; Protocol section 6F</a>
+</div>
+
+<div class="letter-divider">M</div>
+
+<div class="entry" data-cluster="device" data-name="muse s">
+<div class="e-head"><span class="e-name">Muse S — Alpha-Theta Neurofeedback</span><span class="e-cluster cl-device">Device</span></div>
+<div class="e-def">An EEG headband that measures brainwaves in real time and provides audio feedback when they drift from a target theta-alpha state (4–12 Hz). Used for active training of the brain's resting-state regulation.</div>
+<div class="e-role"><strong>Protocol role:</strong> Begins Phase 3. Daily 20 min morning after HeartMath. Trains the same theta-alpha state that Yoga Nidra inhabits — but actively via feedback rather than passively through guidance. The return to target after drifting is the training.</div>
+<a href="protocol.html#p3-muse" class="e-link">&#8594; Protocol section 7B</a>
+</div>
+
+<div class="entry" data-cluster="substance" data-name="mdma">
+<div class="e-head"><span class="e-name">MDMA</span><span class="e-cluster cl-substance">Substance</span></div>
+<div class="e-def">3,4-methylenedioxymethamphetamine. An entactogen that suppresses amygdala and insula activation while producing large oxytocin surges. Creates a state of emotional openness and reduced threat reactivity.</div>
+<div class="e-role"><strong>Protocol role:</strong> Two sessions total (Phase 3 + Phase 4). Addresses the interpersonal-violation layer — the relational dimension of trigger responses that psilocybin alone cannot reach as directly. Test with Marquis + Simon's + fentanyl strips every batch. Min 6 weeks between sessions.</div>
+<a href="protocol.html#p3-mdma1" class="e-link">&#8594; Protocol sections 7H + 8E</a>
+</div>
+
+<div class="letter-divider">N</div>
+
+<div class="entry" data-cluster="concept" data-name="neural repatterning">
+<div class="e-head"><span class="e-name">Neural Repatterning</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The primary CC technique — pairing trigger sounds at low volume with a genuinely felt positive emotional state in a structured session format. Technique 1 in the CC library.</div>
+<div class="e-role"><strong>Protocol role:</strong> The main behavioral rewriting mechanism from Phase 2 onward. Dual exposure: positive music in dominant ear, trigger at low volume in non-dominant ear. ~70% attention to positive, ~30% to trigger. 4–6 reps per session. Advance criterion: 4 consecutive reps at SUDs ≤2 across multiple sessions.</div>
+<a href="protocol.html#p2-cc" class="e-link">&#8594; Protocol section 6A</a>
+</div>
+
+<div class="entry" data-cluster="concept" data-name="neuroplasticity window">
+<div class="e-head"><span class="e-name">Neuroplasticity Window</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A period of elevated synaptic plasticity — the brain's capacity to form and strengthen new connections — following certain interventions. Psilocybin opens a window lasting ~30 days; MDMA opens a shorter 3–7 day window.</div>
+<div class="e-role"><strong>Protocol role:</strong> Every macrodose and MDMA session opens a window. The Pulse governs how to use it. CC work during an open window produces more durable associations than the same work outside it. Sleep consolidates changes made during the window.</div>
+</div>
+
+<div class="letter-divider">P</div>
+
+<div class="entry" data-cluster="substance" data-name="psilocybin">
+<div class="e-head"><span class="e-name">Psilocybin</span><span class="e-cluster cl-substance">Substance</span></div>
+<div class="e-def">A psychedelic compound (5-HT2A agonist) that temporarily decouples the Default Mode Network, elevates BDNF and synaptogenesis, and opens a sustained neuroplasticity window lasting approximately 30 days post-session.</div>
+<div class="e-role"><strong>Protocol role:</strong> 10 total sessions across the protocol. Phase 0: Session 0 (orientation, 1.5–2g). Phase 1: 1–2 orientation sessions. Phase 2: Session 1 (first therapeutic, 2.5g). Phase 3: 1–2 deepening sessions (2.5–3g) + microdosing begins. Phase 4: One macrodose from SGB-reset baseline. Phase 5: Every 2–3 months maintenance.</div>
+<a href="protocol.html#p2-session1" class="e-link">&#8594; Protocol section 6C</a>
+</div>
+
+<div class="entry" data-cluster="concept" data-name="propranolol memory reconsolidation">
+<div class="e-head"><span class="e-name">Propranolol-Assisted Memory Reconsolidation</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">A pharmacological technique using propranolol (a beta-blocker that crosses the blood-brain barrier) taken before memory reactivation. Blocks the adrenergic component of memory re-encoding, allowing a fear memory to restabilize with reduced emotional charge.</div>
+<div class="e-role"><strong>Protocol role:</strong> Begins Phase 3 second half. Requires prescription. 10–20mg, 60–90 min before CC session. Most powerful in Phase 4 where the SGB-reset baseline makes conditions uniquely favorable. Phase 3 use is preparation.</div>
+<a href="protocol.html#p3-propranolol" class="e-link">&#8594; Protocol section 7F</a>
+</div>
+
+<div class="entry" data-cluster="concept" data-name="pulse strategy">
+<div class="e-head"><span class="e-name">The Pulse Strategy</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The protocol governing integration weeks after every macrodose and MDMA session. The 72 hours post-session represent the highest-value neuroplasticity window of each cycle — BDNF elevated, DMN grip loosest, dendritic spine density at peak.</div>
+<div class="e-role"><strong>Protocol role:</strong> Day 1 = rest. Days 2–3 = maximum CC effort. Days 2–7 = daily CC with tVNS. Sleep on these nights consolidates what many ordinary nights combined would. Governs every integration week across Phases 2–5.</div>
+<a href="protocol.html#p2-pulse" class="e-link">&#8594; Protocol section: The Pulse</a>
+</div>
+
+<div class="letter-divider">S</div>
+
+<div class="entry" data-cluster="technique" data-name="sgb stellate ganglion block">
+<div class="e-head"><span class="e-name">SGB — Stellate Ganglion Block</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">An ultrasound-guided injection of local anesthetic into the stellate ganglion (a sympathetic nerve cluster in the neck) that temporarily interrupts overactivated Nerve Growth Factor signaling, producing a durable reset of the sympathetic baseline.</div>
+<div class="e-role"><strong>Protocol role:</strong> Phases 0 and 4. Not sedation — a structural reset persisting months to years. Lowers the autonomic floor before behavioral work begins. Horner's syndrome (temporary eyelid droop, pupil constriction) confirms effectiveness and resolves within hours.</div>
+<a href="protocol.html#p0-sgb" class="e-link">&#8594; Protocol section 1B</a>
+</div>
+
+<div class="entry" data-cluster="technique" data-name="somatic release">
+<div class="e-head"><span class="e-name">Somatic Release Protocol</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">A structured sequence of floor-based positions and breathing practices designed to release chronic defensive muscular bracing accumulated from sustained hypervigilance.</div>
+<div class="e-role"><strong>Protocol role:</strong> Phase 1 simplified version (7–10 min morning from Week 3). Phase 3 full sequence (10–15 min morning + 20–25 min pre-CC). Body tension at session start is a strong predictor of CC quality — the pre-CC sequence is non-negotiable.</div>
+<a href="exercises.html#somatic" class="e-link">&#8594; Full instructions on Exercises page</a>
+</div>
+
+<div class="entry" data-cluster="device" data-name="ssp safe sound protocol">
+<div class="e-head"><span class="e-name">SSP — Safe and Sound Protocol</span><span class="e-cluster cl-device">Device / Program</span></div>
+<div class="e-def">An auditory intervention developed by Stephen Porges that uses music processed to emphasize the human vocal frequency range, retraining the neural circuits governing auditory safety detection and the stapedius muscle in the middle ear.</div>
+<div class="e-role"><strong>Protocol role:</strong> Phase 1 primary course (5 hours, Month 2). Phase 4 mandatory refresher (Days 7–14 after SGB stabilization). Primary course primes the system; the refresher from the SGB-reset baseline rewrites it. No standalone CC on SSP days.</div>
+<a href="protocol.html#p1-ssp" class="e-link">&#8594; Protocol section 4G</a>
+</div>
+
+<div class="entry" data-cluster="measure" data-name="suds">
+<div class="e-head"><span class="e-name">SUDs — Subjective Units of Distress</span><span class="e-cluster cl-measure">Measurement</span></div>
+<div class="e-def">A 0–10 self-rating scale for measuring emotional distress in a given moment. 0 = no distress, 10 = maximum imaginable distress.</div>
+<div class="e-role"><strong>Protocol role:</strong> Used for trigger hierarchy ratings (re-rated every Sunday), CC session entry conditions (must reach SUDs 0–2), and CC advance criteria (4 consecutive reps completing at SUDs ≤2). The trajectory of hierarchy SUDs ratings over months is a key outcome measure.</div>
+</div>
+
+<div class="letter-divider">T</div>
+
+<div class="entry" data-cluster="technique" data-name="tactical brake">
+<div class="e-head"><span class="e-name">Tactical Brake</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A protocol mechanism activated when warning signs accumulate — not a break from the protocol, but a protocol feature that prevents the work from compounding the condition it is treating.</div>
+<div class="e-role"><strong>Protocol role:</strong> Activate if 3+ warning signs present (sleep poor 3+ nights, CC backfiring, rising rumination, resentment toward protocol). Minimum 48h. All active rewiring suspended. Support layer doubled. Return when: sleep stable 2+ nights, first session back at SUDs 1–3.</div>
+<a href="protocol.html#modes" class="e-link">&#8594; Protocol section 3C</a>
+</div>
+
+<div class="entry" data-cluster="device" data-name="tdcs">
+<div class="e-head"><span class="e-name">tDCS — Transcranial Direct Current Stimulation</span><span class="e-cluster cl-device">Device</span></div>
+<div class="e-def">A non-invasive brain stimulation technique that uses a low-level direct current applied to the scalp to modulate neuronal excitability in targeted brain regions.</div>
+<div class="e-role"><strong>Protocol role:</strong> Begins Phase 3. 20 min before each CC session, anodal electrode at F3 (left dlPFC). Upregulates excitability of the region governing top-down emotional regulation — stronger left dlPFC → faster fear extinction. Not within 5h of sleep. Not within 24h of macrodose or MDMA.</div>
+<a href="protocol.html#p3-tdcs" class="e-link">&#8594; Protocol section 7A</a>
+</div>
+
+<div class="entry" data-cluster="concept" data-name="trigger hierarchy">
+<div class="e-head"><span class="e-name">Trigger Hierarchy</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A structured mapping of all known trigger sounds rated by SUDs level (0–10), along with their context sensitivity (who, proximity, relationship) and anticipatory component (dread before the sound).</div>
+<div class="e-role"><strong>Protocol role:</strong> Built during Phase 1 Week 4. Re-rated every Sunday throughout all phases. Not worked in Phase 1 — only mapped. CC begins at the lowest-hierarchy levels in Phase 2 and progresses upward. Hierarchy ratings shift independently of direct work as the substrate improves.</div>
+</div>
+
+<div class="entry" data-cluster="device" data-name="tvns">
+<div class="e-head"><span class="e-name">tVNS — Transcutaneous Vagal Nerve Stimulation</span><span class="e-cluster cl-device">Device</span></div>
+<div class="e-def">Non-invasive vagal nerve stimulation via an earclip applied to the cymba concha of the left ear, activating the auricular branch of the vagus nerve.</div>
+<div class="e-role"><strong>Protocol role:</strong> Begins Phase 2. Device: Nurosym. Used during all standalone CC sessions and macrodose CC windows. Produces parasympathetic upregulation and enhanced plasticity via the vagal-locus coeruleus-norepinephrine pathway. New CC associations form more durably when tVNS runs simultaneously.</div>
+<a href="protocol.html#p2-tvns" class="e-link">&#8594; Protocol section 6B</a>
+</div>
+
+<div class="letter-divider">Y</div>
+
+<div class="entry" data-cluster="technique" data-name="yoga nidra">
+<div class="e-head"><span class="e-name">Yoga Nidra</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">A guided meditation practice that leads the practitioner into the theta-alpha boundary state (4–12 Hz) — the hypnagogic edge between waking and sleep, where the thalamus remains active as a sensory filter while the cortex enters low arousal.</div>
+<div class="e-role"><strong>Protocol role:</strong> Every evening before sleep. Never skipped. Used in this protocol as thalamic filter training — sounds register in the open awareness phase and pass without the full cortical threat cascade engaging. Ph1–2: 20 min. Ph3: 30–35 min. Ph4+: 40–45 min. Tracks must include an open awareness of external sounds phase.</div>
+<a href="protocol.html#ref-yoga" class="e-link">&#8594; Protocol section 11</a>
+</div>
+
+  </div>
+  <div id="no-results">No entries match your search.</div>
+</div>
+<script>
+var activeCluster = 'all';
+function filterEntries() {
+  var q = document.getElementById('gs').value.toLowerCase();
+  var entries = document.querySelectorAll('.entry');
+  var shown = 0;
+  entries.forEach(function(e) {
+    var name = e.dataset.name || '';
+    var text = e.textContent.toLowerCase();
+    var clusterMatch = activeCluster === 'all' || e.dataset.cluster === activeCluster;
+    var textMatch = !q || text.includes(q) || name.includes(q);
+    if (clusterMatch && textMatch) { e.classList.remove('hidden'); shown++; }
+    else { e.classList.add('hidden'); }
+  });
+  // Hide empty letter dividers
+  document.querySelectorAll('.letter-divider').forEach(function(div) {
+    var next = div.nextElementSibling;
+    var hasVisible = false;
+    while (next && !next.classList.contains('letter-divider')) {
+      if (!next.classList.contains('hidden') && next.classList.contains('entry')) hasVisible = true;
+      next = next.nextElementSibling;
+    }
+    div.style.display = hasVisible ? '' : 'none';
+  });
+  document.getElementById('no-results').style.display = shown === 0 ? 'block' : 'none';
+}
+function setCluster(c, btn) {
+  activeCluster = c;
+  document.querySelectorAll('.cf').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  filterEntries();
+}
+</script>
+</body>
+</html>

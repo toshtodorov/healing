@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Log — Protocol V9.2</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#faf8f4;--white:#fff;--border:#e4e0d8;--border-light:#f4f0e8;
+  --text:#2a2824;--text-mid:#4a4540;--text-muted:#8a7f70;
+  --green-dark:#2d4a28;--green-mid:#4a7a42;--green-light:#e8f0e5;--green-border:#b8d4b0;
+  --amber:#b87a1a;
+  --rose:#a83050;--rose-light:#fdf0f3;
+  --topbar-h:54px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.65;font-size:14px}
+h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* ── TOPBAR ── */
+#topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:8px;padding:0 16px;border-bottom:2px solid #1a3018}
+.tbar-logo{font-family:'Lora',serif;font-size:13.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0}
+.tbar-badge{font-size:9px;font-weight:600;background:rgba(255,255,255,.12);color:#a8d4a0;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px 6px;flex-shrink:0}
+.tbar-sep{width:1px;height:22px;background:rgba(255,255,255,.15);flex-shrink:0;margin:0 4px}
+.tbar-back{font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap;margin-left:auto}
+.tbar-back:hover{background:rgba(255,255,255,.12);color:#fff}
+
+/* ── PAGE ── */
+.page{margin-top:var(--topbar-h);padding:20px 18px 60px;max-width:860px;margin-left:auto;margin-right:auto}
+
+/* ── INPUT CARD ── */
+.input-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:16px}
+.input-card textarea{
+  display:block;width:100%;min-height:66px;max-height:200px;
+  padding:0;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);
+  background:transparent;border:none;resize:vertical;line-height:1.65;outline:none;
+}
+.input-card textarea::placeholder{color:var(--text-muted)}
+.input-bar{display:flex;align-items:center;gap:10px;margin-top:10px;padding-top:10px;border-top:1px solid var(--border-light)}
+.status-msg{font-size:11.5px;margin-right:auto}
+.status-msg.ok{color:var(--green-mid)}
+.status-msg.err{color:var(--rose)}
+.status-msg.dim{color:var(--text-muted)}
+.save-btn{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;padding:6px 20px;border-radius:20px;border:none;background:var(--green-dark);color:#e8f4e4;cursor:pointer;transition:background .15s;white-space:nowrap;flex-shrink:0}
+.save-btn:hover{background:var(--green-mid)}
+.save-btn:disabled{opacity:.45;cursor:not-allowed}
+
+/* ── SEARCH ── */
+.search-bar{margin-bottom:14px}
+.search-bar input{
+  width:100%;padding:9px 14px;border:1px solid var(--border);border-radius:8px;
+  font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);
+  background:var(--white);outline:none;transition:border-color .15s;
+}
+.search-bar input:focus{border-color:var(--green-mid)}
+.search-bar input::placeholder{color:var(--text-muted)}
+
+/* ── ENTRIES ── */
+.entry{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:10px;position:relative;transition:border-color .15s}
+.entry:hover{border-color:var(--green-border)}
+
+.entry-date{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--text-muted);margin-bottom:7px;letter-spacing:.01em}
+.entry-date .edited-flag{color:var(--amber);margin-left:5px}
+.entry-body{font-size:13.5px;color:var(--text-mid);line-height:1.7;white-space:pre-wrap;padding-right:88px}
+
+/* action buttons — fade in on hover, always on on mobile */
+.entry-actions{position:absolute;top:12px;right:12px;display:flex;gap:4px;opacity:0;transition:opacity .18s}
+.entry:hover .entry-actions{opacity:1}
+.act{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;padding:3px 10px;border-radius:14px;border:1px solid var(--border);background:var(--white);color:var(--text-muted);cursor:pointer;transition:all .12s;white-space:nowrap}
+.act:hover{color:var(--green-dark);border-color:var(--green-border);background:var(--green-light)}
+.act.del:hover{color:var(--rose);border-color:#e8b0c0;background:var(--rose-light)}
+
+/* ── INLINE EDIT ── */
+.entry-edit-area{
+  display:none;width:100%;padding:9px 12px;
+  font-family:'DM Sans',sans-serif;font-size:13.5px;color:var(--text);
+  background:var(--cream);border:1px solid var(--green-mid);border-radius:8px;
+  resize:vertical;line-height:1.65;outline:none;margin-bottom:8px;
+}
+.entry-edit-btns{display:none;gap:6px;justify-content:flex-end}
+.entry.editing .entry-body{display:none}
+.entry.editing .entry-actions{opacity:0;pointer-events:none}
+.entry.editing .entry-edit-area{display:block}
+.entry.editing .entry-edit-btns{display:flex}
+
+.edit-save{font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:600;padding:5px 16px;border-radius:14px;border:none;background:var(--green-dark);color:#e8f4e4;cursor:pointer}
+.edit-save:hover{background:var(--green-mid)}
+.edit-cancel{font-family:'DM Sans',sans-serif;font-size:11.5px;font-weight:500;padding:5px 14px;border-radius:14px;border:1px solid var(--border);background:var(--white);color:var(--text-muted);cursor:pointer}
+.edit-cancel:hover{color:var(--text)}
+
+/* ── STATES ── */
+.empty-state,.loading-state{padding:32px 0;color:var(--text-muted);font-size:13.5px}
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  .entry-actions{opacity:1}
+  .entry-body{padding-right:0;padding-bottom:32px}
+  .entry-actions{top:auto;bottom:10px;right:12px}
+}
+</style>
+</head>
+<body>
+
+<header id="topbar">
+  <span class="tbar-logo">Protocol</span>
+  <span class="tbar-badge">V9.2</span>
+  <div class="tbar-sep"></div>
+  <span style="font-family:'Lora',serif;font-size:13px;font-weight:500;color:#a8d4a0;flex:1">Log</span>
+  <a href="protocol.html" class="tbar-back">&#8592; Main Protocol</a>
+</header>
+
+<div class="page">
+
+  <div class="input-card">
+    <textarea id="entry-input" placeholder="What's worth noting…"></textarea>
+    <div class="input-bar">
+      <span class="status-msg" id="status"></span>
+      <button class="save-btn" id="submit-btn" onclick="saveEntry()">Save entry</button>
+    </div>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search entries…" oninput="renderEntries()">
+  </div>
+
+  <div id="entries-list"><div class="loading-state">Loading…</div></div>
+
+</div>
+
+<script>
+const BIN_ID      = '69d807ebaaba882197e00c09';
+const ACCESS_KEY  = '69d80706856a68218917c639';
+const MASTER_KEY  = '$2a$10$wdlngEGx.NkLGc8.oaHmPuQnR.vjlX9DN01vsulTI2VFNlV0bB5wC';
+const BASE        = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+const HDRS        = { 'Content-Type': 'application/json', 'X-Master-Key': MASTER_KEY };
+
+let entries = [];
+
+async function loadEntries() {
+  try {
+    const r = await fetch(BASE + '/latest', { headers: { 'X-Access-Key': ACCESS_KEY } });
+    if (!r.ok) throw new Error();
+    const data = await r.json();
+    entries = Array.isArray(data.record) ? data.record : [];
+    renderEntries();
+  } catch {
+    document.getElementById('entries-list').innerHTML =
+      '<div class="empty-state">Could not load entries — check your connection.</div>';
+  }
+}
+
+async function persist(updated) {
+  const r = await fetch(BASE, { method: 'PUT', headers: HDRS, body: JSON.stringify(updated) });
+  if (!r.ok) throw new Error();
+}
+
+async function saveEntry() {
+  const input = document.getElementById('entry-input');
+  const text  = input.value.trim();
+  if (!text) return;
+  const btn = document.getElementById('submit-btn');
+  btn.disabled = true;
+  setStatus('Saving…', 'dim');
+  const now  = new Date();
+  const next = [{ id: now.getTime(), text, display: formatDate(now) }, ...entries];
+  try {
+    await persist(next);
+    entries = next;
+    input.value = '';
+    renderEntries();
+    setStatus('Saved.', 'ok');
+    setTimeout(() => setStatus('', ''), 2500);
+  } catch {
+    setStatus('Save failed — check connection.', 'err');
+  }
+  btn.disabled = false;
+}
+
+async function deleteEntry(id) {
+  if (!confirm('Delete this entry?')) return;
+  const next = entries.filter(e => e.id !== id);
+  try {
+    await persist(next);
+    entries = next;
+    renderEntries();
+  } catch { alert('Delete failed.'); }
+}
+
+function startEdit(id) {
+  const el = document.querySelector(`.entry[data-id="${id}"]`);
+  if (!el) return;
+  el.classList.add('editing');
+  const ta = el.querySelector('.entry-edit-area');
+  ta.value = entries.find(e => e.id === id).text;
+  ta.focus();
+  ta.setSelectionRange(ta.value.length, ta.value.length);
+}
+
+function cancelEdit(id) {
+  const el = document.querySelector(`.entry[data-id="${id}"]`);
+  if (el) el.classList.remove('editing');
+}
+
+async function commitEdit(id) {
+  const el   = document.querySelector(`.entry[data-id="${id}"]`);
+  if (!el) return;
+  const text = el.querySelector('.entry-edit-area').value.trim();
+  if (!text) return;
+  const next = entries.map(e => e.id === id ? { ...e, text, edited: true } : e);
+  try {
+    await persist(next);
+    entries = next;
+    renderEntries();
+  } catch { alert('Save failed.'); }
+}
+
+function onEditKey(evt, id) {
+  if ((evt.metaKey || evt.ctrlKey) && evt.key === 'Enter') { evt.preventDefault(); commitEdit(id); }
+  if (evt.key === 'Escape') cancelEdit(id);
+}
+
+function renderEntries() {
+  const q        = (document.getElementById('search-input').value || '').toLowerCase().trim();
+  const filtered = q ? entries.filter(e => e.text.toLowerCase().includes(q)) : entries;
+  const list     = document.getElementById('entries-list');
+
+  if (!filtered.length) {
+    list.innerHTML = `<div class="empty-state">${entries.length === 0 ? 'No entries yet.' : 'No entries match that search.'}</div>`;
+    return;
+  }
+
+  list.innerHTML = filtered.map(e => `
+    <div class="entry" data-id="${e.id}">
+      <div class="entry-date">${e.display}${e.edited ? '<span class="edited-flag">· edited</span>' : ''}</div>
+      <div class="entry-body">${esc(e.text)}</div>
+      <textarea class="entry-edit-area" onkeydown="onEditKey(event,${e.id})"></textarea>
+      <div class="entry-edit-btns">
+        <button class="edit-cancel" onclick="cancelEdit(${e.id})">Cancel</button>
+        <button class="edit-save"   onclick="commitEdit(${e.id})">Save</button>
+      </div>
+      <div class="entry-actions">
+        <button class="act"     onclick="startEdit(${e.id})">Edit</button>
+        <button class="act del" onclick="deleteEntry(${e.id})">Delete</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function formatDate(d) {
+  const D = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const M = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const p = n => String(n).padStart(2,'0');
+  return `${D[d.getDay()]} ${d.getDate()} ${M[d.getMonth()]} ${d.getFullYear()} · ${p(d.getHours())}:${p(d.getMinutes())}`;
+}
+
+function esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function setStatus(msg, cls) {
+  const el = document.getElementById('status');
+  el.textContent = msg;
+  el.className   = 'status-msg ' + cls;
+}
+
+document.getElementById('entry-input').addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') saveEntry();
+});
+
+loadEntries();
+</script>
+</body>
+</html>

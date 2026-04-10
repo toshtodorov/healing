@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diet — Protocol V9.2</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#faf8f4;--white:#fff;--border:#e4e0d8;--border-light:#f4f0e8;--text:#2a2824;--text-mid:#4a4540;--text-muted:#8a7f70;--green-dark:#2d4a28;--green-mid:#4a7a42;--green-light:#e8f0e5;--green-border:#b8d4b0;--amber:#b87a1a;--amber-light:#fdf3e0;--amber-border:#e8c878;--rose:#a83050;--rose-light:#fdf0f3;--rose-border:#e8b0c0;--blue-dark:#2a4a6a;--blue-light:#eef4fb;--blue-border:#b8cfe8;--purple:#6a4082;--purple-light:#f5eeff;--purple-border:#c8b0f0;--topbar-h:54px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;font-size:14.5px}
+h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+#topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:8px;padding:0 16px;border-bottom:2px solid #1a3018}
+.tbar-logo{font-family:'Lora',serif;font-size:13.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0}
+.tbar-badge{font-size:9px;font-weight:600;background:rgba(255,255,255,.12);color:#a8d4a0;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px 6px;flex-shrink:0}
+.tbar-sep{width:1px;height:22px;background:rgba(255,255,255,.15);flex-shrink:0;margin:0 4px}
+.tbar-links{display:flex;gap:4px;flex-wrap:wrap}
+.tbar-link{font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
+.tbar-link:hover{background:rgba(255,255,255,.12);color:#fff}
+.tbar-link.here{background:rgba(255,255,255,.22);color:#fff;border-color:rgba(255,255,255,.4)}
+.page{margin-top:var(--topbar-h);padding:28px 24px 70px;max-width:860px;margin-left:auto;margin-right:auto}
+.page-title{font-family:'Lora',serif;font-size:26px;font-weight:600;color:var(--green-dark);margin-bottom:6px}
+.page-sub{font-size:13.5px;color:var(--text-muted);margin-bottom:20px}
+.jump-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px;padding:12px 14px;background:var(--white);border:1px solid var(--border);border-radius:10px}
+.jn{font-size:12px;font-weight:500;padding:5px 14px;border-radius:20px;text-decoration:none;color:var(--green-dark);background:var(--green-light);border:1px solid var(--green-border);transition:all .12s;white-space:nowrap}
+.jn:hover{background:var(--green-dark);color:#fff}
+.section{margin-bottom:44px;scroll-margin-top:74px}
+.sec-header{border-radius:12px;padding:18px 22px;margin-bottom:18px}
+.sh-green{background:linear-gradient(135deg,#f0f6ec,#e4f0df);border:1px solid var(--green-border)}
+.sh-amber{background:linear-gradient(135deg,#fdf6e8,#f8eccc);border:1px solid var(--amber-border)}
+.sh-blue{background:linear-gradient(135deg,#edf3fb,#e0ecf8);border:1px solid var(--blue-border)}
+.sh-purple{background:linear-gradient(135deg,#f5eeff,#ede0ff);border:1px solid var(--purple-border)}
+.sec-tag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.sh-green .sec-tag{color:var(--green-mid)}.sh-amber .sec-tag{color:var(--amber)}.sh-blue .sec-tag{color:var(--blue-dark)}.sh-purple .sec-tag{color:var(--purple)}
+.sec-header h2{font-size:21px;font-weight:600;margin-bottom:4px}
+.sh-green h2{color:var(--green-dark)}.sh-amber h2{color:var(--amber)}.sh-blue h2{color:var(--blue-dark)}.sh-purple h2{color:var(--purple)}
+.why-box{border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:13.5px;line-height:1.65}
+.wg{background:var(--green-light);border:1px solid var(--green-border)}.wg strong{color:var(--green-dark)}
+.wa{background:var(--amber-light);border:1px solid var(--amber-border)}.wa strong{color:var(--amber)}
+.wb{background:var(--blue-light);border:1px solid var(--blue-border)}.wb strong{color:var(--blue-dark)}
+.wp{background:var(--purple-light);border:1px solid var(--purple-border)}.wp strong{color:var(--purple)}
+.proto-card{background:var(--white);border:1px solid var(--border);border-radius:10px;margin-bottom:12px;overflow:hidden}
+.proto-card .pc-head{padding:8px 16px;border-bottom:1px solid var(--border-light);font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.pc-head-g{background:var(--green-light);color:var(--green-dark)}
+.pc-head-a{background:var(--amber-light);color:var(--amber)}
+.pc-head-b{background:var(--blue-light);color:var(--blue-dark)}
+.pc-head-p{background:var(--purple-light);color:var(--purple)}
+.prow{display:flex;gap:10px;padding:7px 16px;border-bottom:1px solid var(--border-light);font-size:13.5px}
+.prow:last-child{border-bottom:none}
+.pl{color:var(--text-muted);min-width:130px;flex-shrink:0;font-size:12.5px}
+.pv{color:var(--text-mid);flex:1;line-height:1.55}
+.food-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+@media(max-width:600px){.food-grid{grid-template-columns:1fr}}
+.food-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:13px 16px}
+.food-card .fc-name{font-family:'Lora',serif;font-size:14.5px;font-weight:600;color:var(--green-dark);margin-bottom:3px}
+.food-card .fc-how{font-size:11.5px;color:var(--text-muted);margin-bottom:5px;font-style:italic}
+.food-card .fc-why{font-size:12.5px;color:var(--text-mid);line-height:1.55}
+.food-card.priority{border-left:3px solid var(--green-mid)}
+.meal-card{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:10px}
+.meal-card h4{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px}
+.meal-card ul{padding-left:16px;margin:0}
+.meal-card li{font-size:13.5px;color:var(--text-mid);margin-bottom:5px;line-height:1.55}
+.interaction-row{display:flex;gap:10px;padding:7px 16px;border-bottom:1px solid var(--border-light);font-size:13px;align-items:baseline}
+.interaction-row:last-child{border-bottom:none}
+.ir-item{font-weight:500;color:var(--text);min-width:200px;flex-shrink:0}
+.ir-rule{color:var(--text-mid);flex:1;line-height:1.5}
+</style>
+</head>
+<body>
+<header id="topbar">
+  <span class="tbar-logo">Protocol</span>
+  <span class="tbar-badge">V9.2</span>
+  <div class="tbar-sep"></div>
+  <nav class="tbar-links">
+    <a href="protocol.html" class="tbar-link">&#8592; Main Protocol</a>
+    <a href="cheatsheet.html" class="tbar-link">Cheat Sheet</a>
+    <a href="glossary.html" class="tbar-link">Glossary</a>
+    <a href="exercises.html" class="tbar-link">Exercises</a>
+    <a href="diet.html" class="tbar-link here">Diet</a>
+    <a href="shopping.html" class="tbar-link">Shopping</a>
+    <a href="log.html" class="tbar-link">Log</a>
+  </nav>
+</header>
+<div class="page">
+  <h1 class="page-title">Nutritional Protocol</h1>
+  <p class="page-sub">Vegan default (oily fish optional) · High cooking competence · Community kitchen context · RB Hamakua Coast</p>
+  <nav class="jump-nav">
+    <a class="jn" href="#windows">Feeding Windows</a>
+    <a class="jn" href="#foods">Priority Foods</a>
+    <a class="jn" href="#patterns">Practical Meal Patterns</a>
+    <a class="jn" href="#matcha">Matcha &amp; Green Tea</a>
+    <a class="jn" href="#interactions">Supplement–Food Interactions</a>
+  </nav>
+
+  <!-- FEEDING WINDOWS -->
+  <section class="section" id="windows">
+    <div class="sec-header sh-green">
+      <div class="sec-tag">Feeding Windows</div>
+      <h2>When to Eat</h2>
+      <p style="font-size:13.5px;color:var(--text-mid);margin-top:4px">Timing is as important as content. The fasting window on aerobic days is load-bearing for autophagy and AMPK activation.</p>
+    </div>
+
+    <div class="proto-card">
+      <div class="pc-head pc-head-g">Training Days — eat early</div>
+      <div class="prow"><span class="pl">First meal</span><span class="pv">Immediately after training (~6:30–7:00am). Protein-forward. The post-training window is when protein synthesis is highest — do not delay.</span></div>
+      <div class="prow"><span class="pl">Final meal</span><span class="pv">By 6:00–6:30pm. Nothing after 6:30pm. Late meals fragment sleep architecture and suppress melatonin.</span></div>
+      <div class="prow"><span class="pl">Eating window</span><span class="pv">~12 hours (7am–7pm). Not a strict fast but the evening cutoff is firm.</span></div>
+    </div>
+
+    <div class="proto-card">
+      <div class="pc-head pc-head-a">Aerobic / Rest Days — eat later</div>
+      <div class="prow"><span class="pl">First meal</span><span class="pv">10:00am or later. The morning fasting period enables AMPK activation and autophagy — cellular clearing between neuroplasticity events. Do not eat first thing on these days.</span></div>
+      <div class="prow"><span class="pl">Final meal</span><span class="pv">By 6:00–6:30pm. Same evening cutoff.</span></div>
+      <div class="prow"><span class="pl">Eating window</span><span class="pv">~8 hours (10am–6pm). The fasting window from previous evening's final meal to 10am = 16+ hours.</span></div>
+      <div class="prow"><span class="pl">CC scheduling note</span><span class="pv">First meal after returning from waterfall (~3:00–3:30pm) fits naturally inside the aerobic day window. The CC session begins ~2h post-exercise regardless of meal timing.</span></div>
+    </div>
+
+    <div class="why-box wg">
+      <strong>Why the evening cutoff matters specifically here:</strong> CC and EMDR sessions produce new associations and memory reprocessing that consolidate during deep sleep. Late meals delay sleep onset, compress deep sleep, and raise overnight cortisol. Every structural change the protocol produces during the day is either cemented or partially dissolved overnight — the evening cutoff protects the work.
+    </div>
+  </section>
+
+  <!-- PRIORITY FOODS -->
+  <section class="section" id="foods">
+    <div class="sec-header sh-amber">
+      <div class="sec-tag">Priority Foods</div>
+      <h2>What to Prioritize and Why</h2>
+      <p style="font-size:13.5px;color:var(--text-mid);margin-top:4px">Each food has a specific mechanistic reason to be here. Not all are equally critical — bold border = highest priority for this protocol.</p>
+    </div>
+
+    <h3 style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px">Neuroplasticity &amp; BDNF</h3>
+    <div class="food-grid">
+      <div class="food-card priority">
+        <div class="fc-name">Blueberries &amp; Blackberries</div>
+        <div class="fc-how">Daily — fresh or frozen, any amount</div>
+        <div class="fc-why">Anthocyanins + BDNF upregulation. One of the best-evidenced food-BDNF relationships. Add to every smoothie, oatmeal, or eat as-is.</div>
+      </div>
+      <div class="food-card priority">
+        <div class="fc-name">Dark Chocolate 85%+</div>
+        <div class="fc-how">Daily — 20–40g after a meal</div>
+        <div class="fc-why">Theobromine + flavanols. Improves cerebral blood flow and BDNF. The 85%+ threshold matters — lower cacao = more sugar = less effect.</div>
+      </div>
+      <div class="food-card">
+        <div class="fc-name">Walnuts</div>
+        <div class="fc-how">Daily — small handful</div>
+        <div class="fc-why">ALA (plant omega-3 precursor), polyphenols. The only nut with significant omega-3 content.</div>
+      </div>
+      <div class="food-card">
+        <div class="fc-name">Ground Flaxseed</div>
+        <div class="fc-how">Daily — 1–2 tbsp in smoothie or oats</div>
+        <div class="fc-why">Highest plant ALA source. Lignans (anti-inflammatory). Must be ground — whole seeds pass through undigested.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px">Spermidine &amp; Cellular Renewal</h3>
+    <div class="food-grid">
+      <div class="food-card priority">
+        <div class="fc-name">Wheat Germ</div>
+        <div class="fc-how">1–2 tbsp daily — add to smoothies or oats</div>
+        <div class="fc-why">Highest spermidine concentration per gram of any food. Spermidine triggers autophagy — cellular clearing between plasticity events. This is particularly important during active neuroplasticity phases.</div>
+      </div>
+      <div class="food-card priority">
+        <div class="fc-name">Tempeh</div>
+        <div class="fc-how">Regularly — 2–3× per week, any preparation</div>
+        <div class="fc-why">Top concentrated spermidine source + complete protein + probiotics. Fermented so more digestible than unfermented soy. More bioavailable spermidine than most plant sources.</div>
+      </div>
+      <div class="food-card">
+        <div class="fc-name">Mushrooms</div>
+        <div class="fc-how">Daily — any variety, any preparation</div>
+        <div class="fc-why">Ergothioneine — the compound most strongly linked to reduced disease risk in large-scale blood analysis. Heat-stable so cooking doesn't destroy it. Oyster, porcini, shiitake highest, but any variety contributes.</div>
+      </div>
+      <div class="food-card">
+        <div class="fc-name">Strawberries</div>
+        <div class="fc-how">Weekly — 200–300g</div>
+        <div class="fc-why">Fisetin — a senolytic (clears senescent cells). Particularly relevant during active neuroplasticity phases when cellular renewal matters most.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px">Anti-inflammatory &amp; Gut</h3>
+    <div class="food-grid">
+      <div class="food-card priority">
+        <div class="fc-name">Leafy Greens</div>
+        <div class="fc-how">Daily — large portions, raw or cooked</div>
+        <div class="fc-why">Nitrates (vasodilation, cerebral blood flow), folate, lutein. The volume should be substantial — not a side dish but a foundation. Spinach, kale, chard, rocket, anything dark and leafy.</div>
+      </div>
+      <div class="food-card">
+        <div class="fc-name">Brassicas</div>
+        <div class="fc-how">Regularly — chop and wait 40 min before cooking</div>
+        <div class="fc-why">Sulforaphane (potent anti-inflammatory, crosses blood-brain barrier). Critical preparation note: chop and wait 40 minutes before cooking — this allows myrosinase enzyme to produce sulforaphane. Add mustard powder if cooking immediately.</div>
+      </div>
+      <div class="food-card">
+        <div class="fc-name">Fermented Foods</div>
+        <div class="fc-how">Daily — kimchi, sauerkraut, miso, kefir</div>
+        <div class="fc-why">Microbiome diversity directly affects gut-brain axis signaling. L. reuteri supplement helps but food-derived diversity provides what supplements cannot.</div>
+      </div>
+      <div class="food-card priority">
+        <div class="fc-name">Capers</div>
+        <div class="fc-how">Daily — 1 tbsp on/in anything</div>
+        <div class="fc-why">Highest quercetin food source per gram (~20mg/tbsp). Quercetin has senolytic properties and reduces neuroinflammation. The easiest high-value food add — put them on everything.</div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px">Blood Sugar &amp; Metabolic</h3>
+    <div class="food-grid">
+      <div class="food-card">
+        <div class="fc-name">Legumes</div>
+        <div class="fc-how">Daily or near-daily — black beans, lentils, chickpeas</div>
+        <div class="fc-why">Protein + resistant starch (feeds beneficial gut bacteria). The resistant starch is only present when cooked and cooled — cold bean salads are more beneficial than hot.</div>
+      </div>
+      <div class="food-card">
+        <div class="fc-name">Apple Cider Vinegar</div>
+        <div class="fc-how">1 tbsp before meals — in water or on salad</div>
+        <div class="fc-why">AMPK activation, blood sugar management. Takes the edge off post-meal glucose spikes. Particularly useful on training days after the protein smoothie.</div>
+      </div>
+    </div>
+
+    <div class="why-box wa" style="margin-top:6px">
+      <strong>Oily fish (optional):</strong> Sardines, mackerel, salmon 2–3× per week if included. ~1500–2000mg EPA+DHA per 100g serving. On fish days, skip krill and algae oil supplements — the food provides the dose. Not required if krill + algae supplementation is consistent.
+    </div>
+  </section>
+
+  <!-- PRACTICAL MEAL PATTERNS -->
+  <section class="section" id="patterns">
+    <div class="sec-header sh-blue">
+      <div class="sec-tag">Practical Patterns</div>
+      <h2>Meal Patterns for the RB Context</h2>
+      <p style="font-size:13.5px;color:var(--text-mid);margin-top:4px">Community kitchen, shared meals, limited personal cooking windows, high competence when cooking is available.</p>
+    </div>
+
+    <div class="meal-card">
+      <h4>Training Day — Post-Workout Smoothie (6:30am)</h4>
+      <ul>
+        <li>Plant protein base: 30–40g protein (hemp, pea, or brown rice protein powder)</li>
+        <li>Blueberries or blackberries: 150–200g frozen</li>
+        <li>Wheat germ: 2 tbsp</li>
+        <li>Ground flaxseed: 2 tbsp</li>
+        <li>Walnuts: small handful</li>
+        <li>Optional: banana for texture, cacao powder for flavanols</li>
+        <li>Liquid: oat milk, coconut water, or water</li>
+      </ul>
+      <p style="font-size:12.5px;color:var(--text-muted);margin-top:8px">This smoothie covers: protein, BDNF foods (berries), spermidine (wheat germ), omega-3 (flax + walnuts), and antioxidants — all in under 3 minutes prep.</p>
+    </div>
+
+    <div class="meal-card">
+      <h4>Training Day — Main Meal (midday, with the community)</h4>
+      <ul>
+        <li>Load the plate with greens first, then build on top</li>
+        <li>Add legumes (black beans, lentils, chickpeas) as the primary protein source if available</li>
+        <li>Add fermented food if available (kimchi, sauerkraut) — even a small amount counts</li>
+        <li>Capers: add 1 tbsp to whatever is on the plate</li>
+        <li>Dark chocolate: 20–30g as dessert or immediately after</li>
+        <li>ACV: 1 tsp in water before the meal if practical</li>
+      </ul>
+      <p style="font-size:12.5px;color:var(--text-muted);margin-top:8px">Strategy at community meals: treat the shared food as a base and add personal priority ingredients (capers, wheat germ in a bag, dark chocolate) to whatever is served.</p>
+    </div>
+
+    <div class="meal-card">
+      <h4>Aerobic Day — First Meal (10am+, after the fast)</h4>
+      <ul>
+        <li>Break the fast with something substantial and protein-forward</li>
+        <li>Option A: Large grain bowl — cooked quinoa or brown rice, roasted vegetables, brassicas, legumes, tahini dressing, capers</li>
+        <li>Option B: Tempeh stir-fry with leafy greens, mushrooms, and fermented side</li>
+        <li>Option C: Smoothie bowl — protein smoothie base with toppings (wheat germ, berries, walnuts, cacao)</li>
+        <li>Brassica prep note: if cooking, chop 40 min earlier. If time-constrained, add mustard powder to cooked brassicas to restore sulforaphane.</li>
+      </ul>
+    </div>
+
+    <div class="meal-card">
+      <h4>Limited Kitchen Access — Quick Assembly Strategy</h4>
+      <ul>
+        <li><strong>Always on hand:</strong> Wheat germ (shelf-stable), capers, ground flaxseed, walnuts, dark chocolate 85%+, frozen berries</li>
+        <li><strong>These add to anything:</strong> Add wheat germ and flaxseed to any meal. Add capers to any savory dish. Dark chocolate after any meal. These require no cooking.</li>
+        <li><strong>Batch cooking when kitchen is available:</strong> Large batches of legumes (freeze in portions), roasted brassicas (reheat quickly), tempeh (marinated and pan-fried, stores well)</li>
+        <li><strong>At community meals:</strong> Eat what is served, add your priority items, focus on volume of greens and legumes</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- MATCHA & GREEN TEA -->
+  <section class="section" id="matcha">
+    <div class="sec-header sh-green">
+      <div class="sec-tag">Daily Drinks</div>
+      <h2>Matcha &amp; Green Tea Protocol</h2>
+    </div>
+
+    <div class="proto-card">
+      <div class="pc-head pc-head-g">Matcha — Morning</div>
+      <div class="prow"><span class="pl">When</span><span class="pv">Morning with or after first meal. Not on an empty stomach if it produces nausea.</span></div>
+      <div class="prow"><span class="pl">What it provides</span><span class="pv">300–400mg L-theanine (more than supplement capsules), EGCG (anti-inflammatory, neuroprotective), and moderate caffeine paired with L-theanine for calm focused alertness without the cortisol spike of coffee.</span></div>
+      <div class="prow"><span class="pl">CC day note</span><span class="pv">Morning matcha means L-theanine is already present at baseline before the pre-CC supplement dose is added — the L-theanine supplement (200mg) adds to this foundation, not from zero.</span></div>
+      <div class="prow"><span class="pl">Iron absorption</span><span class="pv">Space matcha at least 1 hour from iron-rich meals or iron supplements. EGCG inhibits non-heme iron absorption. Not a reason to avoid it — just observe the spacing.</span></div>
+    </div>
+
+    <div class="proto-card">
+      <div class="pc-head pc-head-a">Green Tea — Afternoon</div>
+      <div class="prow"><span class="pl">Which tea</span><span class="pv">Kukicha (twig tea) or sencha. Lower caffeine than matcha. Safe 2–3 hours before sleep. Kukicha is particularly low-caffeine and has a pleasant roasted quality.</span></div>
+      <div class="prow"><span class="pl">When</span><span class="pv">Afternoon, 2–3 hours before sleep target. Replaces any temptation toward late caffeine while providing EGCG and trace L-theanine.</span></div>
+      <div class="prow"><span class="pl">Iron absorption</span><span class="pv">Same rule as matcha — space 1 hour from iron-rich meals.</span></div>
+    </div>
+  </section>
+
+  <!-- SUPPLEMENT-FOOD INTERACTIONS -->
+  <section class="section" id="interactions">
+    <div class="sec-header sh-purple">
+      <div class="sec-tag">Supplement–Food Interactions</div>
+      <h2>Timing Rules</h2>
+      <p style="font-size:13.5px;color:var(--text-mid);margin-top:4px">These are the timing rules that actually affect absorption or efficacy.</p>
+    </div>
+
+    <div class="proto-card">
+      <div class="pc-head pc-head-p">Critical timing rules</div>
+      <div class="interaction-row"><span class="ir-item">NMN 500mg sublingual</span><span class="ir-rule">Empty stomach or before other morning food. Dissolves under tongue 1–2 min. Takes it before eating to maximize NAD+ precursor absorption.</span></div>
+      <div class="interaction-row"><span class="ir-item">D3/K2</span><span class="ir-rule">With fat-containing food. D3 is fat-soluble — absorption is significantly impaired without fat. Take with the morning meal, not first thing on an empty stomach.</span></div>
+      <div class="interaction-row"><span class="ir-item">Phosphatidylserine 300mg</span><span class="ir-rule">Afternoon with meal. Not in the evening — can occasionally interfere with sleep.</span></div>
+      <div class="interaction-row"><span class="ir-item">B-complex</span><span class="ir-rule">Morning only. B vitamins can increase alertness — late dosing disrupts sleep.</span></div>
+      <div class="interaction-row"><span class="ir-item">Magnesium (both forms)</span><span class="ir-rule">Bedtime only. If also supplementing zinc, space 2+ hours from magnesium — they compete for absorption.</span></div>
+      <div class="interaction-row"><span class="ir-item">Matcha / green tea</span><span class="ir-rule">Space 1 hour from iron-rich meals. EGCG inhibits non-heme iron absorption — relevant if diet is high in plant-based iron (lentils, spinach, tempeh).</span></div>
+      <div class="interaction-row"><span class="ir-item">Krill oil + algae oil</span><span class="ir-rule">With food. Not required to be with fat specifically (the oils are their own fat), but taken with a meal improves tolerability.</span></div>
+      <div class="interaction-row"><span class="ir-item">L-Theanine 200mg (pre-CC)</span><span class="ir-rule">30 min before CC session. Not within 3 hours of sleep. Morning matcha already provides L-theanine baseline — this supplement dose adds to that.</span></div>
+      <div class="interaction-row"><span class="ir-item">Resveratrol 500mg (Phase 5+)</span><span class="ir-rule">Weekdays only, with fat-containing food. Fat significantly increases resveratrol bioavailability. Synergistic with NMN via sirtuin pathway.</span></div>
+      <div class="interaction-row"><span class="ir-item">Berberine 500mg (Phase 5+)</span><span class="ir-rule">Not on resistance training days. Berberine activates AMPK, which can interfere with the mTOR-driven muscle protein synthesis that follows training. Take with meals on non-training days.</span></div>
+      <div class="interaction-row"><span class="ir-item">Krill + algae on fish days</span><span class="ir-rule">Skip both when eating oily fish (sardines, mackerel, salmon). The food provides the dose — supplementing on top creates excess.</span></div>
+      <div class="interaction-row"><span class="ir-item">NAC + MDMA</span><span class="ir-rule">Stop NAC 3 days before any MDMA session. Resume 48 hours after. NAC may blunt therapeutic effect via glutamate pathway interaction.</span></div>
+      <div class="interaction-row"><span class="ir-item">5-HTP + psilocybin</span><span class="ir-rule">No 5-HTP or tryptophan in 24 hours before any macrodose session. Serotonin precursor loading before 5-HT2A agonism creates unpredictable interaction.</span></div>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
