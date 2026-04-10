@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Misophonia Rewiring & Wellness Protocol — V9.2</title>
+<title>The Misophonia Rewiring & Wellness Protocol — V9.3</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -44,7 +44,7 @@ h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
 .ni.sub{padding-left:26px;font-size:12px}
 .ni.subsub{padding-left:38px;font-size:11.5px;color:var(--text-muted)}
 .ni.subsub:hover,.ni.subsub.active{color:var(--green-mid)}
-.nd{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.nd{width:5px;height:5px;min-width:5px;min-height:5px;border-radius:50%;flex-shrink:0}
 .dg{background:var(--green-mid)}.da{background:var(--amber)}.dr{background:var(--rose)}.db{background:var(--blue-dark)}.dp{background:var(--purple)}.dm{background:var(--text-muted)}
 
 /* Phase group toggle */
@@ -240,7 +240,7 @@ tr:last-child td{border-bottom:none}
 <header id="topbar">
   <button id="menu-toggle" onclick="toggleSidebar()">☰</button>
   <span class="logo">The Misophonia Rewiring &amp; Wellness Protocol</span>
-  <span class="vbadge">V9.2</span>
+  <span class="vbadge">V9.3</span>
   <nav class="sat-links">
     <a href="cheatsheet.html" class="sat-link">Cheat Sheet</a>
     <a href="glossary.html" class="sat-link">Glossary</a>
@@ -253,6 +253,12 @@ tr:last-child td{border-bottom:none}
 
 <!-- SIDEBAR -->
 <nav id="sidebar">
+  <div style="padding:10px 14px 6px;border-bottom:1px solid var(--border-light)">
+    <a href="misophonia_protocol_v9_3.txt" download style="display:flex;align-items:center;gap:7px;font-family:'DM Sans',sans-serif;font-size:11.5px;color:var(--text-muted);text-decoration:none;padding:5px 0;transition:color .12s" onmouseover="this.style.color='var(--green-dark)'" onmouseout="this.style.color='var(--text-muted)'">
+      <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 2v8M5 7l3 3 3-3"/><rect x="2" y="11" width="12" height="3" rx="1"/></svg>
+      Protocol V9.3 — Plain Text
+    </a>
+  </div>
 
   <!-- OVERVIEW -->
   <div class="ng">
@@ -341,7 +347,6 @@ tr:last-child td{border-bottom:none}
       <a class="ni sub" href="#p3-glance">Phase at a Glance</a>
       <a class="ni sub" href="#p3-tiers">Rhythm Tiers</a>
       <a class="ni sub" href="#p3-tdcs">tDCS</a>
-      <a class="ni sub" href="#p3-muse">Muse S Neurofeedback</a>
       <a class="ni sub" href="#p3-somatic">Full Somatic Release</a>
       <a class="ni sub" href="#p3-emdr">EMDR</a>
       <a class="ni sub" href="#p3-ifs">IFS</a>
@@ -401,6 +406,7 @@ tr:last-child td{border-bottom:none}
     <a class="ni" href="#ref-cc"><span class="nd da"></span>CC Techniques</a>
     <a class="ni" href="#ref-tracking"><span class="nd dm"></span>Tracking &amp; Testing</a>
     <a class="ni" href="#ref-legal"><span class="nd dm"></span>Legal Note</a>
+    <a class="ni" href="#ref-bibliography"><span class="nd dm"></span>Bibliography</a>
   </div>
 
 </nav>
@@ -459,7 +465,7 @@ tr:last-child td{border-bottom:none}
     </div>
     <div class="card bl">
       <div class="card-title">Pillar 3 — Consolidation</div>
-      <p style="font-size:13px;margin:0">Cements structural changes. Sustains vagal tone.<br><em>tVNS, tDCS, HeartMath, Muse S, SSP, Yoga Nidra</em></p>
+      <p style="font-size:13px;margin:0">Cements structural changes. Sustains vagal tone.<br><em>tVNS, tDCS, HeartMath, SSP, Yoga Nidra</em></p>
     </div>
     <div class="card pl">
       <div class="card-title">Pillar 4 — Substrate</div>
@@ -561,11 +567,11 @@ tr:last-child td{border-bottom:none}
       </tr>
     </thead>
     <tbody>
-      <tr><td>Creatine 5g</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td>Creatine 7.5g</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
       <tr><td>L. reuteri 1–2 tabs</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
       <tr><td>NMN 500mg sublingual</td><td>○</td><td>●*</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
       <tr><td>Krill oil 2–3 softgels</td><td>○</td><td>●</td><td>●</td><td>●</td><td style="color:var(--amber)">—†</td><td>●</td></tr>
-      <tr><td>Algae oil 2–4 softgels</td><td>○</td><td>●</td><td>●</td><td>●</td><td style="color:var(--amber)">—†</td><td>●</td></tr>
+      <tr><td>Omega-3 top-up (fish oil or omega-3 top-up (fish oil or algae oil)) 2–4 softgels</td><td>○</td><td>●</td><td>●</td><td>●</td><td style="color:var(--amber)">—†</td><td>●</td></tr>
       <tr><td>Lion's Mane 2g</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
       <tr><td>Bacopa 320mg</td><td>○</td><td>●*</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
       <tr><td>Ashwagandha 600mg</td><td>○</td><td>○</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
@@ -576,11 +582,11 @@ tr:last-child td{border-bottom:none}
       <tr><td>B12 sublingual</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
       <tr><td>Phosphatidylserine 300mg</td><td>○</td><td>●*</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
       <tr><td>Mag L-Threonate 2000mg</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Mag Glycinate 400mg</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td>Mag Glycinate 360mg</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
       <tr><td>Glycine 3g</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
       <tr><td>Apigenin 50mg</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
       <tr><td>Melatonin 0.5mg</td><td>○</td><td style="color:var(--amber)">●‡</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-      <tr><td>L-Theanine 200mg</td><td>○</td><td>○</td><td style="color:var(--blue-dark)">(P)</td><td style="color:var(--blue-dark)">(P)</td><td style="color:var(--blue-dark)">(P)</td><td style="color:var(--blue-dark)">(P)</td></tr>
+      <tr><td></td><td>○</td><td>○</td><td style="color:var(--blue-dark)">(P)</td><td style="color:var(--blue-dark)">(P)</td><td style="color:var(--blue-dark)">(P)</td><td style="color:var(--blue-dark)">(P)</td></tr>
       <tr><td>Psilocybin microdose</td><td>○</td><td>○</td><td>○</td><td>●</td><td>●</td><td>●</td></tr>
       <tr><td>Niacin flush</td><td>○</td><td>○</td><td>○</td><td>●</td><td>●</td><td>●</td></tr>
       <tr><td>Resveratrol 500mg</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>●</td></tr>
@@ -599,7 +605,7 @@ tr:last-child td{border-bottom:none}
       <p><strong>Pre-MDMA session:</strong> Stop NAC 3 days before. Skip Ashwagandha on session day. No 5-HTP or tryptophan 24 hours before. Pause microdosing 1 week before.</p>
       <p><strong>Post-MDMA session:</strong> 5-HTP 100mg + EGCG 400mg for 3 days beginning 24 hours after. Resume NAC 48 hours after. MDMA-specific serotonin replenishment — not used after psilocybin.</p>
       <p><strong>Post-session microdosing:</strong> Resume Day 4–5 after both macrodose and MDMA sessions, once fully settled.</p>
-      <p><strong>Fish days:</strong> Skip krill and algae. &nbsp;|&nbsp; <strong>Resistance training days:</strong> No berberine.</p>
+      <p><strong>Fish days:</strong> Skip krill and omega-3 top-up. &nbsp;|&nbsp; <strong>Resistance training days:</strong> No berberine.</p>
     </div>
   </details>
 </div>
@@ -636,7 +642,7 @@ tr:last-child td{border-bottom:none}
   <details>
     <summary>Pre-SGB supplement and substance protocol</summary>
     <div class="db">
-      <p><strong>Pause 1 week before:</strong> Krill oil, algae oil, NAC, vitamin E, resveratrol (Phase 5 only). Resume 48 hours after.</p>
+      <p><strong>Pause 1 week before:</strong> Krill oil, omega-3 top-up (fish oil or algae oil), NAC, vitamin E, resveratrol (Phase 5 only). Resume 48 hours after.</p>
       <p><strong>Pause 7 days before:</strong> Microdosing.</p>
       <p><strong>Space at least 72 hours</strong> between any macrodose session and SGB. An active neuroplasticity window is not a contraindication — the protocol deliberately exploits this overlap.</p>
       <p><strong>Continue normally:</strong> Magnesium, Lion's Mane, Bacopa, Creatine, NMN, B-complex, B12, D3/K2, Ashwagandha, Lithium Orotate, Phosphatidylserine, L. reuteri.</p>
@@ -726,7 +732,7 @@ tr:last-child td{border-bottom:none}
   <div class="stag tb">Phase 1 · 4B</div>
   <h2 class="s2 bl">Meeting Support</h2>
   <div class="card bl">
-    <div class="card-title">Device: Bone Conduction Headphones (Shokz OpenRun or equivalent)</div>
+    <div class="card-title">Device: Bone Conduction Headphones (Shokz OpenRun Pro 2 Pro 2)</div>
     <h3 style="color:var(--blue-dark)">Begins Week 1, Day 1</h3>
     <p>Leaves ear canals open while playing pink noise at barely perceptible volume through the cheekbones. The pink noise keeps the thalamic scanning reflex occupied — preventing the gain increase that occurs with near-silence earplugs.</p>
     <p><strong>Volume:</strong> Barely audible — loud enough to register, forgotten within 30 seconds.</p>
@@ -754,7 +760,7 @@ tr:last-child td{border-bottom:none}
       <p><strong>Night waking:</strong> Do not check phone. Do not turn on light. Put on the 20-minute sleep-specific Yoga Nidra track. Prevents the cortisol-driven frustration loop that raises the next day's reactive baseline.</p>
       <p><strong>Mouth taping:</strong> Worth trialing 1–2 weeks. 3M Micropore tape vertically over center of lips. If it improves sleep depth, continue. If discomfort or anxiety, discontinue.</p>
       <p><strong>Morning:</strong> Fixed wake time. Bright light within 10 minutes. Cold shower finish (30 sec) anchors the diurnal cortisol rhythm.</p>
-      <p><strong>What disrupts sleep:</strong> Psilocybin (always morning sessions). MDMA (disrupts REM 1–3 nights — maintain Yoga Nidra). tDCS (not within 5 hours of sleep time, ~4–4:30pm cutoff). Skipping Yoga Nidra. Late meals (final meal by 6:00–6:30pm).</p>
+      <p><strong>What disrupts sleep:</strong> Psilocybin (always morning sessions). MDMA (disrupts REM 1–3 nights — maintain Yoga Nidra). tDCS (not within 5 hours of sleep time, ~4–4:30pm cutoff). Skipping Yoga Nidra. Late meals (final meal by 6:00pm — no exceptions).</p>
     </div>
   </details>
 </div>
@@ -805,6 +811,9 @@ tr:last-child td{border-bottom:none}
   <h2 class="s2 bl">HeartMath HRV Biofeedback</h2>
   <p><strong>Begins Month 2.</strong> Device: HeartMath Inner Balance (ear clip + app). 20 minutes daily, morning after somatic release and Qi-Gong.</p>
   <p>Real-time cardiac coherence training. High coherence reflects robust vagal tone and lower baseline sympathetic activation. <strong>Protocol:</strong> Breathe at 6 breaths/min (5-sec inhale, 5-sec exhale). Simultaneously recall a genuinely felt positive emotion — physically felt, not conceptually invoked. <strong>The breathing alone is insufficient. The emotion is what produces coherence.</strong></p>
+  <div class="info-box" style="background:var(--amber-light);border-left:3px solid var(--amber);padding:12px 16px;border-radius:6px;margin:12px 0;font-size:13.5px">
+    <strong>⚑ App note — important:</strong> Always use <strong>Free Session</strong> (Quick Coherence) mode. The guided audio programs contain narrator speech that is a direct misophonia trigger — never use them. Always run through headphones, never phone speaker. The biofeedback loop is fully functional in Free Session mode; nothing is lost. Alternative: the <em>Elite HRV</em> app is compatible with the Inner Balance sensor and offers fully customizable audio.
+  </div>
   <p><em>Not on macrodose days during onset/peak. Not when genuinely dissociated.</em></p>
 </div>
 
@@ -815,7 +824,7 @@ tr:last-child td{border-bottom:none}
   <p>Retrains the auditory safety detection circuits at hardware level — before the threat cascade fires. The stapedius muscle in chronic hypervigilance is undertrained. SSP exercises it and its vagal circuits. SSP does not do what CC does — they are complementary.</p>
   <ul class="prose">
     <li>Lie down or sit comfortably. Headphones — not speakers. No multitasking.</li>
-    <li><strong>On SSP days: no standalone CC sessions.</strong> Muse S and tDCS continue normally.</li>
+    <li><strong>On SSP days: no standalone CC sessions.</strong> tDCS continues normally.</li>
     <li>Kava before an SSP session is acceptable if anticipatory anxiety is present.</li>
     <li>After course: 2–3 days before pushing CC hierarchy.</li>
   </ul>
@@ -848,9 +857,9 @@ tr:last-child td{border-bottom:none}
   <h2 class="s2">Supplements — Phase 1</h2>
 
   <details>
-    <summary>Why krill oil + algae oil (the phospholipid rationale)</summary>
+    <summary>Why krill oil + omega-3 top-up (fish oil or algae oil) (the phospholipid rationale)</summary>
     <div class="db">
-      <p>This protocol's neuroplasticity targets require sustained EPA and DHA in phospholipid form for neuronal membrane incorporation. Algae oil provides EPA+DHA in triglyceride form — well absorbed, raises blood levels. Krill oil provides them in phospholipid form — crosses into neural tissue more efficiently. There is currently no plant-based phospholipid EPA+DHA source. Combined daily target: 2–3g EPA+DHA. Skip both on days eating oily fish.</p>
+      <p>This protocol's neuroplasticity targets require sustained EPA and DHA in phospholipid form for neuronal membrane incorporation. Omega-3 top-up (fish oil or omega-3 top-up (fish oil or algae oil)) provides EPA+DHA in triglyceride form — well absorbed, raises blood levels. Krill oil provides them in phospholipid form — crosses into neural tissue more efficiently. There is currently no plant-based phospholipid EPA+DHA source. Combined daily target: 2–3g EPA+DHA. Skip both on days eating oily fish.</p>
     </div>
   </details>
 
@@ -864,12 +873,12 @@ tr:last-child td{border-bottom:none}
   <h3 class="s3">Daily Stack — Phase 1</h3>
   <div class="card" style="padding:14px 18px">
     <div class="supr"><span class="supn">On Waking</span><span class="supd"></span></div>
-    <div class="supr"><span class="supn">Creatine 5g</span><span class="supd">Brain energy metabolism. Critical in plant-forward diets.</span></div>
+    <div class="supr"><span class="supn">Creatine 7.5g</span><span class="supd">Brain energy metabolism. Critical in plant-forward diets.</span></div>
     <div class="supr"><span class="supn">L. reuteri 1–2 tabs</span><span class="supd">Chew thoroughly. Stimulates oxytocin via vagal signaling.</span></div>
     <div class="supr" style="margin-top:8px"><span class="supn">Morning (with food)</span><span class="supd"></span></div>
     <div class="supr"><span class="supn">NMN 500mg sublingual</span><span class="supd">Month 2 onward. Before other supplements, empty stomach. NAD+ precursor.</span></div>
     <div class="supr"><span class="supn">Krill oil 2–3 softgels</span><span class="supd">~720–1080mg EPA+DHA phospholipid form. Pause 1wk before SGB.</span></div>
-    <div class="supr"><span class="supn">Algae oil 2–4 softgels</span><span class="supd">~585–1170mg EPA+DHA. Combined target: 2–3g daily.</span></div>
+    <div class="supr"><span class="supn">Omega-3 top-up (fish oil or omega-3 top-up (fish oil or algae oil)) 2–4 softgels</span><span class="supd">~585–1170mg EPA+DHA. Combined target: 2–3g daily.</span></div>
     <div class="supr"><span class="supn">Lion's Mane 2g</span><span class="supd">Dual-extracted only. NGF, synaptogenesis. Never skip.</span></div>
     <div class="supr"><span class="supn">Bacopa 320mg</span><span class="supd">Week 3+. Extinction learning. Takes 4–6 weeks to full effect. Take with food.</span></div>
     <div class="supr"><span class="supn">D3/K2</span><span class="supd">2000–5000 IU D3 + 100mcg K2 MK-7. With fat-containing food.</span></div>
@@ -879,7 +888,7 @@ tr:last-child td{border-bottom:none}
     <div class="supr"><span class="supn">Phosphatidylserine 300mg</span><span class="supd">Month 2+. Cortisol blunting, fear extinction support. Not evening.</span></div>
     <div class="supr" style="margin-top:8px"><span class="supn">Bedtime (30–60 min before)</span><span class="supd"></span></div>
     <div class="supr"><span class="supn">Mag L-Threonate 2000mg</span><span class="supd">Brain-specific magnesium. Sleep depth, synaptic plasticity.</span></div>
-    <div class="supr"><span class="supn">Mag Glycinate 400mg el.</span><span class="supd">Calming, sleep architecture. Do not substitute oxide or citrate.</span></div>
+    <div class="supr"><span class="supn">Mag Glycinate 360mg el. (3×120mg)</span><span class="supd">Calming, sleep architecture. Do not substitute oxide or citrate.</span></div>
     <div class="supr"><span class="supn">Glycine 3g</span><span class="supd">Lowers core body temp at sleep onset.</span></div>
     <div class="supr"><span class="supn">Apigenin 50mg</span><span class="supd">Mild anxiolytic, sleep onset. Avoid on nights drinking.</span></div>
     <div class="supr"><span class="supn">Melatonin 0.5mg</span><span class="supd">First 4–6 weeks only, then taper and stop.</span></div>
@@ -909,7 +918,7 @@ tr:last-child td{border-bottom:none}
       <div class="sr"><span class="srt">8:00am</span><span class="sra"><strong>Morning meeting</strong> — meeting support on</span></div>
       <div class="sr"><span class="srt">Midday</span><span class="sra">Phosphatidylserine 300mg with meal <span class="tag tg">from Mo 2</span>. Green tea afternoon.</span></div>
       <div class="sr"><span class="srt">5:30pm</span><span class="sra">Monday leadership meeting (meeting support on) or free time</span></div>
-      <div class="sr"><span class="srt">6:00pm</span><span class="sra">Final meal — nothing after 6:30pm</span></div>
+      <div class="sr"><span class="srt">6:00pm</span><span class="sra">Final meal — by 6:00pm on all days</span></div>
       <div class="sr"><span class="srt">8:00pm</span><span class="sra">Bedtime supplements → warm shower → Yoga Nidra → screens off</span></div>
       <div class="sr"><span class="srt">9:30pm</span><span class="sra">Sleep: pink noise on, blackout mask on</span></div>
     </div>
@@ -1061,7 +1070,7 @@ tr:last-child td{border-bottom:none}
   <div class="glance-card">
     <div class="glance-row"><span class="glance-label">Active trigger work</span><span class="glance-val">CC begins — lowest hierarchy levels (SUDs 1–4)</span></div>
     <div class="glance-row"><span class="glance-label">Psilocybin</span><span class="glance-val">Session 1 (first therapeutic macrodose, 2.5g, Weeks 5–8)</span></div>
-    <div class="glance-row"><span class="glance-label">New devices</span><span class="glance-val">tVNS (Nurosym) during standalone CC sessions</span></div>
+    <div class="glance-row"><span class="glance-label">New devices</span><span class="glance-val">tVNS (Nuropod) during standalone CC sessions</span></div>
     <div class="glance-row"><span class="glance-label">New supplements</span><span class="glance-val">Ashwagandha, Lithium Orotate, NAC (×2 daily), L-Theanine (CC days)</span></div>
     <div class="glance-row"><span class="glance-label">New modalities</span><span class="glance-val">ACT, Anti-Rumination Protocol, Kava (situational)</span></div>
   </div>
@@ -1117,7 +1126,7 @@ tr:last-child td{border-bottom:none}
   <div class="stag tb">Phase 2 · 6B</div>
   <h2 class="s2 bl">tVNS — Vagal Nerve Stimulation</h2>
   <div class="card bl">
-    <div class="card-title">Device: Nurosym earclip</div>
+    <div class="card-title">Device: Nuropod earclip</div>
     <h3 style="color:var(--blue-dark)">During standalone CC sessions</h3>
     <p>Activates the vagus nerve via auricular branch → parasympathetic upregulation + enhanced plasticity in locus coeruleus (norepinephrine pathway). New associations formed during CC retain more durably.</p>
     <p><strong>Settings:</strong> 25Hz, 200–300µs pulse width, 0.5–1.0 mA. Begin 0.5 mA. No sensation should be felt.</p>
@@ -1189,7 +1198,7 @@ tr:last-child td{border-bottom:none}
     <div class="supr"><span class="supn">Ashwagandha (KSM-66) 600mg</span><span class="supd">Morning with food. HPA axis modulation — no serotonergic pathway, no mechanism to blunt psilocybin. Continue on macrodose days. Skip on MDMA session days only.</span></div>
     <div class="supr"><span class="supn">Lithium Orotate 5mg</span><span class="supd">Morning. Hippocampal neurogenesis, BDNF upregulation at nutritional doses. Do not exceed 10mg/day. Not with pharmaceutical lithium.</span></div>
     <div class="supr"><span class="supn">NAC 600mg ×2</span><span class="supd">Morning + midday. Glutamate modulation, antioxidant. Stop 3 days before MDMA (resume 48h after). Continue on psilocybin macrodose days.</span></div>
-    <div class="supr"><span class="supn">L-Theanine 200mg</span><span class="supd">Pre-CC session days only, 30 min before. Not within 3h of sleep. Morning matcha already provides baseline L-theanine.</span></div>
+    <div class="supr"><span class="supn"></span><span class="supd">Pre-CC session days only, 30 min before. Not within 3h of sleep. Morning matcha already provides baseline L-theanine.</span></div>
   </div>
 </div>
 
@@ -1255,7 +1264,7 @@ tr:last-child td{border-bottom:none}
   </div>
   <div class="glance-card">
     <div class="glance-row"><span class="glance-label">Active trigger work</span><span class="glance-val">CC deepens — SUDs 3–6 range</span></div>
-    <div class="glance-row"><span class="glance-label">New devices</span><span class="glance-val">tDCS (before CC), Muse S (morning)</span></div>
+    <div class="glance-row"><span class="glance-label">New devices</span><span class="glance-val">tDCS (before CC)</span></div>
     <div class="glance-row"><span class="glance-label">New modalities</span><span class="glance-val">EMDR, IFS, Propranolol-assisted reconsolidation</span></div>
     <div class="glance-row"><span class="glance-label">New substances</span><span class="glance-val">MDMA Session 1, Microdosing Stamets Stack</span></div>
     <div class="glance-row"><span class="glance-label">New supplements</span><span class="glance-val">Psilocybin microdose + Niacin flush (Mon–Thu 10am)</span></div>
@@ -1269,7 +1278,7 @@ tr:last-child td{border-bottom:none}
     <div class="card al">
       <div class="card-title">Full Rhythm</div>
       <ul class="prose" style="font-size:13px">
-        <li>Morning block daily (SR, QG, HM, Muse S)</li>
+        <li>Morning block daily (SR, QG, HeartMath)</li>
         <li>CC 4–5×/wk with tDCS + tVNS</li>
         <li>EMDR 2–3×/wk post-CC</li>
         <li>IFS 1–2×/wk</li>
@@ -1297,6 +1306,7 @@ tr:last-child td{border-bottom:none}
 <div class="section" id="p3-tdcs">
   <div class="stag tb">Phase 3 · 7A</div>
   <h2 class="s2 bl">tDCS — Transcranial Direct Current Stimulation</h2>
+  <p style="font-size:13px;color:var(--text-muted);margin-bottom:10px"><strong>Device: ActivaDose tDCS</strong></p>
   <div class="card bl">
     <div class="card-title">3×/week Phase 3 → 5×/week Phase 4</div>
     <h3 style="color:var(--blue-dark)">20 min immediately before each CC session</h3>
@@ -1308,18 +1318,8 @@ tr:last-child td{border-bottom:none}
   </div>
 </div>
 
-<div class="section" id="p3-muse">
-  <div class="stag tb">Phase 3 · 7B</div>
-  <h2 class="s2 bl">Muse S — Alpha-Theta Neurofeedback</h2>
-  <div class="card bl">
-    <div class="card-title">Daily, 20 min, morning after HeartMath</div>
-    <p>Real-time EEG feedback trains theta (4–8 Hz) + alpha (8–12 Hz) production. The theta-alpha boundary state reduces DMN activity and insula reactivity — the same state Yoga Nidra inhabits. The return to target after drifting is the training, not the maintenance.</p>
-    <p><strong>On sleep-deprived days:</strong> Reduce to 10 min and lower expectations. Do not skip — even brief session maintains the habit. Avoid within 2 hours of sleep.</p>
-  </div>
-</div>
-
 <div class="section" id="p3-somatic">
-  <div class="stag tp">Phase 3 · 7C</div>
+  <div class="stag tp">Phase 3 · 7B</div>
   <h2 class="s2">Full Somatic Release Sequence</h2>
   <p><strong>Replaces simplified version from Phase 3.</strong> Morning: 10–15 min. Before every CC session: 20–25 min (separate afternoon block).</p>
   <p>The psoas release directly reduces the brainstem's danger signal. Body tension at session start predicts session quality — the full pre-CC sequence is not optional.</p>
@@ -1327,7 +1327,7 @@ tr:last-child td{border-bottom:none}
 </div>
 
 <div class="section" id="p3-emdr">
-  <div class="stag ta">Phase 3 · 7D</div>
+  <div class="stag ta">Phase 3 · 7B</div>
   <h2 class="s2 al">EMDR</h2>
   <p><strong>2–3 sessions/week, post-CC, on CC days.</strong> Targets specific interpersonal trigger memories. Standard CC does not reach these directly. EMDR does.</p>
   <details>
@@ -1347,7 +1347,7 @@ tr:last-child td{border-bottom:none}
 </div>
 
 <div class="section" id="p3-ifs">
-  <div class="stag ta">Phase 3 · 7E</div>
+  <div class="stag ta">Phase 3 · 7B</div>
   <h2 class="s2 al">IFS — Internal Family Systems</h2>
   <p><strong>1–2 self-directed sessions/week, post-trigger or post-EMDR.</strong></p>
   <div class="card al">
@@ -1357,7 +1357,7 @@ tr:last-child td{border-bottom:none}
 </div>
 
 <div class="section" id="p3-propranolol">
-  <div class="stag ta">Phase 3 · 7F</div>
+  <div class="stag ta">Phase 3 · 7B</div>
   <h2 class="s2 al">Propranolol-Assisted Memory Reconsolidation</h2>
   <p><strong>Phase 3 second half, 2–3×/week for 4–6 weeks. Requires physician prescription.</strong></p>
   <div class="card al">
@@ -1370,7 +1370,7 @@ tr:last-child td{border-bottom:none}
 </div>
 
 <div class="section" id="p3-macro">
-  <div class="stag tg">Phase 3 · 7G</div>
+  <div class="stag tg">Phase 3 · 7B</div>
   <h2 class="s2 gl">Deepening Macrodoses</h2>
   <div class="sc psy">
     <div class="scl">Psilocybin · Phase 3 · 1–2 sessions</div>
@@ -1381,7 +1381,7 @@ tr:last-child td{border-bottom:none}
 </div>
 
 <div class="section" id="p3-micro">
-  <div class="stag tg">Phase 3 · 7G cont.</div>
+  <div class="stag tg">Phase 3 · 7B cont.</div>
   <h2 class="s2 gl">Microdosing — Stamets Stack</h2>
   <p><strong>Begins after Phase 2 psilocybin macrodose integration week. Runs Phases 3–5.</strong></p>
   <div class="card gl">
@@ -1393,7 +1393,7 @@ tr:last-child td{border-bottom:none}
 </div>
 
 <div class="section" id="p3-mdma1">
-  <div class="stag tr">Phase 3 · 7H</div>
+  <div class="stag tr">Phase 3 · 7B</div>
   <h2 class="s2 rl">MDMA Session 1 — Interpersonal Layer</h2>
   <div class="sc mdma">
     <div class="scl">MDMA · Session 1 · Phase 3 second half</div>
@@ -1416,20 +1416,20 @@ tr:last-child td{border-bottom:none}
 </div>
 
 <div class="section" id="p3-supps">
-  <div class="stag tp">Phase 3 · 7I</div>
+  <div class="stag tp">Phase 3 · 7B</div>
   <h2 class="s2">Supplements — Phase 3 Complete Stack</h2>
   <div class="card">
     <div class="supr"><span class="supn">On Waking</span><span class="supd">Creatine 5g + L. reuteri 1–2 tabs (chew)</span></div>
     <div class="supr"><span class="supn">Morning (with food)</span><span class="supd">NMN 500mg sublingual first · Krill 2–3sg · Algae 2–4sg · Lion's Mane 2g · Bacopa 320mg · Ashwagandha 600mg · Lithium Orotate 5mg · NAC 600mg (first) · D3/K2 · B-complex · B12</span></div>
     <div class="supr"><span class="supn">10:00am (Mon–Thu)</span><span class="supd">Psilocybin 0.1–0.15g + Niacin flush 100–200mg (microdosing days only)</span></div>
     <div class="supr"><span class="supn">Midday (with meal)</span><span class="supd">NAC 600mg (second) · Phosphatidylserine 300mg</span></div>
-    <div class="supr"><span class="supn">Pre-CC session only</span><span class="supd">L-Theanine 200mg (30 min before)</span></div>
-    <div class="supr"><span class="supn">Bedtime</span><span class="supd">Mag L-Threonate 2000mg · Mag Glycinate 400mg · Glycine 3g · Apigenin 50mg</span></div>
+    <div class="supr"><span class="supn">Pre-CC session only</span><span class="supd"> (30 min before)</span></div>
+    <div class="supr"><span class="supn">Bedtime</span><span class="supd">Mag L-Threonate 2000mg · Mag Glycinate 360mg · Glycine 3g · Apigenin 50mg</span></div>
   </div>
 </div>
 
 <div class="section" id="p3-rhythm">
-  <div class="stag ta">Phase 3 · 7J</div>
+  <div class="stag ta">Phase 3 · 7B</div>
   <h2 class="s2 al">Daily Rhythm — Phase 3</h2>
 
   <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
@@ -1447,8 +1447,8 @@ tr:last-child td{border-bottom:none}
       <div class="sr"><span class="srt">7:10am</span><span class="sra">Somatic release — full sequence (10–15 min)</span></div>
       <div class="sr"><span class="srt">7:30am</span><span class="sra">Qi-Gong — 15 min</span></div>
       <div class="sr"><span class="srt">7:45am</span><span class="sra">HeartMath — 20 min</span></div>
-      <div class="sr"><span class="srt">8:05am</span><span class="sra">Muse S — 20 min · Matcha</span></div>
-      <div class="sr"><span class="srt">8:00am</span><span class="sra"><strong>Morning meeting</strong> — meeting support on (if block can't finish, priority: supplements → simplified somatic → meeting; HeartMath + Muse S shift to post-meeting)</span></div>
+      <div class="sr"><span class="srt">8:05am</span><span class="sra">Matcha</span></div>
+      <div class="sr"><span class="srt">8:00am</span><span class="sra"><strong>Morning meeting</strong> — meeting support on (if block can't finish, priority: supplements → simplified somatic → meeting; HeartMath shifts to post-meeting)</span></div>
       <div class="sr"><span class="srt">10:00am</span><span class="sra">Microdosing Mon–Thu (shift to 10:30am if during meeting)</span></div>
       <div class="sr"><span class="srt">Midday</span><span class="sra">NAC second dose + Phosphatidylserine with meal. Green tea afternoon.</span></div>
       <div class="sr"><span class="srt">Ongoing</span><span class="sra">ACT defusion + anti-rumination as ambient practices — activate in real time</span></div>
@@ -1472,7 +1472,7 @@ tr:last-child td{border-bottom:none}
       <div class="sr"><span class="srt">5:45am</span><span class="sra">Somatic release — 10–15 min</span></div>
       <div class="sr"><span class="srt">6:00am</span><span class="sra">Qi-Gong — 15 min</span></div>
       <div class="sr"><span class="srt">6:15am</span><span class="sra">HeartMath — 20 min</span></div>
-      <div class="sr"><span class="srt">6:35am</span><span class="sra">Muse S — 20 min</span></div>
+      <div class="sr"></div>
       <div class="sr"><span class="srt">6:55am</span><span class="sra">Morning supplements (NMN first) · Matcha</span></div>
       <div class="sr"><span class="srt">8:00am</span><span class="sra"><strong>Morning meeting</strong> — meeting support on</span></div>
       <div class="sr"><span class="srt">10:00am</span><span class="sra">Microdosing Mon–Thu</span></div>
@@ -1483,19 +1483,19 @@ tr:last-child td{border-bottom:none}
 </div>
 
 <div class="section" id="p3-signs">
-  <div class="stag ta">Phase 3 · 7K</div>
+  <div class="stag ta">Phase 3 · 7B</div>
   <h2 class="s2 al">Signs Phase 3 Is Working</h2>
   <ul class="prose">
     <li>Specific interpersonal memories worked in EMDR carry noticeably less charge in daily life — the person still triggers, the memory itself is less fused</li>
     <li>CC no longer feels like forcing yourself into battle — it feels like work with a known outcome</li>
-    <li>Morning block (somatic, Qi-Gong, HeartMath, Muse S) functions as infrastructure, not a task list</li>
+    <li>Morning block (somatic, Qi-Gong, HeartMath) functions as infrastructure, not a task list</li>
     <li>IFS has produced genuine contact with the protector part — not resolution, contact</li>
     <li>After MDMA Session 1, the interpersonal layer has a different texture — something shifted, even if incompletely</li>
   </ul>
 </div>
 
 <div class="section" id="p3-gate">
-  <div class="stag ta">Phase 3 · 7L</div>
+  <div class="stag ta">Phase 3 · 7B</div>
   <h2 class="s2 al">Phase 3 Gate → Phase 4</h2>
   <div class="gate">
     <div class="gate-title">Move to Phase 4 when genuinely true</div>
@@ -1664,7 +1664,7 @@ tr:last-child td{border-bottom:none}
   </div>
   <div class="card bl" style="margin-bottom:10px">
     <div class="card-title">Window 2 — SSP Refresher (Days 7–14)</div>
-    <p style="margin:0">Full morning block. SSP 30–60 min daily. No standalone CC on SSP days. tDCS + Muse S continue normally. Microdosing continues.</p>
+    <p style="margin:0">Full morning block. SSP 30–60 min daily. No standalone CC on SSP days. tDCS continues normally. Microdosing continues.</p>
   </div>
   <div class="card al" style="margin-bottom:10px">
     <div class="card-title">Window 3 — Propranolol CC (Weeks 2–3, pre-macrodose)</div>
@@ -1752,7 +1752,7 @@ tr:last-child td{border-bottom:none}
   <h2 class="s2 bl">Device Rhythm — Phase 5</h2>
   <div class="card">
     <div class="supr"><span class="supn">HeartMath</span><span class="supd">Daily. One of the practices most worth keeping permanently — vagal tone is the substrate of the new baseline.</span></div>
-    <div class="supr"><span class="supn">Muse S</span><span class="supd">4–5×/week. Regulatory capacity established; maintenance requires less daily effort.</span></div>
+    <div class="supr"></div>
     <div class="supr"><span class="supn">tDCS</span><span class="supd">2–3×/week, before CC or standalone prefrontal maintenance.</span></div>
     <div class="supr"><span class="supn">tVNS</span><span class="supd">During CC sessions; also as standalone support during high-trigger periods, post-trigger events, or deliberate re-entry contexts.</span></div>
     <div class="supr"><span class="supn">Yoga Nidra</span><span class="supd">Every evening. By Phase 5, trigger sounds in the open awareness phase register as information rather than threat — one of the most concrete measures of protocol progress.</span></div>
@@ -1793,7 +1793,7 @@ tr:last-child td{border-bottom:none}
     <div class="supr"><span class="supn">Microdosing</span><span class="supd">4-week cycles with 2-week breaks. Stamets stack.</span></div>
     <div class="supr"><span class="supn">CC</span><span class="supd">As needed — a tool when needed, not a schedule obligation.</span></div>
     <div class="supr"><span class="supn">HeartMath + Yoga Nidra + Somatic release</span><span class="supd">Daily. Permanent practices.</span></div>
-    <div class="supr"><span class="supn">Supplements</span><span class="supd">Full Phase 5 stack, reassessed annually via bloodwork. Lion's Mane, krill + algae, magnesium, creatine likely permanent.</span></div>
+    <div class="supr"><span class="supn">Supplements</span><span class="supd">Full Phase 5 stack, reassessed annually via bloodwork. Lion's Mane, krill + omega-3 top-up, magnesium, creatine likely permanent.</span></div>
     <div class="supr"><span class="supn">What can be released</span><span class="supd">Kava (if anticipatory dread substantially reduced), propranolol (prescription only when specifically needed), some meeting support use (by choice).</span></div>
   </div>
   <div class="ig" style="margin-top:16px">
@@ -1834,7 +1834,7 @@ tr:last-child td{border-bottom:none}
   <div class="stag tb">Section 11</div>
   <h1 class="st">Yoga Nidra Protocol</h1>
   <div class="ib">
-    <strong>What it is in this protocol:</strong> Thalamic filter training. In the theta-alpha boundary state (4–12 Hz, just above sleep onset), the thalamus remains active as a sensory filter while the cortex enters low arousal. Sounds register and pass without the cortical threat cascade being fully online. Distinct from HeartMath (vagal from alert state), Muse S (active alpha-theta training), and CC (conscious rewriting).
+    <strong>What it is in this protocol:</strong> Thalamic filter training. In the theta-alpha boundary state (4–12 Hz, just above sleep onset), the thalamus remains active as a sensory filter while the cortex enters low arousal. Sounds register and pass without the cortical threat cascade being fully online. Distinct from HeartMath (vagal regulation from alert state) and CC (conscious association rewriting). Yoga Nidra trains what happens to sensory input in the passively filtered state — and does so through direct experience rather than external feedback, building the intuitive awareness the other practices support.
   </div>
 
   <h3 class="s3">Protocol</h3>
@@ -1934,6 +1934,51 @@ tr:last-child td{border-bottom:none}
   </details>
 </div>
 
+
+<div class="section" id="ref-bibliography">
+  <div class="stag tm">Reference</div>
+  <h1 class="st">Research Bibliography</h1>
+  <p style="margin-bottom:18px">Key peer-reviewed sources by domain. Full bibliography with all citations is available as a <a href="bibliography.html" style="color:var(--green-dark);font-weight:500">dedicated reference page</a>.</p>
+
+  <div class="card" style="margin-bottom:12px">
+    <div class="card-title" style="color:var(--rose)">Misophonia — Neuroscience</div>
+    <p style="font-size:13px;margin:0">Kumar et al. (2021) <em>Journal of Neuroscience</em> — motor basis of misophonia; sensorimotor cortex hyperconnectivity. Schröder et al. (2013) <em>PLOS ONE</em> — diagnostic criteria. Wu et al. (2014) — phenomenology and incidence.</p>
+  </div>
+  <div class="card" style="margin-bottom:12px">
+    <div class="card-title" style="color:var(--rose)">Counterconditioning &amp; Fear Extinction</div>
+    <p style="font-size:13px;margin:0">Milad &amp; Quirk (2012) <em>Annual Review of Psychology</em>. Craske et al. (2014) <em>Behaviour Research and Therapy</em> — inhibitory learning approach. Bouton (2004) — context and extinction processes.</p>
+  </div>
+  <div class="card" style="margin-bottom:12px">
+    <div class="card-title" style="color:var(--rose)">Stellate Ganglion Block</div>
+    <p style="font-size:13px;margin:0">Mulvaney et al. (2010, 2020) — SGB for PTSD/autonomic dysregulation. Lipov et al. (2013) — sympathetic reset mechanism. Hanling et al. (2016) <em>Regional Anesthesia and Pain Medicine</em>.</p>
+  </div>
+  <div class="card" style="margin-bottom:12px">
+    <div class="card-title" style="color:var(--rose)">Psilocybin &amp; MDMA</div>
+    <p style="font-size:13px;margin:0">Carhart-Harris et al. (2021) <em>NEJM</em> — psilocybin vs escitalopram. Davis et al. (2021) <em>JAMA Psychiatry</em>. Ly et al. (2018) <em>Cell Reports</em> — structural neuroplasticity. Mitchell et al. (2021) <em>Nature Medicine</em> — MDMA for PTSD.</p>
+  </div>
+  <div class="card" style="margin-bottom:12px">
+    <div class="card-title" style="color:var(--rose)">Propranolol &amp; Reconsolidation</div>
+    <p style="font-size:13px;margin:0">Kindt, Soeter &amp; Vervliet (2009) <em>Nature Neuroscience</em> — erasing fear responses. Brunet et al. (2008) — post-retrieval propranolol. Soeter &amp; Kindt (2015) <em>Biological Psychiatry</em>.</p>
+  </div>
+  <div class="card" style="margin-bottom:12px">
+    <div class="card-title" style="color:var(--rose)">tVNS, tDCS, HeartMath, SSP</div>
+    <p style="font-size:13px;margin:0">Colzato et al. (2018) — tVNS and cognitive enhancement. Nitsche &amp; Paulus (2000) <em>Journal of Physiology</em> — tDCS fundamentals. McCraty et al. (2009) — cardiac coherence. Porges (2011) <em>The Polyvagal Theory</em>; Porges (2001) <em>Int. J. Psychophysiology</em>.</p>
+  </div>
+  <div class="card" style="margin-bottom:12px">
+    <div class="card-title" style="color:var(--rose)">Sleep, BDNF &amp; Neuroplasticity</div>
+    <p style="font-size:13px;margin:0">Walker &amp; Stickgold (2004) <em>Neuron</em> — sleep-dependent memory consolidation. Diekelmann &amp; Born (2010) <em>Nature Reviews Neuroscience</em>. Cotman et al. (2007) <em>Trends in Neurosciences</em> — exercise and BDNF.</p>
+  </div>
+  <div class="card" style="margin-bottom:12px">
+    <div class="card-title" style="color:var(--rose)">Supplements &amp; Omega-3</div>
+    <p style="font-size:13px;margin:0">Stough et al. (2001) — Bacopa and cognitive/extinction learning. Dyall (2015) <em>Frontiers in Aging Neuroscience</em> — DHA and neuroplasticity. Yurko-Mauro et al. (2015) — DHA and memory.</p>
+  </div>
+  <div class="card">
+    <div class="card-title" style="color:var(--rose)">Measurement Tools</div>
+    <p style="font-size:13px;margin:0">Schröder et al. (2017) <em>Journal of Affective Disorders</em> — A-MISO-S validation. FOAMS database (Zenodo, DOI: 10.5281/zenodo.4813431) — validated trigger sound library.</p>
+  </div>
+  <p style="margin-top:16px;font-size:13px"><a href="bibliography.html" style="color:var(--green-dark);font-weight:500">→ Full bibliography with complete citations</a></p>
+</div>
+
 <div class="section" id="ref-legal">
   <div class="stag dm">Legal &amp; Safety</div>
   <h2 class="s2">Legal and Safety Note</h2>
@@ -1952,7 +1997,7 @@ tr:last-child td{border-bottom:none}
   <span class="pf-item"><span class="pf-dot" style="background:var(--amber)"></span>Behavioral Rewriting</span>
   <span class="pf-item"><span class="pf-dot" style="background:var(--blue-dark)"></span>Consolidation</span>
   <span class="pf-item"><span class="pf-dot" style="background:var(--purple)"></span>Substrate</span>
-  <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">V9.2 — Built for one specific person</span>
+  <span style="margin-left:auto;font-size:10px;color:var(--text-muted)">V9.3 — Built for one specific person</span>
 </div>
 
 </main>
