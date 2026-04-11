@@ -44,7 +44,7 @@ h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
 .ni.sub{padding-left:26px;font-size:12px}
 .ni.subsub{padding-left:38px;font-size:11.5px;color:var(--text-muted)}
 .ni.subsub:hover,.ni.subsub.active{color:var(--green-mid)}
-.nd{width:5px;height:5px;min-width:5px;min-height:5px;border-radius:50%;flex-shrink:0}
+.nd{width:5px;height:5px;min-width:5px;min-height:5px;max-width:5px;max-height:5px;border-radius:50%;flex-shrink:0;flex-grow:0;display:block;align-self:center;line-height:0;font-size:0;overflow:hidden}
 .dg{background:var(--green-mid)}.da{background:var(--amber)}.dr{background:var(--rose)}.db{background:var(--blue-dark)}.dp{background:var(--purple)}.dm{background:var(--text-muted)}
 
 /* Phase group toggle */
@@ -139,6 +139,7 @@ details summary{padding:12px 18px;font-family:'DM Sans',sans-serif;font-size:13.
 details summary:hover{background:var(--green-light)}
 details summary::before{content:'▸';font-size:11px;color:var(--green-mid);transition:transform .2s;flex-shrink:0}
 details[open] summary::before{transform:rotate(90deg)}
+details > div.db{background:var(--blue-light);padding:14px 18px 16px;color:var(--text)}
 details summary::-webkit-details-marker{display:none}
 .db{padding:4px 18px 16px;border-top:1px solid var(--border-light)}
 .db p,.db ul,.db ol{font-size:13.5px}
@@ -239,14 +240,16 @@ tr:last-child td{border-bottom:none}
 <!-- TOPBAR -->
 <header id="topbar">
   <button id="menu-toggle" onclick="toggleSidebar()">☰</button>
-  <span class="logo">The Misophonia Rewiring &amp; Wellness Protocol</span>
-  <span class="vbadge">V9.3</span>
+  <a href="protocol.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0">
+    <span class="logo">The Misophonia Rewiring &amp; Wellness Protocol</span>
+    <span class="vbadge">V9.3</span>
+  </a>
   <nav class="sat-links">
     <a href="cheatsheet.html" class="sat-link">Cheat Sheet</a>
     <a href="glossary.html" class="sat-link">Glossary</a>
     <a href="exercises.html" class="sat-link">Exercises</a>
     <a href="diet.html" class="sat-link">Diet</a>
-    <a href="shopping.html" class="sat-link">Shopping List</a>
+    <a href="shopping.html" class="sat-link">Shopping</a>
     <a href="log.html" class="sat-link">Log</a>
   </nav>
 </header>
@@ -401,12 +404,12 @@ tr:last-child td{border-bottom:none}
   <!-- REFERENCES -->
   <div class="ng" style="border-top:1px solid var(--border-light);margin-top:6px;padding-top:4px">
     <div class="ngl">References</div>
-    <a class="ni" href="#ref-somatic"><span class="nd dp"></span>Somatic Release</a>
-    <a class="ni" href="#ref-yoga"><span class="nd db"></span>Yoga Nidra</a>
-    <a class="ni" href="#ref-cc"><span class="nd da"></span>CC Techniques</a>
-    <a class="ni" href="#ref-tracking"><span class="nd dm"></span>Tracking &amp; Testing</a>
-    <a class="ni" href="#ref-legal"><span class="nd dm"></span>Legal Note</a>
-    <a class="ni" href="#ref-bibliography"><span class="nd dm"></span>Bibliography</a>
+    <a class="ni" href="#ref-somatic">Somatic Release</a>
+    <a class="ni" href="#ref-yoga">Yoga Nidra</a>
+    <a class="ni" href="#ref-cc">CC Techniques</a>
+    <a class="ni" href="#ref-tracking">Tracking &amp; Testing</a>
+    <a class="ni" href="#ref-bibliography">References</a>
+    <a class="ni" href="#ref-legal">Legal Note</a>
   </div>
 
 </nav>
@@ -1937,8 +1940,8 @@ tr:last-child td{border-bottom:none}
 
 <div class="section" id="ref-bibliography">
   <div class="stag tm">Reference</div>
-  <h1 class="st">Research Bibliography</h1>
-  <p style="margin-bottom:18px">Key peer-reviewed sources by domain. Full bibliography with all citations is available as a <a href="bibliography.html" style="color:var(--green-dark);font-weight:500">dedicated reference page</a>.</p>
+  <h1 class="st">References</h1>
+  <p style="margin-bottom:18px">Key peer-reviewed sources by domain. Full bibliography with all citations is available as a <a href="bibliography.html" style="color:var(--green-dark);font-weight:500">dedicated references page</a>.</p>
 
   <div class="card" style="margin-bottom:12px">
     <div class="card-title" style="color:var(--rose)">Misophonia — Neuroscience</div>
@@ -1976,7 +1979,7 @@ tr:last-child td{border-bottom:none}
     <div class="card-title" style="color:var(--rose)">Measurement Tools</div>
     <p style="font-size:13px;margin:0">Schröder et al. (2017) <em>Journal of Affective Disorders</em> — A-MISO-S validation. FOAMS database (Zenodo, DOI: 10.5281/zenodo.4813431) — validated trigger sound library.</p>
   </div>
-  <p style="margin-top:16px;font-size:13px"><a href="bibliography.html" style="color:var(--green-dark);font-weight:500">→ Full bibliography with complete citations</a></p>
+  <p style="margin-top:16px;font-size:13px"><a href="bibliography.html" style="color:var(--green-dark);font-weight:500">→ Full references with complete citations</a></p>
 </div>
 
 <div class="section" id="ref-legal">

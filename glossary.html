@@ -3,32 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glossary — Protocol V9.2</title>
+<title>Glossary — Misophonia Protocol V9.3</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--cream:#faf8f4;--white:#fff;--border:#e4e0d8;--border-light:#f4f0e8;--text:#2a2824;--text-mid:#4a4540;--text-muted:#8a7f70;--green-dark:#2d4a28;--green-mid:#4a7a42;--green-light:#e8f0e5;--green-border:#b8d4b0;--amber:#b87a1a;--amber-light:#fdf3e0;--amber-border:#e8c878;--rose:#a83050;--rose-light:#fdf0f3;--rose-border:#e8b0c0;--blue-dark:#2a4a6a;--blue-light:#eef4fb;--blue-border:#b8cfe8;--purple:#6a4082;--purple-light:#f5eeff;--purple-border:#c8b0f0;--topbar-h:54px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:74px}
-body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;font-size:14.5px}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.65;font-size:15px}
 h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-#topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:8px;padding:0 16px;border-bottom:2px solid #1a3018}
-.tbar-logo{font-family:'Lora',serif;font-size:13.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0}
-.tbar-badge{font-size:9px;font-weight:600;background:rgba(255,255,255,.12);color:#a8d4a0;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px 6px;flex-shrink:0}
-.tbar-sep{width:1px;height:22px;background:rgba(255,255,255,.15);flex-shrink:0;margin:0 4px}
-.tbar-links{display:flex;gap:4px;flex-wrap:wrap}
-.tbar-link{font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
-.tbar-link:hover{background:rgba(255,255,255,.12);color:#fff}
-.tbar-link.here{background:rgba(255,255,255,.22);color:#fff;border-color:rgba(255,255,255,.4)}
-.page{margin-top:var(--topbar-h);padding:28px 24px 70px;max-width:860px;margin-left:auto;margin-right:auto}
-.page-title{font-family:'Lora',serif;font-size:26px;font-weight:600;color:var(--green-dark);margin-bottom:6px}
-.page-sub{font-size:13.5px;color:var(--text-muted);margin-bottom:20px}
-.search-bar{display:flex;gap:8px;margin-bottom:18px}
-#gs{flex:1;padding:9px 14px;border:1px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);outline:none}
-#gs:focus{border-color:var(--green-mid)}
-.alpha-nav{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:22px;padding:10px 12px;background:var(--white);border:1px solid var(--border);border-radius:8px}
-.an{font-size:12px;font-weight:600;padding:3px 7px;border-radius:6px;text-decoration:none;color:var(--text-muted);transition:all .1s}
-.an:hover,.an.has-entries{color:var(--green-dark);background:var(--green-light)}
+.page{margin-top:var(--topbar-h);padding:28px 32px 80px;max-width:900px;margin-left:auto;margin-right:auto}
+.page-title{font-family:'Lora',serif;font-size:24px;font-weight:600;color:var(--green-dark);margin-bottom:6px}
+.page-sub{font-size:13.5px;color:var(--text-muted);margin-bottom:22px}
+.search-bar input{width:100%;padding:9px 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);border:1px solid var(--border);border-radius:9px;outline:none;transition:border-color .15s;margin-bottom:14px}
+.search-bar input:focus{border-color:var(--green-mid)}
 .cluster-filter{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px}
 .cf{font-size:12px;font-weight:500;padding:5px 13px;border-radius:20px;border:1px solid var(--border);background:var(--white);color:var(--text-mid);cursor:pointer;transition:all .12s}
 .cf:hover{border-color:var(--green-mid);color:var(--green-dark)}
@@ -37,40 +25,50 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
 .entry.hidden{display:none}
 .e-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px}
 .e-name{font-family:'Lora',serif;font-size:16.5px;font-weight:600;color:var(--green-dark);flex:1}
-.e-cluster{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;flex-shrink:0;margin-top:3px}
+.e-cluster{font-size:10px;font-weight:600;padding:2px 8px;border-radius:8px;white-space:nowrap;flex-shrink:0;align-self:center}
 .cl-concept{background:var(--green-light);color:var(--green-dark)}
 .cl-device{background:var(--blue-light);color:var(--blue-dark)}
 .cl-substance{background:var(--purple-light);color:var(--purple)}
 .cl-technique{background:var(--amber-light);color:var(--amber)}
 .cl-measure{background:var(--rose-light);color:var(--rose)}
+.cl-supplement{background:var(--purple-light);color:var(--purple)}
+.cl-food{background:var(--amber-light);color:var(--amber)}
 .e-def{font-size:14px;color:var(--text-mid);margin-bottom:6px;line-height:1.65}
 .e-role{font-size:12.5px;color:var(--text-muted);line-height:1.55}
 .e-role strong{color:var(--text-mid)}
-.e-link{font-size:11.5px;color:var(--green-mid);text-decoration:none;margin-top:5px;display:inline-block}
-.e-link:hover{text-decoration:underline}
-.letter-divider{font-family:'DM Mono',monospace;font-size:11px;font-weight:600;letter-spacing:.1em;color:var(--text-muted);padding:12px 0 4px;border-top:1px solid var(--border-light);margin-top:8px}
-.letter-divider:first-child{border-top:none;margin-top:0;padding-top:0}
-#no-results{display:none;text-align:center;padding:32px;color:var(--text-muted);font-size:14px}
+.letter-divider{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:.15em;color:var(--text-muted);text-transform:uppercase;padding:14px 0 4px;border-bottom:1px solid var(--border-light);margin-bottom:10px}
+#no-results{display:none;text-align:center;padding:40px;color:var(--text-muted);font-size:14px}
+.gl-link{color:var(--green-dark);text-decoration:underline;text-decoration-style:dotted;text-underline-offset:2px;cursor:pointer;font-weight:500}
+.gl-link:hover{color:var(--green-mid)}
+.entry.highlight{box-shadow:0 0 0 2px var(--green-mid);transition:box-shadow .3s}
+#topbar{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:10px;padding:0 18px;border-bottom:2px solid #1a3018}
+#topbar .logo{font-family:'Lora',serif;font-size:14.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0;text-decoration:none}
+#topbar .vbadge{font-size:9.5px;font-weight:600;background:rgba(255,255,255,.12);color:#a8d4a0;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px 6px;letter-spacing:.05em;flex-shrink:0}
+.sat-links{display:flex;gap:4px;margin-left:auto;flex-shrink:0}
+.sat-link{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
+.sat-link:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
+.sat-link.active{background:rgba(255,255,255,.18);color:#fff}
+@media(max-width:768px){.sat-link{font-size:9.5px;padding:3px 8px}.sat-link:nth-child(n+5){display:none}}
 </style>
 </head>
 <body>
 <header id="topbar">
-  <span class="tbar-logo">Protocol</span>
-  <span class="tbar-badge">V9.2</span>
-  <div class="tbar-sep"></div>
-  <nav class="tbar-links">
-    <a href="protocol.html" class="tbar-link">&#8592; Main Protocol</a>
-    <a href="cheatsheet.html" class="tbar-link">Cheat Sheet</a>
-    <a href="glossary.html" class="tbar-link here">Glossary</a>
-    <a href="exercises.html" class="tbar-link">Exercises</a>
-    <a href="diet.html" class="tbar-link">Diet</a>
-    <a href="shopping.html" class="tbar-link">Shopping</a>
-    <a href="log.html" class="tbar-link">Log</a>
+  <a href="protocol.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0">
+    <span class="logo">The Misophonia Rewiring &amp; Wellness Protocol</span>
+    <span class="vbadge">V9.3</span>
+  </a>
+  <nav class="sat-links">
+    <a href="cheatsheet.html" class="sat-link">Cheat Sheet</a>
+    <a href="glossary.html" class="sat-link active">Glossary</a>
+    <a href="exercises.html" class="sat-link">Exercises</a>
+    <a href="diet.html" class="sat-link">Diet</a>
+    <a href="shopping.html" class="sat-link">Shopping</a>
+    <a href="log.html" class="sat-link">Log</a>
   </nav>
 </header>
 <div class="page">
   <h1 class="page-title">Glossary</h1>
-  <p class="page-sub">Key concepts, tools, substances, and measurements — what each is and how it fits the protocol.</p>
+  <p class="page-sub">Every term, supplement, food, device, technique, and concept in the protocol — what it is and why it's here. Click any underlined term to jump to its entry.</p>
   <div class="search-bar">
     <input type="text" id="gs" placeholder="Search any term…" oninput="filterEntries()">
   </div>
@@ -78,240 +76,764 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
     <button class="cf active" data-cluster="all" onclick="setCluster('all',this)">All</button>
     <button class="cf" data-cluster="concept" onclick="setCluster('concept',this)">Concepts</button>
     <button class="cf" data-cluster="device" onclick="setCluster('device',this)">Devices</button>
-    <button class="cf" data-cluster="substance" onclick="setCluster('substance',this)">Substances</button>
     <button class="cf" data-cluster="technique" onclick="setCluster('technique',this)">Techniques</button>
+    <button class="cf" data-cluster="substance" onclick="setCluster('substance',this)">Substances</button>
+    <button class="cf" data-cluster="supplement" onclick="setCluster('supplement',this)">Supplements</button>
+    <button class="cf" data-cluster="food" onclick="setCluster('food',this)">Foods</button>
     <button class="cf" data-cluster="measure" onclick="setCluster('measure',this)">Measurements</button>
   </div>
   <div id="entries">
 
+<div class="letter-divider">#</div>
+
+<div class="entry" id="entry-5-ht2a-receptor" data-cluster="concept" data-name="5-ht2a-receptor">
+<div class="e-head"><span class="e-name">5-HT2A Receptor</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A serotonin receptor subtype that is the primary molecular target of classical psychedelics including psilocybin (via its active metabolite psilocin). Activation of 5-HT2A receptors in the prefrontal cortex suppresses the default mode network, promotes dendritic spine growth, and increases neuroplasticity.</div><div class="e-role"><strong>Protocol role:</strong> The core pharmacological mechanism through which psilocybin produces its neuroplasticity and therapeutic effects. 5-HT2A agonism is distinct from serotonin reuptake inhibition (SSRIs) — which is why psilocybin produces acute neuroplasticity that SSRIs do not.</div>
+</div>
+<div class="entry" id="entry-5-htp-post-mdma-protocol" data-cluster="supplement" data-name="5-htp-post-mdma-protocol">
+<div class="e-head"><span class="e-name">5-HTP (Post-MDMA Protocol)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">5-Hydroxytryptophan — the direct precursor to serotonin. Taken for 3 days after MDMA sessions to replenish serotonin stores.</div><div class="e-role"><strong>Protocol role:</strong> 100mg daily for 3 days starting 24h after MDMA session only. Do not take in 24h before any psilocybin or MDMA session.</div>
+</div>
+
 <div class="letter-divider">A</div>
 
-<div class="entry" data-cluster="measure" data-name="a-miso-s">
+<div class="entry" id="entry-a-miso-s" data-cluster="measure" data-name="a-miso-s">
 <div class="e-head"><span class="e-name">A-MISO-S</span><span class="e-cluster cl-measure">Measurement</span></div>
-<div class="e-def">Amsterdam Misophonia Scale — Severity. A 6-item self-report questionnaire that measures misophonia severity on a scale of 0–24. Scores: 0–4 subclinical, 5–9 mild, 10–14 moderate, 15–19 severe, 20–24 extreme.</div>
-<div class="e-role"><strong>Protocol role:</strong> Primary outcome measure. Baseline score at Phase 0 = 18 (severe range). A 25% reduction (score ~13–14) is the Phase 2 benchmark. Measured monthly. Trajectory across all phases tells the clinical story.</div>
+<div class="e-def">Amsterdam Misophonia Scale — Severity. A 6-item self-report questionnaire measuring misophonia severity 0–24. Scores: 0–4 subclinical, 5–9 mild, 10–14 moderate, 15–19 severe, 20–24 extreme.</div><div class="e-role"><strong>Protocol role:</strong> Primary outcome measure. Baseline at Phase 0 = 18 (severe). A 25% reduction (~13–14) is the Phase 2 benchmark. Measured monthly.</div>
 </div>
-
-<div class="entry" data-cluster="concept" data-name="anticipatory dread">
+<div class="entry" id="entry-act-defusion" data-cluster="technique" data-name="act-defusion">
+<div class="e-head"><span class="e-name">ACT Defusion</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">An ACT technique. When a trigger thought or ruminative loop begins, prefix it: "I notice I'm having the thought that…" Labels the thought as mental content rather than reality, creating distance without suppression.</div><div class="e-role"><strong>Protocol role:</strong> Phase 2 onward. Ambient tool used in daily life, not formal sessions. By Phase 3 the prefix arrives before the spiral gains momentum.</div>
+</div>
+<div class="entry" id="entry-act-acceptance-and-commitment-therapy" data-cluster="concept" data-name="act-acceptance-and-commitment-therapy">
+<div class="e-head"><span class="e-name">ACT — Acceptance and Commitment Therapy</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A cognitive-behavioural approach that targets psychological flexibility. Core principle: suffering arises from fusion with thoughts and experiential avoidance. The goal is not to eliminate difficult thoughts but to change your relationship with them.</div><div class="e-role"><strong>Protocol role:</strong> Used in this protocol for defusion and the anti-rumination protocol. See also: Defusion.</div>
+</div>
+<div class="entry" id="entry-activadose-tdcs" data-cluster="device" data-name="activadose-tdcs">
+<div class="e-head"><span class="e-name">ActivaDose tDCS</span><span class="e-cluster cl-device">Device</span></div>
+<div class="e-def">A transcranial direct current stimulation device delivering precise low-level direct current (1.5–2.0 mA) to scalp electrodes. Research-grade mA accuracy — consumer devices vary widely in actual current delivery.</div><div class="e-role"><strong>Protocol role:</strong> Phase 3 onward. Anodal electrode at F3 (left dlPFC), reference above right eyebrow. 20 minutes immediately before each CC session. Upregulates prefrontal cortical excitability, accelerating fear extinction.</div>
+</div>
+<div class="entry" id="entry-adaptogen" data-cluster="concept" data-name="adaptogen">
+<div class="e-head"><span class="e-name">Adaptogen</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A class of herbal substances that help the body adapt to stress by modulating the HPA axis and sympathetic nervous system response. True adaptogens are bidirectional — they blunt overactivation without suppressing necessary stress responses.</div><div class="e-role"><strong>Protocol role:</strong> KSM-66 ashwagandha and Bacopa are the primary adaptogens in this protocol. Rhodiola was considered and excluded as redundant with ashwagandha.</div>
+</div>
+<div class="entry" id="entry-ala-alpha-linolenic-acid" data-cluster="concept" data-name="ala-alpha-linolenic-acid">
+<div class="e-head"><span class="e-name">ALA — Alpha-Linolenic Acid</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A plant-based omega-3 fatty acid found in walnuts, flaxseed, and chia. A precursor to EPA and DHA, but conversion efficiency in the body is low (typically under 10%). ALA is a valuable dietary omega-3 but cannot replace EPA/DHA from krill oil and fish oil at the doses this protocol requires.</div><div class="e-role"><strong>Protocol role:</strong> Provided by ground flaxseed and walnuts daily. The conversion limitation is why supplement sources (krill oil + omega-3 top-up) are necessary alongside these foods. ALA still contributes anti-inflammatory signalling independent of its EPA/DHA conversion.</div>
+</div>
+<div class="entry" id="entry-alpha-waves" data-cluster="concept" data-name="alpha-waves">
+<div class="e-head"><span class="e-name">Alpha Waves</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Brainwaves at 8–12 Hz — the relaxed-alert state. Present during calm, eyes-closed wakefulness. The upper boundary of the theta-alpha state targeted by Yoga Nidra. Associated with reduced anxiety and enhanced creative cognition.</div><div class="e-role"><strong>Protocol role:</strong> Yoga Nidra produces sustained alpha-theta boundary states. Alpha production is also enhanced by HeartMath cardiac coherence training.</div>
+</div>
+<div class="entry" id="entry-ampk-amp-activated-protein-kinase" data-cluster="concept" data-name="ampk-amp-activated-protein-kinase">
+<div class="e-head"><span class="e-name">AMPK — AMP-Activated Protein Kinase</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A cellular energy sensor activated when energy is low (fasting, exercise, caloric restriction). Triggers cellular autophagy, mitochondrial biogenesis, and metabolic efficiency improvements. Sometimes called the "master metabolic switch."</div><div class="e-role"><strong>Protocol role:</strong> Activated by intermittent fasting (aerobic day eating window), Zone 2 exercise, apple cider vinegar, and berberine (Phase 5). AMPK activation is why fasting before aerobic exercise amplifies BDNF and neuroplasticity benefits.</div>
+</div>
+<div class="entry" id="entry-amygdala" data-cluster="concept" data-name="amygdala">
+<div class="e-head"><span class="e-name">Amygdala</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">An almond-shaped region deep in the temporal lobe that functions as the brain's threat detector. It receives sensory input and rapidly triggers the fight-or-flight response before the cortex can consciously evaluate the situation. In misophonia, the amygdala fires in response to trigger sounds faster than top-down regulation can intercept.</div><div class="e-role"><strong>Protocol role:</strong> One of the three core neural substrates in misophonia. The right stellate ganglion has strong connections to the amygdala — which is why the right-side SGB injection specifically targets amygdala reactivity and HPA axis overdrive.</div>
+</div>
+<div class="entry" id="entry-anterior-cingulate-cortex-acc" data-cluster="concept" data-name="anterior-cingulate-cortex-acc">
+<div class="e-head"><span class="e-name">Anterior Cingulate Cortex (ACC)</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A brain region involved in error detection, emotional regulation, and amplifying signals between subcortical and cortical areas. In misophonia, the ACC amplifies the threat signal generated by the amygdala and insula, giving it its characteristic intensity.</div><div class="e-role"><strong>Protocol role:</strong> The ACC is part of the three-substrate misophonic cascade: sensorimotor cortex (simulation) → insula/ACC (amplification) → autonomic nervous system (physiological response). CC sessions gradually reduce the gain the ACC applies to incoming trigger signals.</div>
+</div>
+<div class="entry" id="entry-anthocyanin" data-cluster="concept" data-name="anthocyanin">
+<div class="e-head"><span class="e-name">Anthocyanin</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A class of red-blue-purple pigment compounds found in berries, purple vegetables, and red cabbage. Anthocyanins cross the blood-brain barrier and upregulate BDNF expression, reduce neuroinflammation, and improve cerebrovascular blood flow.</div><div class="e-role"><strong>Protocol role:</strong> Provided by daily blueberries and blackberries. The highest concentrations are in wild blueberries (available frozen from Costco). Anthocyanins are among the most evidence-supported dietary compounds for brain health.</div>
+</div>
+<div class="entry" id="entry-anticipatory-dread" data-cluster="concept" data-name="anticipatory-dread">
 <div class="e-head"><span class="e-name">Anticipatory Dread</span><span class="e-cluster cl-concept">Concept</span></div>
-<div class="e-def">Pre-exposure anxiety that activates before any trigger sound occurs, keeping the nervous system in a state of pre-activation. The third trigger layer in misophonia, distinct from the acoustic response itself.</div>
-<div class="e-role"><strong>Protocol role:</strong> Addressed by SGB, HRV biofeedback, Yoga Nidra, kava, and tVNS. Must be reduced before effective CC work can begin — CC attempted from a chronically pre-activated state works against a significant headwind.</div>
+<div class="e-def">Pre-exposure anxiety that activates the threat cascade before any trigger sound occurs. The system pre-fires — keeping sympathetic activation chronically elevated regardless of whether a trigger is actually present.</div><div class="e-role"><strong>Protocol role:</strong> Layer 3 of misophonic reactivity. Addressed by SGB (structural floor-lowering), HRV biofeedback, Yoga Nidra, tVNS, and kava. The most pervasive layer in daily community life at RB.</div>
 </div>
-
-<div class="entry" data-cluster="technique" data-name="act">
-<div class="e-head"><span class="e-name">ACT — Acceptance and Commitment Therapy</span><span class="e-cluster cl-technique">Technique</span></div>
-<div class="e-def">A behavioral therapy approach that uses acceptance, defusion, and values-based action to reduce the impact of difficult thoughts and feelings without requiring their elimination.</div>
-<div class="e-role"><strong>Protocol role:</strong> Begins Phase 2. Self-directed daily. Addresses the secondary suffering layer — distress about having the distress. Does not reduce the trigger response (CC does that). Makes the period before CC completes its work livable. Primary practice: defusion — prefixing trigger thoughts with "I notice I am having the thought that…"</div>
-<a href="protocol.html#p2-act" class="e-link">&#8594; Protocol section 6D</a>
+<div class="entry" id="entry-apigenin" data-cluster="supplement" data-name="apigenin">
+<div class="e-head"><span class="e-name">Apigenin</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">A plant flavonoid found in chamomile. Acts as a mild GABA-A receptor modulator, reducing nighttime cortisol and promoting sleep onset without suppressing REM or producing next-day sedation.</div><div class="e-role"><strong>Protocol role:</strong> Sleep stack. 50mg at bedtime from Phase 1. Avoid on nights drinking alcohol (potentiates sedation).</div>
+</div>
+<div class="entry" id="entry-apple-cider-vinegar-acv" data-cluster="food" data-name="apple-cider-vinegar-acv">
+<div class="e-head"><span class="e-name">Apple Cider Vinegar (ACV)</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">Raw, unfiltered ACV. AMPK activator and blood sugar regulator. Reduces post-meal glucose spikes, which otherwise blunt the BDNF response to exercise and meals.</div><div class="e-role"><strong>Protocol role:</strong> Daily. 1 tablespoon before meals.</div>
+</div>
+<div class="entry" id="entry-ashwagandha-ksm-66" data-cluster="supplement" data-name="ashwagandha-ksm-66">
+<div class="e-head"><span class="e-name">Ashwagandha (KSM-66)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">A standardised root extract of Withania somnifera (8% withanolides). A true adaptogen that modulates the HPA axis — reducing cortisol output, improving stress resilience, and blunting chronic sympathetic over-activation. KSM-66 is the most clinically studied extract.</div><div class="e-role"><strong>Protocol role:</strong> Phase 2 onward. 600mg morning with food. Continue on psilocybin macrodose days (no interaction). Skip on MDMA session days.</div>
+</div>
+<div class="entry" id="entry-astaxanthin" data-cluster="concept" data-name="astaxanthin">
+<div class="e-head"><span class="e-name">Astaxanthin</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A carotenoid antioxidant found in krill and certain algae, responsible for the pink-red colour of krill. A powerful antioxidant and anti-inflammatory agent that crosses both the blood-brain barrier and the blood-retinal barrier. Present in krill oil (SUPERBABoost) alongside the phospholipid EPA/DHA.</div><div class="e-role"><strong>Protocol role:</strong> An incidental benefit of krill oil use. Not a primary reason for krill selection (phospholipid delivery is), but the astaxanthin content adds meaningful antioxidant protection during intensive neuroplasticity work when oxidative load is elevated.</div>
+</div>
+<div class="entry" id="entry-atp-adenosine-triphosphate" data-cluster="concept" data-name="atp-adenosine-triphosphate">
+<div class="e-head"><span class="e-name">ATP — Adenosine Triphosphate</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The primary energy currency of every cell. Creatine (stored as phosphocreatine) is the brain's fastest-access energy buffer for rapid ATP resynthesis during demanding cognitive and sensory processing. Without adequate phosphocreatine stores, the brain's processing efficiency drops.</div><div class="e-role"><strong>Protocol role:</strong> The reason creatine is the first supplement listed in the protocol and taken on waking. Plant-forward diets provide zero dietary creatine — supplementation is essential for maintaining brain creatine stores at the level required for intensive neuroplasticity work.</div>
+</div>
+<div class="entry" id="entry-autophagy" data-cluster="concept" data-name="autophagy">
+<div class="e-head"><span class="e-name">Autophagy</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A cellular self-cleaning process where cells break down and recycle damaged proteins and organelles. Essential for clearing the cellular debris that accumulates between intensive neuroplasticity events. Triggered by fasting, exercise, and spermidine.</div><div class="e-role"><strong>Protocol role:</strong> Supported by the intermittent fasting window, Zone 2 exercise, and spermidine-rich foods (tempeh, wheat germ). Particularly relevant in Phase 4 where intensive neuroplasticity work generates significant cellular turnover.</div>
+</div>
+<div class="entry" id="entry-avoidance-inventory" data-cluster="measure" data-name="avoidance-inventory">
+<div class="e-head"><span class="e-name">Avoidance Inventory</span><span class="e-cluster cl-measure">Measurement</span></div>
+<div class="e-def">A quarterly self-assessment listing every situation currently being avoided or heavily managed due to misophonia. The shrinking of this list over quarters is the most meaningful functional outcome measure.</div><div class="e-role"><strong>Protocol role:</strong> Quarterly. More meaningful than A-MISO-S as a real-world function measure.</div>
 </div>
 
 <div class="letter-divider">B</div>
 
-<div class="entry" data-cluster="concept" data-name="bdnf">
-<div class="e-head"><span class="e-name">BDNF</span><span class="e-cluster cl-concept">Concept</span></div>
-<div class="e-def">Brain-Derived Neurotrophic Factor. A protein that supports the growth, maintenance, and survival of neurons, and is a key driver of synaptic plasticity — the ability of synapses to strengthen or weaken.</div>
-<div class="e-role"><strong>Protocol role:</strong> Elevated by psilocybin, Zone 2 exercise, Lion's Mane, Lithium Orotate, and cold exposure. BDNF peaks ~2 hours post-Zone 2 aerobic exercise — this is why CC sessions are scheduled ~2 hours after returning from the waterfall. The Pulse strategy exploits the post-session BDNF elevation.</div>
+<div class="entry" id="entry-b-complex-methylated" data-cluster="supplement" data-name="b-complex-methylated">
+<div class="e-head"><span class="e-name">B-Complex (Methylated)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">A combination of all B vitamins in their active (methylated) forms — methylfolate rather than folic acid, methylcobalamin rather than cyanocobalamin. Supports methylation, neurotransmitter synthesis, and neurological function.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 onward. 1 capsule morning. Morning only — B vitamins can increase alertness if taken late. Must show methylfolate and methylcobalamin on label.</div>
+</div>
+<div class="entry" id="entry-b12-methylcobalamin-sublingual" data-cluster="supplement" data-name="b12-methylcobalamin-sublingual">
+<div class="e-head"><span class="e-name">B12 (Methylcobalamin Sublingual)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">Vitamin B12 in its active form, dissolved under the tongue. Essential on plant-forward diets where dietary B12 is absent. Supports myelin integrity, nerve conduction, and red blood cell production.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 onward. 1000mcg dissolved under tongue daily.</div>
+</div>
+<div class="entry" id="entry-bacopa-synapsa" data-cluster="supplement" data-name="bacopa-synapsa">
+<div class="e-head"><span class="e-name">Bacopa (Synapsa)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">A standardised extract of Bacopa monnieri. Specifically supports extinction learning — the type of associative learning CC sessions produce. Takes 4–6 weeks to reach full effect. Also improves working memory.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 Week 3 onward. 320mg morning with food. The single supplement with the most directly relevant mechanistic evidence for CC-based rewriting.</div>
+</div>
+<div class="entry" id="entry-bdnf-brain-derived-neurotrophic-factor" data-cluster="concept" data-name="bdnf-brain-derived-neurotrophic-factor">
+<div class="e-head"><span class="e-name">BDNF — Brain-Derived Neurotrophic Factor</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A protein that supports neuronal growth, survival, and differentiation. Elevated BDNF increases synaptic plasticity — the ease with which new neural connections form and consolidate.</div><div class="e-role"><strong>Protocol role:</strong> Raised by Zone 2 aerobic exercise, psilocybin, Lion's Mane, creatine, cold plunge, and intermittent fasting. The biological foundation that determines how effectively CC sessions write new associations. CC sessions on waterfall days are timed ~2 hours post-exercise to catch the BDNF spike.</div>
+</div>
+<div class="entry" id="entry-berberine" data-cluster="supplement" data-name="berberine">
+<div class="e-head"><span class="e-name">Berberine</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">An alkaloid activating AMPK — the cellular energy sensor. Improves insulin sensitivity, regulates blood glucose, and supports metabolic health.</div><div class="e-role"><strong>Protocol role:</strong> Phase 5 onward. 500mg midday 3x per week (not on resistance training days). Part of the cellular wellness layer.</div>
+</div>
+<div class="entry" id="entry-berries-blueberries-blackberries" data-cluster="food" data-name="berries-blueberries-blackberries">
+<div class="e-head"><span class="e-name">Berries (Blueberries, Blackberries)</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">High-anthocyanin fruits. Anthocyanins upregulate BDNF expression. Wild blueberries have significantly higher polyphenol concentrations than cultivated varieties.</div><div class="e-role"><strong>Protocol role:</strong> Daily. Costco frozen wild blueberries recommended.</div>
+</div>
+<div class="entry" id="entry-beta-blocker" data-cluster="concept" data-name="beta-blocker">
+<div class="e-head"><span class="e-name">Beta-Blocker</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A class of drugs that block adrenaline (epinephrine) and noradrenaline from binding to beta-adrenergic receptors. Reduces heart rate, blood pressure, and the peripheral symptoms of anxiety and stress arousal.</div><div class="e-role"><strong>Protocol role:</strong> Propranolol is the beta-blocker used in this protocol — specifically for memory reconsolidation. Its mechanism here is not anxiolytic (reducing anxiety in the moment) but interference with the re-storage of fear memories during the reconsolidation window.</div>
+</div>
+<div class="entry" id="entry-beta-glucan" data-cluster="concept" data-name="beta-glucan">
+<div class="e-head"><span class="e-name">Beta-Glucan</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A polysaccharide found in the cell walls of medicinal mushrooms. The primary bioactive fraction responsible for Lion's Mane's NGF-stimulating effects. "Dual-extracted" mushroom products capture both water-soluble beta-glucans and fat-soluble active compounds (hericenones/erinacines). Products must state beta-glucan content to be considered valid.</div><div class="e-role"><strong>Protocol role:</strong> The reason the protocol specifies dual-extracted Lion's Mane that declares beta-glucan content. Single-extraction or products without stated beta-glucan content are inadequate — the beta-glucan fraction is what distinguishes a therapeutic dose from inert mushroom powder.</div>
+</div>
+<div class="entry" id="entry-bilateral-stimulation" data-cluster="concept" data-name="bilateral-stimulation">
+<div class="e-head"><span class="e-name">Bilateral Stimulation</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Alternating sensory stimulation (audio tones, eye movements, or tactile taps) switching between the left and right sides. In EMDR, bilateral stimulation applied during memory activation appears to engage the brain's innate memory processing mechanism.</div><div class="e-role"><strong>Protocol role:</strong> Core mechanism of EMDR. In this protocol's self-directed EMDR, bilateral audio tones (headphones) are used. The alternating left-right activation may mimic the lateral eye movement processing that occurs during REM sleep.</div>
+</div>
+<div class="entry" id="entry-bone-conduction-headphones-shokz-openrun-pro-2" data-cluster="device" data-name="bone-conduction-headphones-shokz-openrun-pro-2">
+<div class="e-head"><span class="e-name">Bone Conduction Headphones (Shokz OpenRun Pro 2)</span><span class="e-cluster cl-device">Device</span></div>
+<div class="e-def">Headphones transmitting audio via vibration through the cheekbones. Ear canals remain completely open — all ambient sound heard naturally. Cheekbone pathway sufficient for music and pink noise.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 Day 1 onward. Used at all communal events (meetings, meals, car rides) for meeting support — low-volume pink noise occupies the thalamic scanning reflex without blocking situational awareness.</div>
+</div>
+<div class="entry" id="entry-brassicas-broccoli-cauliflower" data-cluster="food" data-name="brassicas-broccoli-cauliflower">
+<div class="e-head"><span class="e-name">Brassicas (Broccoli, Cauliflower)</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">Cruciferous vegetables producing sulforaphane — which activates the Nrf2 pathway, a master regulator of antioxidant and anti-inflammatory gene expression.</div><div class="e-role"><strong>Protocol role:</strong> Regularly. Chop and wait 40 minutes before cooking to allow enzymatic conversion. Add mustard powder when cooking to restore the deactivated enzyme.</div>
+</div>
+<div class="entry" id="entry-bupivacaine" data-cluster="substance" data-name="bupivacaine">
+<div class="e-head"><span class="e-name">Bupivacaine</span><span class="e-cluster cl-substance">Substance</span></div>
+<div class="e-def">A long-acting local anaesthetic used in SGB procedures. Injected into the stellate ganglion region, it temporarily interrupts nerve conduction — specifically the overactive NGF signalling driving chronic sympathetic hyperactivation.</div><div class="e-role"><strong>Protocol role:</strong> The pharmacological agent in SGB. Its effects at the stellate ganglion are typically described as lasting hours, but the sympathetic reset it triggers can persist months to years — far beyond the drug's pharmacological half-life.</div>
 </div>
 
 <div class="letter-divider">C</div>
 
-<div class="entry" data-cluster="technique" data-name="cc counterconditioning">
-<div class="e-head"><span class="e-name">CC — Counterconditioning</span><span class="e-cluster cl-technique">Technique</span></div>
-<div class="e-def">A behavioral rewriting mechanism that works by actively pairing a conditioned aversive stimulus (trigger sound) with a genuinely felt positive emotional state, building a competing association strong enough to inhibit the threat response over time.</div>
-<div class="e-role"><strong>Protocol role:</strong> The primary behavioral rewriting mechanism. Begins Phase 2. Distinct from exposure therapy, which relies on habituation — CC writes a new competing circuit rather than attempting to extinguish the old one through repeated exposure. Requires: calm nervous system, genuine positive emotional state, neuroplasticity window, and sleep consolidation.</div>
-<a href="protocol.html#p2-cc" class="e-link">&#8594; Protocol section 6A</a>
+<div class="entry" id="entry-capers" data-cluster="food" data-name="capers">
+<div class="e-head"><span class="e-name">Capers</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">Highest quercetin concentration of any food (~20mg per tablespoon). Quercetin is a senolytic that selectively clears senescent cells driving chronic inflammation.</div><div class="e-role"><strong>Protocol role:</strong> Daily. Add to salads, dressings, pasta — effortless at this level.</div>
 </div>
-
-<div class="entry" data-cluster="concept" data-name="convergence window">
+<div class="entry" id="entry-cardiac-coherence" data-cluster="concept" data-name="cardiac-coherence">
+<div class="e-head"><span class="e-name">Cardiac Coherence</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A state in which heart rate oscillations become highly ordered and rhythmically regular — producing a smooth, sine-wave-like pattern in the HRV signal. Achieved through resonance frequency breathing (6 bpm) combined with genuine positive emotional recall. High coherence reflects maximal vagal tone engagement.</div><div class="e-role"><strong>Protocol role:</strong> The target state of HeartMath sessions. The coherence score is displayed in real time by the Inner Balance app. The breathing rhythm alone produces some coherence — the genuine emotion is what produces high coherence. HeartMath's core insight is that the heart's electrical field communicates bidirectionally with the brain.</div>
+</div>
+<div class="entry" id="entry-catechin" data-cluster="concept" data-name="catechin">
+<div class="e-head"><span class="e-name">Catechin</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A family of plant-derived antioxidant compounds found in green tea. EGCG (epigallocatechin gallate) is the most potent catechin in green tea. Catechins have anti-inflammatory, neuroprotective, and antioxidant effects. The primary catechin delivery vehicle in this protocol is matcha (daily) and green tea (afternoon).</div><div class="e-role"><strong>Protocol role:</strong> Present in both matcha and green tea. Matcha has significantly higher catechin content than steeped green tea because the whole leaf is consumed as powder. The catechin EGCG is also used as a standalone supplement post-MDMA for serotonin protection.</div>
+</div>
+<div class="entry" id="entry-cc-counterconditioning" data-cluster="concept" data-name="cc-counterconditioning">
+<div class="e-head"><span class="e-name">CC — Counterconditioning</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The primary behavioural rewriting mechanism. A trigger sound is presented at low volume while simultaneously inducing a genuinely felt positive emotional state. Repeated pairings build a competing neural association strong enough to inhibit the threat response.</div><div class="e-role"><strong>Protocol role:</strong> The engine of the entire protocol. Everything else — supplements, SGB, psilocybin, devices — exists to open the window or support the quality of CC sessions. Six techniques used across phases.</div>
+</div>
+<div class="entry" id="entry-circadian-rhythm" data-cluster="concept" data-name="circadian-rhythm">
+<div class="e-head"><span class="e-name">Circadian Rhythm</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The approximately 24-hour biological clock regulating sleep-wake cycles, hormone release, metabolism, and many other physiological processes. The circadian clock is primarily set by light exposure — morning bright light triggers the diurnal cortisol rise and anchors the sleep-wake cycle.</div><div class="e-role"><strong>Protocol role:</strong> The sleep protocol is built around circadian hygiene: fixed wake time, bright light within 10 minutes of waking, final meal by 6pm, screens off by 9pm, sleep onset 9:30pm. Melatonin (Phase 1 only) is used as a temporary rhythm-setter. All of this determines whether the cortisol diurnal curve fires at 7am (correct) or 3am (problem).</div>
+</div>
+<div class="entry" id="entry-cognitive-reappraisal" data-cluster="technique" data-name="cognitive-reappraisal">
+<div class="e-head"><span class="e-name">Cognitive Reappraisal</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">Generating a competing, genuinely believable interpretation of a trigger situation: "They are eating because they are hungry" rather than "They are doing this to me." Must be plausible to the nervous system — forced positivity does not work.</div><div class="e-role"><strong>Protocol role:</strong> Technique 6. Addresses the social threat coding layer (Layer 2). Pairs with Technique 4 (physiological sigh interrupt) for compound effect in daily life.</div>
+</div>
+<div class="entry" id="entry-cold-plunge" data-cluster="concept" data-name="cold-plunge">
+<div class="e-head"><span class="e-name">Cold Plunge</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Immersion in cold water (waterfall or cold shower) for 3–5 minutes. Activates norepinephrine release, which enhances focus and mood for several hours. Also triggers a sympathetic-then-parasympathetic rebound that lowers resting arousal baseline.</div><div class="e-role"><strong>Protocol role:</strong> Integrated into waterfall days (Zone 2 aerobic + cold plunge sequence). CC sessions scheduled approximately 2 hours post-plunge to align with the BDNF and norepinephrine spike.</div>
+</div>
+<div class="entry" id="entry-convergence-window" data-cluster="concept" data-name="convergence-window">
 <div class="e-head"><span class="e-name">Convergence Window</span><span class="e-cluster cl-concept">Concept</span></div>
-<div class="e-def">The Phase 4 period during which all protocol tools run simultaneously at full depth from a reset autonomic baseline — the single highest-leverage intervention window in the 12-month protocol.</div>
-<div class="e-role"><strong>Protocol role:</strong> Phase 4 is the convergence. What makes it different from Phase 3 is not new tools but new conditions: SGB-reset baseline, nervous system fully prepared, dedicated reduced-trigger environment, and all tools calibrated through Phase 3.</div>
+<div class="e-def">A period when multiple plasticity-enhancing mechanisms are active simultaneously — SGB floor-lowering, post-psilocybin neuroplasticity window, post-exercise BDNF elevation, and SSP auditory recalibration. The overlap creates optimal conditions for deep associative rewriting.</div><div class="e-role"><strong>Protocol role:</strong> Phase 4 is engineered around the Convergence Window. This is why Phase 4 requires dedicated reduced-exposure time away from the daily trigger environment.</div>
+</div>
+<div class="entry" id="entry-cortisol" data-cluster="concept" data-name="cortisol">
+<div class="e-head"><span class="e-name">Cortisol</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The primary stress hormone, produced by the adrenal glands under HPA axis stimulation. Chronically elevated cortisol impairs hippocampal neurogenesis, disrupts sleep architecture, reduces HRV, and maintains a high sympathetic floor.</div><div class="e-role"><strong>Protocol role:</strong> Tracked via salivary cortisol panel (4-point diurnal test) at Phase 0 baseline and Phase 4 repeat. Reduced by ashwagandha, phosphatidylserine, adequate sleep, somatic release, and HRV biofeedback training.</div>
+</div>
+<div class="entry" id="entry-creatine-monohydrate-creapure" data-cluster="supplement" data-name="creatine-monohydrate-creapure">
+<div class="e-head"><span class="e-name">Creatine Monohydrate (Creapure)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">A compound stored in muscle and brain tissue as phosphocreatine — a rapid-resynthesis energy buffer for ATP. In the brain, creatine supports energy metabolism during demanding cognitive work. Plant-forward diets have zero dietary creatine.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 onward. 7.5g on waking in water. Critical given plant-forward diet. Creapure® is the German-manufactured purity standard.</div>
 </div>
 
 <div class="letter-divider">D</div>
 
-<div class="entry" data-cluster="concept" data-name="defusion">
-<div class="e-head"><span class="e-name">Defusion</span><span class="e-cluster cl-concept">Concept</span></div>
-<div class="e-def">An ACT technique that creates psychological distance between a person and a thought by observing the thought rather than from inside it. The canonical form: prefixing a thought with "I notice I am having the thought that…"</div>
-<div class="e-role"><strong>Protocol role:</strong> Daily ambient practice from Phase 2. Used against trigger-related thoughts, anticipatory spirals, and self-criticism. Does not suppress or argue with content — creates enough distance to interrupt the automatic cascade.</div>
+<div class="entry" id="entry-d3-k2" data-cluster="supplement" data-name="d3-k2">
+<div class="e-head"><span class="e-name">D3 / K2</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">Vitamin D3 (a neuroactive hormone) paired with Vitamin K2 (MK-7 form, which directs calcium to bones rather than arteries). D3 supports neuroplasticity, immune regulation, and mood.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 onward. 2000–5000 IU D3 + 100mcg K2 MK-7, morning with fat-containing food.</div>
 </div>
-
-<div class="entry" data-cluster="substance" data-name="dsr dual sympathetic reset">
-<div class="e-head"><span class="e-name">DSR — Dual Sympathetic Reset</span><span class="e-cluster cl-substance">Substance / Procedure</span></div>
-<div class="e-def">A specific SGB protocol using bilateral injections — right stellate ganglion first, then left ganglion 24–72 hours later. Both injections produce a more complete and durable sympathetic reset than a single unilateral procedure.</div>
-<div class="e-role"><strong>Protocol role:</strong> The minimum SGB intervention in Phase 0 and Phase 4. Ultrasound guidance is non-negotiable. Effect develops over 1–4 weeks and can persist months to years.</div>
-<a href="protocol.html#p0-sgb" class="e-link">&#8594; Protocol section 1B</a>
+<div class="entry" id="entry-dark-chocolate-85" data-cluster="food" data-name="dark-chocolate-85">
+<div class="e-head"><span class="e-name">Dark Chocolate (85%+)</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">High-cocoa chocolate containing theobromine (mild vasodilator) and flavanols (anti-inflammatory, cerebrovascular health).</div><div class="e-role"><strong>Protocol role:</strong> Daily. 85%+ only — lower cocoa percentage means substantially less flavanol and more sugar.</div>
+</div>
+<div class="entry" id="entry-default-mode-network-dmn" data-cluster="concept" data-name="default-mode-network-dmn">
+<div class="e-head"><span class="e-name">Default Mode Network (DMN)</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A large-scale brain network most active during self-referential thought, mind-wandering, and anticipation. In chronic misophonia, the DMN maintains ongoing anticipatory activation — the resting threat state between actual triggers.</div><div class="e-role"><strong>Protocol role:</strong> Psilocybin temporarily suppresses DMN activity, enabling the threat circuit to be approached without the usual top-down narrative reinforcement. Yoga Nidra also reduces DMN activity.</div>
+</div>
+<div class="entry" id="entry-defusion" data-cluster="concept" data-name="defusion">
+<div class="e-head"><span class="e-name">Defusion</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">An ACT technique for separating the observing self from automatic thought content. Rather than suppressing or arguing with a looping thought, you label it: "I notice I'm having the thought that…" The thought is acknowledged without being acted upon.</div><div class="e-role"><strong>Protocol role:</strong> Core anti-rumination tool (Section 6D/6E). Becomes increasingly automatic across phases — by Phase 3 the prefix arrives before the spiral gains momentum.</div>
+</div>
+<div class="entry" id="entry-dlpfc-dorsolateral-prefrontal-cortex" data-cluster="concept" data-name="dlpfc-dorsolateral-prefrontal-cortex">
+<div class="e-head"><span class="e-name">dlPFC — Dorsolateral Prefrontal Cortex</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A region of the frontal lobe involved in top-down emotional regulation, working memory, and executive control. Stronger left dlPFC activation correlates with faster fear extinction and better override of automatic threat responses.</div><div class="e-role"><strong>Protocol role:</strong> The target of tDCS anodal stimulation (electrode at F3 position). Upregulating dlPFC excitability before CC sessions increases the prefrontal "brake" on the amygdala threat cascade.</div>
+</div>
+<div class="entry" id="entry-dopamine" data-cluster="concept" data-name="dopamine">
+<div class="e-head"><span class="e-name">Dopamine</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A neurotransmitter involved in motivation, reward, movement, and learning. In the context of neuroplasticity, dopamine signals "this is worth remembering" — it strengthens the encoding of experiences that occurred alongside it. MDMA causes large dopamine release alongside serotonin and norepinephrine.</div><div class="e-role"><strong>Protocol role:</strong> Relevant to CC sessions: the genuine positive emotional state required for counterconditioning involves dopaminergic reward circuits. Psilocybin and MDMA both interact with dopamine pathways. The protocol's physical practices (exercise, cold plunge) also elevate dopamine.</div>
+</div>
+<div class="entry" id="entry-dsr-dual-sympathetic-reset" data-cluster="concept" data-name="dsr-dual-sympathetic-reset">
+<div class="e-head"><span class="e-name">DSR — Dual Sympathetic Reset</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The bilateral Stellate Ganglion Block protocol. Right stellate injected first (suppresses amygdala reactivity and HPA overdrive), left side 24–72 hours later (restores systemic autonomic balance). Together they produce a bilateral reset of the sympathetic baseline.</div><div class="e-role"><strong>Protocol role:</strong> The Phase 0 structural intervention. Also used at Phase 4 opening. Provider must be experienced with ultrasound-guided SGB.</div>
 </div>
 
 <div class="letter-divider">E</div>
 
-<div class="entry" data-cluster="technique" data-name="emdr">
+<div class="entry" id="entry-egcg-post-mdma" data-cluster="supplement" data-name="egcg-post-mdma">
+<div class="e-head"><span class="e-name">EGCG (Post-MDMA)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">Epigallocatechin gallate — the primary catechin in green tea. As a standalone supplement, used post-MDMA for 3 days as part of serotonin protection protocol. Daily source is matcha and green tea.</div><div class="e-role"><strong>Protocol role:</strong> 400mg for 3 days beginning 24h after MDMA sessions. Also present in matcha (daily) and green tea (afternoon) throughout the protocol.</div>
+</div>
+<div class="entry" id="entry-egcg-epigallocatechin-gallate" data-cluster="concept" data-name="egcg-epigallocatechin-gallate">
+<div class="e-head"><span class="e-name">EGCG — Epigallocatechin Gallate</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The most abundant and biologically active catechin in green tea. Anti-inflammatory (inhibits COX-2 and NF-κB pathways), neuroprotective, antioxidant, and mildly thermogenic. Present in high concentrations in matcha and moderate concentrations in steeped green tea. Used as a standalone supplement post-MDMA for serotonin protection.</div><div class="e-role"><strong>Protocol role:</strong> Daily source: matcha (morning) and green tea (afternoon). The post-MDMA protocol uses 400mg supplemental EGCG for 3 days to support serotonin protection alongside 5-HTP. Space both drinks 1 hour from iron-rich meals — EGCG inhibits non-heme iron absorption.</div>
+</div>
+<div class="entry" id="entry-emdr-eye-movement-desensitization-and-reprocessing" data-cluster="technique" data-name="emdr-eye-movement-desensitization-and-reprocessing">
 <div class="e-head"><span class="e-name">EMDR — Eye Movement Desensitization and Reprocessing</span><span class="e-cluster cl-technique">Technique</span></div>
-<div class="e-def">A trauma processing technique that uses bilateral sensory stimulation (typically alternating audio tones) while a distressing memory is held in mind, enabling the memory to reprocess with reduced emotional charge while preserving factual content.</div>
-<div class="e-role"><strong>Protocol role:</strong> Begins Phase 3. 2–3 sessions/week post-CC. Targets the interpersonal-violation layer — specific memories where the trigger is relational, not merely acoustic. Standard CC does not reach these. Self-directed EMDR appropriate for SUDs 4–7 material.</div>
-<a href="protocol.html#p3-emdr" class="e-link">&#8594; Protocol section 7D</a>
+<div class="e-def">A therapy that pairs activation of a distressing memory with bilateral stimulation (alternating audio tones or eye movements). This appears to activate the brain's innate memory processing mechanism — the same one operating during REM sleep — allowing the memory to reprocess with reduced emotional charge.</div><div class="e-role"><strong>Protocol role:</strong> Phase 3 onward. Targets the interpersonal-violation layer — specific incidents with specific people. Self-directed using bilateral audio tones. 2–3 sessions per week, post-CC on CC days.</div>
+</div>
+<div class="entry" id="entry-epa-dha" data-cluster="concept" data-name="epa-dha">
+<div class="e-head"><span class="e-name">EPA / DHA</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Eicosapentaenoic acid (EPA) and docosahexaenoic acid (DHA) — the two long-chain omega-3 fatty acids with direct neurological importance. DHA is the dominant fatty acid in brain grey matter and myelin. EPA has strong anti-inflammatory properties. Both are required for neuronal membrane integrity and the intensive synaptic remodelling this protocol produces.</div><div class="e-role"><strong>Protocol role:</strong> The combined EPA+DHA daily target in this protocol is 2–3g from krill oil + triglyceride top-up. Krill delivers them in phospholipid form (superior neural membrane incorporation); the top-up contributes dose adequacy. Both can be skipped on oily fish days.</div>
+</div>
+<div class="entry" id="entry-ergothioneine" data-cluster="concept" data-name="ergothioneine">
+<div class="e-head"><span class="e-name">Ergothioneine</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A naturally occurring amino acid found almost exclusively in fungi. Consistently associated with reduced all-cause mortality and reduced disease risk in large-scale blood analyses. Uniquely accumulated in certain human tissues (liver, kidneys, eyes, brain) via a specific transporter. Heat-stable — cooking does not degrade it.</div><div class="e-role"><strong>Protocol role:</strong> Provided by daily mushroom consumption. The specific transporter that accumulates ergothioneine in human tissue suggests it may serve a cellular protective role the body actively preserves. Oyster, porcini, and shiitake mushrooms have the highest concentrations.</div>
+</div>
+<div class="entry" id="entry-erinacines" data-cluster="concept" data-name="erinacines">
+<div class="e-head"><span class="e-name">Erinacines</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Fat-soluble active compounds found in Lion's Mane mushroom (Hericium erinaceus). Erinacines stimulate NGF (Nerve Growth Factor) synthesis inside the central nervous system — they cross the blood-brain barrier and directly promote neuronal growth and maintenance.</div><div class="e-role"><strong>Protocol role:</strong> The reason Lion's Mane must be dual-extracted (requiring both water and alcohol/ethanol extraction). Water extraction yields beta-glucans; ethanol/fat extraction yields erinacines. Single-extraction products miss one of the two primary active fractions.</div>
+</div>
+<div class="entry" id="entry-extinction-learning" data-cluster="concept" data-name="extinction-learning">
+<div class="e-head"><span class="e-name">Extinction Learning</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The neural process by which a previously conditioned fear or threat response diminishes through repeated non-reinforced exposure. Distinct from counterconditioning — extinction suppresses the original response; CC builds a competing one.</div><div class="e-role"><strong>Protocol role:</strong> Bacopa specifically supports extinction learning. Propranolol-assisted reconsolidation targets the memory trace directly rather than suppressing it.</div>
 </div>
 
 <div class="letter-divider">F</div>
 
-<div class="entry" data-cluster="concept" data-name="felt-sense gate">
+<div class="entry" id="entry-felt-sense-gate" data-cluster="concept" data-name="felt-sense-gate">
 <div class="e-head"><span class="e-name">Felt-Sense Gate</span><span class="e-cluster cl-concept">Concept</span></div>
-<div class="e-def">A phase transition criterion based on subjective felt experience rather than a calendar or checklist. A phase whose criteria are technically met but not yet genuinely felt is not ready for transition.</div>
-<div class="e-role"><strong>Protocol role:</strong> Every phase transition in the protocol is a felt-sense gate. The principle: a phase that has not been fully absorbed cannot support what the next phase asks of it. "Not just technically checkable" is the key distinction.</div>
+<div class="e-def">A phase transition criterion based on embodied, subjective readiness rather than calendar duration. A phase gate is passed when the current phase's tools feel genuinely familiar and no longer effortful as a whole.</div><div class="e-role"><strong>Protocol role:</strong> Every phase transition uses felt-sense gates. The principle: a phase not fully absorbed cannot support what the next phase asks of it.</div>
+</div>
+<div class="entry" id="entry-fermented-foods-kimchi-sauerkraut-miso" data-cluster="food" data-name="fermented-foods-kimchi-sauerkraut-miso">
+<div class="e-head"><span class="e-name">Fermented Foods (Kimchi, Sauerkraut, Miso)</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">Live-culture fermented foods supporting microbiome diversity, which is strongly associated with mental health and vagal tone via the gut-brain axis.</div><div class="e-role"><strong>Protocol role:</strong> Regularly. Diversity of strains matters more than quantity of any single strain.</div>
+</div>
+<div class="entry" id="entry-fisetin" data-cluster="concept" data-name="fisetin">
+<div class="e-head"><span class="e-name">Fisetin</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A plant polyphenol flavonoid found in highest concentrations in strawberries. A potent senolytic — it selectively induces apoptosis (programmed cell death) in senescent cells while leaving healthy cells intact.</div><div class="e-role"><strong>Protocol role:</strong> Provided by weekly strawberry consumption. One of the most potent senolytics identified in common foods. The protocol emphasises strawberries in Phase 5 as part of the cellular wellness layer.</div>
+</div>
+<div class="entry" id="entry-flavanols" data-cluster="concept" data-name="flavanols">
+<div class="e-head"><span class="e-name">Flavanols</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A subclass of flavonoids found in cocoa, tea, and apples. Flavanols support cerebrovascular health by promoting nitric oxide production in blood vessel walls, improving cerebral blood flow, and reducing oxidative stress. The higher the cocoa content in dark chocolate, the higher the flavanol density.</div><div class="e-role"><strong>Protocol role:</strong> Provided by daily dark chocolate (85%+) and green tea. The minimum 85% cocoa threshold in the protocol is specifically to ensure meaningful flavanol content — milk chocolate and lower-cocoa varieties have substantially less.</div>
+</div>
+<div class="entry" id="entry-foams-database" data-cluster="measure" data-name="foams-database">
+<div class="e-head"><span class="e-name">FOAMS Database</span><span class="e-cluster cl-measure">Measurement</span></div>
+<div class="e-def">Free Online Acoustic/Misophonia Stimuli — a validated database of trigger sounds on Zenodo (doi: 10.5281/zenodo.4813431). Standardised audio files of common misophonic triggers at calibrated volumes.</div><div class="e-role"><strong>Protocol role:</strong> Used for CC session audio library construction.</div>
+</div>
+
+<div class="letter-divider">G</div>
+
+<div class="entry" id="entry-gaba-gamma-aminobutyric-acid" data-cluster="concept" data-name="gaba-gamma-aminobutyric-acid">
+<div class="e-head"><span class="e-name">GABA — Gamma-Aminobutyric Acid</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The primary inhibitory neurotransmitter in the central nervous system. GABA reduces neuronal excitability, producing calming effects. GABA-A receptors are the most common type and are the target of benzodiazepines, alcohol, and several natural compounds including apigenin and kavalactones.</div><div class="e-role"><strong>Protocol role:</strong> The GABAergic system is a key target in the anxiety/anticipatory layer of misophonia. Apigenin (sleep stack) modulates GABA-A mildly. Kava's kavalactones have complex GABAergic activity. Understanding GABA explains why these compounds reduce anticipatory activation without cognitive impairment.</div>
+</div>
+<div class="entry" id="entry-gaba-a-receptor" data-cluster="concept" data-name="gaba-a-receptor">
+<div class="e-head"><span class="e-name">GABA-A Receptor</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A type of inhibitory receptor in the nervous system activated by the neurotransmitter GABA (gamma-aminobutyric acid). GABA-A activation produces calming, anxiolytic, and sedative effects. Many sleep aids and anti-anxiety medications work via this receptor.</div><div class="e-role"><strong>Protocol role:</strong> Apigenin is a mild GABA-A receptor modulator used in the sleep stack. Kava's kavalactones also have GABA-A activity alongside their kavalactone-specific effects. Understanding this receptor explains why these compounds promote calm without sedating the way pharmaceuticals do.</div>
+</div>
+<div class="entry" id="entry-glutamate" data-cluster="concept" data-name="glutamate">
+<div class="e-head"><span class="e-name">Glutamate</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The primary excitatory neurotransmitter in the central nervous system. Glutamate dysregulation drives compulsive and ruminative thought patterns — the same neural signature underlying OCD, addiction, and the anticipatory-dread aspect of misophonia. NMDA receptors are a key glutamate subtype.</div><div class="e-role"><strong>Protocol role:</strong> NAC (N-Acetyl Cysteine) in the supplement stack is included specifically for its glutamate-modulating effects — it restores cystine-glutamate exchange at synapses, reducing the compulsive and ruminative quality of the anticipatory layer.</div>
+</div>
+<div class="entry" id="entry-glycine" data-cluster="supplement" data-name="glycine">
+<div class="e-head"><span class="e-name">Glycine</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">An amino acid that lowers core body temperature at sleep onset and improves sleep quality. Taken as a powder in water.</div><div class="e-role"><strong>Protocol role:</strong> Sleep stack. 3g at bedtime from Phase 1. Works via a distinct mechanism from magnesium and apigenin — the combination is genuinely additive.</div>
+</div>
+<div class="entry" id="entry-green-tea-kukicha" data-cluster="food" data-name="green-tea-kukicha">
+<div class="e-head"><span class="e-name">Green Tea / Kukicha</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">Lower-caffeine afternoon tea. Provides EGCG and trace L-theanine. Space 1 hour from iron-rich meals (EGCG inhibits non-heme iron absorption).</div><div class="e-role"><strong>Protocol role:</strong> Afternoon daily. Kukicha is particularly low in caffeine — well-suited to late-afternoon use given the early sleep target.</div>
+</div>
+<div class="entry" id="entry-ground-flaxseed" data-cluster="food" data-name="ground-flaxseed">
+<div class="e-head"><span class="e-name">Ground Flaxseed</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">Provides ALA (plant omega-3 precursor), lignans, and soluble fibre. ALA conversion efficiency to EPA/DHA is low — supplement sources (krill + omega-3 top-up) are required for protocol doses.</div><div class="e-role"><strong>Protocol role:</strong> Daily. 1–2 tablespoons ground (not whole). Add to smoothies, oats, or salads.</div>
+</div>
+<div class="entry" id="entry-gut-brain-axis" data-cluster="concept" data-name="gut-brain-axis">
+<div class="e-head"><span class="e-name">Gut-Brain Axis</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The bidirectional communication network between the gut microbiome and the brain, mediated primarily through the vagus nerve, immune signalling, and neurotransmitter precursor production. The gut produces approximately 95% of the body's serotonin. Microbiome diversity is strongly associated with mental health, stress resilience, and vagal tone.</div><div class="e-role"><strong>Protocol role:</strong> Supported by L. reuteri, fermented foods (kimchi, sauerkraut, miso), and fibre-rich plant foods. L. reuteri specifically stimulates oxytocin via vagal signalling — a direct gut-to-brain neurological effect, not just microbiome composition.</div>
 </div>
 
 <div class="letter-divider">H</div>
 
-<div class="entry" data-cluster="device" data-name="heartmath">
+<div class="entry" id="entry-heartmath-inner-balance" data-cluster="device" data-name="heartmath-inner-balance">
 <div class="e-head"><span class="e-name">HeartMath Inner Balance</span><span class="e-cluster cl-device">Device</span></div>
-<div class="e-def">An ear clip sensor + app that measures heart rate variability in real time and provides feedback on cardiac coherence — a state of high HRV order that reflects robust vagal tone and emotional regulation capacity.</div>
-<div class="e-role"><strong>Protocol role:</strong> Begins Phase 1 Month 2. Daily 20 min morning. Protocol: 6 breaths/min (5s in, 5s out) + a genuinely felt positive emotion. The emotion is what produces coherence — breathing alone is insufficient. Permanent daily practice in Phase 5 and Year 2.</div>
-<a href="protocol.html#p1-heartmath" class="e-link">&#8594; Protocol section 4F</a>
+<div class="e-def">An ear-clip photoplethysmography sensor connected to the HeartMath app. Measures beat-to-beat heart rate variation in real time and displays a cardiac coherence score. High coherence reflects coordinated heart-brain communication via the vagus nerve.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 Month 2 onward. Daily 20-minute sessions. Always use Free Session (Quick Coherence) mode — the guided audio programs contain narrator speech that is a direct misophonia trigger. Always use headphones, never phone speaker.</div>
 </div>
-
-<div class="entry" data-cluster="concept" data-name="hrv">
-<div class="e-head"><span class="e-name">HRV — Heart Rate Variability</span><span class="e-cluster cl-measure">Measurement</span></div>
-<div class="e-def">The variation in time between consecutive heartbeats. Higher HRV reflects greater parasympathetic tone, better stress recovery capacity, and more flexible autonomic regulation. Lower HRV reflects sympathetic dominance and reduced resilience.</div>
-<div class="e-role"><strong>Protocol role:</strong> Primary longitudinal physiological feedback. Tracked from Phase 1 Day 1. A rising HRV trend over months confirms the substrate work is succeeding. Weekly trend (not daily) is the meaningful metric.</div>
+<div class="entry" id="entry-hericenones" data-cluster="concept" data-name="hericenones">
+<div class="e-head"><span class="e-name">Hericenones</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Water-soluble active compounds found in the fruiting body of Lion's Mane mushroom. Hericenones stimulate NGF (Nerve Growth Factor) synthesis in peripheral nervous tissue. They complement erinacines (which act centrally) by working at the peripheral level.</div><div class="e-role"><strong>Protocol role:</strong> The water-soluble fraction captured by the water extraction in dual-extracted Lion's Mane. Together with erinacines (fat-soluble fraction), they provide both central and peripheral NGF stimulation.</div>
+</div>
+<div class="entry" id="entry-hippocampal-neurogenesis" data-cluster="concept" data-name="hippocampal-neurogenesis">
+<div class="e-head"><span class="e-name">Hippocampal Neurogenesis</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The production of new neurons in the hippocampus — one of the few brain regions where adult neurogenesis occurs. New hippocampal neurons are essential for encoding new extinction memories and for contextual learning (learning that a previously threatening stimulus is safe in a new context).</div><div class="e-role"><strong>Protocol role:</strong> Supported by lithium orotate, BDNF-raising interventions (exercise, psilocybin), adequate sleep, and intermittent fasting. Chronically elevated cortisol suppresses hippocampal neurogenesis — one reason the HPA axis work in this protocol is foundational.</div>
+</div>
+<div class="entry" id="entry-hippocampus" data-cluster="concept" data-name="hippocampus">
+<div class="e-head"><span class="e-name">Hippocampus</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A brain structure critical for forming new memories, spatial navigation, and contextual fear learning. The hippocampus is where extinction memories are stored — it tells the amygdala "this stimulus is safe now, in this context."</div><div class="e-role"><strong>Protocol role:</strong> Low cortisol and adequate sleep are essential for hippocampal neurogenesis. Lithium orotate, BDNF-raising interventions, and psilocybin all support hippocampal function. Extinction learning (the goal of CC) depends on healthy hippocampal encoding.</div>
+</div>
+<div class="entry" id="entry-horner-s-syndrome" data-cluster="concept" data-name="horner-s-syndrome">
+<div class="e-head"><span class="e-name">Horner's Syndrome</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A temporary cluster of symptoms on one side of the face: slight eyelid drooping (ptosis), pupil constriction (miosis), and mild flushing. A normal and expected post-SGB finding confirming the block reached the stellate ganglion.</div><div class="e-role"><strong>Protocol role:</strong> Resolves within hours. Its presence is reassuring — it means the anaesthetic reached the target. If Horner's syndrome does not appear after an SGB injection, the block may have been suboptimal — worth noting for the provider.</div>
+</div>
+<div class="entry" id="entry-hpa-axis-hypothalamic-pituitary-adrenal" data-cluster="concept" data-name="hpa-axis-hypothalamic-pituitary-adrenal">
+<div class="e-head"><span class="e-name">HPA Axis — Hypothalamic-Pituitary-Adrenal</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The hormonal stress-response system. The hypothalamus signals the pituitary, which signals the adrenal glands to release cortisol. Chronic activation keeps baseline arousal elevated and impairs fear extinction.</div><div class="e-role"><strong>Protocol role:</strong> Ashwagandha (KSM-66) is the primary HPA axis modulator in the protocol. SGB indirectly reduces HPA overdrive by interrupting stellate ganglion NGF signalling. Salivary cortisol panel tests the diurnal HPA rhythm.</div>
+</div>
+<div class="entry" id="entry-hrv-trend" data-cluster="measure" data-name="hrv-trend">
+<div class="e-head"><span class="e-name">HRV Trend</span><span class="e-cluster cl-measure">Measurement</span></div>
+<div class="e-def">The weekly pattern of heart rate variability measurements. An upward trend over 4+ consecutive weeks confirms vagal tone is building.</div><div class="e-role"><strong>Protocol role:</strong> Weekly monitoring throughout all phases via HeartMath coherence scores and the longitudinal HRV tracking method selected in Section 4E.</div>
+</div>
+<div class="entry" id="entry-hrv-heart-rate-variability" data-cluster="concept" data-name="hrv-heart-rate-variability">
+<div class="e-head"><span class="e-name">HRV — Heart Rate Variability</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The variation in time between consecutive heartbeats. High HRV reflects robust vagal tone and parasympathetic dominance. Low HRV indicates sympathetic dominance and reduced stress resilience.</div><div class="e-role"><strong>Protocol role:</strong> Primary longitudinal physiological marker. Weekly trend confirms whether substrate work is building vagal tone. Tracked via HeartMath Inner Balance and a longitudinal tracking method (Section 4E).</div>
+</div>
+<div class="entry" id="entry-hypnagogic-state" data-cluster="concept" data-name="hypnagogic-state">
+<div class="e-head"><span class="e-name">Hypnagogic State</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The transitional consciousness state at the boundary between wakefulness and sleep — characterised by theta-alpha brainwaves (4–12 Hz), vivid imagery, and deep physical relaxation while maintaining some awareness. The target state of Yoga Nidra.</div><div class="e-role"><strong>Protocol role:</strong> Yoga Nidra is specifically designed to induce and sustain this state. The thalamus remains active as a sensory filter while cortical threat-processing is suppressed. Sounds experienced in the hypnagogic state — including trigger sounds — register and pass without the full cascade engaging.</div>
 </div>
 
 <div class="letter-divider">I</div>
 
-<div class="entry" data-cluster="technique" data-name="ifs">
+<div class="entry" id="entry-ifs-internal-family-systems" data-cluster="technique" data-name="ifs-internal-family-systems">
 <div class="e-head"><span class="e-name">IFS — Internal Family Systems</span><span class="e-cluster cl-technique">Technique</span></div>
-<div class="e-def">A psychotherapy model that treats the mind as a system of distinct sub-personalities or "parts," each with their own roles and motivations. Therapeutic change occurs through developing a curious, compassionate relationship with parts rather than suppressing them.</div>
-<div class="e-role"><strong>Protocol role:</strong> Begins Phase 3. 1–2 self-directed sessions/week. Addresses the misophonic protector part — the anger, the rage — not as pathology but as a part doing what it learned to do. Meeting it with curiosity can dissolve its need to protect from the inside.</div>
-<a href="protocol.html#p3-ifs" class="e-link">&#8594; Protocol section 7E</a>
+<div class="e-def">A psychotherapy model treating the psyche as composed of distinct "parts" — each with its own perspective and protective function. In this protocol, IFS targets the protector part that generates the misophonic rage response — not to eliminate it but to understand what it is protecting.</div><div class="e-role"><strong>Protocol role:</strong> Phase 3 onward. Complements EMDR (EMDR processes memories; IFS works the relational/protective structure underneath). Run after EMDR or as standalone on CC days.</div>
+</div>
+<div class="entry" id="entry-imaginal-cc-technique-3" data-cluster="technique" data-name="imaginal-cc-technique-3">
+<div class="e-head"><span class="e-name">Imaginal CC (Technique 3)</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">A counterconditioning variant where the trigger sound is vividly imagined rather than played from a recording. Useful for highly interpersonal triggers where a recording cannot capture the full charge.</div><div class="e-role"><strong>Protocol role:</strong> Phase 3 onward. Requires more internal regulation capacity than Technique 1. Most relevant for the most charged interpersonal triggers.</div>
+</div>
+<div class="entry" id="entry-insula" data-cluster="concept" data-name="insula">
+<div class="e-head"><span class="e-name">Insula</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A region of the cerebral cortex involved in interoception, emotional awareness, and the subjective experience of bodily states. In misophonia, the anterior insula amplifies the sensorimotor threat signal into a full emotional response.</div><div class="e-role"><strong>Protocol role:</strong> One of three neural substrates driving misophonic reactivity. CC and MDMA-assisted processing work partly by reducing insula reactivity. tDCS applied to left dlPFC modulates pathways that include insula activity.</div>
+</div>
+<div class="entry" id="entry-integration-week" data-cluster="concept" data-name="integration-week">
+<div class="e-head"><span class="e-name">Integration Week</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The 7-day period following a psilocybin macrodose or MDMA session. Day 1: rest only — no CC, no demanding practices. Days 2–7: the Pulse — daily CC sessions capitalising on the peak neuroplasticity window. Sleep prioritised throughout. No alcohol, no disruptions where avoidable.</div><div class="e-role"><strong>Protocol role:</strong> The most productive CC window of each cycle. The protocol schedules integration weeks to be as uninterrupted as possible. Phase 4's dedicated reduced-exposure setting is designed to make integration weeks maximally productive.</div>
+</div>
+<div class="entry" id="entry-intermittent-fasting" data-cluster="concept" data-name="intermittent-fasting">
+<div class="e-head"><span class="e-name">Intermittent Fasting</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A time-restricted eating pattern where food intake is limited to a specific window. On aerobic days, first meal at 10am or later — maintaining a fasted state through the morning exercise. The fasting window activates AMPK, autophagy, and BDNF production.</div><div class="e-role"><strong>Protocol role:</strong> Aerobic day eating window from Phase 1. Not applied on resistance training days (first meal immediately after training for protein synthesis). One of the highest-leverage metabolic interventions given it costs nothing and amplifies BDNF from exercise.</div>
 </div>
 
 <div class="letter-divider">K</div>
 
-<div class="entry" data-cluster="substance" data-name="kava">
-<div class="e-head"><span class="e-name">Kava</span><span class="e-cluster cl-substance">Substance</span></div>
-<div class="e-def">A traditional Pacific Island plant medicine with GABAergic and kavalactone-mediated anxiolytic effects. Unlike alcohol, does not impair cognition, disrupt sleep, or produce next-day effects.</div>
-<div class="e-role"><strong>Protocol role:</strong> Begins Phase 2. Situational use (max 3×/week), 45–60 min before high-trigger community contexts or challenging CC sessions. Reduces the anticipatory-dread layer. Noble kava only — not instant, extract, or tudei. As CC progresses, kava's role naturally decreases.</div>
-<a href="protocol.html#p2-kava" class="e-link">&#8594; Protocol section 6F</a>
+<div class="entry" id="entry-kava-noble" data-cluster="substance" data-name="kava-noble">
+<div class="e-head"><span class="e-name">Kava (Noble)</span><span class="e-cluster cl-substance">Substance</span></div>
+<div class="e-def">A traditional Pacific Islander anxiolytic made from Piper methysticum root. Active compounds (kavalactones) have GABAergic, dopaminergic, and ion-channel effects. Unlike alcohol, kava does not impair cognition, disrupt sleep, or produce next-day effects at traditional doses.</div><div class="e-role"><strong>Protocol role:</strong> Phase 2 onward. 45–60 minutes before high-trigger contexts or challenging CC sessions. Maximum 3x per week. Noble kava root powder only — not instant, not extract, not tudei. Cool water preparation only (hot water degrades kavalactones). Avoid with alcohol. Role naturally diminishes as CC progresses and anticipatory layer reduces.</div>
+</div>
+<div class="entry" id="entry-kavalactones" data-cluster="concept" data-name="kavalactones">
+<div class="e-head"><span class="e-name">Kavalactones</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The primary bioactive compounds in kava root, responsible for its anxiolytic and muscle-relaxing effects. Kavalactones interact with multiple targets: GABA-A receptors (mild), dopamine pathways, ion channels, and the endocannabinoid system. They produce anxiolysis without sedation or cognitive impairment. Hot water degrades kavalactones — preparation with room-temperature water is essential.</div><div class="e-role"><strong>Protocol role:</strong> The reason noble kava root powder is specified (high kavalactone content) and cool water is mandatory. Instant kava, kava extracts, and tudei kava all have inferior or altered kavalactone profiles.</div>
+</div>
+<div class="entry" id="entry-krill-oil-superbaboost" data-cluster="supplement" data-name="krill-oil-superbaboost">
+<div class="e-head"><span class="e-name">Krill Oil (SUPERBABoost)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">Omega-3 fatty acids (EPA and DHA) in phospholipid form — the delivery format that incorporates most efficiently into neuronal membranes. The only practical consumer source of phospholipid-form EPA/DHA.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 onward. 2–3 softgels morning with food. Paired with omega-3 triglyceride top-up to reach the 2–3g combined EPA+DHA daily target. Pause 1 week before SGB. Skip on oily fish days.</div>
+</div>
+
+<div class="letter-divider">L</div>
+
+<div class="entry" id="entry-l-theanine" data-cluster="concept" data-name="l-theanine">
+<div class="e-head"><span class="e-name">L-Theanine</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">An amino acid found in green tea, particularly matcha, in concentrations of 300–400mg per cup. Promotes alpha-wave activity and calm alertness by partially blocking excitatory glutamate receptors and increasing GABA and dopamine. When paired with caffeine, it smooths the stimulant effect into focused calm without the cortisol spike.</div><div class="e-role"><strong>Protocol role:</strong> Present in daily matcha (morning) and green tea (afternoon). This is why L-theanine was removed as a standalone supplement — daily matcha already provides a higher baseline dose than supplement capsules. The compound earns its place as a food-based delivery.</div>
+</div>
+<div class="entry" id="entry-l-reuteri-biogaia-gastrus" data-cluster="supplement" data-name="l-reuteri-biogaia-gastrus">
+<div class="e-head"><span class="e-name">L. reuteri (BioGaia Gastrus)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">Lactobacillus reuteri — a probiotic strain that stimulates oxytocin production via vagal nerve signalling. Also supports gut microbiome diversity and gut-brain axis communication.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 onward. 1–2 tablets chewed thoroughly on waking. Chew — do not swallow whole. Keep refrigerated.</div>
+</div>
+<div class="entry" id="entry-leafy-greens" data-cluster="food" data-name="leafy-greens">
+<div class="e-head"><span class="e-name">Leafy Greens</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">High in dietary nitrates (converted to nitric oxide for cerebrovascular blood flow), folate (methylation support), and lutein (brain health).</div><div class="e-role"><strong>Protocol role:</strong> Daily. Raw or lightly cooked.</div>
+</div>
+<div class="entry" id="entry-lion-s-mane-dual-extracted" data-cluster="supplement" data-name="lion-s-mane-dual-extracted">
+<div class="e-head"><span class="e-name">Lion's Mane (Dual-Extracted)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">A medicinal mushroom (Hericium erinaceus) containing hericenones and erinacines that stimulate NGF synthesis. Dual-extraction required to access both water-soluble and fat-soluble active compounds. Must specify beta-glucan content.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 onward. 2g daily with morning food, without exception. Synergistic with psilocybin (both target neuroplasticity pathways). Real Mushrooms is the recommended brand.</div>
+</div>
+<div class="entry" id="entry-lithium-orotate" data-cluster="supplement" data-name="lithium-orotate">
+<div class="e-head"><span class="e-name">Lithium Orotate</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">Lithium at nutritional doses (5mg vs 300–900mg pharmaceutical) in the orotate salt form. Stimulates hippocampal neurogenesis and BDNF upregulation at low doses.</div><div class="e-role"><strong>Protocol role:</strong> Phase 2 onward. 5mg morning. Hard limit: do not exceed 10mg/day. Do not take if on pharmaceutical lithium.</div>
+</div>
+<div class="entry" id="entry-locus-coeruleus" data-cluster="concept" data-name="locus-coeruleus">
+<div class="e-head"><span class="e-name">Locus Coeruleus</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A nucleus in the brainstem that is the brain's primary norepinephrine-producing region. Activated by tVNS via the auricular branch of the vagus nerve. Norepinephrine release from the locus coeruleus enhances the durability of newly formed memories.</div><div class="e-role"><strong>Protocol role:</strong> The mechanistic pathway through which tVNS enhances CC session efficacy: vagal stimulation → locus coeruleus activation → norepinephrine release → enhanced plasticity and memory consolidation during the simultaneous CC pairing.</div>
 </div>
 
 <div class="letter-divider">M</div>
 
-<div class="entry" data-cluster="device" data-name="muse s">
-<div class="e-head"><span class="e-name">Muse S — Alpha-Theta Neurofeedback</span><span class="e-cluster cl-device">Device</span></div>
-<div class="e-def">An EEG headband that measures brainwaves in real time and provides audio feedback when they drift from a target theta-alpha state (4–12 Hz). Used for active training of the brain's resting-state regulation.</div>
-<div class="e-role"><strong>Protocol role:</strong> Begins Phase 3. Daily 20 min morning after HeartMath. Trains the same theta-alpha state that Yoga Nidra inhabits — but actively via feedback rather than passively through guidance. The return to target after drifting is the training.</div>
-<a href="protocol.html#p3-muse" class="e-link">&#8594; Protocol section 7B</a>
+<div class="entry" id="entry-magnesium-glycinate" data-cluster="supplement" data-name="magnesium-glycinate">
+<div class="e-head"><span class="e-name">Magnesium Glycinate</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">Magnesium bound to glycine — both nutrients independently support sleep quality. High bioavailability, minimal laxative effect.</div><div class="e-role"><strong>Protocol role:</strong> Sleep stack. 360mg elemental (3 × 120mg capsules) at bedtime from Phase 1. Do not substitute oxide or citrate forms.</div>
 </div>
-
-<div class="entry" data-cluster="substance" data-name="mdma">
+<div class="entry" id="entry-magnesium-l-threonate-magtein" data-cluster="supplement" data-name="magnesium-l-threonate-magtein">
+<div class="e-head"><span class="e-name">Magnesium L-Threonate (Magtein)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">Magnesium bound to L-threonate — the only magnesium form that reliably crosses the blood-brain barrier. Supports synaptic plasticity, sleep depth, and NMDA receptor function.</div><div class="e-role"><strong>Protocol role:</strong> Sleep stack. 2000mg at bedtime from Phase 1. Magtein is the patented, research-validated form.</div>
+</div>
+<div class="entry" id="entry-matcha" data-cluster="food" data-name="matcha">
+<div class="e-head"><span class="e-name">Matcha</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">Powdered green tea with high L-theanine (300–400mg per cup), EGCG, and moderate caffeine. L-theanine + caffeine produces calm alertness without a cortisol spike. The most important daily drink in the protocol.</div><div class="e-role"><strong>Protocol role:</strong> Morning with or after first meal. Daily matcha is why supplemental L-theanine was removed — matcha already provides a higher baseline dose than capsules.</div>
+</div>
+<div class="entry" id="entry-mdma" data-cluster="substance" data-name="mdma">
 <div class="e-head"><span class="e-name">MDMA</span><span class="e-cluster cl-substance">Substance</span></div>
-<div class="e-def">3,4-methylenedioxymethamphetamine. An entactogen that suppresses amygdala and insula activation while producing large oxytocin surges. Creates a state of emotional openness and reduced threat reactivity.</div>
-<div class="e-role"><strong>Protocol role:</strong> Two sessions total (Phase 3 + Phase 4). Addresses the interpersonal-violation layer — the relational dimension of trigger responses that psilocybin alone cannot reach as directly. Test with Marquis + Simon's + fentanyl strips every batch. Min 6 weeks between sessions.</div>
-<a href="protocol.html#p3-mdma1" class="e-link">&#8594; Protocol sections 7H + 8E</a>
+<div class="e-def">3,4-methylenedioxymethamphetamine. A psychoactive that produces simultaneous serotonin, dopamine, and norepinephrine release alongside oxytocin. In therapeutic settings, MDMA reduces activity in the fear centre (amygdala) while preserving conscious access to difficult memories — enabling processing of the interpersonal-violation layer that is inaccessible in ordinary states.</div><div class="e-role"><strong>Protocol role:</strong> Session 1 in Phase 3; Session 2 in Phase 4. Targets Layer 2 (social threat coding) specifically. Schedule I in the US — know your legal context. Post-session: 5-HTP 100mg + EGCG 400mg for 3 days beginning 24h after, to replenish serotonin.</div>
+</div>
+<div class="entry" id="entry-melatonin-low-dose" data-cluster="supplement" data-name="melatonin-low-dose">
+<div class="e-head"><span class="e-name">Melatonin (Low Dose)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">A hormone that signals darkness and regulates circadian rhythm onset. At 0.5mg, as effective as higher doses for sleep onset with fewer side effects.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 only, first 4–6 weeks. Temporary rhythm-setter only. Taper and discontinue — the sleep protocol is the long-term mechanism.</div>
+</div>
+<div class="entry" id="entry-memory-reconsolidation" data-cluster="concept" data-name="memory-reconsolidation">
+<div class="e-head"><span class="e-name">Memory Reconsolidation</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Every time a memory is retrieved, it temporarily becomes malleable — it must be "reconsolidated" to persist. This window can be exploited: if a destabilising agent (propranolol, MDMA) is introduced during retrieval, the memory reconsolidates with reduced emotional charge.</div><div class="e-role"><strong>Protocol role:</strong> The mechanism behind propranolol-assisted reconsolidation (Section 7E). The trigger memory is deliberately activated, then propranolol prevents the threat response from being stamped back in at full intensity.</div>
+</div>
+<div class="entry" id="entry-methylation" data-cluster="concept" data-name="methylation">
+<div class="e-head"><span class="e-name">Methylation</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A biochemical process involving the transfer of a methyl group (CH₃) to DNA, proteins, or other molecules. In the context of B vitamins: methylation supports neurotransmitter synthesis (serotonin, dopamine, norepinephrine), DNA repair, and detoxification. Impaired methylation (due to MTHFR gene variants, folate deficiency, or B12 deficiency) reduces all of these.</div><div class="e-role"><strong>Protocol role:</strong> The reason the B-complex supplement specifically requires methylated forms — methylfolate (not folic acid) and methylcobalamin (not cyanocobalamin). These are the active forms that enter methylation pathways directly, bypassing conversion steps that may be impaired.</div>
+</div>
+<div class="entry" id="entry-mirror-neuron-mechanism" data-cluster="concept" data-name="mirror-neuron-mechanism">
+<div class="e-head"><span class="e-name">Mirror Neuron Mechanism</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The process by which the brain involuntarily simulates the motor action producing a sound — the sensorimotor cortex activates as if the listener's body were performing the action. In misophonia, this simulation cascades into a threat response.</div><div class="e-role"><strong>Protocol role:</strong> Identified in Kumar et al. (2021) as the motor basis of misophonia. Explains why eating sounds feel like a violation — the brain is simulating the eating action.</div>
+</div>
+<div class="entry" id="entry-mitochondrial-biogenesis" data-cluster="concept" data-name="mitochondrial-biogenesis">
+<div class="e-head"><span class="e-name">Mitochondrial Biogenesis</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The process by which cells generate new mitochondria — the cellular organelles responsible for ATP production. Zone 2 aerobic exercise is the most potent stimulator of mitochondrial biogenesis. More and better mitochondria mean more efficient energy production for neuronal activity and neuroplasticity.</div><div class="e-role"><strong>Protocol role:</strong> The deep reason Zone 2 exercise is structural in this protocol — not just for BDNF, but for the long-term improvement of the brain's energy production infrastructure. AMPK activation (via exercise, fasting, berberine) triggers PGC-1α, the master regulator of mitochondrial biogenesis.</div>
+</div>
+<div class="entry" id="entry-mushrooms-daily" data-cluster="food" data-name="mushrooms-daily">
+<div class="e-head"><span class="e-name">Mushrooms (Daily)</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">Any culinary mushrooms provide ergothioneine — consistently associated with reduced all-cause mortality. Oyster, porcini, and shiitake are highest; any variety contributes. Heat-stable.</div><div class="e-role"><strong>Protocol role:</strong> Daily. Growing your own (NorthSpore kits) is ideal. Powder form acceptable.</div>
+</div>
+<div class="entry" id="entry-myelin" data-cluster="concept" data-name="myelin">
+<div class="e-head"><span class="e-name">Myelin</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The fatty insulating sheath surrounding nerve axons, produced by oligodendrocytes in the central nervous system. Myelin increases conduction speed and efficiency of neural signals. DHA from omega-3 supplementation is essential for myelin formation and maintenance. Vitamin B12 is also required for myelin integrity.</div><div class="e-role"><strong>Protocol role:</strong> DHA (from krill + omega-3 top-up) and B12 (sublingual) are both in the protocol partly for myelin support. Well-myelinated circuits conduct more efficiently and are more stable — relevant to the new neural pathways being built through CC.</div>
 </div>
 
 <div class="letter-divider">N</div>
 
-<div class="entry" data-cluster="concept" data-name="neural repatterning">
-<div class="e-head"><span class="e-name">Neural Repatterning</span><span class="e-cluster cl-concept">Concept</span></div>
-<div class="e-def">The primary CC technique — pairing trigger sounds at low volume with a genuinely felt positive emotional state in a structured session format. Technique 1 in the CC library.</div>
-<div class="e-role"><strong>Protocol role:</strong> The main behavioral rewriting mechanism from Phase 2 onward. Dual exposure: positive music in dominant ear, trigger at low volume in non-dominant ear. ~70% attention to positive, ~30% to trigger. 4–6 reps per session. Advance criterion: 4 consecutive reps at SUDs ≤2 across multiple sessions.</div>
-<a href="protocol.html#p2-cc" class="e-link">&#8594; Protocol section 6A</a>
+<div class="entry" id="entry-nac-n-acetyl-cysteine" data-cluster="supplement" data-name="nac-n-acetyl-cysteine">
+<div class="e-head"><span class="e-name">NAC (N-Acetyl Cysteine)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">A precursor to glutathione (the body's primary antioxidant) and a glutamate modulator. Relevant to the rumination and compulsive aspects of the anticipatory layer.</div><div class="e-role"><strong>Protocol role:</strong> Phase 2 onward. 600mg morning + 600mg midday. Stop 3 days before MDMA sessions. Resume 48 hours after.</div>
+</div>
+<div class="entry" id="entry-nad-nicotinamide-adenine-dinucleotide" data-cluster="concept" data-name="nad-nicotinamide-adenine-dinucleotide">
+<div class="e-head"><span class="e-name">NAD+ (Nicotinamide Adenine Dinucleotide)</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A coenzyme found in every living cell, essential for cellular energy production, DNA repair, and sirtuin activation. NAD+ levels decline with age, impairing the cellular machinery neuroplasticity and longevity depend on.</div><div class="e-role"><strong>Protocol role:</strong> Supported by NMN (the direct precursor). The NAD+ blood level test at Phase 0 establishes baseline and calibrates NMN dosing. Resveratrol activates sirtuins, which are the NAD+-dependent proteins NMN is designed to support.</div>
+</div>
+<div class="entry" id="entry-neural-repatterning-technique-1" data-cluster="technique" data-name="neural-repatterning-technique-1">
+<div class="e-head"><span class="e-name">Neural Repatterning (Technique 1)</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">The primary CC technique. Entry conditions: SUDs 0–2, body tension below 4/10, resonance frequency breathing to baseline. Play trigger sound at low volume while simultaneously activating a genuinely felt positive emotion. Hold 3–5 minutes per repetition, 4–6 reps per session.</div><div class="e-role"><strong>Protocol role:</strong> Phase 2 onward. The core rewriting mechanism. Nuropod tVNS runs throughout. tDCS (ActivaDose) applied 20 min before in Phase 3+.</div>
+</div>
+<div class="entry" id="entry-neuroplasticity-window" data-cluster="concept" data-name="neuroplasticity-window">
+<div class="e-head"><span class="e-name">Neuroplasticity Window</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The period of heightened synaptic malleability following a plasticity-opening event — psilocybin macrodose, MDMA session, or SGB. During this window, new associations write more deeply and old ones are more susceptible to modification.</div><div class="e-role"><strong>Protocol role:</strong> The protocol sequences CC sessions and other rewriting work to occur within active neuroplasticity windows. The post-psilocybin window runs approximately 30 days; post-SGB windows vary by individual.</div>
+</div>
+<div class="entry" id="entry-neurotransmitter-synthesis" data-cluster="concept" data-name="neurotransmitter-synthesis">
+<div class="e-head"><span class="e-name">Neurotransmitter Synthesis</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The cellular process of producing neurotransmitters (serotonin, dopamine, norepinephrine, GABA, etc.) from dietary precursor amino acids and cofactors. Key cofactors include B6 (pyridoxine), B12, methylfolate, magnesium, and zinc — all present in the protocol's supplement stack.</div><div class="e-role"><strong>Protocol role:</strong> The methylated B-complex and B12 in this protocol are included specifically because they are essential cofactors for neurotransmitter synthesis. On a plant-forward diet, B12 deficiency is a common and silent cause of impaired neurotransmitter production.</div>
+</div>
+<div class="entry" id="entry-ngf-nerve-growth-factor" data-cluster="concept" data-name="ngf-nerve-growth-factor">
+<div class="e-head"><span class="e-name">NGF — Nerve Growth Factor</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A protein involved in the survival and maintenance of sympathetic and sensory neurons. In misophonia, overactive NGF signalling in the stellate ganglion drives chronic sympathetic hyperactivation.</div><div class="e-role"><strong>Protocol role:</strong> The SGB mechanism: bupivacaine temporarily interrupts NGF signalling, allowing sympathetic tone to reset. Lion's Mane stimulates NGF in the brain — a different and complementary application of the same protein.</div>
+</div>
+<div class="entry" id="entry-niacin-flush-nicotinic-acid" data-cluster="supplement" data-name="niacin-flush-nicotinic-acid">
+<div class="e-head"><span class="e-name">Niacin Flush (Nicotinic Acid)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">Vitamin B3 in the flush-producing form. In the Stamets Stack (psilocybin + Lion's Mane + niacin), niacin is proposed to enhance peripheral neural distribution of psilocin via vasodilation. Must produce a flush — niacinamide (non-flush) does not have the same effect.</div><div class="e-role"><strong>Protocol role:</strong> Phase 3 onward. 100–200mg at 10am on Mon–Thu microdosing days, taken with psilocybin.</div>
+</div>
+<div class="entry" id="entry-nmda-receptor" data-cluster="concept" data-name="nmda-receptor">
+<div class="e-head"><span class="e-name">NMDA Receptor</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">N-methyl-D-aspartate receptor — a type of glutamate receptor that plays a central role in synaptic plasticity, learning, and memory consolidation. NMDA receptors are the molecular basis of "Hebbian learning" — neurons that fire together wire together. Magnesium ions block NMDA receptors at rest; this block is released during activation.</div><div class="e-role"><strong>Protocol role:</strong> Both magnesium forms in the sleep stack (magnesium glycinate and magnesium L-threonate) are relevant here — magnesium modulates NMDA receptor activity. Optimal magnesium levels support the dynamic regulation of NMDA receptors that synaptic plasticity depends on.</div>
+</div>
+<div class="entry" id="entry-nmn-nicotinamide-mononucleotide" data-cluster="supplement" data-name="nmn-nicotinamide-mononucleotide">
+<div class="e-head"><span class="e-name">NMN (Nicotinamide Mononucleotide)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">A direct NAD+ precursor that raises cellular NAD+ levels. Essential for DNA repair, mitochondrial function, and sirtuin activation.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 Month 2 onward. 500mg sublingual before other supplements on empty stomach. CGN NMN Powder is the current form — placed directly under tongue.</div>
+</div>
+<div class="entry" id="entry-norepinephrine" data-cluster="concept" data-name="norepinephrine">
+<div class="e-head"><span class="e-name">Norepinephrine</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A neurotransmitter and hormone (also called noradrenaline) involved in alertness, focus, and the stress response. The locus coeruleus is the primary norepinephrine-producing brain region. tVNS activates the vagal-locus coeruleus-norepinephrine pathway to enhance plasticity during CC.</div><div class="e-role"><strong>Protocol role:</strong> tVNS during CC sessions works partly by increasing norepinephrine release from the locus coeruleus, which enhances the durability of new associative memories. The cold plunge also produces a sharp norepinephrine spike.</div>
+</div>
+<div class="entry" id="entry-nrf2-pathway" data-cluster="concept" data-name="nrf2-pathway">
+<div class="e-head"><span class="e-name">Nrf2 Pathway</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Nuclear factor erythroid 2–related factor 2 — a transcription factor that activates the body's antioxidant and anti-inflammatory gene expression programs. When activated, Nrf2 upregulates hundreds of cytoprotective genes simultaneously. Sulforaphane (from broccoli/brassicas) is one of the most potent known Nrf2 activators.</div><div class="e-role"><strong>Protocol role:</strong> Activated by sulforaphane (brassicas, prepared correctly), quercetin (capers), and exercise. The Nrf2 pathway explains why whole-food dietary interventions produce effects that far exceed what isolated antioxidant supplements achieve — it activates the body's endogenous antioxidant production rather than providing antioxidants exogenously.</div>
+</div>
+<div class="entry" id="entry-nuropod-tvns" data-cluster="device" data-name="nuropod-tvns">
+<div class="e-head"><span class="e-name">Nuropod (tVNS)</span><span class="e-cluster cl-device">Device</span></div>
+<div class="e-def">A transcutaneous vagus nerve stimulation device. An electrode clip delivers gentle electrical stimulation to the cymba concha of the left ear, activating the auricular branch of the vagus nerve. Produces parasympathetic upregulation and enhanced norepinephrine-pathway plasticity during CC.</div><div class="e-role"><strong>Protocol role:</strong> Phase 2 onward. Clipped 2–3 minutes before CC session begins, runs throughout. Settings: 25Hz, 200–300 µs pulse width, 0.5–1.0 mA — below sensation threshold. Also used as standalone support during high-trigger periods.</div>
 </div>
 
-<div class="entry" data-cluster="concept" data-name="neuroplasticity window">
-<div class="e-head"><span class="e-name">Neuroplasticity Window</span><span class="e-cluster cl-concept">Concept</span></div>
-<div class="e-def">A period of elevated synaptic plasticity — the brain's capacity to form and strengthen new connections — following certain interventions. Psilocybin opens a window lasting ~30 days; MDMA opens a shorter 3–7 day window.</div>
-<div class="e-role"><strong>Protocol role:</strong> Every macrodose and MDMA session opens a window. The Pulse governs how to use it. CC work during an open window produces more durable associations than the same work outside it. Sleep consolidates changes made during the window.</div>
+<div class="letter-divider">O</div>
+
+<div class="entry" id="entry-oily-fish-sardines-mackerel-salmon" data-cluster="food" data-name="oily-fish-sardines-mackerel-salmon">
+<div class="e-head"><span class="e-name">Oily Fish (Sardines, Mackerel, Salmon)</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">On days oily fish is eaten, krill oil and the omega-3 top-up supplement can both be skipped. A 100g serving provides ~1500–2000mg EPA+DHA plus vitamin D, selenium, and iodine.</div><div class="e-role"><strong>Protocol role:</strong> 2–3x per week if included. Local Hawaii options: opelu (mackerel scad), akule (bigeye scad) from Suisan Fish Market Hilo.</div>
+</div>
+<div class="entry" id="entry-omega-3-index" data-cluster="measure" data-name="omega-3-index">
+<div class="e-head"><span class="e-name">Omega-3 Index</span><span class="e-cluster cl-measure">Measurement</span></div>
+<div class="e-def">The percentage of EPA+DHA in red blood cell membranes. Target range: 8–12%. Measured via OmegaQuant mail-in test.</div><div class="e-role"><strong>Protocol role:</strong> Year 1 completion bloodwork. Confirms whether the krill + omega-3 top-up protocol is achieving adequate neuronal membrane incorporation.</div>
+</div>
+<div class="entry" id="entry-omega-3-triglyceride-top-up" data-cluster="supplement" data-name="omega-3-triglyceride-top-up">
+<div class="e-head"><span class="e-name">Omega-3 Triglyceride Top-Up</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">EPA and DHA in triglyceride form — combined with krill oil to reach the 2–3g daily EPA+DHA target. Fish oil (Sports Research Alaskan) or algae oil (Nordic Naturals Algae Omega) are equally effective as the top-up.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 onward. 2–4 softgels morning with food alongside krill oil. Skip on oily fish days. Pause 1 week before SGB.</div>
+</div>
+<div class="entry" id="entry-oxytocin" data-cluster="concept" data-name="oxytocin">
+<div class="e-head"><span class="e-name">Oxytocin</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A neuropeptide associated with social bonding, trust, and stress reduction. Released by L. reuteri via vagal nerve signalling. Also elevated by MDMA — contributing to the therapeutic empathy and reduced threat response in MDMA sessions.</div><div class="e-role"><strong>Protocol role:</strong> L. reuteri in the supplement stack is included primarily for its oxytocin-stimulating mechanism. MDMA's therapeutic effect on the interpersonal-violation layer (Layer 2) is partly mediated by massive oxytocin release.</div>
 </div>
 
 <div class="letter-divider">P</div>
 
-<div class="entry" data-cluster="substance" data-name="psilocybin">
-<div class="e-head"><span class="e-name">Psilocybin</span><span class="e-cluster cl-substance">Substance</span></div>
-<div class="e-def">A psychedelic compound (5-HT2A agonist) that temporarily decouples the Default Mode Network, elevates BDNF and synaptogenesis, and opens a sustained neuroplasticity window lasting approximately 30 days post-session.</div>
-<div class="e-role"><strong>Protocol role:</strong> 10 total sessions across the protocol. Phase 0: Session 0 (orientation, 1.5–2g). Phase 1: 1–2 orientation sessions. Phase 2: Session 1 (first therapeutic, 2.5g). Phase 3: 1–2 deepening sessions (2.5–3g) + microdosing begins. Phase 4: One macrodose from SGB-reset baseline. Phase 5: Every 2–3 months maintenance.</div>
-<a href="protocol.html#p2-session1" class="e-link">&#8594; Protocol section 6C</a>
+<div class="entry" id="entry-phosphatidylserine" data-cluster="supplement" data-name="phosphatidylserine">
+<div class="e-head"><span class="e-name">Phosphatidylserine</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">A phospholipid found in high concentrations in neuronal membranes. Supports cortisol regulation (blunts post-stress cortisol spike) and fear extinction.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 Month 2 onward. 300mg midday with meal. Not in evening — can occasionally interfere with sleep.</div>
 </div>
-
-<div class="entry" data-cluster="concept" data-name="propranolol memory reconsolidation">
+<div class="entry" id="entry-phospholipid" data-cluster="concept" data-name="phospholipid">
+<div class="e-head"><span class="e-name">Phospholipid</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A type of fat molecule that forms the structural basis of cell membranes. EPA and DHA in phospholipid form (as in krill oil) incorporate directly into neuronal membranes more efficiently than triglyceride forms.</div><div class="e-role"><strong>Protocol role:</strong> The reason krill oil is used alongside a triglyceride top-up rather than relying on algae or fish oil alone. Phospholipid delivery is the mechanistic advantage krill provides — the EPA/DHA enters neuronal membranes more readily.</div>
+</div>
+<div class="entry" id="entry-physiological-sigh-interrupt-technique-4" data-cluster="technique" data-name="physiological-sigh-interrupt-technique-4">
+<div class="e-head"><span class="e-name">Physiological Sigh Interrupt (Technique 4)</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">When a trigger fires in daily life: double inhale through the nose (sniff, then top it off fully) followed by a long, complete exhale through the mouth. The fastest known manual method for resetting autonomic state.</div><div class="e-role"><strong>Protocol role:</strong> Phase 2 onward. Ambient tool, not for formal sessions. Used as a real-time interrupt when a trigger fires unexpectedly. Pairs with Technique 6 (cognitive reappraisal) for compound effect.</div>
+</div>
+<div class="entry" id="entry-pink-noise-machine" data-cluster="device" data-name="pink-noise-machine">
+<div class="e-head"><span class="e-name">Pink Noise Machine</span><span class="e-cluster cl-device">Device</span></div>
+<div class="e-def">A device generating pink noise — broadband sound with equal energy per octave, perceived as softer and more natural than white noise. Enhances slow-wave sleep quality and next-morning memory consolidation.</div><div class="e-role"><strong>Protocol role:</strong> Sleep protocol from Phase 1. Runs overnight every night. Also played at barely perceptible volume during meetings and meals via the bone conduction headphones.</div>
+</div>
+<div class="entry" id="entry-polyphenol" data-cluster="concept" data-name="polyphenol">
+<div class="e-head"><span class="e-name">Polyphenol</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A broad category of plant-derived compounds characterised by multiple phenol ring structures. Includes flavonoids (quercetin, fisetin, EGCG, anthocyanins, flavanols), stilbenoids (resveratrol), and many others. Polyphenols are generally anti-inflammatory, antioxidant, and supportive of gut microbiome diversity.</div><div class="e-role"><strong>Protocol role:</strong> The entire food section of this protocol is essentially a polyphenol-rich eating pattern. Capers (quercetin), berries (anthocyanins), green tea/matcha (catechins/EGCG), dark chocolate (flavanols), strawberries (fisetin), walnuts (ellagitannins), and brassicas (sulforaphane) all deliver distinct polyphenol families.</div>
+</div>
+<div class="entry" id="entry-polyvagal-theory" data-cluster="concept" data-name="polyvagal-theory">
+<div class="e-head"><span class="e-name">Polyvagal Theory</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Stephen Porges's framework describing how the autonomic nervous system uses neural circuits — particularly the vagal pathways — to shift between safety (ventral vagal), mobilisation (sympathetic), and shutdown (dorsal vagal) states.</div><div class="e-role"><strong>Protocol role:</strong> The theoretical basis for SSP, HeartMath, and tVNS. The stapedius muscle and middle ear are part of the ventral vagal circuit — SSP directly trains this pathway.</div>
+</div>
+<div class="entry" id="entry-propranolol" data-cluster="substance" data-name="propranolol">
+<div class="e-head"><span class="e-name">Propranolol</span><span class="e-cluster cl-substance">Substance</span></div>
+<div class="e-def">A non-selective beta-blocker that blocks adrenaline and noradrenaline at beta-adrenergic receptors. Originally a cardiac medication. In memory reconsolidation research, it is used during the reconsolidation window to prevent the fear/stress component of a memory from being re-stored at full intensity.</div><div class="e-role"><strong>Protocol role:</strong> Phase 3, weeks 4–6. 10–20mg taken 60–90 min before a CC session targeting a specific trigger memory. Used 4–6 times on SUDs 5–7 material. Requires a prescription. The factual content of the memory is preserved — only the emotional charge diminishes.</div>
+</div>
+<div class="entry" id="entry-propranolol-assisted-memory-reconsolidation" data-cluster="technique" data-name="propranolol-assisted-memory-reconsolidation">
 <div class="e-head"><span class="e-name">Propranolol-Assisted Memory Reconsolidation</span><span class="e-cluster cl-technique">Technique</span></div>
-<div class="e-def">A pharmacological technique using propranolol (a beta-blocker that crosses the blood-brain barrier) taken before memory reactivation. Blocks the adrenergic component of memory re-encoding, allowing a fear memory to restabilize with reduced emotional charge.</div>
-<div class="e-role"><strong>Protocol role:</strong> Begins Phase 3 second half. Requires prescription. 10–20mg, 60–90 min before CC session. Most powerful in Phase 4 where the SGB-reset baseline makes conditions uniquely favorable. Phase 3 use is preparation.</div>
-<a href="protocol.html#p3-propranolol" class="e-link">&#8594; Protocol section 7F</a>
+<div class="e-def">A beta-blocker taken 60–90 min before a CC session. A specific trigger memory (SUDs 5–7) is deliberately activated to open its reconsolidation window. The propranolol prevents the stress response from being restamped at full intensity during reconsolidation.</div><div class="e-role"><strong>Protocol role:</strong> Phase 3 weeks 4–6. 4–6 sessions on target memories. Requires a prescription. Work only SUDs 5–7 material. The memory's factual content is preserved — only the emotional charge diminishes.</div>
+</div>
+<div class="entry" id="entry-psilocybin" data-cluster="substance" data-name="psilocybin">
+<div class="e-head"><span class="e-name">Psilocybin</span><span class="e-cluster cl-substance">Substance</span></div>
+<div class="e-def">A prodrug converted to psilocin in the body. Psilocin is a serotonin 5-HT2A receptor agonist that temporarily suppresses the default mode network, increases neuroplasticity (BDNF, synaptogenesis), and enables access to emotional material that is normally defended against.</div><div class="e-role"><strong>Protocol role:</strong> Session 0 (orientation), Sessions 1–3 (therapeutic, Phase 2–4), and microdosing (Phase 3+, Stamets Stack). Schedule I in the US. Macrodose sessions (2.0–3.5g) open the primary neuroplasticity windows. Microdoses (0.10–0.15g) maintain plasticity baseline between macrodoses.</div>
+</div>
+<div class="entry" id="entry-psilocybin-microdose" data-cluster="supplement" data-name="psilocybin-microdose">
+<div class="e-head"><span class="e-name">Psilocybin (Microdose)</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">Psilocybin at sub-perceptual doses (0.10–0.15g). In the Stamets Stack, maintains neuroplasticity baseline between macrodoses.</div><div class="e-role"><strong>Protocol role:</strong> Phase 3 onward. Mon–Thu at 10am with niacin flush. Requires a 0.001g precision scale.</div>
+</div>
+<div class="entry" id="entry-psoas" data-cluster="concept" data-name="psoas">
+<div class="e-head"><span class="e-name">Psoas</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A deep hip flexor muscle connecting the lumbar spine to the femur. Often called the "fight-or-flight muscle" because it contracts during the defensive startle response and during chronic psychological stress. Chronic psoas tension signals ongoing danger to the brainstem, maintaining sympathetic activation.</div><div class="e-role"><strong>Protocol role:</strong> The psoas release in the full somatic release sequence (Phase 3 onward) is one of the most important elements. Its direct connection to the diaphragm means psoas tension compresses breathing and perpetuates the physiological stress response. Releasing the psoas is among the most direct physical interventions for lowering the sympathetic floor.</div>
 </div>
 
-<div class="entry" data-cluster="concept" data-name="pulse strategy">
-<div class="e-head"><span class="e-name">The Pulse Strategy</span><span class="e-cluster cl-concept">Concept</span></div>
-<div class="e-def">The protocol governing integration weeks after every macrodose and MDMA session. The 72 hours post-session represent the highest-value neuroplasticity window of each cycle — BDNF elevated, DMN grip loosest, dendritic spine density at peak.</div>
-<div class="e-role"><strong>Protocol role:</strong> Day 1 = rest. Days 2–3 = maximum CC effort. Days 2–7 = daily CC with tVNS. Sleep on these nights consolidates what many ordinary nights combined would. Governs every integration week across Phases 2–5.</div>
-<a href="protocol.html#p2-pulse" class="e-link">&#8594; Protocol section: The Pulse</a>
+<div class="letter-divider">Q</div>
+
+<div class="entry" id="entry-qi-gong" data-cluster="technique" data-name="qi-gong">
+<div class="e-head"><span class="e-name">Qi-Gong</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">A daily morning movement practice: shaking (5 min, gentle whole-body vibration from the knees) + flowing (10 min, slow intentional arm and torso movement). Shaking breaks overnight somatic bracing. Flowing trains the capacity to have strong somatic sensation without external reactivity.</div><div class="e-role"><strong>Protocol role:</strong> Daily from Phase 1 Week 4. Minimum version on difficult days: 3 minutes of shaking only. The flowing component is directly relevant to CC work — building the capacity to contain sensation without flooding.</div>
+</div>
+<div class="entry" id="entry-quercetin" data-cluster="concept" data-name="quercetin">
+<div class="e-head"><span class="e-name">Quercetin</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A flavonoid polyphenol with potent senolytic, anti-inflammatory, and antioxidant properties. Quercetin selectively induces apoptosis in senescent cells. Found in highest concentrations in capers (~20mg per tablespoon) — more than any other commonly available food.</div><div class="e-role"><strong>Protocol role:</strong> Provided by daily caper consumption (Phase 5 emphasis, but relevant throughout). Works synergistically with fisetin (strawberries) for senolytic effects. Also modulates mast cells, which may be relevant to sound sensitivity reactivity patterns.</div>
+</div>
+
+<div class="letter-divider">R</div>
+
+<div class="entry" id="entry-reconsolidation-window" data-cluster="concept" data-name="reconsolidation-window">
+<div class="e-head"><span class="e-name">Reconsolidation Window</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The brief period (roughly 1–6 hours) after a memory is retrieved during which it is malleable and can be modified before being re-stored. Requires the memory to be actively destabilised — mere recall without emotional activation is insufficient.</div><div class="e-role"><strong>Protocol role:</strong> Exploited by the propranolol protocol: specific trigger memories are activated vividly, then propranolol prevents full re-stamping of the threat response during reconsolidation.</div>
+</div>
+<div class="entry" id="entry-resonance-frequency-breathing" data-cluster="technique" data-name="resonance-frequency-breathing">
+<div class="e-head"><span class="e-name">Resonance Frequency Breathing</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">Breathing at approximately 6 breaths per minute (5-second inhale, 5-second exhale) — the frequency that maximally amplifies heart rate oscillations and produces cardiac coherence.</div><div class="e-role"><strong>Protocol role:</strong> Pre-CC session entry condition. Also used during HeartMath sessions. Must reach SUDs 0–2 and body tension below 4/10 before CC begins. The breathing alone is insufficient — genuine positive emotion must be present.</div>
+</div>
+<div class="entry" id="entry-resting-body-tension-log" data-cluster="measure" data-name="resting-body-tension-log">
+<div class="e-head"><span class="e-name">Resting Body Tension Log</span><span class="e-cluster cl-measure">Measurement</span></div>
+<div class="e-def">A 30-second daily assessment of jaw, shoulder, and belly tension rated 0–10 each morning before any practice. One of the most sensitive indicators of nervous system state.</div><div class="e-role"><strong>Protocol role:</strong> Daily. Tracked as weekly averages. The post-SGB period shows the clearest signal — a sustained downward shift confirms the procedure worked.</div>
+</div>
+<div class="entry" id="entry-resveratrol" data-cluster="supplement" data-name="resveratrol">
+<div class="e-head"><span class="e-name">Resveratrol</span><span class="e-cluster cl-supplement">Supplement</span></div>
+<div class="e-def">A polyphenol that activates sirtuins (longevity proteins) and supports the NAD+ pathway — synergistic with NMN. Taken weekdays only to avoid chronic tolerance.</div><div class="e-role"><strong>Protocol role:</strong> Phase 5 onward. 500mg morning with fat-containing food, weekdays only.</div>
+</div>
+<div class="entry" id="entry-rumination" data-cluster="concept" data-name="rumination">
+<div class="e-head"><span class="e-name">Rumination</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Repetitive, passive focus on distressing thoughts, feelings, or experiences without moving toward active problem-solving or acceptance. In misophonia, rumination about triggers — replaying incidents, anticipating future ones, constructing narratives of violation — maintains and amplifies the threat circuit between actual trigger events.</div><div class="e-role"><strong>Protocol role:</strong> The anti-rumination protocol (Section 6E) addresses this directly. The ACT defusion technique and time-container approach are the primary tools. NAC's glutamate-modulating mechanism is specifically relevant to the compulsive quality of rumination loops.</div>
 </div>
 
 <div class="letter-divider">S</div>
 
-<div class="entry" data-cluster="technique" data-name="sgb stellate ganglion block">
-<div class="e-head"><span class="e-name">SGB — Stellate Ganglion Block</span><span class="e-cluster cl-technique">Technique</span></div>
-<div class="e-def">An ultrasound-guided injection of local anesthetic into the stellate ganglion (a sympathetic nerve cluster in the neck) that temporarily interrupts overactivated Nerve Growth Factor signaling, producing a durable reset of the sympathetic baseline.</div>
-<div class="e-role"><strong>Protocol role:</strong> Phases 0 and 4. Not sedation — a structural reset persisting months to years. Lowers the autonomic floor before behavioral work begins. Horner's syndrome (temporary eyelid droop, pupil constriction) confirms effectiveness and resolves within hours.</div>
-<a href="protocol.html#p0-sgb" class="e-link">&#8594; Protocol section 1B</a>
+<div class="entry" id="entry-safe-and-sound-protocol-ssp" data-cluster="technique" data-name="safe-and-sound-protocol-ssp">
+<div class="e-head"><span class="e-name">Safe and Sound Protocol (SSP)</span><span class="e-cluster cl-technique">Technique</span></div>
+<div class="e-def">An auditory intervention. Music is acoustically filtered to enhance the human vocal frequency range. This exercises the stapedius muscle in the middle ear (part of the ventral vagal circuit), improving the neural system that distinguishes safety signals from threat signals.</div><div class="e-role"><strong>Protocol role:</strong> Phase 1 Month 2 (primary course: 5 hours over 7–10 days). Mandatory refresher in Phase 4 from SGB-reset baseline. No standalone CC on SSP days. Addresses auditory processing upstream of the conditioned threat response.</div>
 </div>
-
-<div class="entry" data-cluster="technique" data-name="somatic release">
+<div class="entry" id="entry-salivary-cortisol-panel" data-cluster="measure" data-name="salivary-cortisol-panel">
+<div class="e-head"><span class="e-name">Salivary Cortisol Panel</span><span class="e-cluster cl-measure">Measurement</span></div>
+<div class="e-def">A 4-point diurnal cortisol test measuring cortisol levels at waking, +30 min, midday, and evening. Maps the HPA axis rhythm — whether cortisol rises appropriately in the morning and falls by evening, or whether the curve is flat, inverted, or chronically elevated.</div><div class="e-role"><strong>Protocol role:</strong> Phase 0 baseline at Base Clinic Akasaka, Tokyo (¥44,000). Repeat at Phase 4 if logistics allow. Tracks the biological impact of the protocol on HPA axis regulation.</div>
+</div>
+<div class="entry" id="entry-senolytics" data-cluster="concept" data-name="senolytics">
+<div class="e-head"><span class="e-name">Senolytics</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Compounds that selectively clear senescent ("zombie") cells — cells that have stopped dividing but remain metabolically active and secrete inflammatory signals. Senescent cell accumulation drives chronic inflammation and accelerated aging.</div><div class="e-role"><strong>Protocol role:</strong> Dietary senolytics in the protocol: fisetin (strawberries), quercetin (capers), and anthocyanins (berries). These are emphasised in Phase 5 as part of the cellular wellness layer.</div>
+</div>
+<div class="entry" id="entry-sensorimotor-cortex" data-cluster="concept" data-name="sensorimotor-cortex">
+<div class="e-head"><span class="e-name">Sensorimotor Cortex</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The region of the brain (sitting at the boundary of motor and sensory cortices) that processes both sensory information and the motor commands associated with it. In misophonia, the sensorimotor cortex corresponding to the body part making the trigger sound activates when the sound is heard — a mirror-neuron-like simulation.</div><div class="e-role"><strong>Protocol role:</strong> Identified in Kumar et al. (2021) as the initiating region in the misophonic cascade. The sensorimotor activation (simulation of the eating/breathing action) precedes and drives the subsequent emotional and autonomic response. CC gradually decouples this sensorimotor simulation from its threat associations.</div>
+</div>
+<div class="entry" id="entry-serotonin" data-cluster="concept" data-name="serotonin">
+<div class="e-head"><span class="e-name">Serotonin</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A neurotransmitter involved in mood regulation, social behaviour, and the sleep-wake cycle. Psilocybin works primarily via serotonin 5-HT2A receptor agonism. MDMA causes massive serotonin release, which accounts for much of its therapeutic effect on the interpersonal layer.</div><div class="e-role"><strong>Protocol role:</strong> Post-MDMA: serotonin stores are depleted and need 3 days of 5-HTP + EGCG to replenish. Do not take 5-HTP or tryptophan in 24 hours before any psilocybin or MDMA session — the excess serotonin precursor loading may blunt or dangerously amplify effects.</div>
+</div>
+<div class="entry" id="entry-sgb-stellate-ganglion-block" data-cluster="concept" data-name="sgb-stellate-ganglion-block">
+<div class="e-head"><span class="e-name">SGB — Stellate Ganglion Block</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">An injection of local anaesthetic (bupivacaine) into the stellate ganglion — a sympathetic nerve cluster in the neck. Temporarily interrupts overactivated NGF signalling, producing a lasting reset of the sympathetic floor.</div><div class="e-role"><strong>Protocol role:</strong> Phase 0 structural intervention and Phase 4 opening reset. DSR bilateral protocol: right side first, left 24–72 hours later. Ultrasound guidance non-negotiable. Effect develops over 1–4 weeks.</div>
+</div>
+<div class="entry" id="entry-sirtuin" data-cluster="concept" data-name="sirtuin">
+<div class="e-head"><span class="e-name">Sirtuin</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A family of proteins (SIRT1–SIRT7) that regulate cellular aging, DNA repair, and metabolic efficiency. Sirtuins are activated by NAD+ and caloric restriction. Resveratrol activates SIRT1 specifically.</div><div class="e-role"><strong>Protocol role:</strong> The NMN + resveratrol combination in Phase 5 (NMN raises NAD+, resveratrol activates sirtuins) is a synergistic longevity pairing. Both are part of the cellular wellness layer added when the intensive rewiring period is complete.</div>
+</div>
+<div class="entry" id="entry-social-threat-coding" data-cluster="concept" data-name="social-threat-coding">
+<div class="e-head"><span class="e-name">Social Threat Coding</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The neural process by which a trigger sound becomes associated with a specific person — encoding not just the sound but the sense of violation by that person. Activates simultaneously with the acoustic-sensory response.</div><div class="e-role"><strong>Protocol role:</strong> Layer 2 of misophonic reactivity. Primary tools: MDMA-assisted processing, EMDR, IFS. Harder to address through CC alone.</div>
+</div>
+<div class="entry" id="entry-somatic-bracing" data-cluster="concept" data-name="somatic-bracing">
+<div class="e-head"><span class="e-name">Somatic Bracing</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The pattern of chronic defensive muscle tension maintained by the nervous system in response to ongoing perceived threat — elevated shoulders, jaw clenching, contracted psoas, shallow chest breathing. This muscular tension signals ongoing danger to the brainstem, creating a feedback loop that maintains sympathetic activation.</div><div class="e-role"><strong>Protocol role:</strong> The somatic release protocol targets somatic bracing directly. The simplified version (Phase 1) starts with constructive rest and diaphragmatic breathing to interrupt the brainstem-muscle feedback loop. The full sequence (Phase 3) adds psoas release, hip circles, and shoulder/neck work.</div>
+</div>
+<div class="entry" id="entry-somatic-release-protocol" data-cluster="technique" data-name="somatic-release-protocol">
 <div class="e-head"><span class="e-name">Somatic Release Protocol</span><span class="e-cluster cl-technique">Technique</span></div>
-<div class="e-def">A structured sequence of floor-based positions and breathing practices designed to release chronic defensive muscular bracing accumulated from sustained hypervigilance.</div>
-<div class="e-role"><strong>Protocol role:</strong> Phase 1 simplified version (7–10 min morning from Week 3). Phase 3 full sequence (10–15 min morning + 20–25 min pre-CC). Body tension at session start is a strong predictor of CC quality — the pre-CC sequence is non-negotiable.</div>
-<a href="exercises.html#somatic" class="e-link">&#8594; Full instructions on Exercises page</a>
+<div class="e-def">A sequence of body-based practices designed to discharge chronic defensive bracing — the muscular tension patterns (elevated shoulders, jaw clench, psoas contraction, shallow breathing) that signal ongoing threat to the brainstem.</div><div class="e-role"><strong>Protocol role:</strong> Non-negotiable before every CC session. Body tension at session start directly predicts session quality. Simplified version Phase 1; full sequence from Phase 3: constructive rest → psoas release → hip circles → shoulder/neck release → diaphragmatic reset.</div>
 </div>
-
-<div class="entry" data-cluster="device" data-name="ssp safe sound protocol">
-<div class="e-head"><span class="e-name">SSP — Safe and Sound Protocol</span><span class="e-cluster cl-device">Device / Program</span></div>
-<div class="e-def">An auditory intervention developed by Stephen Porges that uses music processed to emphasize the human vocal frequency range, retraining the neural circuits governing auditory safety detection and the stapedius muscle in the middle ear.</div>
-<div class="e-role"><strong>Protocol role:</strong> Phase 1 primary course (5 hours, Month 2). Phase 4 mandatory refresher (Days 7–14 after SGB stabilization). Primary course primes the system; the refresher from the SGB-reset baseline rewrites it. No standalone CC on SSP days.</div>
-<a href="protocol.html#p1-ssp" class="e-link">&#8594; Protocol section 4G</a>
+<div class="entry" id="entry-spermidine" data-cluster="concept" data-name="spermidine">
+<div class="e-head"><span class="e-name">Spermidine</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A polyamine compound that triggers autophagy — cellular self-cleaning. Found in highest concentrations in tempeh, wheat germ, and aged cheese. One of the most evidence-supported dietary longevity interventions.</div><div class="e-role"><strong>Protocol role:</strong> Daily through diet (tempeh, wheat germ). Emphasised explicitly in Phase 5 as part of the cellular renewal layer. The protocol header lists "Spermidine" as one of the core substrate tools.</div>
 </div>
-
-<div class="entry" data-cluster="measure" data-name="suds">
-<div class="e-head"><span class="e-name">SUDs — Subjective Units of Distress</span><span class="e-cluster cl-measure">Measurement</span></div>
-<div class="e-def">A 0–10 self-rating scale for measuring emotional distress in a given moment. 0 = no distress, 10 = maximum imaginable distress.</div>
-<div class="e-role"><strong>Protocol role:</strong> Used for trigger hierarchy ratings (re-rated every Sunday), CC session entry conditions (must reach SUDs 0–2), and CC advance criteria (4 consecutive reps completing at SUDs ≤2). The trajectory of hierarchy SUDs ratings over months is a key outcome measure.</div>
+<div class="entry" id="entry-spermidine-sources-tempeh-wheat-germ" data-cluster="food" data-name="spermidine-sources-tempeh-wheat-germ">
+<div class="e-head"><span class="e-name">Spermidine Sources (Tempeh, Wheat Germ)</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">Spermidine triggers autophagy — cellular self-cleaning. Tempeh is the most concentrated dietary spermidine source and also provides protein and probiotics. Wheat germ has the highest spermidine concentration per gram of any food.</div><div class="e-role"><strong>Protocol role:</strong> Regularly. Tempeh: primary protein source. Wheat germ: 1–2 tbsp daily in smoothies or oats.</div>
+</div>
+<div class="entry" id="entry-stamets-stack" data-cluster="concept" data-name="stamets-stack">
+<div class="e-head"><span class="e-name">Stamets Stack</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A microdosing protocol combining psilocybin (0.10–0.15g) + Lion's Mane mushroom + niacin flush, taken Mon–Thu. Proposed by mycologist Paul Stamets. The niacin-induced vasodilation may enhance peripheral distribution of psilocin to neural tissue.</div><div class="e-role"><strong>Protocol role:</strong> Used from Phase 3 onward. The protocol incorporates this stack during microdosing cycles. Lion's Mane is continued daily year-round; the psilocybin and niacin are only on Mon–Thu microdosing days.</div>
+</div>
+<div class="entry" id="entry-stapedius-muscle" data-cluster="concept" data-name="stapedius-muscle">
+<div class="e-head"><span class="e-name">Stapedius Muscle</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The smallest skeletal muscle in the human body, located in the middle ear. Controlled by the facial nerve (CN VII), which shares anatomical proximity with the vagus nerve. When well-regulated (via ventral vagal activation), the stapedius dampens low-frequency sounds and enhances the vocal frequency range — tuning the ear toward social communication signals rather than threat signals.</div><div class="e-role"><strong>Protocol role:</strong> The physiological mechanism targeted by the Safe and Sound Protocol. Filtering music through the human vocal frequency range provides acoustic exercise for the stapedius. A well-trained stapedius reduces the salience of non-vocal ambient sounds — including many trigger sounds in the eating/breathing range.</div>
+</div>
+<div class="entry" id="entry-stellate-ganglion" data-cluster="concept" data-name="stellate-ganglion">
+<div class="e-head"><span class="e-name">Stellate Ganglion</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A cluster of sympathetic nerve cells located in the neck (at C7/T1 level). Part of the autonomic nervous system's sympathetic chain. In people with chronic PTSD and hyperactivation syndromes, NGF overstimulates this ganglion, maintaining a chronically elevated sympathetic floor.</div><div class="e-role"><strong>Protocol role:</strong> The anatomical target of SGB. Bupivacaine injection resets NGF signalling here. The right stellate ganglion has stronger connections to the amygdala and HPA axis; the left has stronger systemic cardiovascular influence — hence the bilateral DSR protocol.</div>
+</div>
+<div class="entry" id="entry-strawberries" data-cluster="food" data-name="strawberries">
+<div class="e-head"><span class="e-name">Strawberries</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">A primary source of fisetin — a flavonoid with strong senolytic activity, selectively clearing senescent cells.</div><div class="e-role"><strong>Protocol role:</strong> Weekly. Fresh or frozen. Pairs with capers (quercetin) and berries (anthocyanins) for a combined senolytic food strategy.</div>
+</div>
+<div class="entry" id="entry-sublingual-absorption" data-cluster="concept" data-name="sublingual-absorption">
+<div class="e-head"><span class="e-name">Sublingual Absorption</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Delivery of a compound under the tongue, where it is absorbed directly into the bloodstream through the mucous membrane, bypassing first-pass liver metabolism. Produces faster onset and higher bioavailability than swallowed capsules for certain compounds.</div><div class="e-role"><strong>Protocol role:</strong> Used for two supplements in this protocol: NMN (500mg powder placed under tongue for 60–90 seconds) and B12 (1000mcg methylcobalamin tablet dissolved under tongue). Both achieve meaningfully higher plasma levels via sublingual delivery than equivalent oral doses.</div>
+</div>
+<div class="entry" id="entry-suds-subjective-units-of-distress" data-cluster="concept" data-name="suds-subjective-units-of-distress">
+<div class="e-head"><span class="e-name">SUDs — Subjective Units of Distress</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A 0–10 scale for rating emotional distress or trigger intensity. 0 = complete calm, 10 = maximum imaginable distress.</div><div class="e-role"><strong>Protocol role:</strong> Used in every CC session (pre and post) and for weekly hierarchy re-ratings. Post-session SUDs consistently lower than pre-session is the primary Phase 2 sign of working.</div>
+</div>
+<div class="entry" id="entry-sulforaphane" data-cluster="concept" data-name="sulforaphane">
+<div class="e-head"><span class="e-name">Sulforaphane</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">An isothiocyanate compound produced when glucoraphanin in brassica vegetables (broccoli, cauliflower, kale) is converted by the myrosinase enzyme. One of the most potent known activators of the Nrf2 pathway. Heat deactivates myrosinase, preventing conversion — the 40-minute pre-cooking chop wait allows enzymatic conversion before heat exposure.</div><div class="e-role"><strong>Protocol role:</strong> Provided by correctly prepared brassicas (chop, wait 40 min, then cook). Adding mustard powder when cooking restores myrosinase activity that heat would otherwise eliminate. Sulforaphane's Nrf2 activation produces a broad-spectrum antioxidant and anti-inflammatory effect lasting 2–3 days from a single dose.</div>
+</div>
+<div class="entry" id="entry-sympathetic-floor" data-cluster="concept" data-name="sympathetic-floor">
+<div class="e-head"><span class="e-name">Sympathetic Floor</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The resting baseline level of sympathetic nervous system activation. A high floor means every trigger fires from a higher starting point — the system is pre-loaded. Lowering the floor changes how far any given trigger can go.</div><div class="e-role"><strong>Protocol role:</strong> The primary target of Phase 0 interventions (SGB, Session 0 psilocybin). The most important structural precondition for all subsequent behavioural work.</div>
+</div>
+<div class="entry" id="entry-synaptic-plasticity" data-cluster="concept" data-name="synaptic-plasticity">
+<div class="e-head"><span class="e-name">Synaptic Plasticity</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The capacity of synapses (the junctions between neurons) to strengthen or weaken in response to changes in activity. The molecular basis of learning and memory. Long-term potentiation (LTP) — synaptic strengthening — is how CC builds new competing associations. BDNF, magnesium, omega-3 DHA, and psilocybin all enhance synaptic plasticity.</div><div class="e-role"><strong>Protocol role:</strong> The ultimate target of the entire neuroplasticity substrate layer. Every supplement, food, device, and intervention in the protocol either (1) opens the plasticity window, (2) directly strengthens synaptic plasticity, or (3) consolidates the changes that plasticity produces.</div>
 </div>
 
 <div class="letter-divider">T</div>
 
-<div class="entry" data-cluster="technique" data-name="tactical brake">
+<div class="entry" id="entry-tactical-brake" data-cluster="concept" data-name="tactical-brake">
 <div class="e-head"><span class="e-name">Tactical Brake</span><span class="e-cluster cl-concept">Concept</span></div>
-<div class="e-def">A protocol mechanism activated when warning signs accumulate — not a break from the protocol, but a protocol feature that prevents the work from compounding the condition it is treating.</div>
-<div class="e-role"><strong>Protocol role:</strong> Activate if 3+ warning signs present (sleep poor 3+ nights, CC backfiring, rising rumination, resentment toward protocol). Minimum 48h. All active rewiring suspended. Support layer doubled. Return when: sleep stable 2+ nights, first session back at SUDs 1–3.</div>
-<a href="protocol.html#modes" class="e-link">&#8594; Protocol section 3C</a>
+<div class="e-def">A deliberate protocol pause activated when specific warning signs accumulate: 3+ consecutive poor sleep nights, rising baseline reactivity, CC sessions consistently backfiring, or growing avoidance of protocol elements. Not a failure — a built-in protection mechanism.</div><div class="e-role"><strong>Protocol role:</strong> Minimum 48 hours. During Tactical Brake: no CC, no hierarchy work, full regulation stack only.</div>
 </div>
-
-<div class="entry" data-cluster="device" data-name="tdcs">
-<div class="e-head"><span class="e-name">tDCS — Transcranial Direct Current Stimulation</span><span class="e-cluster cl-device">Device</span></div>
-<div class="e-def">A non-invasive brain stimulation technique that uses a low-level direct current applied to the scalp to modulate neuronal excitability in targeted brain regions.</div>
-<div class="e-role"><strong>Protocol role:</strong> Begins Phase 3. 20 min before each CC session, anodal electrode at F3 (left dlPFC). Upregulates excitability of the region governing top-down emotional regulation — stronger left dlPFC → faster fear extinction. Not within 5h of sleep. Not within 24h of macrodose or MDMA.</div>
-<a href="protocol.html#p3-tdcs" class="e-link">&#8594; Protocol section 7A</a>
+<div class="entry" id="entry-thalamic-reticular-nucleus" data-cluster="concept" data-name="thalamic-reticular-nucleus">
+<div class="e-head"><span class="e-name">Thalamic Reticular Nucleus</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A thin shell of inhibitory neurons that wraps around the thalamus and acts as a gain-control circuit for sensory input. When hyperactivated, it amplifies incoming sounds before they reach the cortex. When well-regulated, it filters incoming sensory data and prevents overload.</div><div class="e-role"><strong>Protocol role:</strong> In chronic misophonia with habitual earplug use, the thalamic reticular nucleus increases its gain to search for sound (sensory gating amplification) — making the next trigger arrival more intense. The pink noise strategy (via bone conduction headphones) occupies this circuit to prevent gain increase. Yoga Nidra open awareness practice directly trains the thalamic reticular nucleus.</div>
 </div>
-
-<div class="entry" data-cluster="concept" data-name="trigger hierarchy">
+<div class="entry" id="entry-the-pulse-strategy" data-cluster="concept" data-name="the-pulse-strategy">
+<div class="e-head"><span class="e-name">The Pulse Strategy</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">A scheduling principle for CC sessions during psilocybin integration weeks. Days 2–7 after a macrodose are identified as the highest-value CC window of each cycle — run CC daily during this period to maximise associative rewriting while neuroplasticity is maximally elevated.</div><div class="e-role"><strong>Protocol role:</strong> Defined in Phase 3 section. The Pulse is the protocol's primary leverage point for each macrodose cycle. Day 1 is rest only — the experience needs to settle before CC begins.</div>
+</div>
+<div class="entry" id="entry-theta-waves" data-cluster="concept" data-name="theta-waves">
+<div class="e-head"><span class="e-name">Theta Waves</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Brainwaves at 4–8 Hz — associated with deep relaxation, drowsiness, and hypnagogic states just above sleep onset. The theta state is where thalamic filtering is active while the cortex is in low arousal. New learning and emotional processing are enhanced in this state.</div><div class="e-role"><strong>Protocol role:</strong> Yoga Nidra produces sustained theta-alpha boundary states. This is mechanistically why the open awareness phase of Yoga Nidra is the most direct thalamic filter training available in the protocol.</div>
+</div>
+<div class="entry" id="entry-theta-alpha-state" data-cluster="concept" data-name="theta-alpha-state">
+<div class="e-head"><span class="e-name">Theta-Alpha State</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The brainwave boundary state at 4–12 Hz — the overlap between theta (deep relaxation, 4–8 Hz) and alpha (relaxed alertness, 8–12 Hz). In this state, the thalamus remains active as a sensory filter while cortical threat-processing is substantially suppressed. The state targeted by Yoga Nidra.</div><div class="e-role"><strong>Protocol role:</strong> The specific target of Yoga Nidra training. Sounds experienced in the theta-alpha state register and pass without the full cortical threat cascade engaging. Sustained practice in this state is the most direct form of thalamic filter training available in the protocol — the thalamus learns to handle incoming stimuli (including trigger sounds) without routing them to threat-processing circuits.</div>
+</div>
+<div class="entry" id="entry-trigger-hierarchy" data-cluster="concept" data-name="trigger-hierarchy">
 <div class="e-head"><span class="e-name">Trigger Hierarchy</span><span class="e-cluster cl-concept">Concept</span></div>
-<div class="e-def">A structured mapping of all known trigger sounds rated by SUDs level (0–10), along with their context sensitivity (who, proximity, relationship) and anticipatory component (dread before the sound).</div>
-<div class="e-role"><strong>Protocol role:</strong> Built during Phase 1 Week 4. Re-rated every Sunday throughout all phases. Not worked in Phase 1 — only mapped. CC begins at the lowest-hierarchy levels in Phase 2 and progresses upward. Hierarchy ratings shift independently of direct work as the substrate improves.</div>
+<div class="e-def">A ranked list of trigger sounds rated by SUDs intensity in context. Maps the full landscape of what is triggering and how much. Used to sequence CC sessions from lowest to highest charge.</div><div class="e-role"><strong>Protocol role:</strong> Built in Phase 1 Week 4. Re-rated every Sunday throughout all phases. Downward drift over weeks without direct work is the earliest sign the substrate work is succeeding.</div>
 </div>
 
-<div class="entry" data-cluster="device" data-name="tvns">
-<div class="e-head"><span class="e-name">tVNS — Transcutaneous Vagal Nerve Stimulation</span><span class="e-cluster cl-device">Device</span></div>
-<div class="e-def">Non-invasive vagal nerve stimulation via an earclip applied to the cymba concha of the left ear, activating the auricular branch of the vagus nerve.</div>
-<div class="e-role"><strong>Protocol role:</strong> Begins Phase 2. Device: Nurosym. Used during all standalone CC sessions and macrodose CC windows. Produces parasympathetic upregulation and enhanced plasticity via the vagal-locus coeruleus-norepinephrine pathway. New CC associations form more durably when tVNS runs simultaneously.</div>
-<a href="protocol.html#p2-tvns" class="e-link">&#8594; Protocol section 6B</a>
+<div class="letter-divider">V</div>
+
+<div class="entry" id="entry-vagal-tone" data-cluster="concept" data-name="vagal-tone">
+<div class="e-head"><span class="e-name">Vagal Tone</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The resting activity level of the vagus nerve — the primary parasympathetic pathway. High vagal tone = greater capacity for self-regulation, faster recovery from stress, lower resting sympathetic activation.</div><div class="e-role"><strong>Protocol role:</strong> Built progressively by HeartMath HRV biofeedback, tVNS, SSP, cold plunge, and aerobic exercise. Tracked via weekly HRV trend.</div>
+</div>
+<div class="entry" id="entry-vagus-nerve" data-cluster="concept" data-name="vagus-nerve">
+<div class="e-head"><span class="e-name">Vagus Nerve</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The tenth cranial nerve — the longest nerve in the autonomic nervous system. Carries parasympathetic signals between the brain and major organs. Has an accessible branch in the outer ear (auricular branch) that tVNS stimulates.</div><div class="e-role"><strong>Protocol role:</strong> The primary target of tVNS (via the ear), HeartMath (via cardiac coherence training), and SSP (via the stapedius muscle). Vagal tone is the foundational physiological substrate the entire regulation layer is building.</div>
+</div>
+
+<div class="letter-divider">W</div>
+
+<div class="entry" id="entry-walnuts" data-cluster="food" data-name="walnuts">
+<div class="e-head"><span class="e-name">Walnuts</span><span class="e-cluster cl-food">Food</span></div>
+<div class="e-def">The only tree nut with meaningful ALA content (plant omega-3). Also provides polyphenols supporting gut microbiome diversity and neuroinflammation reduction.</div><div class="e-role"><strong>Protocol role:</strong> Daily. Small handful.</div>
+</div>
+<div class="entry" id="entry-withanolides" data-cluster="concept" data-name="withanolides">
+<div class="e-head"><span class="e-name">Withanolides</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">The primary bioactive compounds in ashwagandha root responsible for its adaptogenic effects. Withanolides act on multiple targets including GABA-B receptors, thyroid signalling, and inflammatory pathways. KSM-66 is standardised to 8% withanolides — the most clinically studied concentration.</div><div class="e-role"><strong>Protocol role:</strong> The reason KSM-66 standardisation matters — unstandardised ashwagandha products may have highly variable withanolide content. The 8% standardisation in KSM-66 is what allows direct comparison with clinical trial results.</div>
 </div>
 
 <div class="letter-divider">Y</div>
 
-<div class="entry" data-cluster="technique" data-name="yoga nidra">
+<div class="entry" id="entry-yoga-nidra" data-cluster="technique" data-name="yoga-nidra">
 <div class="e-head"><span class="e-name">Yoga Nidra</span><span class="e-cluster cl-technique">Technique</span></div>
-<div class="e-def">A guided meditation practice that leads the practitioner into the theta-alpha boundary state (4–12 Hz) — the hypnagogic edge between waking and sleep, where the thalamus remains active as a sensory filter while the cortex enters low arousal.</div>
-<div class="e-role"><strong>Protocol role:</strong> Every evening before sleep. Never skipped. Used in this protocol as thalamic filter training — sounds register in the open awareness phase and pass without the full cortical threat cascade engaging. Ph1–2: 20 min. Ph3: 30–35 min. Ph4+: 40–45 min. Tracks must include an open awareness of external sounds phase.</div>
-<a href="protocol.html#ref-yoga" class="e-link">&#8594; Protocol section 11</a>
+<div class="e-def">A guided meditative practice producing a theta-alpha brainwave boundary state while maintaining awareness. Used specifically for thalamic filter training: during the open awareness phase, sounds register and pass without the full cortical threat cascade engaging.</div><div class="e-role"><strong>Protocol role:</strong> Every evening, without exception. Track progression: 20-minute tracks Phases 1–2, 30–35 min Phase 3, 40–45 min Phase 4+. The recovery after a trigger interrupts the state is more valuable than an undisturbed session.</div>
+</div>
+
+<div class="letter-divider">Z</div>
+
+<div class="entry" id="entry-zone-2-aerobic-exercise" data-cluster="concept" data-name="zone-2-aerobic-exercise">
+<div class="e-head"><span class="e-name">Zone 2 Aerobic Exercise</span><span class="e-cluster cl-concept">Concept</span></div>
+<div class="e-def">Sustained aerobic effort at 60–70% of maximum heart rate — conversational pace, sustainable for 45–60 minutes. The intensity that maximally stimulates BDNF production and mitochondrial biogenesis without significant cortisol elevation.</div><div class="e-role"><strong>Protocol role:</strong> Waterfall days: Zone 2 climb (45–60 min) + cold plunge (3–5 min). CC sessions approximately 2 hours post-exercise to align with BDNF spike. The most evidence-based single intervention for brain health and plasticity.</div>
 </div>
 
   </div>
@@ -319,6 +841,7 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
 </div>
 <script>
 var activeCluster = 'all';
+
 function filterEntries() {
   var q = document.getElementById('gs').value.toLowerCase();
   var entries = document.querySelectorAll('.entry');
@@ -331,7 +854,6 @@ function filterEntries() {
     if (clusterMatch && textMatch) { e.classList.remove('hidden'); shown++; }
     else { e.classList.add('hidden'); }
   });
-  // Hide empty letter dividers
   document.querySelectorAll('.letter-divider').forEach(function(div) {
     var next = div.nextElementSibling;
     var hasVisible = false;
@@ -343,12 +865,234 @@ function filterEntries() {
   });
   document.getElementById('no-results').style.display = shown === 0 ? 'block' : 'none';
 }
+
 function setCluster(c, btn) {
   activeCluster = c;
   document.querySelectorAll('.cf').forEach(function(b) { b.classList.remove('active'); });
   btn.classList.add('active');
   filterEntries();
 }
+
+function scrollToEntry(slug) {
+  var el = document.getElementById('entry-' + slug);
+  if (!el) return;
+  if (activeCluster !== 'all') {
+    setCluster('all', document.querySelector('.cf[data-cluster="all"]'));
+  }
+  el.classList.remove('hidden');
+  el.scrollIntoView({behavior:'smooth', block:'center'});
+  el.classList.add('highlight');
+  setTimeout(function() { el.classList.remove('highlight'); }, 1800);
+}
+
+var TERM_MAP = [
+  ["EMDR — Eye Movement Desensitization and Reprocessing", "emdr-eye-movement-desensitization-and-reprocessing"],
+  ["Bone Conduction Headphones (Shokz OpenRun Pro 2)", "bone-conduction-headphones-shokz-openrun-pro-2"],
+  ["Propranolol-Assisted Memory Reconsolidation", "propranolol-assisted-memory-reconsolidation"],
+  ["Fermented Foods (Kimchi, Sauerkraut, Miso)", "fermented-foods-kimchi-sauerkraut-miso"],
+  ["Physiological Sigh Interrupt (Technique 4)", "physiological-sigh-interrupt-technique-4"],
+  ["HPA Axis — Hypothalamic-Pituitary-Adrenal", "hpa-axis-hypothalamic-pituitary-adrenal"],
+  ["BDNF — Brain-Derived Neurotrophic Factor", "bdnf-brain-derived-neurotrophic-factor"],
+  ["NAD+ (Nicotinamide Adenine Dinucleotide)", "nad-nicotinamide-adenine-dinucleotide"],
+  ["ACT — Acceptance and Commitment Therapy", "act-acceptance-and-commitment-therapy"],
+  ["Spermidine Sources (Tempeh, Wheat Germ)", "spermidine-sources-tempeh-wheat-germ"],
+  ["dlPFC — Dorsolateral Prefrontal Cortex", "dlpfc-dorsolateral-prefrontal-cortex"],
+  ["Oily Fish (Sardines, Mackerel, Salmon)", "oily-fish-sardines-mackerel-salmon"],
+  ["AMPK — AMP-Activated Protein Kinase", "ampk-amp-activated-protein-kinase"],
+  ["Berries (Blueberries, Blackberries)", "berries-blueberries-blackberries"],
+  ["SUDs — Subjective Units of Distress", "suds-subjective-units-of-distress"],
+  ["Brassicas (Broccoli, Cauliflower)", "brassicas-broccoli-cauliflower"],
+  ["Neural Repatterning (Technique 1)", "neural-repatterning-technique-1"],
+  ["NMN (Nicotinamide Mononucleotide)", "nmn-nicotinamide-mononucleotide"],
+  ["B12 (Methylcobalamin Sublingual)", "b12-methylcobalamin-sublingual"],
+  ["Anterior Cingulate Cortex (ACC)", "anterior-cingulate-cortex-acc"],
+  ["Creatine Monohydrate (Creapure)", "creatine-monohydrate-creapure"],
+  ["EGCG — Epigallocatechin Gallate", "egcg-epigallocatechin-gallate"],
+  ["Magnesium L-Threonate (Magtein)", "magnesium-l-threonate-magtein"],
+  ["GABA — Gamma-Aminobutyric Acid", "gaba-gamma-aminobutyric-acid"],
+  ["IFS — Internal Family Systems", "ifs-internal-family-systems"],
+  ["Niacin Flush (Nicotinic Acid)", "niacin-flush-nicotinic-acid"],
+  ["Resonance Frequency Breathing", "resonance-frequency-breathing"],
+  ["Safe and Sound Protocol (SSP)", "safe-and-sound-protocol-ssp"],
+  ["SGB — Stellate Ganglion Block", "sgb-stellate-ganglion-block"],
+  ["ATP — Adenosine Triphosphate", "atp-adenosine-triphosphate"],
+  ["DSR — Dual Sympathetic Reset", "dsr-dual-sympathetic-reset"],
+  ["HRV — Heart Rate Variability", "hrv-heart-rate-variability"],
+  ["L. reuteri (BioGaia Gastrus)", "l-reuteri-biogaia-gastrus"],
+  ["Lion's Mane (Dual-Extracted)", "lion-s-mane-dual-extracted"],
+  ["Omega-3 Triglyceride Top-Up", "omega-3-triglyceride-top-up"],
+  ["5-HTP (Post-MDMA Protocol)", "5-htp-post-mdma-protocol"],
+  ["ALA — Alpha-Linolenic Acid", "ala-alpha-linolenic-acid"],
+  ["Default Mode Network (DMN)", "default-mode-network-dmn"],
+  ["Neurotransmitter Synthesis", "neurotransmitter-synthesis"],
+  ["Thalamic Reticular Nucleus", "thalamic-reticular-nucleus"],
+  ["Apple Cider Vinegar (ACV)", "apple-cider-vinegar-acv"],
+  ["Imaginal CC (Technique 3)", "imaginal-cc-technique-3"],
+  ["NGF — Nerve Growth Factor", "ngf-nerve-growth-factor"],
+  ["CC — Counterconditioning", "cc-counterconditioning"],
+  ["Hippocampal Neurogenesis", "hippocampal-neurogenesis"],
+  ["Krill Oil (SUPERBABoost)", "krill-oil-superbaboost"],
+  ["Mitochondrial Biogenesis", "mitochondrial-biogenesis"],
+  ["Resting Body Tension Log", "resting-body-tension-log"],
+  ["Somatic Release Protocol", "somatic-release-protocol"],
+  ["HeartMath Inner Balance", "heartmath-inner-balance"],
+  ["Mirror Neuron Mechanism", "mirror-neuron-mechanism"],
+  ["NAC (N-Acetyl Cysteine)", "nac-n-acetyl-cysteine"],
+  ["Salivary Cortisol Panel", "salivary-cortisol-panel"],
+  ["Zone 2 Aerobic Exercise", "zone-2-aerobic-exercise"],
+  ["B-Complex (Methylated)", "b-complex-methylated"],
+  ["Memory Reconsolidation", "memory-reconsolidation"],
+  ["Neuroplasticity Window", "neuroplasticity-window"],
+  ["Psilocybin (Microdose)", "psilocybin-microdose"],
+  ["Reconsolidation Window", "reconsolidation-window"],
+  ["Bilateral Stimulation", "bilateral-stimulation"],
+  ["Cognitive Reappraisal", "cognitive-reappraisal"],
+  ["Dark Chocolate (85%+)", "dark-chocolate-85"],
+  ["Sublingual Absorption", "sublingual-absorption"],
+  ["Ashwagandha (KSM-66)", "ashwagandha-ksm-66"],
+  ["Intermittent Fasting", "intermittent-fasting"],
+  ["Melatonin (Low Dose)", "melatonin-low-dose"],
+  ["Social Threat Coding", "social-threat-coding"],
+  ["Avoidance Inventory", "avoidance-inventory"],
+  ["Extinction Learning", "extinction-learning"],
+  ["Green Tea / Kukicha", "green-tea-kukicha"],
+  ["Magnesium Glycinate", "magnesium-glycinate"],
+  ["Sensorimotor Cortex", "sensorimotor-cortex"],
+  ["Synaptic Plasticity", "synaptic-plasticity"],
+  ["Anticipatory Dread", "anticipatory-dread"],
+  ["Convergence Window", "convergence-window"],
+  ["Phosphatidylserine", "phosphatidylserine"],
+  ["Pink Noise Machine", "pink-noise-machine"],
+  ["The Pulse Strategy", "the-pulse-strategy"],
+  ["Cardiac Coherence", "cardiac-coherence"],
+  ["Horner's Syndrome", "horner-s-syndrome"],
+  ["Mushrooms (Daily)", "mushrooms-daily"],
+  ["Stellate Ganglion", "stellate-ganglion"],
+  ["Sympathetic Floor", "sympathetic-floor"],
+  ["Theta-Alpha State", "theta-alpha-state"],
+  ["Trigger Hierarchy", "trigger-hierarchy"],
+  ["Bacopa (Synapsa)", "bacopa-synapsa"],
+  ["Circadian Rhythm", "circadian-rhythm"],
+  ["EGCG (Post-MDMA)", "egcg-post-mdma"],
+  ["Hypnagogic State", "hypnagogic-state"],
+  ["Integration Week", "integration-week"],
+  ["Polyvagal Theory", "polyvagal-theory"],
+  ["Stapedius Muscle", "stapedius-muscle"],
+  ["5-HT2A Receptor", "5-ht2a-receptor"],
+  ["ActivaDose tDCS", "activadose-tdcs"],
+  ["Felt-Sense Gate", "felt-sense-gate"],
+  ["GABA-A Receptor", "gaba-a-receptor"],
+  ["Ground Flaxseed", "ground-flaxseed"],
+  ["Lithium Orotate", "lithium-orotate"],
+  ["Locus Coeruleus", "locus-coeruleus"],
+  ["Somatic Bracing", "somatic-bracing"],
+  ["FOAMS Database", "foams-database"],
+  ["Gut-Brain Axis", "gut-brain-axis"],
+  ["Norepinephrine", "norepinephrine"],
+  ["Nuropod (tVNS)", "nuropod-tvns"],
+  ["Tactical Brake", "tactical-brake"],
+  ["Ergothioneine", "ergothioneine"],
+  ["NMDA Receptor", "nmda-receptor"],
+  ["Omega-3 Index", "omega-3-index"],
+  ["Stamets Stack", "stamets-stack"],
+  ["ACT Defusion", "act-defusion"],
+  ["Beta-Blocker", "beta-blocker"],
+  ["Kava (Noble)", "kava-noble"],
+  ["Kavalactones", "kavalactones"],
+  ["Leafy Greens", "leafy-greens"],
+  ["Nrf2 Pathway", "nrf2-pathway"],
+  ["Phospholipid", "phospholipid"],
+  ["Strawberries", "strawberries"],
+  ["Sulforaphane", "sulforaphane"],
+  ["Withanolides", "withanolides"],
+  ["Alpha Waves", "alpha-waves"],
+  ["Anthocyanin", "anthocyanin"],
+  ["Astaxanthin", "astaxanthin"],
+  ["Beta-Glucan", "beta-glucan"],
+  ["Bupivacaine", "bupivacaine"],
+  ["Cold Plunge", "cold-plunge"],
+  ["Hericenones", "hericenones"],
+  ["Hippocampus", "hippocampus"],
+  ["Methylation", "methylation"],
+  ["Propranolol", "propranolol"],
+  ["Resveratrol", "resveratrol"],
+  ["Theta Waves", "theta-waves"],
+  ["Vagus Nerve", "vagus-nerve"],
+  ["Erinacines", "erinacines"],
+  ["L-Theanine", "l-theanine"],
+  ["Polyphenol", "polyphenol"],
+  ["Psilocybin", "psilocybin"],
+  ["Rumination", "rumination"],
+  ["Senolytics", "senolytics"],
+  ["Spermidine", "spermidine"],
+  ["Vagal Tone", "vagal-tone"],
+  ["Yoga Nidra", "yoga-nidra"],
+  ["Adaptogen", "adaptogen"],
+  ["Autophagy", "autophagy"],
+  ["Berberine", "berberine"],
+  ["EPA / DHA", "epa-dha"],
+  ["Flavanols", "flavanols"],
+  ["Glutamate", "glutamate"],
+  ["HRV Trend", "hrv-trend"],
+  ["Quercetin", "quercetin"],
+  ["Serotonin", "serotonin"],
+  ["A-MISO-S", "a-miso-s"],
+  ["Amygdala", "amygdala"],
+  ["Apigenin", "apigenin"],
+  ["Catechin", "catechin"],
+  ["Cortisol", "cortisol"],
+  ["Defusion", "defusion"],
+  ["Dopamine", "dopamine"],
+  ["Oxytocin", "oxytocin"],
+  ["D3 / K2", "d3-k2"],
+  ["Fisetin", "fisetin"],
+  ["Glycine", "glycine"],
+  ["Qi-Gong", "qi-gong"],
+  ["Sirtuin", "sirtuin"],
+  ["Walnuts", "walnuts"],
+  ["Capers", "capers"],
+  ["Insula", "insula"],
+  ["Matcha", "matcha"],
+  ["Myelin", "myelin"],
+  ["Psoas", "psoas"],
+  ["MDMA", "mdma"]
+];
+
+function getExistingIds() {
+  var ids = new Set();
+  document.querySelectorAll('.entry').forEach(function(e) { ids.add(e.id.replace('entry-','')); });
+  return ids;
+}
+
+function injectCrossLinks() {
+  var existingIds = getExistingIds();
+  var linkable = TERM_MAP.filter(function(t) { return existingIds.has(t[1]); });
+
+  document.querySelectorAll('.e-def, .e-role').forEach(function(el) {
+    var parentSlug = el.closest('.entry') ? el.closest('.entry').dataset.name : '';
+    var html = el.innerHTML;
+
+    linkable.forEach(function(pair) {
+      var term = pair[0];
+      var slug = pair[1];
+      if (slug === parentSlug) return;
+      var escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      var pattern = new RegExp('(?<![\">])\\b(' + escaped + ')\\b(?![^<]*>)', 'gi');
+      var replaced = false;
+      html = html.replace(pattern, function(match) {
+        if (replaced) return match;
+        replaced = true;
+        return '<a class="gl-link" onclick="scrollToEntry(\'' + slug + '\')" href="#entry-' + slug + '">' + match + '</a>';
+      });
+    });
+
+    el.innerHTML = html;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(injectCrossLinks, 100);
+});
 </script>
 </body>
 </html>

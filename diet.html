@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diet — Protocol V9.2</title>
+<title>Diet — Protocol V9.3</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--cream:#faf8f4;--white:#fff;--border:#e4e0d8;--border-light:#f4f0e8;--text:#2a2824;--text-mid:#4a4540;--text-muted:#8a7f70;--green-dark:#2d4a28;--green-mid:#4a7a42;--green-light:#e8f0e5;--green-border:#b8d4b0;--amber:#b87a1a;--amber-light:#fdf3e0;--amber-border:#e8c878;--rose:#a83050;--rose-light:#fdf0f3;--rose-border:#e8b0c0;--blue-dark:#2a4a6a;--blue-light:#eef4fb;--blue-border:#b8cfe8;--purple:#6a4082;--purple-light:#f5eeff;--purple-border:#c8b0f0;--topbar-h:54px}
@@ -12,12 +12,13 @@ html{scroll-behavior:smooth;scroll-padding-top:74px}
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;font-size:14.5px}
 h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
-#topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:8px;padding:0 16px;border-bottom:2px solid #1a3018}
-.tbar-logo{font-family:'Lora',serif;font-size:13.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0}
-.tbar-badge{font-size:9px;font-weight:600;background:rgba(255,255,255,.12);color:#a8d4a0;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px 6px;flex-shrink:0}
-.tbar-sep{width:1px;height:22px;background:rgba(255,255,255,.15);flex-shrink:0;margin:0 4px}
-.tbar-links{display:flex;gap:4px;flex-wrap:wrap}
-.tbar-link{font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
+#topbar{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:10px;padding:0 18px;border-bottom:2px solid #1a3018}
+#topbar .logo{font-family:'Lora',serif;font-size:14.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0}
+#topbar .vbadge{font-size:9.5px;font-weight:600;background:rgba(255,255,255,.12);color:#a8d4a0;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px 6px;letter-spacing:.05em;flex-shrink:0}
+.sat-links{display:flex;gap:4px;margin-left:auto;flex-shrink:0}
+.sat-link{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
+.sat-link:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
+.sat-link.active{background:rgba(255,255,255,.18);color:#fff}
 .tbar-link:hover{background:rgba(255,255,255,.12);color:#fff}
 .tbar-link.here{background:rgba(255,255,255,.22);color:#fff;border-color:rgba(255,255,255,.4)}
 .page{margin-top:var(--topbar-h);padding:28px 24px 70px;max-width:860px;margin-left:auto;margin-right:auto}
@@ -70,17 +71,17 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
 </head>
 <body>
 <header id="topbar">
-  <span class="tbar-logo">Protocol</span>
-  <span class="tbar-badge">V9.2</span>
-  <div class="tbar-sep"></div>
-  <nav class="tbar-links">
-    <a href="protocol.html" class="tbar-link">&#8592; Main Protocol</a>
-    <a href="cheatsheet.html" class="tbar-link">Cheat Sheet</a>
-    <a href="glossary.html" class="tbar-link">Glossary</a>
-    <a href="exercises.html" class="tbar-link">Exercises</a>
-    <a href="diet.html" class="tbar-link here">Diet</a>
-    <a href="shopping.html" class="tbar-link">Shopping</a>
-    <a href="log.html" class="tbar-link">Log</a>
+  <a href="protocol.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0">
+    <span class="logo">The Misophonia Rewiring &amp; Wellness Protocol</span>
+    <span class="vbadge">V9.3</span>
+  </a>
+  <nav class="sat-links">
+    <a href="cheatsheet.html" class="sat-link">Cheat Sheet</a>
+    <a href="glossary.html" class="sat-link">Glossary</a>
+    <a href="exercises.html" class="sat-link">Exercises</a>
+    <a href="diet.html" class="sat-link active">Diet</a>
+    <a href="shopping.html" class="sat-link">Shopping</a>
+    <a href="log.html" class="sat-link">Log</a>
   </nav>
 </header>
 <div class="page">
