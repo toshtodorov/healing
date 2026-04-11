@@ -30,6 +30,20 @@ h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
 .sat-link{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
 .sat-link:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
 .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
+/* ── MOBILE TOPBAR ── */
+#nav-drawer{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;z-index:299;background:var(--green-dark);border-bottom:2px solid #1a3018;padding:10px 16px 14px;flex-direction:column;gap:6px}
+#nav-drawer.open{display:flex}
+#nav-drawer .sat-link{color:#c8e8c0;border-color:rgba(255,255,255,.18);font-size:13px;padding:8px 14px;border-radius:8px;width:100%;text-align:center}
+#nav-drawer .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
+#nav-drawer .sat-link:hover{background:rgba(255,255,255,.1)}
+#hamburger{display:none;background:none;border:none;color:#a8d4a0;font-size:22px;cursor:pointer;padding:4px 6px;margin-left:auto;flex-shrink:0;line-height:1}
+@media(max-width:700px){
+  .sat-links{display:none}
+  #hamburger{display:block}
+  #topbar .logo{font-size:12.5px}
+  #topbar .vbadge{display:none}
+}
+
 #menu-toggle{display:none;background:none;border:none;color:#a8d4a0;font-size:21px;cursor:pointer;padding:4px 6px;margin-right:4px}
 
 /* ── SIDEBAR ── */
@@ -252,7 +266,16 @@ tr:last-child td{border-bottom:none}
     <a href="shopping.html" class="sat-link">Shopping</a>
     <a href="log.html" class="sat-link">Log</a>
   </nav>
+  <button id="hamburger" onclick="void(0)">&#9776;</button>
 </header>
+<div id="nav-drawer">
+    <a href="cheatsheet.html" class="sat-link">Cheat Sheet</a>
+    <a href="glossary.html" class="sat-link">Glossary</a>
+    <a href="exercises.html" class="sat-link">Exercises</a>
+    <a href="diet.html" class="sat-link">Diet</a>
+    <a href="shopping.html" class="sat-link">Shopping</a>
+    <a href="log.html" class="sat-link">Log</a>
+</div>
 
 <!-- SIDEBAR -->
 <nav id="sidebar">
@@ -425,195 +448,78 @@ tr:last-child td{border-bottom:none}
   <div class="stag tg">Section 0</div>
   <h1 class="st">Foundation</h1>
 
-  <div class="ig">
-    <strong>The governing insight:</strong> The nervous system is operating at a chronically elevated baseline that predates any given trigger event. Every therapeutic intervention attempted from that baseline is working against a headwind. This protocol therefore does not begin with behavioral work. It begins with structure: <strong>first, lower the floor. Then rewrite what runs on it.</strong>
-  </div>
-
   <h2 class="s2 gl">0A. The Condition and the Urgency</h2>
-  <p>The condition is extensive. Its impact on daily life — on shared spaces, shared meals, and the ability to be fully present with others — is significant enough that standard behavioral approaches have a real ceiling. The nervous system is operating at a chronically elevated baseline that predates any given trigger event.</p>
+  <div class="ig">
+    <strong>The governing insight:</strong> The nervous system is operating at a chronically elevated baseline that predates any given trigger event. Every therapeutic intervention attempted from that baseline is working against a headwind. The protocol therefore does not begin with behavioral work. It begins with structure: <strong>first, lower the floor. Then rewrite what runs on it.</strong>
+  </div>
+  <p>The condition is extensive. Its impact on daily life — on shared spaces, shared meals, and the ability to be fully present with others — is significant enough that standard behavioral approaches have a real ceiling. The nervous system is operating at a chronically elevated baseline that predates any given trigger event. Every therapeutic intervention attempted from that baseline is working against a headwind.</p>
+  <p>The protocol therefore does not begin with behavioral work. It begins with structure: first, lower the floor. Then rewrite what runs on it.</p>
 
   <h2 class="s2 gl">0B. What This Protocol Is</h2>
-  <p>A personal healing and wellness protocol built for one specific person. Each element has a specific mechanistic reason to be here. Each earns its place. The primary goal: durable, lasting reduction in misophonic reactivity — sufficient to no longer meaningfully impair daily life, relationships, or the ability to share space with others.</p>
-  <p>This is a <strong>living document</strong>. The structure here is the best current map. The territory, as always, takes precedence.</p>
+  <p>This is a personal healing and wellness protocol built for one specific person, addressing one specific problem: misophonia. It is the product of an extended inquiry into what neuroscience, behavioral research, plant medicine, and evidence-based nutrition each have to offer a condition for which conventional medicine has no established treatment.</p>
+  <p>The protocol integrates multiple domains — neuroplasticity science, psychedelic-assisted therapy, behavioral conditioning, nutrition, exercise physiology, and somatic work — not because complexity is a virtue, but because misophonia is a multi-layered condition that genuinely requires tools working at different levels simultaneously. Each element has a specific mechanistic reason to be here. Each earns its place.</p>
+  <p>The primary goal is clear: durable, lasting reduction in misophonic reactivity — sufficient to no longer meaningfully impair daily life, relationships, or the ability to share space with others. The wellness work woven throughout — the nutrition, the sleep architecture, the cellular health — is not a separate agenda. It builds and sustains the same biological substrate that neuroplasticity runs on. The brain that rewires most effectively is a brain that is well-nourished, well-rested, and operating from a calm physiological baseline. These things are inseparable.</p>
+  <p>Success is measured by the A-MISO-S questionnaire, SUDs trajectory, and — most importantly — behavioral change in the avoidance inventory: what situations are you no longer avoiding? The wellness dimension is tracked through HRV trajectory, bloodwork panels, and subjective vitality over time.</p>
+  <p>This protocol is a <strong>living document</strong>. It establishes a starting point and a structure — not a rigid prescription. As the work progresses, individual elements will be adjusted based on felt sense, observed effects, bloodwork, and what the nervous system is actually responding to. Some things will work better than expected and deserve more emphasis. Some will need modification. Some may be deprioritized entirely. That is not protocol failure — it is protocol intelligence. The structure here is the best current map. The territory, as always, takes precedence.</p>
 
-  <h2 class="s2 gl">0C. How Misophonia Works</h2>
+  <h2 class="s2 gl">0C. How Misophonia Works and Where This Protocol Intervenes</h2>
   <div class="card gl">
     <div class="card-title">The Core Circuit</div>
-    <p>A trigger sound involuntarily activates the sensorimotor cortex → cascades into the anterior insula (threat signal) → anterior cingulate cortex (amplification) → autonomic nervous system (fight-or-flight). This fires faster than conscious regulation can intercept.</p>
+    <p>When the misophonic brain hears a trigger sound, it involuntarily activates the sensorimotor cortex corresponding to the body part producing that sound — a mirror neuron-like process where the brain simulates the action. That motor simulation cascades into the anterior insula (threat signal), the anterior cingulate cortex (amplification), and the autonomic nervous system (fight-or-flight response). This fires faster than conscious regulation can intercept it.</p>
+    <p style="margin-top:8px">When the trigger is associated with a specific person, a second layer activates simultaneously: social threat coding — the sense that the triggering person is doing something to you. And running ahead of everything is anticipatory dread: the system pre-activates before any sound occurs, keeping the cascade perpetually primed.</p>
+    <p style="margin-top:8px"><em>Three layers. Three different neurological substrates. Three different sets of tools.</em></p>
   </div>
+
   <h3 class="s3">Three Trigger Layers — Three Sets of Tools</h3>
   <div class="card gl" style="margin-bottom:8px">
     <div class="card-title">Layer 1 — Acoustic-Sensory</div>
-    <p style="margin:0">The raw conditioned response to the sound itself.<br><strong>Primary tools:</strong> Counterconditioning, Psilocybin, tVNS, SSP</p>
+    <p style="margin:0">The raw conditioned response to the sound itself.<br><strong>Primary tools:</strong> counterconditioning, psilocybin, tVNS, SSP.</p>
   </div>
   <div class="card al" style="margin-bottom:8px">
     <div class="card-title" style="color:var(--amber)">Layer 2 — Interpersonal-Violation</div>
-    <p style="margin:0">Social threat coding attached to specific people.<br><strong>Primary tools:</strong> MDMA, EMDR, IFS</p>
+    <p style="margin:0">Social threat coding attached to specific people.<br><strong>Primary tools:</strong> MDMA-assisted processing, EMDR, IFS.</p>
   </div>
-  <div class="card pl">
+  <div class="card pl" style="margin-bottom:16px">
     <div class="card-title">Layer 3 — Anticipatory-Dread</div>
-    <p style="margin:0">Pre-exposure anxiety keeping the system chronically pre-activated.<br><strong>Primary tools:</strong> SGB, HRV biofeedback, Yoga Nidra, tVNS, kava</p>
+    <p style="margin:0">Pre-exposure anxiety that keeps the system chronically pre-activated.<br><strong>Primary tools:</strong> SGB, HRV biofeedback, Yoga Nidra, somatic release, tVNS, kava.</p>
   </div>
   <p><em>The anticipatory layer is addressed first. Without reducing chronic pre-activation, the acoustic layer cannot be worked effectively, and the interpersonal layer cannot be safely approached at depth.</em></p>
 
-  <h2 class="s2 gl">0D. The Four Pillars</h2>
+  <div class="card gl" style="margin-top:16px">
+    <div class="card-title">Why Standard Behavioral Therapy Has a Ceiling</div>
+    <p>The misophonic threat response fires because of a conditioned circuit that activates faster than top-down regulation can reach it. Passive exposure to that cascade does not correct it — in some cases it deepens it. Counterconditioning is the operative mechanism: actively pairing the trigger with a genuinely felt positive emotional state, building a competing association strong enough to inhibit the threat response. This requires a calm nervous system, genuine felt positive emotion, sufficient neuroplasticity for the new association to write durably, and sleep to consolidate it overnight. This is what the protocol is designed to produce — those four conditions, simultaneously, repeatedly, over a year.</p>
+  </div>
+
+  <h2 class="s2 gl">0D. The Four Pillars and Governing Principles</h2>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
     <div class="card gl">
       <div class="card-title">Pillar 1 — Plasticity Opening</div>
-      <p style="font-size:13px;margin:0">Destabilizes the rigid circuit. Makes synapses malleable.<br><em>Psilocybin, MDMA, SGB, Microdosing</em></p>
+      <p style="font-size:13px;margin:0">Destabilizes the rigid misophonic circuit. Makes synapses malleable. Creates conditions in which new learning writes more deeply.<br><em>Psilocybin, MDMA, Stellate Ganglion Block, microdosing.</em></p>
     </div>
     <div class="card al">
       <div class="card-title">Pillar 2 — Behavioral Rewriting</div>
-      <p style="font-size:13px;margin:0">Writes competing associations while the circuit is open.<br><em>CC, EMDR, Propranolol, IFS, ACT</em></p>
+      <p style="font-size:13px;margin:0">Writes new competing associations while the circuit is open. This is the actual rewiring. Without this pillar, an open window closes on empty.<br><em>Counterconditioning (six techniques), EMDR, propranolol-assisted reconsolidation, IFS, ACT, cognitive reappraisal.</em></p>
     </div>
     <div class="card bl">
       <div class="card-title">Pillar 3 — Consolidation</div>
-      <p style="font-size:13px;margin:0">Cements structural changes. Sustains vagal tone.<br><em>tVNS, tDCS, HeartMath, SSP, Yoga Nidra</em></p>
+      <p style="font-size:13px;margin:0">Cements structural changes during sleep. Sustains the vagal tone and prefrontal strength that makes rewiring hold.<br><em>tVNS, tDCS, HRV biofeedback (HeartMath), Safe and Sound Protocol, Yoga Nidra, sleep architecture.</em></p>
     </div>
     <div class="card pl">
       <div class="card-title">Pillar 4 — Substrate</div>
-      <p style="font-size:13px;margin:0">Sustains the biological conditions neuroplasticity runs on.<br><em>Exercise, Fasting, Nutrition, Supplementation</em></p>
+      <p style="font-size:13px;margin:0">Sustains the biological conditions neuroplasticity runs on: BDNF, NAD+, cellular repair, reduced baseline arousal.<br><em>Exercise, fasting, nutrition, supplementation, somatic release, sleep hygiene, kava.</em></p>
     </div>
   </div>
 
   <h2 class="s2 gl">Governing Principles</h2>
   <ul class="prose">
-    <li><strong>The autonomic baseline determines the ceiling of all other work.</strong> Until the floor is lowered, every intervention is limited by it.</li>
-    <li><strong>Counterconditioning is the primary rewriting mechanism.</strong> But treatment also means stopping daily life from continuously re-stamping the old circuit. The floor-lowering, the behavioral work, and the environmental containment are a single integrated effort.</li>
-    <li><strong>The substrate determines how much sticks.</strong> Sleep consolidates every structural change. Neglect it and gains erode between sessions.</li>
-    <li><strong>The protocol must never replicate the condition it is treating.</strong> If it feels like a burden, reduce intensity — not push through. See <a href="#modes">Section 3</a>.</li>
+    <li><strong>The autonomic baseline determines the ceiling of all other work.</strong> Until the floor is lowered, every intervention is limited by it. This is why structural autonomic intervention comes first.</li>
+    <li><strong>Counterconditioning is the primary rewriting mechanism.</strong> But treatment here means two things simultaneously: writing new associations into the circuit, and stopping daily life from continuously re-stamping the old ones. Both are required. An open plasticity window that closes on an unrewritten circuit achieves little. A circuit being rewritten while the environment keeps reinforcing the original pattern gains less than it should. The autonomic floor, the behavioral work, and the environmental containment are a single integrated effort.</li>
+    <li><strong>The substrate determines how much sticks.</strong> Sleep consolidates every structural change. Neglect the substrate and gains erode between sessions.</li>
+    <li><strong>The protocol must never replicate the condition it is treating.</strong> If the protocol ever starts to feel like a burden, that is a signal to reduce intensity — not push through. See <a href="#modes">Section 3</a>.</li>
     <li><strong>Flexibility is built in, not bolted on.</strong> The structure serves the nervous system. Not the other way around.</li>
   </ul>
 </div>
 
-<!-- ════════════════════════════════════════════ -->
-<!-- SECTION 2 — THE ARC -->
-<!-- ════════════════════════════════════════════ -->
-<div class="section" id="arc">
-  <div class="stag tg">Section 2</div>
-  <h1 class="st">The Arc</h1>
-  <p>Phase transitions are <strong>felt-sense gates</strong> — not calendar gates. Move forward when the current phase feels genuinely familiar and no longer effortful as a whole.</p>
-
-  <table>
-    <thead><tr><th>Phase</th><th>Name</th><th>Est. Duration</th><th>What It Establishes</th></tr></thead>
-    <tbody>
-      <tr><td><span class="tag tp">Phase 0</span></td><td>Pre-Protocol</td><td>—</td><td>Sympathetic floor lowered. Baseline established.</td></tr>
-      <tr><td><span class="tag tg">Phase 1</span></td><td>The Soil</td><td>8–10 weeks</td><td>Substrate built. No trigger work.</td></tr>
-      <tr><td><span class="tag tb">Phase 2</span></td><td>First Contact</td><td>6–8 weeks</td><td>CC begins. First therapeutic macrodose.</td></tr>
-      <tr><td><span class="tag ta">Phase 3</span></td><td>Building Capacity</td><td>8–10 weeks</td><td>Full tool set acquired and running.</td></tr>
-      <tr><td><span class="tag tr">Phase 4</span></td><td>Full Stack</td><td>6–8 weeks</td><td>All tools at full depth simultaneously.</td></tr>
-      <tr><td><span class="tag tp">Phase 5</span></td><td>Consolidation</td><td>Ongoing</td><td>Changes locked in. Protocol becomes life.</td></tr>
-    </tbody>
-  </table>
-  <p class="ig"><strong>Every phase transition is a felt-sense gate.</strong> A phase that has not been fully absorbed cannot support what the next phase asks of it.</p>
-</div>
-
-<!-- ════════════════════════════════════════════ -->
-<!-- SECTION 3 — OPERATING MODES -->
-<!-- ════════════════════════════════════════════ -->
-<div class="section" id="modes">
-  <div class="stag tr">Section 3</div>
-  <h1 class="st">Daily Operating Modes</h1>
-  <p>The mode determines what the day looks like — not willpower.</p>
-
-  <div class="mode-card mode-green">
-    <h3>🟢 Green — Resourced</h3>
-    <p><strong>Indicators:</strong> Slept reasonably, body available, no rising dread, CC feels approachable, resting tension below 4/10.</p>
-    <p>Run the full current-phase rhythm. Active rewiring available and pursued. If a plasticity window is open (post-macrodose, post-SGB) — bring full effort.</p>
-  </div>
-
-  <div class="mode-card mode-yellow">
-    <h3>🟡 Yellow — Frayed</h3>
-    <p><strong>Indicators:</strong> Poor sleep, rising irritability, tension above 5/10, dread around CC.</p>
-    <p>Support day only. Full baseline + support layer. <strong>No CC. No hierarchy work. No deliberate trigger exposure.</strong> One Yellow day requires no adjustment to the overall phase.</p>
-  </div>
-
-  <div class="mode-card mode-red">
-    <h3>🔴 Red — Tactical Brake</h3>
-    <p>Activate if <strong>3 or more</strong> are present, or any single one is severe:</p>
-    <ul class="prose" style="font-size:13.5px">
-      <li>Sleep poor 3+ consecutive nights despite sleep protocol</li>
-      <li>Baseline reactivity rising week over week</li>
-      <li>CC sessions consistently ending higher than they began</li>
-      <li>Growing dread or avoidance around CC itself</li>
-      <li>Rumination increasing rather than decreasing</li>
-      <li>Resentment toward the protocol has appeared</li>
-    </ul>
-    <details>
-      <summary>Full Tactical Brake protocol</summary>
-      <div class="db">
-        <p><strong>Duration:</strong> Minimum 48 hours. Extend until the system settles.</p>
-        <p><strong>Suspend entirely:</strong> No CC, no hierarchy work, no deliberate trigger exposure, no macrodosing or MDMA, no propranolol, no EMDR.</p>
-        <p><strong>Double the support layer:</strong> Yoga Nidra nightly (40+ min), somatic release every morning, Qi-Gong daily, HRV biofeedback daily. Exercise only if genuinely restorative.</p>
-        <p><strong>Maintain baseline:</strong> All supplements, all sleep protections. No changes to nutrition or fasting. No protocol planning or analysis.</p>
-        <p><strong>Return when:</strong> Sleep stable 2+ nights, tension and dread clearly lower. First session back: 20 minutes, SUDs 1–3. Confirm the system accepts the work before returning to full intensity.</p>
-        <p><em>If the Brake is needed more than once in a phase, revisit the phase gate. Slow the overall pace. Pushing through warning signs produces sensitization — and sensitization undoes previous gains.</em></p>
-      </div>
-    </details>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════════════ -->
-<!-- SUPPLEMENT QUICK REFERENCE -->
-<!-- ════════════════════════════════════════════ -->
-<div class="section" id="supp-ref">
-  <div class="stag tp">Quick Reference</div>
-  <h1 class="st">Supplement Cross-Phase Stack</h1>
-  <p>● Active &nbsp; ○ Not yet &nbsp; — Pause &nbsp; (P) Pulsed/situational</p>
-
-  <div style="overflow-x:auto">
-  <table style="min-width:540px">
-    <thead>
-      <tr>
-        <th style="min-width:200px">Supplement</th>
-        <th>Ph0</th><th>Ph1</th><th>Ph2</th><th>Ph3</th><th>Ph4</th><th>Ph5</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Creatine 7.5g</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>L. reuteri 1–2 tabs</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>NMN 500mg sublingual</td><td>○</td><td>●*</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Krill oil 2–3 softgels</td><td>○</td><td>●</td><td>●</td><td>●</td><td style="color:var(--amber)">—†</td><td>●</td></tr>
-      <tr><td>Omega-3 top-up (fish oil or omega-3 top-up (fish oil or algae oil)) 2–4 softgels</td><td>○</td><td>●</td><td>●</td><td>●</td><td style="color:var(--amber)">—†</td><td>●</td></tr>
-      <tr><td>Lion's Mane 2g</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Bacopa 320mg</td><td>○</td><td>●*</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Ashwagandha 600mg</td><td>○</td><td>○</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Lithium Orotate 5mg</td><td>○</td><td>○</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>NAC 600mg ×2</td><td>○</td><td>○</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>D3/K2</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>B-complex</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>B12 sublingual</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Phosphatidylserine 300mg</td><td>○</td><td>●*</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Mag L-Threonate 2000mg</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Mag Glycinate 360mg</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Glycine 3g</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Apigenin 50mg</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Melatonin 0.5mg</td><td>○</td><td style="color:var(--amber)">●‡</td><td>○</td><td>○</td><td>○</td><td>○</td></tr>
-      <tr><td></td><td>○</td><td>○</td><td style="color:var(--blue-dark)">(P)</td><td style="color:var(--blue-dark)">(P)</td><td style="color:var(--blue-dark)">(P)</td><td style="color:var(--blue-dark)">(P)</td></tr>
-      <tr><td>Psilocybin microdose</td><td>○</td><td>○</td><td>○</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Niacin flush</td><td>○</td><td>○</td><td>○</td><td>●</td><td>●</td><td>●</td></tr>
-      <tr><td>Resveratrol 500mg</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>●</td></tr>
-      <tr><td>Berberine 500mg</td><td>○</td><td>○</td><td>○</td><td>○</td><td>○</td><td>●</td></tr>
-      <tr><td>5-HTP + EGCG (post-MDMA only)</td><td>○</td><td>○</td><td>○</td><td style="color:var(--blue-dark)">(P)</td><td style="color:var(--blue-dark)">(P)</td><td>○</td></tr>
-    </tbody>
-  </table>
-  </div>
-  <p style="font-size:12px;color:var(--text-muted)">* Introduced mid-phase: NMN Month 2, Bacopa Week 3, Phosphatidylserine Month 2 &nbsp;|&nbsp; † Pause 1 week before SGB course; resume 48h after &nbsp;|&nbsp; ‡ First 4–6 weeks only</p>
-
-  <details>
-    <summary>Substance-specific pause rules</summary>
-    <div class="db">
-      <p><strong>Pre-SGB:</strong> Pause krill, algae, NAC, vitamin E, resveratrol (Phase 5 only) 1 week before. No microdosing 7 days before. Space at least 72 hours between macrodose session and SGB. Full protocol in <a href="#p0-sgb">Phase 0 SGB section</a>.</p>
-      <p><strong>Pre-macrodose:</strong> No 5-HTP or tryptophan in 24 hours before. Pause microdosing 1 week before. Full supplement stack continues.</p>
-      <p><strong>Pre-MDMA session:</strong> Stop NAC 3 days before. Skip Ashwagandha on session day. No 5-HTP or tryptophan 24 hours before. Pause microdosing 1 week before.</p>
-      <p><strong>Post-MDMA session:</strong> 5-HTP 100mg + EGCG 400mg for 3 days beginning 24 hours after. Resume NAC 48 hours after. MDMA-specific serotonin replenishment — not used after psilocybin.</p>
-      <p><strong>Post-session microdosing:</strong> Resume Day 4–5 after both macrodose and MDMA sessions, once fully settled.</p>
-      <p><strong>Fish days:</strong> Skip krill and omega-3 top-up. &nbsp;|&nbsp; <strong>Resistance training days:</strong> No berberine.</p>
-    </div>
-  </details>
-</div>
-
-<!-- ════════════════════════════════════════════ -->
 <!-- PRE-PROTOCOL (PHASE 0) -->
 <!-- ════════════════════════════════════════════ -->
 <div class="phase-div"><span>Pre-Protocol — Phase 0</span></div>
@@ -2076,6 +1982,25 @@ const observer=new IntersectionObserver((entries)=>{
   });
 },observerOpts);
 document.querySelectorAll('.section[id]').forEach(s=>observer.observe(s));
+</script>
+
+
+<script id="hamburger-js">
+(function(){
+  var btn = document.getElementById('hamburger');
+  var drawer = document.getElementById('nav-drawer');
+  if(!btn || !drawer) return;
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    drawer.classList.toggle('open');
+    btn.textContent = drawer.classList.contains('open') ? '✕' : '☰';
+  });
+  document.addEventListener('click', function(){
+    drawer.classList.remove('open');
+    btn.textContent = '☰';
+  });
+  drawer.addEventListener('click', function(e){ e.stopPropagation(); });
+})();
 </script>
 
 </body>
