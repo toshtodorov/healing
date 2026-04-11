@@ -17,40 +17,65 @@
   --topbar-h:54px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:74px}
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.7;font-size:15px}
-h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
+h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 #topbar{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:10px;padding:0 18px;border-bottom:2px solid #1a3018}
-#topbar .logo{font-family:'Lora',serif;font-size:14.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0}
+#topbar .logo{font-family:'Lora',serif;font-size:14.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0;text-decoration:none}
 #topbar .vbadge{font-size:9.5px;font-weight:600;background:rgba(255,255,255,.12);color:#a8d4a0;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px 6px;letter-spacing:.05em;flex-shrink:0}
 .sat-links{display:flex;gap:4px;margin-left:auto;flex-shrink:0}
 .sat-link{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
 .sat-link:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
 .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
-/* ── MOBILE TOPBAR ── */
+.page{margin-top:var(--topbar-h);padding:28px 32px 80px;max-width:860px;margin-left:auto;margin-right:auto}
+.page-title{font-family:'Lora',serif;font-size:26px;font-weight:600;color:var(--green-dark);margin-bottom:6px}
+.page-sub{font-size:13.5px;color:var(--text-muted);margin-bottom:20px}
 
-#topbar .logo{font-size:12.5px}
-  #topbar .vbadge{display:none}
-}
-}
+/* Jump nav — matches diet/exercises pattern */
+.jump-nav{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;padding:12px 14px;background:var(--white);border:1px solid var(--border);border-radius:10px}
+.jn{font-size:12px;font-weight:500;padding:5px 13px;border-radius:20px;text-decoration:none;color:var(--green-dark);background:var(--green-light);border:1px solid var(--green-border);transition:all .12s;white-space:nowrap}
+.jn:hover{background:var(--green-dark);color:#fff}
 
+/* Section */
+.bib-section{margin-bottom:36px;scroll-margin-top:74px}
+.sec-header{border-radius:12px;padding:16px 20px;margin-bottom:0}
+.sec-tag{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+
+/* Reference cards */
+.ref-card{display:flex;align-items:flex-start;gap:14px;background:var(--white);border:1px solid var(--border);border-top:none;padding:14px 18px;transition:background .1s}
+.bib-section .sec-header + .ref-card{margin-top:0}
+.bib-section .ref-card:first-of-type{border-top:1px solid var(--border)}
+.bib-section .ref-card:last-of-type{border-radius:0 0 10px 10px}
+.ref-body{flex:1;min-width:0}
+.ref-text{font-size:13.5px;color:var(--text-mid);line-height:1.65}
+.ref-text em{font-style:italic;color:var(--text)}
+.ref-note{font-size:11.5px;color:var(--green-dark);background:var(--green-light);border:1px solid var(--green-border);border-radius:5px;padding:3px 10px;margin-top:7px;display:inline-block;font-weight:500}
+.ref-year{font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted);background:var(--border-light);padding:3px 7px;border-radius:6px;white-space:nowrap;flex-shrink:0;margin-top:2px}
+.ref-card:hover{background:#fdfcfa}
+
+/* Count badge */
 #hamburger{display:none;background:none;border:none;color:#a8d4a0;font-size:22px;cursor:pointer;padding:4px 8px;margin-left:auto;flex-shrink:0;line-height:1}
 #nav-drawer{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;z-index:299;background:var(--green-dark);border-bottom:2px solid #1a3018;padding:10px 16px 14px;flex-direction:column;gap:6px}
 #nav-drawer.open{display:flex}
 #nav-drawer a{color:#c8e8c0;border:1px solid rgba(255,255,255,.18);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;padding:11px 16px;border-radius:8px;text-decoration:none;text-align:center;transition:background .12s}
 #nav-drawer a:hover,#nav-drawer a.active{background:rgba(255,255,255,.18);color:#fff}
-
-/* ── MOBILE ── */
 @media(max-width:700px){
-  .sat-links{display:none}
+  
   #hamburger{display:block}
   #topbar .logo{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100vw - 88px)}
   #topbar .vbadge{display:none}
-  #topbar{gap:8px;padding:0 14px}
+  
 }
 @media(max-width:430px){
   #topbar .logo{font-size:12px;max-width:calc(100vw - 80px)}
-  #topbar{padding:0 10px;gap:6px}
+  
   #hamburger{font-size:20px;padding:2px 6px}
+}
+@media(max-width:600px){
+  .page{padding:20px 14px 60px}
+  .ref-year{display:none}
+  .ref-card{padding:12px 14px}
 }
 </style>
 </head>
@@ -62,6 +87,7 @@ h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
     <span class="vbadge">V9.3</span>
   </a>
   <nav class="sat-links">
+    <a href="protocol.html" class="sat-link">Protocol</a>
     <a href="cheatsheet.html" class="sat-link">Cheat Sheet</a>
     <a href="glossary.html" class="sat-link">Glossary</a>
     <a href="exercises.html" class="sat-link">Exercises</a>
@@ -71,6 +97,7 @@ h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
   </nav>
   <button id="hamburger">&#9776;</button>
 </header>
+
 <div id="nav-drawer">
   <a href="protocol.html">Protocol</a>
   <a href="cheatsheet.html">Cheat Sheet</a>
@@ -81,211 +108,410 @@ h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
   <a href="log.html">Log</a>
 </div>
 
-
 <div class="page">
   <h1 class="page-title">References</h1>
-  <p class="page-sub">Peer-reviewed sources underpinning the protocol's interventions, organized by domain.</p>
+  <p class="page-sub">Peer-reviewed sources and key texts underpinning the protocol's interventions, organised by domain.</p>
 
-  <div class="domain">
-    <div class="domain-title">Misophonia — Neuroscience Foundation</div>
-    <div class="ref">
-      <div class="ref-authors">Kumar, S., Dheerendra, P., Erfanian, M., Benzaquén, E., Sedley, W., Gander, P.E., Lad, M., Bamiou, D-E., &amp; Griffiths, T.D. (2021). The motor basis for misophonia. <em>Journal of Neuroscience, 41</em>(26), 5762–5770.</div>
-      <span class="ref-note">Core paper — mirror neuron motor simulation; sensorimotor-auditory cortex hyperconnectivity</span>
+<nav class="jump-nav">
+  <a class="jn" href="#misophonia-neuroscience-foundation">Misophonia</a>
+  <a class="jn" href="#counterconditioning-and-fear-extinction">Counterconditioning</a>
+  <a class="jn" href="#stellate-ganglion-block-sgb">Stellate Ganglion Block</a>
+  <a class="jn" href="#psilocybin-assisted-therapy-and-neuroplasticity">Psilocybin-Assisted Therapy</a>
+  <a class="jn" href="#mdma-assisted-therapy">MDMA-Assisted Therapy</a>
+  <a class="jn" href="#propranolol-and-memory-reconsolidation">Propranolol</a>
+  <a class="jn" href="#tvns-transcutaneous-vagus-nerve-stimulation">tVNS</a>
+  <a class="jn" href="#tdcs-transcranial-direct-current-stimulation">tDCS</a>
+  <a class="jn" href="#hrv-biofeedback-and-cardiac-coherence">HRV Biofeedback</a>
+  <a class="jn" href="#safe-and-sound-protocol-and-polyvagal-theory">Safe</a>
+  <a class="jn" href="#sleep-and-memory-consolidation">Sleep</a>
+  <a class="jn" href="#neuroplasticity-bdnf-and-exercise">Neuroplasticity, BDNF</a>
+  <a class="jn" href="#bacopa-and-extinction-learning">Bacopa</a>
+  <a class="jn" href="#omega-3-and-neural-membrane-incorporation">Omega-3</a>
+  <a class="jn" href="#measurement-and-assessment-tools">Measurement</a>
+</nav>
+
+<section class="bib-section" id="misophonia-neuroscience-foundation">
+  <div class="sec-header" style="background:linear-gradient(135deg,#f0f6ec,#e4f0df);border:1px solid var(--green-border)">
+    <div class="sec-tag" style="color:var(--green-mid)">5 sources</div>
+    <h2 style="color:var(--green-mid);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">Misophonia — Neuroscience Foundation</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Kumar, S., Dheerendra, P., Erfanian, M., Benzaquén, E., Sedley, W., Gander, P.E., Lad, M., Bamiou, D-E., &amp; Griffiths, T.D. (2021). The motor basis for misophonia. <em>Journal of Neuroscience, 41</em>(26), 5762–5770.</div>
+      <div class="ref-note">Core paper — motor simulation mechanism; sensorimotor-auditory cortex hyperconnectivity</div>
     </div>
-    <div class="ref">
-      <div class="ref-authors">Schröder, A., Vulink, N., &amp; Denys, D. (2013). Misophonia: Diagnostic criteria for a new psychiatric disorder. <em>PLOS ONE, 8</em>(1), e54706.</div>
+    <div class="ref-year">2021</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Schröder, A., Vulink, N., &amp; Denys, D. (2013). Misophonia: Diagnostic criteria for a new psychiatric disorder. <em>PLOS ONE, 8</em>(1), e54706.</div>
     </div>
-    <div class="ref">
-      <div class="ref-authors">Wu, M.S., Lewin, A.B., Murphy, T.K., &amp; Storch, E.A. (2014). Misophonia: Incidence, phenomenology, and clinical correlates in an undergraduate student sample. <em>Journal of Clinical Psychology, 70</em>(10), 994–1007.</div>
+    <div class="ref-year">2013</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Wu, M.S., Lewin, A.B., Murphy, T.K., &amp; Storch, E.A. (2014). Misophonia: Incidence, phenomenology, and clinical correlates in an undergraduate student sample. <em>Journal of Clinical Psychology, 70</em>(10), 994–1007.</div>
     </div>
-    <div class="ref">
-      <div class="ref-authors">Erfanian, M., Kartsonaki, C., &amp; Keshavarz, A. (2019). Misophonia and comorbid psychiatric symptoms: A preliminary study of differences and similarities. <em>Psychiatry Research, 280</em>, 112–466.</div>
+    <div class="ref-year">2014</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Erfanian, M., Kartsonaki, C., &amp; Keshavarz, A. (2019). Misophonia and comorbid psychiatric symptoms. <em>Psychiatry Research, 280</em>, 112–466.</div>
     </div>
-    <div class="ref">
-      <div class="ref-authors">Jastreboff, P.J., &amp; Jastreboff, M.M. (2014). Treatments for decreased sound tolerance (hyperacusis and misophonia). <em>Seminars in Hearing, 35</em>(2), 105–120.</div>
+    <div class="ref-year">2019</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Jastreboff, P.J., &amp; Jastreboff, M.M. (2014). Treatments for decreased sound tolerance. <em>Seminars in Hearing, 35</em>(2), 105–120.</div>
+    </div>
+    <div class="ref-year">2014</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="counterconditioning-and-fear-extinction">
+  <div class="sec-header" style="background:linear-gradient(135deg,#f0f6ec,#e4f0df);border:1px solid var(--green-border)">
+    <div class="sec-tag" style="color:var(--green-mid)">4 sources</div>
+    <h2 style="color:var(--green-mid);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">Counterconditioning and Fear Extinction</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Milad, M.R., &amp; Quirk, G.J. (2012). Fear extinction as a model for translational neuroscience: Ten years of progress. <em>Annual Review of Psychology, 63</em>, 129–151.</div>
+    </div>
+    <div class="ref-year">2012</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Craske, M.G., Treanor, M., Conway, C.C., Zbozinek, T., &amp; Vervliet, B. (2014). Maximizing exposure therapy: An inhibitory learning approach. <em>Behaviour Research and Therapy, 58</em>, 10–23.</div>
+      <div class="ref-note">Inhibitory learning model — theoretical basis for CC session design</div>
+    </div>
+    <div class="ref-year">2014</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Bouton, M.E. (2004). Context and behavioral processes in extinction. <em>Learning and Memory, 11</em>(5), 485–494.</div>
+    </div>
+    <div class="ref-year">2004</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Vervliet, B., Craske, M.G., &amp; Hermans, D. (2013). Fear extinction and relapse: State of the art. <em>Annual Review of Clinical Psychology, 9</em>, 215–248.</div>
+    </div>
+    <div class="ref-year">2013</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="stellate-ganglion-block-sgb">
+  <div class="sec-header" style="background:linear-gradient(135deg,#edf3fb,#e0ecf8);border:1px solid var(--blue-border)">
+    <div class="sec-tag" style="color:var(--blue-dark)">4 sources</div>
+    <h2 style="color:var(--blue-dark);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">Stellate Ganglion Block (SGB)</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Mulvaney, S.W., McLean, B., &amp; de Leeuw, J. (2010). The use of stellate ganglion block in the treatment of panic/anxiety symptoms with combat-related PTSD. <em>Pain Practice, 10</em>(4), 359–365.</div>
+      <div class="ref-note">SGB for autonomic hyperactivation — foundational clinical paper</div>
+    </div>
+    <div class="ref-year">2010</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Mulvaney, S.W., Lynch, J.H., Schroeder, M.J., &amp; Kane, S. (2020). Stellate ganglion block improves refractory PTSD and associated memory reconsolidation. <em>Military Medicine, 185</em>(9-10), e1823–e1826.</div>
+    </div>
+    <div class="ref-year">2020</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Lipov, E., Jacobs, R., Springer, S., Candido, K.D., &amp; Stance, R. (2013). Relief of hyperhidrosis and PTSD symptoms by stellate ganglion block. <em>Journal of Clinical Anesthesia, 25</em>(2), 158–160.</div>
+    </div>
+    <div class="ref-year">2013</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Hanling, S.R., Hickey, A., Lesnik, I., Walker, B.J., Mariano, E.R., &amp; Engle, M.P. (2016). Stellate ganglion block for the treatment of posttraumatic stress disorder. <em>Regional Anesthesia and Pain Medicine, 41</em>(4), 494–496.</div>
+    </div>
+    <div class="ref-year">2016</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="psilocybin-assisted-therapy-and-neuroplasticity">
+  <div class="sec-header" style="background:linear-gradient(135deg,#f5eeff,#ede0ff);border:1px solid var(--purple-border)">
+    <div class="sec-tag" style="color:var(--purple)">4 sources</div>
+    <h2 style="color:var(--purple);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">Psilocybin-Assisted Therapy and Neuroplasticity</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Carhart-Harris, R., Giribaldi, B., Watts, R., Baker-Jones, M., Murphy-Beiner, A., Murphy, R., &amp; Nutt, D.J. (2021). Trial of psilocybin versus escitalopram for depression. <em>New England Journal of Medicine, 384</em>, 1402–1411.</div>
+    </div>
+    <div class="ref-year">2021</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Davis, A.K., Barrett, F.S., May, D.G., Cosimano, M.P., Sepeda, N.D., Johnson, M.W., &amp; Griffiths, R.R. (2021). Effects of psilocybin-assisted therapy on major depressive disorder. <em>JAMA Psychiatry, 78</em>(5), 481–489.</div>
+    </div>
+    <div class="ref-year">2021</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Ly, C., Greb, A.C., Cameron, L.P., Wong, J.M., Barragan, E.V., Wilson, P.C., &amp; Bhatt, D.L. (2018). Psychedelics promote structural and functional neural plasticity. <em>Cell Reports, 23</em>(11), 3170–3182.</div>
+      <div class="ref-note">Structural neuroplasticity mechanism — dendritic spine growth</div>
+    </div>
+    <div class="ref-year">2018</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Griffiths, R.R., Johnson, M.W., Carducci, M.A., Umbricht, A., Richards, W.A., &amp; Klinedinst, M.A. (2016). Psilocybin produces substantial and sustained decreases in depression and anxiety. <em>Journal of Psychopharmacology, 30</em>(12), 1181–1197.</div>
+    </div>
+    <div class="ref-year">2016</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="mdma-assisted-therapy">
+  <div class="sec-header" style="background:linear-gradient(135deg,#f5eeff,#ede0ff);border:1px solid var(--purple-border)">
+    <div class="sec-tag" style="color:var(--purple)">2 sources</div>
+    <h2 style="color:var(--purple);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">MDMA-Assisted Therapy</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Mitchell, J.M., Bogenschutz, M., Lilienstein, A., Harrison, C., Kleiman, S., &amp; Doblin, R. (2021). MDMA-assisted therapy for severe PTSD. <em>Nature Medicine, 27</em>, 1025–1033.</div>
+      <div class="ref-note">Phase 3 RCT — primary MDMA evidence base</div>
+    </div>
+    <div class="ref-year">2021</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Mithoefer, M.C., Mithoefer, A.T., Feduccia, A.A., Jerome, L., Wagner, M., &amp; Doblin, R. (2018). MDMA-assisted psychotherapy for PTSD in military veterans, firefighters, and police officers. <em>Psychopharmacology, 235</em>(1), 105–115.</div>
+    </div>
+    <div class="ref-year">2018</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="propranolol-and-memory-reconsolidation">
+  <div class="sec-header" style="background:linear-gradient(135deg,#fdf6e8,#f8eccc);border:1px solid var(--amber-border)">
+    <div class="sec-tag" style="color:var(--amber)">3 sources</div>
+    <h2 style="color:var(--amber);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">Propranolol and Memory Reconsolidation</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Kindt, M., Soeter, M., &amp; Vervliet, B. (2009). Beyond extinction: Erasing human fear responses and preventing the return of fear. <em>Nature Neuroscience, 12</em>(3), 256–258.</div>
+      <div class="ref-note">Core reconsolidation paper — fear erasure via post-retrieval propranolol</div>
+    </div>
+    <div class="ref-year">2009</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Brunet, A., Orr, S.P., Tremblay, J., Robertson, K., Nader, K., &amp; Pitman, R.K. (2008). Effect of post-retrieval propranolol on psychophysiologic responding during PTSD. <em>Journal of Psychiatric Research, 42</em>(6), 503–506.</div>
+    </div>
+    <div class="ref-year">2008</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Soeter, M., &amp; Kindt, M. (2015). An abrupt transformation of phobic behavior after a post-retrieval amnesic agent. <em>Biological Psychiatry, 78</em>(12), 880–886.</div>
+    </div>
+    <div class="ref-year">2015</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="tvns-transcutaneous-vagus-nerve-stimulation">
+  <div class="sec-header" style="background:linear-gradient(135deg,#edf3fb,#e0ecf8);border:1px solid var(--blue-border)">
+    <div class="sec-tag" style="color:var(--blue-dark)">2 sources</div>
+    <h2 style="color:var(--blue-dark);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">tVNS — Transcutaneous Vagus Nerve Stimulation</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Colzato, L.S., Ritter, S.M., &amp; Steenbergen, L. (2018). Transcutaneous vagus nerve stimulation (tVNS) enhances divergent thinking. <em>Neuropsychologia, 149</em>, 145–151.</div>
+    </div>
+    <div class="ref-year">2018</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Yap, J.Y.Y., Keatch, C., Lambert, E., Woods, W., Stoddart, P.R., &amp; Kameneva, T. (2020). Critical review of transcutaneous vagus nerve stimulation: Challenges for translation to clinical practice. <em>Frontiers in Neuroscience, 14</em>, 284.</div>
+    </div>
+    <div class="ref-year">2020</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="tdcs-transcranial-direct-current-stimulation">
+  <div class="sec-header" style="background:linear-gradient(135deg,#edf3fb,#e0ecf8);border:1px solid var(--blue-border)">
+    <div class="sec-tag" style="color:var(--blue-dark)">2 sources</div>
+    <h2 style="color:var(--blue-dark);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">tDCS — Transcranial Direct Current Stimulation</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Nitsche, M.A., &amp; Paulus, W. (2000). Excitability changes induced in the human motor cortex by weak transcranial direct current stimulation. <em>Journal of Physiology, 527</em>(3), 633–639.</div>
+      <div class="ref-note">Foundational tDCS paper — cortical excitability mechanism</div>
+    </div>
+    <div class="ref-year">2000</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Boggio, P.S., Zaghi, S., &amp; Fregni, F. (2009). Modulation of emotions associated with images of human pain using anodal tDCS. <em>Neuropsychologia, 47</em>(1), 212–217.</div>
+    </div>
+    <div class="ref-year">2009</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="hrv-biofeedback-and-cardiac-coherence">
+  <div class="sec-header" style="background:linear-gradient(135deg,#f0f6ec,#e4f0df);border:1px solid var(--green-border)">
+    <div class="sec-tag" style="color:var(--green-mid)">3 sources</div>
+    <h2 style="color:var(--green-mid);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">HRV Biofeedback and Cardiac Coherence</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">McCraty, R., Atkinson, M., Tomasino, D., &amp; Bradley, R.T. (2009). The coherent heart: Heart-brain interactions, psychophysiological coherence. <em>Integral Review, 5</em>(2), 10–115.</div>
+    </div>
+    <div class="ref-year">2009</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Lehrer, P.M., &amp; Gevirtz, R. (2014). Heart rate variability biofeedback: How and why does it work? <em>Frontiers in Psychology, 5</em>, 756.</div>
+    </div>
+    <div class="ref-year">2014</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Thayer, J.F., Åhs, F., Fredrikson, M., Sollers, J.J., &amp; Wager, T.D. (2012). A meta-analysis of heart rate variability and neuroimaging studies. <em>Neuroscience and Biobehavioral Reviews, 36</em>(2), 747–756.</div>
+    </div>
+    <div class="ref-year">2012</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="safe-and-sound-protocol-and-polyvagal-theory">
+  <div class="sec-header" style="background:linear-gradient(135deg,#f0f6ec,#e4f0df);border:1px solid var(--green-border)">
+    <div class="sec-tag" style="color:var(--green-mid)">2 sources</div>
+    <h2 style="color:var(--green-mid);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">Safe and Sound Protocol and Polyvagal Theory</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Porges, S.W. (2011). <em>The Polyvagal Theory: Neurophysiological Foundations of Emotions, Attachment, Communication, and Self-Regulation.</em> W.W. Norton.</div>
+      <div class="ref-note">Foundational polyvagal framework — stapedius muscle and auditory safety detection</div>
+    </div>
+    <div class="ref-year">2011</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Porges, S.W. (2001). The polyvagal theory: Phylogenetic substrates of a social nervous system. <em>International Journal of Psychophysiology, 42</em>(2), 123–146.</div>
+    </div>
+    <div class="ref-year">2001</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="sleep-and-memory-consolidation">
+  <div class="sec-header" style="background:linear-gradient(135deg,#edf3fb,#e0ecf8);border:1px solid var(--blue-border)">
+    <div class="sec-tag" style="color:var(--blue-dark)">3 sources</div>
+    <h2 style="color:var(--blue-dark);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">Sleep and Memory Consolidation</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Walker, M.P., &amp; Stickgold, R. (2004). Sleep-dependent learning and memory consolidation. <em>Neuron, 44</em>(1), 121–133.</div>
+    </div>
+    <div class="ref-year">2004</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Diekelmann, S., &amp; Born, J. (2010). The memory function of sleep. <em>Nature Reviews Neuroscience, 11</em>(2), 114–126.</div>
+    </div>
+    <div class="ref-year">2010</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Stickgold, R. (2005). Sleep-dependent memory consolidation. <em>Nature, 437</em>(7063), 1272–1278.</div>
+    </div>
+    <div class="ref-year">2005</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="neuroplasticity-bdnf-and-exercise">
+  <div class="sec-header" style="background:linear-gradient(135deg,#fdf6e8,#f8eccc);border:1px solid var(--amber-border)">
+    <div class="sec-tag" style="color:var(--amber)">2 sources</div>
+    <h2 style="color:var(--amber);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">Neuroplasticity, BDNF and Exercise</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Cotman, C.W., Berchtold, N.C., &amp; Christie, L.A. (2007). Exercise builds brain health: Key roles of growth factor cascades and inflammation. <em>Trends in Neurosciences, 30</em>(9), 464–472.</div>
+    </div>
+    <div class="ref-year">2007</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Castrén, E., &amp; Hen, R. (2013). Neuronal plasticity and antidepressant actions. <em>Trends in Neurosciences, 36</em>(5), 259–267.</div>
+    </div>
+    <div class="ref-year">2013</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="bacopa-and-extinction-learning">
+  <div class="sec-header" style="background:linear-gradient(135deg,#fdf6e8,#f8eccc);border:1px solid var(--amber-border)">
+    <div class="sec-tag" style="color:var(--amber)">2 sources</div>
+    <h2 style="color:var(--amber);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">Bacopa and Extinction Learning</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Stough, C., Lloyd, J., Clarke, J., Downey, L.A., Hutchison, C.W., Rodgers, T., &amp; Nathan, P.J. (2001). The chronic effects of an extract of Bacopa monniera (Brahmi) on cognitive function. <em>Psychopharmacology, 156</em>(4), 481–484.</div>
+    </div>
+    <div class="ref-year">2001</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Bhattacharya, S.K., &amp; Ghosal, S. (1998). Anxiolytic activity of a standardized extract of Bacopa monniera. <em>Phytomedicine, 5</em>(2), 77–82.</div>
+    </div>
+    <div class="ref-year">1998</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="omega-3-and-neural-membrane-incorporation">
+  <div class="sec-header" style="background:linear-gradient(135deg,#fdf6e8,#f8eccc);border:1px solid var(--amber-border)">
+    <div class="sec-tag" style="color:var(--amber)">2 sources</div>
+    <h2 style="color:var(--amber);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">Omega-3 and Neural Membrane Incorporation</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Dyall, S.C. (2015). Long-chain omega-3 fatty acids and the brain. <em>Frontiers in Aging Neuroscience, 7</em>, 52.</div>
+      <div class="ref-note">Phospholipid vs triglyceride form — neural membrane incorporation mechanism</div>
+    </div>
+    <div class="ref-year">2015</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Yurko-Mauro, K., Alexander, D.D., &amp; Van Elswyk, M.E. (2015). Docosahexaenoic acid and adult memory. <em>PLOS ONE, 10</em>(3), e0120391.</div>
+    </div>
+    <div class="ref-year">2015</div>
+  </div>
+</section>
+
+
+<section class="bib-section" id="measurement-and-assessment-tools">
+  <div class="sec-header" style="background:linear-gradient(135deg,#fdf0f3,#f8e0e8);border:1px solid var(--rose-border)">
+    <div class="sec-tag" style="color:var(--rose)">2 sources</div>
+    <h2 style="color:var(--rose);font-family:'Lora',serif;font-size:18px;font-weight:600;margin:0">Measurement and Assessment Tools</h2>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">Schröder, A., Vulink, N.C., van Loon, A.J., &amp; Denys, D. (2017). Cognitive behavioral therapy is effective in misophonia: An open trial. <em>Journal of Affective Disorders, 217</em>, 289–294.</div>
+      <div class="ref-note">A-MISO-S scale development and validation</div>
+    </div>
+    <div class="ref-year">2017</div>
+  </div>
+  <div class="ref-card">
+    <div class="ref-body">
+      <div class="ref-text">FOAMS — Free Online Acoustic/Misophonia Stimuli database. Zenodo. <a href="https://doi.org/10.5281/zenodo.4813431" style="color:var(--green-dark)">doi: 10.5281/zenodo.4813431</a></div>
+      <div class="ref-note">Validated trigger sound library for CC session construction</div>
     </div>
   </div>
-
-  <div class="domain">
-    <div class="domain-title">Counterconditioning and Fear Extinction</div>
-    <div class="ref">
-      <div class="ref-authors">Milad, M.R., &amp; Quirk, G.J. (2012). Fear extinction as a model for translational neuroscience: Ten years of progress. <em>Annual Review of Psychology, 63</em>, 129–151.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Craske, M.G., Treanor, M., Conway, C.C., Zbozinek, T., &amp; Vervliet, B. (2014). Maximizing exposure therapy: An inhibitory learning approach. <em>Behaviour Research and Therapy, 58</em>, 10–23.</div>
-      <span class="ref-note">Inhibitory learning model — theoretical basis for CC session design</span>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Bouton, M.E. (2004). Context and behavioral processes in extinction. <em>Learning and Memory, 11</em>(5), 485–494.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Vervliet, B., Craske, M.G., &amp; Hermans, D. (2013). Fear extinction and relapse: State of the art. <em>Annual Review of Clinical Psychology, 9</em>, 215–248.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">Stellate Ganglion Block (SGB)</div>
-    <div class="ref">
-      <div class="ref-authors">Mulvaney, S.W., McLean, B., &amp; de Leeuw, J. (2010). The use of stellate ganglion block in the treatment of panic/anxiety symptoms with combat-related post-traumatic stress disorder. <em>Pain Practice, 10</em>(4), 359–365.</div>
-      <span class="ref-note">SGB for autonomic hyperactivation — foundational clinical paper</span>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Mulvaney, S.W., Lynch, J.H., Schroeder, M.J., &amp; Kane, S. (2020). Stellate ganglion block improves refractory PTSD and associated memory reconsolidation. <em>Military Medicine, 185</em>(9-10), e1823–e1826.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Lipov, E., Jacobs, R., Springer, S., Candido, K.D., &amp; Stance, R. (2013). Relief of hyperhidrosis and post-traumatic stress disorder symptoms by stellate ganglion block. <em>Journal of Clinical Anesthesia, 25</em>(2), 158–160.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Hanling, S.R., Hickey, A., Lesnik, I., Walker, B.J., Mariano, E.R., &amp; Engle, M.P. (2016). Stellate ganglion block for the treatment of posttraumatic stress disorder. <em>Regional Anesthesia and Pain Medicine, 41</em>(4), 494–496.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">Psilocybin-Assisted Therapy and Neuroplasticity</div>
-    <div class="ref">
-      <div class="ref-authors">Carhart-Harris, R., Giribaldi, B., Watts, R., Baker-Jones, M., Murphy-Beiner, A., Murphy, R., &amp; Nutt, D.J. (2021). Trial of psilocybin versus escitalopram for depression. <em>New England Journal of Medicine, 384</em>, 1402–1411.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Davis, A.K., Barrett, F.S., May, D.G., Cosimano, M.P., Sepeda, N.D., Johnson, M.W., &amp; Griffiths, R.R. (2021). Effects of psilocybin-assisted therapy on major depressive disorder. <em>JAMA Psychiatry, 78</em>(5), 481–489.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Ly, C., Greb, A.C., Cameron, L.P., Wong, J.M., Barragan, E.V., Wilson, P.C., &amp; Bhatt, D.L. (2018). Psychedelics promote structural and functional neural plasticity. <em>Cell Reports, 23</em>(11), 3170–3182.</div>
-      <span class="ref-note">Structural neuroplasticity mechanism — dendritic spine growth</span>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Griffiths, R.R., Johnson, M.W., Carducci, M.A., Umbricht, A., Richards, W.A., &amp; Klinedinst, M.A. (2016). Psilocybin produces substantial and sustained decreases in depression and anxiety. <em>Journal of Psychopharmacology, 30</em>(12), 1181–1197.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">MDMA-Assisted Therapy</div>
-    <div class="ref">
-      <div class="ref-authors">Mitchell, J.M., Bogenschutz, M., Lilienstein, A., Harrison, C., Kleiman, S., &amp; Doblin, R. (2021). MDMA-assisted therapy for severe PTSD. <em>Nature Medicine, 27</em>, 1025–1033.</div>
-      <span class="ref-note">Phase 3 RCT — primary MDMA evidence base</span>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Mithoefer, M.C., Mithoefer, A.T., Feduccia, A.A., Jerome, L., Wagner, M., &amp; Doblin, R. (2018). MDMA-assisted psychotherapy for post-traumatic stress disorder in military veterans, firefighters, and police officers. <em>Psychopharmacology, 235</em>(1), 105–115.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">Propranolol and Memory Reconsolidation</div>
-    <div class="ref">
-      <div class="ref-authors">Kindt, M., Soeter, M., &amp; Vervliet, B. (2009). Beyond extinction: Erasing human fear responses and preventing the return of fear. <em>Nature Neuroscience, 12</em>(3), 256–258.</div>
-      <span class="ref-note">Core reconsolidation paper — fear erasure via post-retrieval propranolol</span>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Brunet, A., Orr, S.P., Tremblay, J., Robertson, K., Nader, K., &amp; Pitman, R.K. (2008). Effect of post-retrieval propranolol on psychophysiologic responding during subsequent script-driven traumatic imagery in PTSD. <em>Journal of Psychiatric Research, 42</em>(6), 503–506.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Soeter, M., &amp; Kindt, M. (2015). An abrupt transformation of phobic behavior after a post-retrieval amnesic agent. <em>Biological Psychiatry, 78</em>(12), 880–886.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">tVNS — Transcutaneous Vagus Nerve Stimulation</div>
-    <div class="ref">
-      <div class="ref-authors">Colzato, L.S., Ritter, S.M., &amp; Steenbergen, L. (2018). Transcutaneous vagus nerve stimulation (tVNS) enhances divergent thinking. <em>Neuropsychologia of Learning and Memory, 149</em>, 145–151.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Yap, J.Y.Y., Keatch, C., Lambert, E., Woods, W., Stoddart, P.R., &amp; Kameneva, T. (2020). Critical review of transcutaneous vagus nerve stimulation: Challenges for translation to clinical practice. <em>Frontiers in Neuroscience, 14</em>, 284.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">tDCS — Transcranial Direct Current Stimulation</div>
-    <div class="ref">
-      <div class="ref-authors">Nitsche, M.A., &amp; Paulus, W. (2000). Excitability changes induced in the human motor cortex by weak transcranial direct current stimulation. <em>Journal of Physiology, 527</em>(3), 633–639.</div>
-      <span class="ref-note">Foundational tDCS paper — cortical excitability mechanism</span>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Boggio, P.S., Zaghi, S., &amp; Fregni, F. (2009). Modulation of emotions associated with images of human pain using anodal tDCS. <em>Neuropsychologia, 47</em>(1), 212–217.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">HRV Biofeedback and Cardiac Coherence</div>
-    <div class="ref">
-      <div class="ref-authors">McCraty, R., Atkinson, M., Tomasino, D., &amp; Bradley, R.T. (2009). The coherent heart: Heart-brain interactions, psychophysiological coherence, and the emergence of system-wide order. <em>Integral Review, 5</em>(2), 10–115.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Lehrer, P.M., &amp; Gevirtz, R. (2014). Heart rate variability biofeedback: How and why does it work? <em>Frontiers in Psychology, 5</em>, 756.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Thayer, J.F., Åhs, F., Fredrikson, M., Sollers, J.J., &amp; Wager, T.D. (2012). A meta-analysis of heart rate variability and neuroimaging studies. <em>Neuroscience and Biobehavioral Reviews, 36</em>(2), 747–756.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">Safe and Sound Protocol and Polyvagal Theory</div>
-    <div class="ref">
-      <div class="ref-authors">Porges, S.W. (2011). <em>The Polyvagal Theory: Neurophysiological Foundations of Emotions, Attachment, Communication, and Self-Regulation.</em> W.W. Norton.</div>
-      <span class="ref-note">Foundational polyvagal framework — stapedius muscle and auditory safety detection</span>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Porges, S.W. (2001). The polyvagal theory: Phylogenetic substrates of a social nervous system. <em>International Journal of Psychophysiology, 42</em>(2), 123–146.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">Sleep and Memory Consolidation</div>
-    <div class="ref">
-      <div class="ref-authors">Walker, M.P., &amp; Stickgold, R. (2004). Sleep-dependent learning and memory consolidation. <em>Neuron, 44</em>(1), 121–133.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Diekelmann, S., &amp; Born, J. (2010). The memory function of sleep. <em>Nature Reviews Neuroscience, 11</em>(2), 114–126.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Stickgold, R. (2005). Sleep-dependent memory consolidation. <em>Nature, 437</em>(7063), 1272–1278.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">Neuroplasticity, BDNF and Exercise</div>
-    <div class="ref">
-      <div class="ref-authors">Cotman, C.W., Berchtold, N.C., &amp; Christie, L.A. (2007). Exercise builds brain health: Key roles of growth factor cascades and inflammation. <em>Trends in Neurosciences, 30</em>(9), 464–472.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Castrén, E., &amp; Hen, R. (2013). Neuronal plasticity and antidepressant actions. <em>Trends in Neurosciences, 36</em>(5), 259–267.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">Bacopa and Extinction Learning</div>
-    <div class="ref">
-      <div class="ref-authors">Stough, C., Lloyd, J., Clarke, J., Downey, L.A., Hutchison, C.W., Rodgers, T., &amp; Nathan, P.J. (2001). The chronic effects of an extract of Bacopa monniera (Brahmi) on cognitive function in healthy human subjects. <em>Psychopharmacology, 156</em>(4), 481–484.</div>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Bhattacharya, S.K., &amp; Ghosal, S. (1998). Anxiolytic activity of a standardized extract of Bacopa monniera. <em>Phytomedicine, 5</em>(2), 77–82.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">Omega-3 and Neural Membrane Incorporation</div>
-    <div class="ref">
-      <div class="ref-authors">Dyall, S.C. (2015). Long-chain omega-3 fatty acids and the brain: A review of the independent and shared effects of EPA, DPA and DHA. <em>Frontiers in Aging Neuroscience, 7</em>, 52.</div>
-      <span class="ref-note">Phospholipid vs triglyceride form — neural membrane incorporation mechanism</span>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">Yurko-Mauro, K., Alexander, D.D., &amp; Van Elswyk, M.E. (2015). Docosahexaenoic acid and adult memory: A systematic review and meta-analysis. <em>PLOS ONE, 10</em>(3), e0120391.</div>
-    </div>
-  </div>
-
-  <div class="domain">
-    <div class="domain-title">Measurement and Assessment Tools</div>
-    <div class="ref">
-      <div class="ref-authors">Schröder, A., Vulink, N.C., van Loon, A.J., &amp; Denys, D. (2017). Cognitive behavioral therapy is effective in misophonia: An open trial. <em>Journal of Affective Disorders, 217</em>, 289–294.</div>
-      <span class="ref-note">A-MISO-S scale development and validation</span>
-    </div>
-    <div class="ref">
-      <div class="ref-authors">FOAMS — Free Online Acoustic/Misophonia Stimuli database. Zenodo. <a href="https://doi.org/10.5281/zenodo.4813431" target="_blank" style="color:var(--green-dark)">doi: 10.5281/zenodo.4813431</a></div>
-      <span class="ref-note">Validated trigger sound library for CC session construction</span>
-    </div>
-  </div>
+</section>
 
 </div>
-
-
 
 <script>
 (function(){
