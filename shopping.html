@@ -31,16 +31,8 @@ h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
 .sat-link:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
 .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
 /* ── MOBILE TOPBAR ── */
-#nav-drawer{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;z-index:299;background:var(--green-dark);border-bottom:2px solid #1a3018;padding:10px 16px 14px;flex-direction:column;gap:6px}
-#nav-drawer.open{display:flex}
-#nav-drawer .sat-link{color:#c8e8c0;border-color:rgba(255,255,255,.18);font-size:13px;padding:8px 14px;border-radius:8px;width:100%;text-align:center}
-#nav-drawer .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
-#nav-drawer .sat-link:hover{background:rgba(255,255,255,.1)}
-#hamburger{display:none;background:none;border:none;color:#a8d4a0;font-size:22px;cursor:pointer;padding:4px 6px;margin-left:auto;flex-shrink:0;line-height:1}
-@media(max-width:700px){
-  .sat-links{display:none}
-  #hamburger{display:block}
-  #topbar .logo{font-size:12.5px}
+
+#topbar .logo{font-size:12.5px}
   #topbar .vbadge{display:none}
 }
 
@@ -51,16 +43,8 @@ h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
 .sat-link:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
 .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
 /* ── MOBILE TOPBAR ── */
-#nav-drawer{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;z-index:299;background:var(--green-dark);border-bottom:2px solid #1a3018;padding:10px 16px 14px;flex-direction:column;gap:6px}
-#nav-drawer.open{display:flex}
-#nav-drawer .sat-link{color:#c8e8c0;border-color:rgba(255,255,255,.18);font-size:13px;padding:8px 14px;border-radius:8px;width:100%;text-align:center}
-#nav-drawer .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
-#nav-drawer .sat-link:hover{background:rgba(255,255,255,.1)}
-#hamburger{display:none;background:none;border:none;color:#a8d4a0;font-size:22px;cursor:pointer;padding:4px 6px;margin-left:auto;flex-shrink:0;line-height:1}
-@media(max-width:700px){
-  .sat-links{display:none}
-  #hamburger{display:block}
-  #topbar .logo{font-size:12.5px}
+
+#topbar .logo{font-size:12.5px}
   #topbar .vbadge{display:none}
 }
 
@@ -155,6 +139,26 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   .col-notes{display:none}
   h1.st{font-size:22px}
 }
+
+#hamburger{display:none;background:none;border:none;color:#a8d4a0;font-size:22px;cursor:pointer;padding:4px 8px;margin-left:auto;flex-shrink:0;line-height:1}
+#nav-drawer{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;z-index:299;background:var(--green-dark);border-bottom:2px solid #1a3018;padding:10px 16px 14px;flex-direction:column;gap:6px}
+#nav-drawer.open{display:flex}
+#nav-drawer a{color:#c8e8c0;border:1px solid rgba(255,255,255,.18);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;padding:11px 16px;border-radius:8px;text-decoration:none;text-align:center;transition:background .12s}
+#nav-drawer a:hover,#nav-drawer a.active{background:rgba(255,255,255,.18);color:#fff}
+
+/* ── MOBILE ── */
+@media(max-width:700px){
+  .sat-links{display:none}
+  #hamburger{display:block}
+  #topbar .logo{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100vw - 88px)}
+  #topbar .vbadge{display:none}
+  #topbar{gap:8px;padding:0 14px}
+}
+@media(max-width:430px){
+  #topbar .logo{font-size:12px;max-width:calc(100vw - 80px)}
+  #topbar{padding:0 10px;gap:6px}
+  #hamburger{font-size:20px;padding:2px 6px}
+}
 </style>
 </head>
 <body>
@@ -173,16 +177,17 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
     <a href="shopping.html" class="sat-link active">Shopping</a>
     <a href="log.html" class="sat-link">Log</a>
   </nav>
-  <button id="hamburger" onclick="void(0)">&#9776;</button>
+  <button id="hamburger">&#9776;</button>
 </header>
 <div id="nav-drawer">
-    <a href="cheatsheet.html" class="sat-link">Cheat Sheet</a>
-    <a href="glossary.html" class="sat-link">Glossary</a>
-    <a href="exercises.html" class="sat-link">Exercises</a>
-    <a href="diet.html" class="sat-link">Diet</a>
-    <a href="shopping.html" class="sat-link active">Shopping</a>
-    <a href="log.html" class="sat-link">Log</a>
+  <a href="protocol.html">Protocol</a>
+  <a href="cheatsheet.html">Cheat Sheet</a>
+  <a href="glossary.html">Glossary</a>
+  <a href="exercises.html">Exercises</a>
+  <a href="diet.html">Diet</a>
+  <a href="log.html">Log</a>
 </div>
+
 
 <div id="main">
 
@@ -206,7 +211,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- 1. DEVICES & HARDWARE -->
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Devices &amp; Hardware</h2></div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -253,7 +258,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- 2. SLEEP & PROTECTION GEAR -->
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Sleep &amp; Daily Protection Gear</h2></div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -296,7 +301,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Supplements — Core Stack <span style="font-weight:400;font-size:14px;color:var(--text-muted)">(Phase 1, Week 1)</span></h2></div>
   <div class="ig"><strong>Introduce all of these in Week 1.</strong> If any causes unexpected effects, hold and reassess before adding the next.</div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -419,7 +424,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- 4. SUPPLEMENTS — PHASE 1 WAVE 2 & 3 -->
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Supplements — Phase 1 Later Waves <span style="font-weight:400;font-size:14px;color:var(--text-muted)">(Week 3 &amp; Month 2)</span></h2></div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -462,7 +467,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- 5. SUPPLEMENTS — PHASE 2 ADDITIONS -->
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Supplements — Phase 2 Additions</h2></div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -521,7 +526,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- 6. SUPPLEMENTS — PHASE 3 (Microdosing Stack) -->
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Supplements — Phase 3 Additions <span style="font-weight:400;font-size:14px;color:var(--text-muted)">(Microdosing stack)</span></h2></div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -556,7 +561,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- 7. SUPPLEMENTS — PHASE 4 (Post-MDMA) -->
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Supplements — Phase 4 Additions <span style="font-weight:400;font-size:14px;color:var(--text-muted)">(post-MDMA serotonin replenishment)</span></h2></div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -591,7 +596,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- 8. SUPPLEMENTS — PHASE 5 ADDITIONS -->
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Supplements — Phase 5 Additions <span style="font-weight:400;font-size:14px;color:var(--text-muted)">(wellness deepening)</span></h2></div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -627,7 +632,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Controlled Substances &amp; Prescription</h2></div>
   <div class="ia"><strong>Legal note:</strong> Psilocybin and MDMA are Schedule I in the US. Hawaii has no state-level decriminalization. Know your legal context. Propranolol requires a physician prescription. MDMA testing with all three reagents is mandatory for every batch.</div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -662,7 +667,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- 11. DIAGNOSTICS & MEDICAL TESTING -->
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Diagnostics &amp; Medical Testing</h2></div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -722,7 +727,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- 12. TOOLS & EQUIPMENT -->
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Tools &amp; Equipment</h2></div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -770,7 +775,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- 13. APPS & SERVICES -->
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Apps &amp; Services</h2></div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -813,7 +818,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
   <!-- ═══════════════════════════════════════════ -->
   <div class="section-header"><h2>Food &amp; Pantry Items</h2></div>
   <div class="ig"><strong>Food-based protocol components</strong> — not supplements, but each has a specific mechanistic role. Keep stocked as part of the regular shop.</div>
-  <table class="shop-table">
+  <div style="overflow-x:auto"><table class="shop-table">
     <thead>
       <tr>
         <th class="sc-status">Status</th>
@@ -926,23 +931,24 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<script id="hamburger-js">
+
+
+<script>
 (function(){
-  var btn = document.getElementById('hamburger');
-  var drawer = document.getElementById('nav-drawer');
-  if(!btn || !drawer) return;
-  btn.addEventListener('click', function(e){
+  var btn=document.getElementById('hamburger');
+  var drawer=document.getElementById('nav-drawer');
+  if(!btn||!drawer) return;
+  btn.addEventListener('click',function(e){
     e.stopPropagation();
     drawer.classList.toggle('open');
-    btn.textContent = drawer.classList.contains('open') ? '✕' : '☰';
+    btn.textContent=drawer.classList.contains('open')?'✕':'☰';
   });
-  document.addEventListener('click', function(){
+  document.addEventListener('click',function(){
     drawer.classList.remove('open');
-    btn.textContent = '☰';
+    btn.textContent='☰';
   });
-  drawer.addEventListener('click', function(e){ e.stopPropagation(); });
+  drawer.addEventListener('click',function(e){e.stopPropagation();});
 })();
 </script>
-
 </body>
 </html>

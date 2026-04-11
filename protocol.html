@@ -31,16 +31,8 @@ h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
 .sat-link:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
 .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
 /* ── MOBILE TOPBAR ── */
-#nav-drawer{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;z-index:299;background:var(--green-dark);border-bottom:2px solid #1a3018;padding:10px 16px 14px;flex-direction:column;gap:6px}
-#nav-drawer.open{display:flex}
-#nav-drawer .sat-link{color:#c8e8c0;border-color:rgba(255,255,255,.18);font-size:13px;padding:8px 14px;border-radius:8px;width:100%;text-align:center}
-#nav-drawer .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
-#nav-drawer .sat-link:hover{background:rgba(255,255,255,.1)}
-#hamburger{display:none;background:none;border:none;color:#a8d4a0;font-size:22px;cursor:pointer;padding:4px 6px;margin-left:auto;flex-shrink:0;line-height:1}
-@media(max-width:700px){
-  .sat-links{display:none}
-  #hamburger{display:block}
-  #topbar .logo{font-size:12.5px}
+
+#topbar .logo{font-size:12.5px}
   #topbar .vbadge{display:none}
 }
 
@@ -247,6 +239,26 @@ tr:last-child td{border-bottom:none}
   .sat-link{display:none}
   .sat-link:nth-child(-n+2){display:inline}
 }
+
+#hamburger{display:none;background:none;border:none;color:#a8d4a0;font-size:22px;cursor:pointer;padding:4px 8px;margin-left:auto;flex-shrink:0;line-height:1}
+#nav-drawer{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;z-index:299;background:var(--green-dark);border-bottom:2px solid #1a3018;padding:10px 16px 14px;flex-direction:column;gap:6px}
+#nav-drawer.open{display:flex}
+#nav-drawer a{color:#c8e8c0;border:1px solid rgba(255,255,255,.18);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;padding:11px 16px;border-radius:8px;text-decoration:none;text-align:center;transition:background .12s}
+#nav-drawer a:hover,#nav-drawer a.active{background:rgba(255,255,255,.18);color:#fff}
+
+/* ── MOBILE ── */
+@media(max-width:700px){
+  .sat-links{display:none}
+  #hamburger{display:block}
+  #topbar .logo{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100vw - 88px)}
+  #topbar .vbadge{display:none}
+  #topbar{gap:8px;padding:0 14px}
+}
+@media(max-width:430px){
+  #topbar .logo{font-size:12px;max-width:calc(100vw - 80px)}
+  #topbar{padding:0 10px;gap:6px}
+  #hamburger{font-size:20px;padding:2px 6px}
+}
 </style>
 </head>
 <body>
@@ -266,16 +278,17 @@ tr:last-child td{border-bottom:none}
     <a href="shopping.html" class="sat-link">Shopping</a>
     <a href="log.html" class="sat-link">Log</a>
   </nav>
-  <button id="hamburger" onclick="void(0)">&#9776;</button>
+  <button id="hamburger">&#9776;</button>
 </header>
 <div id="nav-drawer">
-    <a href="cheatsheet.html" class="sat-link">Cheat Sheet</a>
-    <a href="glossary.html" class="sat-link">Glossary</a>
-    <a href="exercises.html" class="sat-link">Exercises</a>
-    <a href="diet.html" class="sat-link">Diet</a>
-    <a href="shopping.html" class="sat-link">Shopping</a>
-    <a href="log.html" class="sat-link">Log</a>
+  <a href="cheatsheet.html">Cheat Sheet</a>
+  <a href="glossary.html">Glossary</a>
+  <a href="exercises.html">Exercises</a>
+  <a href="diet.html">Diet</a>
+  <a href="shopping.html">Shopping</a>
+  <a href="log.html">Log</a>
 </div>
+
 
 <!-- SIDEBAR -->
 <nav id="sidebar">
@@ -310,10 +323,10 @@ tr:last-child td{border-bottom:none}
 
   <!-- PHASE 1 -->
   <div class="ng" style="border-top:1px solid var(--border-light);margin-top:6px;padding-top:4px">
-    <button class="phase-toggle open" id="pt-1" onclick="togglePhase(1)">
+    <button class="phase-toggle" id="pt-1" onclick="togglePhase(1)">
       <span class="ph-pill ph1">Phase 1</span>Establishing the Soil<span class="ph-arrow">▸</span>
     </button>
-    <div class="phase-items open" id="pi-1">
+    <div class="phase-items" id="pi-1">
       <a class="ni sub" href="#p1-glance">Phase at a Glance</a>
       <a class="ni sub" href="#p1-intro">Introduction Schedule</a>
       <a class="ni sub" href="#p1-meeting">Meeting Support</a>
@@ -431,7 +444,7 @@ tr:last-child td{border-bottom:none}
     <a class="ni" href="#ref-yoga">Yoga Nidra</a>
     <a class="ni" href="#ref-cc">CC Techniques</a>
     <a class="ni" href="#ref-tracking">Tracking &amp; Testing</a>
-    <a class="ni" href="#ref-bibliography">References</a>
+    <a class="ni" href="#ref-bibliography">Literature Sources</a>
     <a class="ni" href="#ref-legal">Legal Note</a>
   </div>
 
@@ -2111,26 +2124,29 @@ const observer=new IntersectionObserver((entries)=>{
   });
 },observerOpts);
 document.querySelectorAll('.section[id]').forEach(s=>observer.observe(s));
+
+
 </script>
 
 
-<script id="hamburger-js">
+
+
+<script>
 (function(){
-  var btn = document.getElementById('hamburger');
-  var drawer = document.getElementById('nav-drawer');
-  if(!btn || !drawer) return;
-  btn.addEventListener('click', function(e){
+  var btn=document.getElementById('hamburger');
+  var drawer=document.getElementById('nav-drawer');
+  if(!btn||!drawer) return;
+  btn.addEventListener('click',function(e){
     e.stopPropagation();
     drawer.classList.toggle('open');
-    btn.textContent = drawer.classList.contains('open') ? '✕' : '☰';
+    btn.textContent=drawer.classList.contains('open')?'✕':'☰';
   });
-  document.addEventListener('click', function(){
+  document.addEventListener('click',function(){
     drawer.classList.remove('open');
-    btn.textContent = '☰';
+    btn.textContent='☰';
   });
-  drawer.addEventListener('click', function(e){ e.stopPropagation(); });
+  drawer.addEventListener('click',function(e){e.stopPropagation();});
 })();
 </script>
-
 </body>
 </html>
