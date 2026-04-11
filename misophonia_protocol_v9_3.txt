@@ -491,7 +491,7 @@ Creatine 7.5g                  ●     ●     ●     ●     ●     ●
 L. reuteri 1–2 tabs          ●     ●     ●     ●     ●     ●
 NMN 500mg sublingual         ○     ●*    ●     ●     ●     ●
 Krill oil 2–3 softgels       ○     ●     ●     ●     —†    ●
-Algae oil 2–4 softgels       ○     ●     ●     ●     —†    ●
+Omega-3 top-up 2–4 softgels  ○     ●     ●     ●     —†    ●
 Lion's Mane 2g               ●     ●     ●     ●     ●     ●
 Bacopa 320mg                 ○     ●*    ●     ●     ●     ●
 Ashwagandha 600mg            ○     ○     ●     ●     ●     ●
@@ -1792,7 +1792,7 @@ L. reuteri — 1–2 tabs chewed
 ━━━ MORNING (with food) ━━━
 NMN — 500mg sublingual, before other supplements
 Krill oil — 2–3 softgels
-Algae oil — 2–4 softgels
+Omega-3 top-up — 2–4 softgels
 (Combined EPA+DHA target: 2–3g daily)
 Lion's Mane — 2g
 Bacopa — 320mg
@@ -2230,7 +2230,7 @@ L. reuteri — 1–2 tabs chewed
 ━━━ MORNING (with food) ━━━
 NMN — 500mg sublingual
 Krill oil — 2–3 softgels
-Algae oil — 2–4 softgels
+Omega-3 top-up — 2–4 softgels
 Lion's Mane — 2g
 Bacopa — 320mg
 Ashwagandha (KSM-66) — 600mg
@@ -2897,7 +2897,7 @@ L. reuteri — 1–2 tabs chewed
 ━━━ MORNING (with food) ━━━
 NMN — 500mg sublingual
 Krill oil — 2–3 softgels
-Algae oil — 2–4 softgels
+Omega-3 top-up — 2–4 softgels
 Lion's Mane — 2g
 Bacopa — 320mg
 Ashwagandha (KSM-66) — 600mg

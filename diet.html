@@ -19,6 +19,20 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
 .sat-link{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
 .sat-link:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
 .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
+/* ── MOBILE TOPBAR ── */
+#nav-drawer{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;z-index:299;background:var(--green-dark);border-bottom:2px solid #1a3018;padding:10px 16px 14px;flex-direction:column;gap:6px}
+#nav-drawer.open{display:flex}
+#nav-drawer .sat-link{color:#c8e8c0;border-color:rgba(255,255,255,.18);font-size:13px;padding:8px 14px;border-radius:8px;width:100%;text-align:center}
+#nav-drawer .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
+#nav-drawer .sat-link:hover{background:rgba(255,255,255,.1)}
+#hamburger{display:none;background:none;border:none;color:#a8d4a0;font-size:22px;cursor:pointer;padding:4px 6px;margin-left:auto;flex-shrink:0;line-height:1}
+@media(max-width:700px){
+  .sat-links{display:none}
+  #hamburger{display:block}
+  #topbar .logo{font-size:12.5px}
+  #topbar .vbadge{display:none}
+}
+
 .tbar-link:hover{background:rgba(255,255,255,.12);color:#fff}
 .tbar-link.here{background:rgba(255,255,255,.22);color:#fff;border-color:rgba(255,255,255,.4)}
 .page{margin-top:var(--topbar-h);padding:28px 24px 70px;max-width:860px;margin-left:auto;margin-right:auto}
@@ -83,7 +97,16 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
     <a href="shopping.html" class="sat-link">Shopping</a>
     <a href="log.html" class="sat-link">Log</a>
   </nav>
+  <button id="hamburger" onclick="void(0)">&#9776;</button>
 </header>
+<div id="nav-drawer">
+    <a href="cheatsheet.html" class="sat-link">Cheat Sheet</a>
+    <a href="glossary.html" class="sat-link">Glossary</a>
+    <a href="exercises.html" class="sat-link">Exercises</a>
+    <a href="diet.html" class="sat-link active">Diet</a>
+    <a href="shopping.html" class="sat-link">Shopping</a>
+    <a href="log.html" class="sat-link">Log</a>
+</div>
 <div class="page">
   <h1 class="page-title">Nutritional Protocol</h1>
   <p class="page-sub">Vegan default (oily fish optional) · High cooking competence · Community kitchen context · RB Hamakua Coast</p>
@@ -106,14 +129,14 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
     <div class="proto-card">
       <div class="pc-head pc-head-g">Training Days — eat early</div>
       <div class="prow"><span class="pl">First meal</span><span class="pv">Immediately after training (~6:30–7:00am). Protein-forward. The post-training window is when protein synthesis is highest — do not delay.</span></div>
-      <div class="prow"><span class="pl">Final meal</span><span class="pv">By 6:00–6:30pm. Nothing after 6:30pm. Late meals fragment sleep architecture and suppress melatonin.</span></div>
+      <div class="prow"><span class="pl">Final meal</span><span class="pv">By 6:00pm. Nothing after 6:00pm. Late meals fragment sleep architecture and suppress melatonin.</span></div>
       <div class="prow"><span class="pl">Eating window</span><span class="pv">~12 hours (7am–7pm). Not a strict fast but the evening cutoff is firm.</span></div>
     </div>
 
     <div class="proto-card">
       <div class="pc-head pc-head-a">Aerobic / Rest Days — eat later</div>
       <div class="prow"><span class="pl">First meal</span><span class="pv">10:00am or later. The morning fasting period enables AMPK activation and autophagy — cellular clearing between neuroplasticity events. Do not eat first thing on these days.</span></div>
-      <div class="prow"><span class="pl">Final meal</span><span class="pv">By 6:00–6:30pm. Same evening cutoff.</span></div>
+      <div class="prow"><span class="pl">Final meal</span><span class="pv">By 6:00pm. Same evening cutoff.</span></div>
       <div class="prow"><span class="pl">Eating window</span><span class="pv">~8 hours (10am–6pm). The fasting window from previous evening's final meal to 10am = 16+ hours.</span></div>
       <div class="prow"><span class="pl">CC scheduling note</span><span class="pv">First meal after returning from waterfall (~3:00–3:30pm) fits naturally inside the aerobic day window. The CC session begins ~2h post-exercise regardless of meal timing.</span></div>
     </div>
@@ -218,7 +241,7 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
     </div>
 
     <div class="why-box wa" style="margin-top:6px">
-      <strong>Oily fish (optional):</strong> Sardines, mackerel, salmon 2–3× per week if included. ~1500–2000mg EPA+DHA per 100g serving. On fish days, skip krill and algae oil supplements — the food provides the dose. Not required if krill + algae supplementation is consistent.
+      <strong>Oily fish (optional):</strong> Sardines, mackerel, salmon 2–3× per week if included. ~1500–2000mg EPA+DHA per 100g serving. On fish days, skip krill and omega-3 top-up supplements — the food provides the dose. Not required if krill + algae supplementation is consistent.
     </div>
   </section>
 
@@ -290,7 +313,7 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
       <div class="pc-head pc-head-g">Matcha — Morning</div>
       <div class="prow"><span class="pl">When</span><span class="pv">Morning with or after first meal. Not on an empty stomach if it produces nausea.</span></div>
       <div class="prow"><span class="pl">What it provides</span><span class="pv">300–400mg L-theanine (more than supplement capsules), EGCG (anti-inflammatory, neuroprotective), and moderate caffeine paired with L-theanine for calm focused alertness without the cortisol spike of coffee.</span></div>
-      <div class="prow"><span class="pl">CC day note</span><span class="pv">Morning matcha means L-theanine is already present at baseline before the pre-CC supplement dose is added — the L-theanine supplement (200mg) adds to this foundation, not from zero.</span></div>
+      <div class="prow"><span class="pl">CC day note</span><span class="pv">Morning matcha means L-theanine is already present at baseline — 300–400mg per cup, more than any supplement capsule provides.</span></div>
       <div class="prow"><span class="pl">Iron absorption</span><span class="pv">Space matcha at least 1 hour from iron-rich meals or iron supplements. EGCG inhibits non-heme iron absorption. Not a reason to avoid it — just observe the spacing.</span></div>
     </div>
 
@@ -319,7 +342,7 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
       <div class="interaction-row"><span class="ir-item">Magnesium (both forms)</span><span class="ir-rule">Bedtime only. If also supplementing zinc, space 2+ hours from magnesium — they compete for absorption.</span></div>
       <div class="interaction-row"><span class="ir-item">Matcha / green tea</span><span class="ir-rule">Space 1 hour from iron-rich meals. EGCG inhibits non-heme iron absorption — relevant if diet is high in plant-based iron (lentils, spinach, tempeh).</span></div>
       <div class="interaction-row"><span class="ir-item">Krill oil + algae oil</span><span class="ir-rule">With food. Not required to be with fat specifically (the oils are their own fat), but taken with a meal improves tolerability.</span></div>
-      <div class="interaction-row"><span class="ir-item">L-Theanine 200mg (pre-CC)</span><span class="ir-rule">30 min before CC session. Not within 3 hours of sleep. Morning matcha already provides L-theanine baseline — this supplement dose adds to that.</span></div>
+      <div class="interaction-row"><span class="ir-item">Matcha (L-theanine source)</span><span class="ir-rule">Morning only. Provides 300–400mg L-theanine + EGCG. Space 1 hour from iron-rich foods — EGCG inhibits non-heme iron absorption.</span></div>
       <div class="interaction-row"><span class="ir-item">Resveratrol 500mg (Phase 5+)</span><span class="ir-rule">Weekdays only, with fat-containing food. Fat significantly increases resveratrol bioavailability. Synergistic with NMN via sirtuin pathway.</span></div>
       <div class="interaction-row"><span class="ir-item">Berberine 500mg (Phase 5+)</span><span class="ir-rule">Not on resistance training days. Berberine activates AMPK, which can interfere with the mTOR-driven muscle protein synthesis that follows training. Take with meals on non-training days.</span></div>
       <div class="interaction-row"><span class="ir-item">Krill + algae on fish days</span><span class="ir-rule">Skip both when eating oily fish (sardines, mackerel, salmon). The food provides the dose — supplementing on top creates excess.</span></div>
@@ -329,5 +352,24 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
   </section>
 
 </div>
+
+<script id="hamburger-js">
+(function(){
+  var btn = document.getElementById('hamburger');
+  var drawer = document.getElementById('nav-drawer');
+  if(!btn || !drawer) return;
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    drawer.classList.toggle('open');
+    btn.textContent = drawer.classList.contains('open') ? '✕' : '☰';
+  });
+  document.addEventListener('click', function(){
+    drawer.classList.remove('open');
+    btn.textContent = '☰';
+  });
+  drawer.addEventListener('click', function(e){ e.stopPropagation(); });
+})();
+</script>
+
 </body>
 </html>

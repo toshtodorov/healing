@@ -30,12 +30,40 @@ h1,h2,h3,h4{font-family:'Lora',Georgia,serif;font-weight:500}
 .sat-link{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
 .sat-link:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
 .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
+/* ── MOBILE TOPBAR ── */
+#nav-drawer{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;z-index:299;background:var(--green-dark);border-bottom:2px solid #1a3018;padding:10px 16px 14px;flex-direction:column;gap:6px}
+#nav-drawer.open{display:flex}
+#nav-drawer .sat-link{color:#c8e8c0;border-color:rgba(255,255,255,.18);font-size:13px;padding:8px 14px;border-radius:8px;width:100%;text-align:center}
+#nav-drawer .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
+#nav-drawer .sat-link:hover{background:rgba(255,255,255,.1)}
+#hamburger{display:none;background:none;border:none;color:#a8d4a0;font-size:22px;cursor:pointer;padding:4px 6px;margin-left:auto;flex-shrink:0;line-height:1}
+@media(max-width:700px){
+  .sat-links{display:none}
+  #hamburger{display:block}
+  #topbar .logo{font-size:12.5px}
+  #topbar .vbadge{display:none}
+}
+
 #topbar .logo{font-family:'Lora',serif;font-size:14.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0}
 #topbar .vbadge{font-size:9.5px;font-weight:600;background:rgba(255,255,255,.12);color:#a8d4a0;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px 6px;letter-spacing:.05em;flex-shrink:0}
 .sat-links{display:flex;gap:4px;margin-left:auto;flex-shrink:0}
 .sat-link{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
 .sat-link:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
 .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
+/* ── MOBILE TOPBAR ── */
+#nav-drawer{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;z-index:299;background:var(--green-dark);border-bottom:2px solid #1a3018;padding:10px 16px 14px;flex-direction:column;gap:6px}
+#nav-drawer.open{display:flex}
+#nav-drawer .sat-link{color:#c8e8c0;border-color:rgba(255,255,255,.18);font-size:13px;padding:8px 14px;border-radius:8px;width:100%;text-align:center}
+#nav-drawer .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
+#nav-drawer .sat-link:hover{background:rgba(255,255,255,.1)}
+#hamburger{display:none;background:none;border:none;color:#a8d4a0;font-size:22px;cursor:pointer;padding:4px 6px;margin-left:auto;flex-shrink:0;line-height:1}
+@media(max-width:700px){
+  .sat-links{display:none}
+  #hamburger{display:block}
+  #topbar .logo{font-size:12.5px}
+  #topbar .vbadge{display:none}
+}
+
 
 /* ── MAIN ── */
 #main{margin-top:var(--topbar-h);padding:36px 44px 80px;max-width:1060px}
@@ -145,7 +173,16 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
     <a href="shopping.html" class="sat-link active">Shopping</a>
     <a href="log.html" class="sat-link">Log</a>
   </nav>
+  <button id="hamburger" onclick="void(0)">&#9776;</button>
 </header>
+<div id="nav-drawer">
+    <a href="cheatsheet.html" class="sat-link">Cheat Sheet</a>
+    <a href="glossary.html" class="sat-link">Glossary</a>
+    <a href="exercises.html" class="sat-link">Exercises</a>
+    <a href="diet.html" class="sat-link">Diet</a>
+    <a href="shopping.html" class="sat-link active">Shopping</a>
+    <a href="log.html" class="sat-link">Log</a>
+</div>
 
 <div id="main">
 
@@ -195,7 +232,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
         <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
         <td><div class="item-name">Nuropod</div><div class="item-sub">tVNS earclip device (Parasym US brand)</div></td>
         <td><span class="ph-tag ph-2">Phase 2+</span></td>
-        <td class="col-notes"><span class="item-notes">US brand name for Nurosym — same device, same technology. Order from nuropod.com (not nurosym.com). ~$900. Left ear cymba concha. 25Hz, 200–300µs, 0.5–1.0 mA. Order before Phase 2.</span></td>
+        <td class="col-notes"><span class="item-notes">Previously sold as "Nurosym" — same device. Current brand name: Nuropod. Order from nuropod.com (not nurosym.com). ~$900. Left ear cymba concha. 25Hz, 200–300µs, 0.5–1.0 mA. Order before Phase 2.</span></td>
       </tr>
       <tr>
         <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
@@ -296,7 +333,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
       </tr>
       <tr>
         <td class="sc-status"><span class="status-badge sb-need" data-status="need" onclick="cycleStatus(this)" title="Click to update"></span></td>
-        <td><div class="item-name">Algae Oil</div><div class="item-sub">High EPA+DHA (vegan)</div></td>
+        <td><div class="item-name">Omega-3 Top-Up</div><div class="item-sub">Fish oil or algae oil — high EPA+DHA</div></td>
         <td><span class="item-notes">2–4 softgels morning with food<br><em>Skip on oily fish days. Pause 1 wk pre-SGB.</em></span></td>
         <td class="col-notes"><span class="item-notes">Tops up total EPA+DHA dose in triglyceride form. Krill provides phospholipid form; algae provides volume. Both needed. ~585–1170mg EPA+DHA per 2 softgels.</span></td>
       
@@ -344,8 +381,8 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
       </tr>
       <tr>
         <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
-        <td><div class="item-name">Magnesium Glycinate</div><div class="item-sub">400mg elemental, not oxide or citrate</div></td>
-        <td><span class="item-notes">400mg elemental bedtime<br><em>Separate from zinc if supplementing</em></span></td>
+        <td><div class="item-name">Magnesium Glycinate</div><div class="item-sub">360mg elemental (3 × 120mg capsules), not oxide or citrate</div></td>
+        <td><span class="item-notes">360mg elemental bedtime<br><em>Separate from zinc if supplementing</em></span></td>
         <td class="col-notes"><span class="item-notes">Calming, sleep architecture, muscle relaxation. Glycinate form only. Check elemental Mg content on label. Run alongside L-Threonate every night.</span></td>
       
         <td class="col-year"><div class="yr-warn">~245 days gap</div><div class="yr-act">Order 4 more bottles</div></td>
@@ -462,7 +499,7 @@ h1.st{font-family:'Lora',serif;font-size:27px;font-weight:600;line-height:1.2;co
       </tr>
       <tr>
         <td class="sc-status"><span class="status-badge sb-have" data-status="have" onclick="cycleStatus(this)" title="Click to update"></span></td>
-        <td><div class="item-name">L-Theanine</div><div class="item-sub">CGN AlphaWave® 200mg — item #83280</div></td>
+        <td><div class="item-name">L-Theanine</div><div class="item-sub">CGN AlphaWave® 200mg — item #83280 <span style="color:var(--rose);font-weight:600">[Cut from protocol — do not reorder]</span></div></td>
         <td><span class="item-notes">200mg, 30 min before CC session (CC days only)<br><em>Not within 3 hrs of sleep</em></span></td>
         <td class="col-notes"><span class="item-notes">Promotes alpha-wave activity, calm alertness. Morning matcha already provides ~300–400mg baseline. Supplement dose adds to that on CC days. iHerb confirmed item #83280.</span></td>
       
@@ -888,5 +925,24 @@ document.addEventListener('DOMContentLoaded', () => {
   loadState();
 });
 </script>
+
+<script id="hamburger-js">
+(function(){
+  var btn = document.getElementById('hamburger');
+  var drawer = document.getElementById('nav-drawer');
+  if(!btn || !drawer) return;
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    drawer.classList.toggle('open');
+    btn.textContent = drawer.classList.contains('open') ? '✕' : '☰';
+  });
+  document.addEventListener('click', function(){
+    drawer.classList.remove('open');
+    btn.textContent = '☰';
+  });
+  drawer.addEventListener('click', function(e){ e.stopPropagation(); });
+})();
+</script>
+
 </body>
 </html>
