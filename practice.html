@@ -3,1216 +3,354 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Practice — Healing, Alignment, and Awakening Sensitivity</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>The Practice — Healing, Alignment &amp; Awakening Sensitivity</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --parchment: #f7f3ec;
-    --parchment-deep: #ede5d4;
-    --parchment-card: #f1ead9;
-    --text: #1e1a16;
-    --text-muted: #5a4f44;
-    --text-light: #8a7d70;
-    --forest: #1c2e1c;
-    --forest-mid: #2e4a2c;
-    --sage: #bdd4b4;
-    --sage-light: #d4e8cc;
-    --gold: #b8932a;
-    --gold-light: #d4ac3e;
-    --gold-pale: #e8d494;
-    --amber: #c17830;
-    --divider: #d4c4ac;
-    --rose: #7a4848;
-    --blue-deep: #2a3a4a;
-    --shadow: rgba(30, 20, 10, 0.12);
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Crimson Pro', Georgia, serif;
-    background: var(--parchment);
-    color: var(--text);
-    font-size: 18px;
-    line-height: 1.75;
-  }
-
-  /* ─── LAYOUT ─── */
-
-  #app { display: flex; min-height: 100vh; }
-
-  /* ─── SIDEBAR ─── */
-
-  #sidebar {
-    width: 280px;
-    min-width: 280px;
-    background: var(--forest);
-    color: var(--sage);
-    height: 100vh;
-    position: fixed;
-    top: 0; left: 0;
-    overflow-y: auto;
-    z-index: 100;
-    display: flex;
-    flex-direction: column;
-    scrollbar-width: thin;
-    scrollbar-color: var(--forest-mid) var(--forest);
-  }
-
-  #sidebar::-webkit-scrollbar { width: 4px; }
-  #sidebar::-webkit-scrollbar-track { background: var(--forest); }
-  #sidebar::-webkit-scrollbar-thumb { background: var(--forest-mid); border-radius: 2px; }
-
-  .sidebar-header {
-    padding: 32px 24px 20px;
-    border-bottom: 1px solid rgba(189, 212, 180, 0.15);
-  }
-
-  .sidebar-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--gold-light);
-    line-height: 1.3;
-    letter-spacing: 0.02em;
-  }
-
-  .sidebar-subtitle {
-    font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    color: var(--sage);
-    opacity: 0.6;
-    margin-top: 6px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  /* Document tabs */
-  .doc-tabs {
-    display: flex;
-    border-bottom: 1px solid rgba(189, 212, 180, 0.12);
-  }
-
-  .doc-tab {
-    flex: 1;
-    padding: 14px 12px;
-    font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--sage);
-    opacity: 0.5;
-    cursor: pointer;
-    text-align: center;
-    border: none;
-    background: transparent;
-    transition: all 0.2s ease;
-    border-bottom: 2px solid transparent;
-  }
-
-  .doc-tab.active {
-    opacity: 1;
-    color: var(--gold-light);
-    border-bottom-color: var(--gold-light);
-  }
-
-  .doc-tab:hover { opacity: 0.8; }
-
-  /* Nav sections */
-  .nav-section {
-    padding: 0;
-  }
-
-  .nav-group {
-    border-bottom: 1px solid rgba(189, 212, 180, 0.08);
-  }
-
-  .nav-group-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 24px 10px;
-    cursor: pointer;
-    font-family: 'Raleway', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--sage);
-    opacity: 0.45;
-    transition: opacity 0.2s;
-    user-select: none;
-  }
-
-  .nav-group-header:hover { opacity: 0.7; }
-
-  .nav-group-header .arrow {
-    font-size: 9px;
-    transition: transform 0.2s ease;
-  }
-
-  .nav-group-header.open .arrow { transform: rotate(90deg); }
-
-  .nav-items {
-    display: none;
-    padding-bottom: 6px;
-  }
-
-  .nav-items.open { display: block; }
-
-  .nav-item {
-    display: block;
-    padding: 7px 24px 7px 32px;
-    font-family: 'Crimson Pro', serif;
-    font-size: 14.5px;
-    color: var(--sage);
-    opacity: 0.7;
-    text-decoration: none;
-    transition: all 0.15s ease;
-    border-left: 2px solid transparent;
-    line-height: 1.4;
-  }
-
-  .nav-item:hover {
-    opacity: 1;
-    color: var(--gold-pale);
-    background: rgba(189, 212, 180, 0.06);
-    border-left-color: var(--gold);
-  }
-
-  .nav-item.active {
-    opacity: 1;
-    color: var(--gold-light);
-    border-left-color: var(--gold-light);
-    background: rgba(189, 212, 180, 0.08);
-  }
-
-  .nav-item-sub {
-    padding-left: 44px;
-    font-size: 13.5px;
-    opacity: 0.55;
-  }
-
-  .sidebar-footer {
-    margin-top: auto;
-    padding: 20px 24px;
-    border-top: 1px solid rgba(189, 212, 180, 0.12);
-    font-family: 'Raleway', sans-serif;
-    font-size: 10px;
-    color: var(--sage);
-    opacity: 0.35;
-    letter-spacing: 0.06em;
-    line-height: 1.6;
-  }
-
-  /* ─── MAIN CONTENT ─── */
-
-  #main {
-    margin-left: 280px;
-    flex: 1;
-    min-height: 100vh;
-  }
-
-  /* Document pane */
-  .doc-pane {
-    display: none;
-    max-width: 820px;
-    margin: 0 auto;
-    padding: 64px 60px 120px;
-  }
-
-  .doc-pane.active { display: block; }
-
-  /* ─── TYPOGRAPHY ─── */
-
-  .doc-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 52px;
-    font-weight: 300;
-    color: var(--forest);
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    margin-bottom: 12px;
-  }
-
-  .doc-subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--text-muted);
-    margin-bottom: 8px;
-  }
-
-  .doc-date {
-    font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 48px;
-  }
-
-  .doc-intro {
-    font-size: 17px;
-    color: var(--text-muted);
-    font-style: italic;
-    border-left: 3px solid var(--gold);
-    padding-left: 20px;
-    margin-bottom: 56px;
-    line-height: 1.8;
-  }
-
-  /* Section dividers */
-  .section-divider {
-    width: 60px;
-    height: 1px;
-    background: var(--gold);
-    margin: 56px 0;
-    opacity: 0.5;
-  }
-
-  .section-divider.full {
-    width: 100%;
-    opacity: 0.2;
-  }
-
-  /* Section headers */
-  .part-header {
-    font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 8px;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 34px;
-    font-weight: 400;
-    color: var(--forest);
-    line-height: 1.2;
-    margin-bottom: 24px;
-    scroll-margin-top: 32px;
-  }
-
-  .section-title-sm {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--forest);
-    line-height: 1.25;
-    margin-bottom: 18px;
-    margin-top: 40px;
-    scroll-margin-top: 32px;
-  }
-
-  .subsection-title {
-    font-family: 'Raleway', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-top: 36px;
-    margin-bottom: 14px;
-  }
-
-  p {
-    margin-bottom: 18px;
-    color: var(--text);
-  }
-
-  p:last-child { margin-bottom: 0; }
-
-  em { font-style: italic; color: var(--text-muted); }
-
-  strong {
-    font-weight: 600;
-    color: var(--forest);
-  }
-
-  /* ─── CORE BOX ─── */
-
-  .core-box {
-    background: var(--forest);
-    color: var(--sage-light);
-    padding: 40px 44px;
-    margin: 48px 0;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .core-box::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--amber), transparent);
-  }
-
-  .core-box-label {
-    font-family: 'Raleway', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-bottom: 20px;
-    opacity: 0.8;
-  }
-
-  .core-items {
-    list-style: none;
-  }
-
-  .core-items li {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 300;
-    color: var(--gold-pale);
-    line-height: 1.5;
-    padding: 2px 0;
-    letter-spacing: 0.01em;
-  }
-
-  .core-items li::before {
-    content: '—';
-    color: var(--gold);
-    margin-right: 14px;
-    font-size: 18px;
-    vertical-align: middle;
-  }
-
-  /* ─── THREE MOVEMENTS CARDS ─── */
-
-  .movements-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1px;
-    background: var(--divider);
-    margin: 40px 0;
-    overflow: hidden;
-    border: 1px solid var(--divider);
-  }
-
-  .movement-card {
-    background: var(--parchment-card);
-    padding: 32px 28px;
-    position: relative;
-  }
-
-  .movement-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-  }
-
-  .movement-card:nth-child(1)::before { background: var(--forest-mid); }
-  .movement-card:nth-child(2)::before { background: var(--gold); }
-  .movement-card:nth-child(3)::before { background: var(--amber); }
-
-  .movement-number {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 48px;
-    font-weight: 300;
-    color: var(--divider);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-
-  .movement-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 19px;
-    font-weight: 500;
-    color: var(--forest);
-    margin-bottom: 14px;
-    line-height: 1.3;
-  }
-
-  .movement-desc {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.65;
-  }
-
-  /* ─── PHILOSOPHY QUOTE ─── */
-
-  .philosophy-quote {
-    text-align: center;
-    padding: 48px 32px;
-    margin: 48px 0;
-    background: var(--parchment-deep);
-    border-top: 1px solid var(--divider);
-    border-bottom: 1px solid var(--divider);
-  }
-
-  .philosophy-quote p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--forest);
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto 16px;
-  }
-
-  .philosophy-quote p:last-child {
-    font-size: 18px;
-    color: var(--text-muted);
-    font-style: normal;
-    margin: 0 auto;
-  }
-
-  /* ─── TRUST HIERARCHY ─── */
-
-  .trust-list {
-    list-style: none;
-    margin: 20px 0;
-  }
-
-  .trust-list li {
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--divider);
-    opacity: 1;
-    transition: opacity 0.15s;
-  }
-
-  .trust-list li:last-child { border-bottom: none; }
-
-  .trust-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 300;
-    color: var(--gold);
-    min-width: 28px;
-    line-height: 1;
-  }
-
-  .trust-text {
-    font-size: 17px;
-    color: var(--text);
-    line-height: 1.5;
-  }
-
-  /* ─── HIERARCHY TABLE ─── */
-
-  .hierarchy-block {
-    margin: 28px 0;
-    border: 1px solid var(--divider);
-    overflow: hidden;
-  }
-
-  .hierarchy-header {
-    background: var(--forest);
-    color: var(--gold-pale);
-    padding: 12px 20px;
-    font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  .hierarchy-items {
-    padding: 8px 0;
-  }
-
-  .hierarchy-item {
-    padding: 8px 20px;
-    font-size: 16px;
-    border-bottom: 1px solid rgba(212, 196, 172, 0.3);
-    color: var(--text);
-  }
-
-  .hierarchy-item:last-child { border-bottom: none; }
-
-  .hierarchy-item.sub {
-    padding-left: 36px;
-    font-size: 15px;
-    color: var(--text-muted);
-  }
-
-  /* ─── COLLAPSIBLE TOOLKIT SECTIONS ─── */
-
-  .toolkit-section {
-    margin-bottom: 8px;
-    border: 1px solid var(--divider);
-    overflow: hidden;
-  }
-
-  .toolkit-toggle {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 24px;
-    background: var(--parchment-card);
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    transition: background 0.15s;
-  }
-
-  .toolkit-toggle:hover { background: var(--parchment-deep); }
-
-  .toolkit-toggle.open { background: var(--forest); }
-
-  .toolkit-toggle-label {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .toolkit-num {
-    font-family: 'Raleway', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: var(--gold);
-    min-width: 28px;
-  }
-
-  .toolkit-toggle.open .toolkit-num { color: var(--gold-pale); }
-
-  .toolkit-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 21px;
-    font-weight: 400;
-    color: var(--forest);
-  }
-
-  .toolkit-toggle.open .toolkit-name { color: var(--gold-pale); }
-
-  .toolkit-arrow {
-    font-size: 12px;
-    color: var(--text-light);
-    transition: transform 0.2s ease;
-  }
-
-  .toolkit-toggle.open .toolkit-arrow {
-    transform: rotate(180deg);
-    color: var(--sage);
-  }
-
-  .toolkit-content {
-    display: none;
-    padding: 32px 32px 36px;
-    background: var(--parchment);
-    border-top: 1px solid var(--divider);
-  }
-
-  .toolkit-content.open { display: block; }
-
-  /* ─── PRACTICE CARDS ─── */
-
-  .practice-card {
-    background: var(--parchment-card);
-    border: 1px solid var(--divider);
-    padding: 28px 32px;
-    margin: 24px 0;
-    position: relative;
-  }
-
-  .practice-card-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--forest);
-    margin-bottom: 14px;
-  }
-
-  /* ─── THREE MOVES ─── */
-
-  .three-moves {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    gap: 0;
-    margin: 24px 0;
-  }
-
-  .move-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 42px;
-    font-weight: 300;
-    color: var(--gold-pale);
-    line-height: 1.1;
-    padding-top: 4px;
-  }
-
-  .move-content {
-    padding: 8px 0 24px 20px;
-    border-left: 1px solid var(--divider);
-    padding-left: 24px;
-  }
-
-  .move-name {
-    font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-
-  .move-text {
-    font-size: 16px;
-    color: var(--text);
-    line-height: 1.7;
-  }
-
-  /* ─── OPERATING QUALITY ─── */
-
-  .quality-cards {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    margin: 24px 0;
-  }
-
-  .quality-card {
-    padding: 22px 22px;
-    border: 1px solid var(--divider);
-    position: relative;
-  }
-
-  .quality-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-  }
-
-  .quality-card.green::before { background: #4a7a42; }
-  .quality-card.yellow::before { background: var(--gold); }
-  .quality-card.red::before { background: var(--rose); }
-
-  .quality-label {
-    font-family: 'Raleway', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-  }
-
-  .quality-card.green .quality-label { color: #4a7a42; }
-  .quality-card.yellow .quality-label { color: var(--gold); }
-  .quality-card.red .quality-label { color: var(--rose); }
-
-  .quality-text { font-size: 14.5px; color: var(--text-muted); line-height: 1.6; }
-
-  /* ─── SUPPLEMENT TABLE ─── */
-
-  .supps-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 15px;
-    margin: 20px 0;
-  }
-
-  .supps-table th {
-    background: var(--forest);
-    color: var(--sage-light);
-    padding: 10px 14px;
-    text-align: left;
-    font-family: 'Raleway', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
-
-  .supps-table td {
-    padding: 9px 14px;
-    border-bottom: 1px solid var(--divider);
-    vertical-align: top;
-    line-height: 1.5;
-  }
-
-  .supps-table tr:last-child td { border-bottom: none; }
-  .supps-table tr:nth-child(even) td { background: var(--parchment-card); }
-
-  .supps-table .timing {
-    font-family: 'Raleway', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: var(--gold);
-    white-space: nowrap;
-  }
-
-  /* ─── RETREAT SIGNALS ─── */
-
-  .signal-list {
-    list-style: none;
-    margin: 16px 0;
-  }
-
-  .signal-list li {
-    padding: 8px 0 8px 24px;
-    position: relative;
-    font-size: 16px;
-    color: var(--text);
-    border-bottom: 1px solid var(--divider);
-    line-height: 1.5;
-  }
-
-  .signal-list li:last-child { border-bottom: none; }
-
-  .signal-list li::before {
-    content: '·';
-    position: absolute;
-    left: 6px;
-    color: var(--rose);
-    font-size: 20px;
-    line-height: 1.3;
-  }
-
-  /* ─── CLOSING LINES ─── */
-
-  .closing-lines {
-    text-align: center;
-    padding: 56px 0 0;
-    border-top: 1px solid var(--divider);
-    margin-top: 80px;
-  }
-
-  .closing-lines p {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 400;
-    font-style: italic;
-    color: var(--text-muted);
-    line-height: 2;
-  }
-
-  .closing-lines p.em {
-    color: var(--gold);
-    font-style: normal;
-    font-size: 18px;
-  }
-
-  /* ─── ARC MOVEMENTS ─── */
-
-  .arc-movement {
-    margin: 40px 0;
-    padding: 36px 40px;
-    background: var(--parchment-card);
-    border: 1px solid var(--divider);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .arc-movement::after {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0; left: 0;
-    width: 4px;
-  }
-
-  .arc-movement:nth-child(1)::after { background: var(--forest-mid); }
-  .arc-movement:nth-child(2)::after { background: var(--gold); }
-  .arc-movement:nth-child(3)::after { background: var(--amber); }
-
-  .arc-movement-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 27px;
-    font-weight: 400;
-    color: var(--forest);
-    margin-bottom: 18px;
-  }
-
-  /* ─── NOTE BOX ─── */
-
-  .note-box {
-    background: var(--forest);
-    color: var(--sage-light);
-    padding: 36px 40px;
-    margin: 48px 0 0;
-    position: relative;
-  }
-
-  .note-box::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  }
-
-  .note-box p {
-    color: var(--sage-light);
-    font-size: 17px;
-    line-height: 1.8;
-    margin-bottom: 14px;
-  }
-
-  .note-box p.gold {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 21px;
-    font-style: italic;
-    color: var(--gold-pale);
-    margin-top: 24px;
-    line-height: 1.7;
-  }
-
-  /* ─── LEGAL BOX ─── */
-
-  .legal-box {
-    background: var(--parchment-deep);
-    border: 1px solid var(--divider);
-    padding: 24px 28px;
-    margin: 40px 0;
-  }
-
-  .legal-box p {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.65;
-    margin-bottom: 10px;
-  }
-
-  .legal-box p:last-child { margin-bottom: 0; }
-
-  .legal-box .legal-title {
-    font-family: 'Raleway', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--rose);
-    margin-bottom: 12px;
-  }
-
-  /* ─── REFERENCE LIST ─── */
-
-  .ref-list {
-    list-style: none;
-    margin: 16px 0;
-  }
-
-  .ref-list li {
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(212, 196, 172, 0.4);
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.5;
-  }
-
-  .ref-list li:last-child { border-bottom: none; }
-
-  .ref-category {
-    font-family: 'Raleway', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-top: 24px;
-    margin-bottom: 8px;
-  }
-
-  /* ─── MOBILE TOGGLE ─── */
-
-  #sidebar-toggle {
-    display: none;
-    position: fixed;
-    top: 16px;
-    left: 16px;
-    z-index: 200;
-    background: var(--forest);
-    color: var(--sage-light);
-    border: none;
-    padding: 10px 14px;
-    cursor: pointer;
-    font-size: 18px;
-  }
-
-  @media (max-width: 900px) {
-    #sidebar {
-      transform: translateX(-100%);
-      transition: transform 0.3s ease;
-    }
-    #sidebar.open { transform: translateX(0); }
-    #main { margin-left: 0; }
-    .doc-pane { padding: 32px 24px 80px; }
-    .doc-title { font-size: 36px; }
-    .movements-grid { grid-template-columns: 1fr; }
-    .quality-cards { grid-template-columns: 1fr; }
-    #sidebar-toggle { display: block; }
-  }
-
-  /* ─── SCROLL TO TOP ─── */
-
-  #scroll-top {
-    position: fixed;
-    bottom: 32px;
-    right: 32px;
-    background: var(--forest);
-    color: var(--sage-light);
-    border: none;
-    width: 44px;
-    height: 44px;
-    cursor: pointer;
-    font-size: 18px;
-    opacity: 0;
-    transition: opacity 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  #scroll-top.visible { opacity: 1; }
-
-  /* ─── INLINE ITEMS ─── */
-
-  .inline-note {
-    font-size: 15px;
-    color: var(--text-muted);
-    font-style: italic;
-    padding: 12px 16px;
-    background: var(--parchment-deep);
-    border-left: 3px solid var(--gold-pale);
-    margin: 20px 0;
-    line-height: 1.6;
-  }
-
-  .steps-list {
-    list-style: none;
-    counter-reset: steps;
-    margin: 16px 0;
-  }
-
-  .steps-list li {
-    counter-increment: steps;
-    padding: 10px 0 10px 48px;
-    position: relative;
-    border-bottom: 1px solid var(--divider);
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .steps-list li:last-child { border-bottom: none; }
-
-  .steps-list li::before {
-    content: counter(steps);
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 28px;
-    height: 28px;
-    background: var(--forest);
-    color: var(--gold-pale);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .bullet-list {
-    list-style: none;
-    margin: 14px 0;
-  }
-
-  .bullet-list li {
-    padding: 6px 0 6px 20px;
-    position: relative;
-    font-size: 16.5px;
-    color: var(--text);
-    line-height: 1.65;
-  }
-
-  .bullet-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--gold);
-    font-size: 14px;
-  }
-
-  .pause-rules {
-    background: var(--parchment-deep);
-    border: 1px solid var(--divider);
-    padding: 18px 22px;
-    margin: 20px 0;
-  }
-
-  .pause-rules-title {
-    font-family: 'Raleway', sans-serif;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--rose);
-    margin-bottom: 10px;
-  }
-
-  .pause-rules p {
-    font-size: 15px;
-    color: var(--text-muted);
-    line-height: 1.65;
-    margin-bottom: 6px;
-  }
+:root{
+  --cream:#faf8f4;--white:#fff;--border:#e4e0d8;--border-light:#f4f0e8;
+  --text:#2a2824;--text-mid:#4a4540;--text-muted:#8a7f70;
+  --green-dark:#2d4a28;--green-mid:#4a7a42;--green-light:#e8f0e5;--green-border:#b8d4b0;
+  --amber:#b87a1a;--amber-light:#fdf3e0;--amber-border:#e8c878;
+  --rose:#a83050;--rose-light:#fdf0f3;--rose-border:#e8b0c0;
+  --blue-dark:#2a4a6a;--blue-light:#eef4fb;--blue-border:#b8cfe8;
+  --purple:#6a4082;--purple-light:#f5eeff;--purple-border:#c8b0f0;
+  --sidebar-w:268px;--topbar-h:54px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--topbar-h)+18px)}
+body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.6;font-size:14px}
+h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+
+/* TOPBAR */
+#topbar{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:10px;padding:0 18px;border-bottom:2px solid #1a3018}
+.logo{font-family:'Lora',serif;font-size:14.5px;font-weight:600;color:#e8f4e4;white-space:nowrap;flex-shrink:0}
+.top-links{display:flex;gap:4px;margin-left:auto;flex-shrink:0}
+.top-link{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap;background:none;cursor:pointer}
+.top-link:hover,.top-link.active{background:rgba(255,255,255,.15);color:#fff;border-color:rgba(255,255,255,.35)}
+#menu-toggle{display:none;background:none;border:none;color:#a8d4a0;font-size:21px;cursor:pointer;padding:4px 6px;margin-right:4px}
+
+/* SIDEBAR */
+#sidebar{position:fixed;top:var(--topbar-h);left:0;bottom:0;width:var(--sidebar-w);background:var(--white);border-right:1px solid var(--border);overflow-y:auto;z-index:200;padding:0 0 40px;transition:transform .25s}
+#sidebar::-webkit-scrollbar{width:4px}
+.sb-downloads{padding:10px 14px 8px;border-bottom:1px solid var(--border-light);display:flex;flex-direction:column;gap:3px}
+.dl-link{display:inline-flex;align-items:center;gap:6px;font-family:'DM Sans',sans-serif;font-size:11.5px;color:var(--text-muted);text-decoration:none;padding:4px 6px;border-radius:5px;transition:all .15s}
+.dl-link:hover{color:var(--green-dark);background:var(--green-light)}
+.sb-tabs{display:flex;border-bottom:1px solid var(--border)}
+.sb-tab{flex:1;padding:9px 6px;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:.04em;text-align:center;cursor:pointer;color:var(--text-muted);border:none;background:none;border-bottom:2px solid transparent;transition:all .15s}
+.sb-tab:hover{color:var(--green-dark)}
+.sb-tab.active{color:var(--green-dark);border-bottom-color:var(--green-mid)}
+.ng{margin-bottom:1px}
+.ngl{font-size:9px;font-weight:600;letter-spacing:.12em;color:var(--text-muted);text-transform:uppercase;padding:12px 14px 3px}
+.ni{display:flex;align-items:center;gap:6px;padding:5px 14px;font-family:'DM Sans',sans-serif;font-size:12.5px;color:var(--text-mid);cursor:pointer;text-decoration:none;transition:all .12s;border-left:2px solid transparent;line-height:1.35}
+.ni:hover{color:var(--green-dark);background:var(--green-light)}
+.ni.active{color:var(--green-dark);background:var(--green-light);border-left-color:var(--green-mid);font-weight:500}
+.ni.sub{padding-left:26px;font-size:12px}
+.nd{width:5px;height:5px;min-width:5px;border-radius:50%;flex-shrink:0;display:block}
+.dg{background:var(--green-mid)}.da{background:var(--amber)}.dr{background:var(--rose)}.db{background:var(--blue-dark)}.dp{background:var(--purple)}.dm{background:var(--text-muted)}
+.sec-toggle{display:flex;align-items:center;width:100%;background:none;border:none;cursor:pointer;padding:7px 14px 7px 10px;font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:600;color:var(--text-mid);transition:all .12s;border-left:3px solid transparent;gap:7px;text-align:left}
+.sec-toggle:hover{background:var(--green-light);color:var(--green-dark)}
+.sec-toggle.open{color:var(--green-dark);border-left-color:var(--green-mid);background:var(--green-light)}
+.ph-arrow{font-size:9px;color:var(--text-muted);transition:transform .2s;flex-shrink:0;margin-left:auto}
+.sec-toggle.open .ph-arrow{transform:rotate(90deg)}
+.sec-items{display:none}.sec-items.open{display:block}
+
+/* DOC PANES */
+.doc-pane{display:none}.doc-pane.active{display:block}
+
+/* MAIN */
+#main{margin-left:var(--sidebar-w);margin-top:var(--topbar-h);padding:24px 36px 80px;max-width:calc(var(--sidebar-w) + 820px)}
+.section{scroll-margin-top:calc(var(--topbar-h)+16px);margin-bottom:28px}
+.section+.section{padding-top:22px;border-top:1px solid var(--border)}
+
+/* HEADERS */
+.stag{font-family:'DM Sans',sans-serif;font-size:9.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px;display:inline-flex;align-items:center;gap:7px}
+.stag.tg{color:var(--green-mid)}.stag.ta{color:var(--amber)}.stag.tb{color:var(--blue-dark)}.stag.tp{color:var(--purple)}.stag.tr{color:var(--rose)}
+h1.st{font-family:'Lora',serif;font-size:24px;font-weight:600;line-height:1.2;color:var(--green-dark);margin-bottom:8px}
+h2.s2{font-family:'Lora',serif;font-size:16px;font-weight:500;color:var(--text);margin:18px 0 8px;padding-bottom:4px;border-bottom:1px solid var(--border)}
+h2.s2.gl{border-bottom-color:var(--green-mid)}.s2.al{border-bottom-color:var(--amber)}.s2.bl{border-bottom-color:var(--blue-dark)}.s2.rl{border-bottom-color:var(--rose)}
+p{margin-bottom:10px;color:var(--text-mid);line-height:1.65}p strong{color:var(--text)}p:last-child{margin-bottom:0}
+ul.prose{padding-left:16px;margin-bottom:10px}ul.prose li{color:var(--text-mid);margin-bottom:3px;line-height:1.5}
+
+/* CORE BOX */
+.core-box{background:var(--green-dark);border-radius:10px;padding:16px 22px;margin:10px 0 14px}
+.core-box .cl{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#a8d4a0;margin-bottom:8px;opacity:.8}
+.core-items{list-style:none;padding:0}
+.core-items li{font-family:'Lora',serif;font-size:16px;font-weight:400;color:#e8f4e4;padding:2px 0;display:flex;align-items:baseline;gap:10px}
+.core-items li::before{content:'—';color:#6aaa60;font-size:12px;flex-shrink:0}
+
+/* INFO BOXES */
+.ig{background:var(--green-light);border:1px solid var(--green-border);border-radius:7px;padding:9px 13px;margin-bottom:10px;font-size:13px;color:var(--text-mid);line-height:1.6}
+.ia{background:var(--amber-light);border:1px solid var(--amber-border);border-radius:7px;padding:9px 13px;margin-bottom:10px;font-size:13px;color:var(--text-mid);line-height:1.6}
+.ir{background:var(--rose-light);border:1px solid var(--rose-border);border-radius:7px;padding:9px 13px;margin-bottom:10px;font-size:13px;color:var(--text-mid);line-height:1.6}
+.ib{background:var(--blue-light);border:1px solid var(--blue-border);border-radius:7px;padding:9px 13px;margin-bottom:10px;font-size:13px;color:var(--text-mid);line-height:1.6}
+.ip{background:var(--purple-light);border:1px solid var(--purple-border);border-radius:7px;padding:9px 13px;margin-bottom:10px;font-size:13px;color:var(--text-mid);line-height:1.6}
+.ig strong{color:var(--green-dark)}.ia strong{color:var(--amber)}.ir strong{color:var(--rose)}.ib strong{color:var(--blue-dark)}.ip strong{color:var(--purple)}
+
+/* CARDS */
+.card{background:var(--white);border:1px solid var(--border);border-radius:9px;padding:13px 17px;margin-bottom:10px}
+.card.gl{border-left:3px solid var(--green-mid)}.card.al{border-left:3px solid var(--amber)}.card.rl{border-left:3px solid var(--rose)}.card.bl{border-left:3px solid var(--blue-dark)}.card.pl{border-left:3px solid var(--purple)}
+.ct{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.card.gl .ct{color:var(--green-mid)}.card.al .ct{color:var(--amber)}.card.bl .ct{color:var(--blue-dark)}.card.pl .ct{color:var(--purple)}.card.rl .ct{color:var(--rose)}
+.card h3{font-family:'Lora',serif;font-size:14px;color:var(--green-dark);margin-bottom:5px}
+.card.al h3{color:var(--amber)}.card.rl h3{color:var(--rose)}.card p{font-size:13px}
+
+/* DETAILS */
+details{background:var(--white);border:1px solid var(--border);border-radius:9px;margin-bottom:8px;overflow:hidden}
+details summary{padding:10px 16px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:var(--green-dark);cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;transition:background .12s}
+details summary:hover{background:var(--green-light)}
+details summary::before{content:'▸';font-size:10px;color:var(--green-mid);transition:transform .2s;flex-shrink:0}
+details[open] summary::before{transform:rotate(90deg)}
+details summary::-webkit-details-marker{display:none}
+.dbi{padding:6px 16px 14px;border-top:1px solid var(--border-light)}
+.dbi p,.dbi ul{font-size:13px}
+
+/* H-BLOCKS */
+.h-block{background:var(--white);border:1px solid var(--border);border-radius:9px;margin-bottom:10px;overflow:hidden}
+.h-hdr{background:var(--green-light);padding:6px 13px;font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--green-dark);border-bottom:1px solid var(--green-border)}
+.h-hdr.ah{background:var(--amber-light);color:var(--amber);border-color:var(--amber-border)}
+.h-body{padding:2px 0}
+.h-item{padding:5px 13px;border-bottom:1px solid var(--border-light);font-size:13px;color:var(--text-mid)}
+.h-item:last-child{border-bottom:none}.h-item strong{color:var(--text)}
+
+/* GATE */
+.gate{border-radius:9px;padding:11px 16px;margin:10px 0;border:1.5px dashed var(--rose-border);background:var(--rose-light)}
+.gate-title{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--rose);margin-bottom:6px}
+.gate ul{list-style:none;padding:0}
+.gate li{padding:3px 0 3px 14px;position:relative;font-size:12.5px;color:var(--text-mid);border-bottom:1px solid rgba(232,176,192,.3)}
+.gate li:last-child{border-bottom:none}
+.gate li::before{content:'—';position:absolute;left:0;color:var(--rose)}
+
+/* GLANCE */
+.glance-card{background:var(--white);border:1px solid var(--border);border-radius:9px;margin-bottom:12px;overflow:hidden}
+.glance-row{display:flex;gap:10px;padding:6px 13px;border-bottom:1px solid var(--border-light);font-size:13px}
+.glance-row:last-child{border-bottom:none}
+.glance-label{color:var(--text-muted);min-width:140px;flex-shrink:0;font-size:11.5px}
+.glance-val{color:var(--text-mid);flex:1;font-size:13px}
+
+/* STEP BLOCK */
+.step-block{border:1px solid var(--border);border-left:3px solid var(--green-mid);border-radius:0 8px 8px 0;margin-bottom:10px;background:var(--white)}
+.step-row{display:flex;gap:8px;padding:7px 13px;border-bottom:1px solid var(--border-light);font-size:13px;align-items:baseline}
+.step-row:last-child{border-bottom:none}
+.step-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--green-mid);font-weight:500;min-width:16px;flex-shrink:0;padding-top:2px}
+.step-text{color:var(--text-mid);flex:1;line-height:1.45}.step-text strong{color:var(--text)}
+
+/* TOOLKIT LIST */
+.tk-list{list-style:none;padding:0;margin:6px 0}
+.tk-item{display:flex;gap:8px;padding:6px 0;border-bottom:1px solid var(--border-light);font-size:13px;align-items:baseline}
+.tk-item:last-child{border-bottom:none}
+.tk-label{font-weight:500;color:var(--text);min-width:165px;flex-shrink:0;font-size:12.5px}
+.tk-note{color:var(--text-muted);flex:1;font-size:12.5px;line-height:1.4}
+.tk-tag{font-family:'DM Sans',sans-serif;font-size:9.5px;font-weight:500;padding:1px 6px;border-radius:8px;flex-shrink:0}
+.tk-tag.perm{background:var(--green-light);color:var(--green-dark)}
+.tk-tag.trans{background:var(--amber-light);color:var(--amber)}
+.tk-tag.prec{background:var(--blue-light);color:var(--blue-dark)}
+
+/* MOVEMENTS */
+.movements{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0}
+.mv{background:var(--white);border:1px solid var(--border);border-radius:9px;padding:13px 15px}
+.mv.m1{border-top:3px solid var(--green-mid)}.mv.m2{border-top:3px solid var(--amber)}.mv.m3{border-top:3px solid var(--rose)}
+.mv-num{font-family:'DM Mono',monospace;font-size:9px;color:var(--text-muted);margin-bottom:3px}
+.mv h3{font-family:'Lora',serif;font-size:13.5px;margin-bottom:5px}
+.mv.m1 h3{color:var(--green-dark)}.mv.m2 h3{color:var(--amber)}.mv.m3 h3{color:var(--rose)}
+.mv p{font-size:12px;color:var(--text-muted);line-height:1.5;margin:0}
+
+/* TRUST ROWS */
+.trust-row{display:flex;gap:10px;padding:5px 0;border-bottom:1px solid var(--border-light);font-size:13px;align-items:baseline}
+.trust-row:last-child{border-bottom:none}
+.trust-n{font-family:'DM Mono',monospace;font-size:10px;color:var(--green-mid);font-weight:500;min-width:16px;flex-shrink:0}
+.trust-t{color:var(--text-mid);flex:1}
+
+/* DIVIDER */
+.phase-div{text-align:center;margin:32px 0 20px;position:relative}
+.phase-div::before{content:'';position:absolute;top:50%;left:0;right:0;height:1px;background:var(--border)}
+.phase-div span{position:relative;background:var(--cream);padding:3px 14px;font-family:'DM Sans',sans-serif;font-size:9.5px;text-transform:uppercase;letter-spacing:.12em;color:var(--text-muted);font-weight:500}
+
+/* ═══════════════════════════════════
+   DAILY SCHEDULE BLOCKS
+═══════════════════════════════════ */
+
+/* Outer time-block wrapper */
+.time-block{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:14px}
+
+/* Time block header bar */
+.tb-hdr{display:flex;align-items:center;gap:14px;padding:12px 18px}
+.time-block.morning .tb-hdr{background:linear-gradient(135deg,#e8f4e3,#dff0d8);border-bottom:2px solid var(--green-border)}
+.time-block.midday .tb-hdr{background:linear-gradient(135deg,#fdf3e0,#f8ead0);border-bottom:2px solid var(--amber-border)}
+.time-block.evening .tb-hdr{background:linear-gradient(135deg,#edf3fb,#e2ecf8);border-bottom:2px solid var(--blue-border)}
+.time-block.sleep .tb-hdr{background:linear-gradient(135deg,#f0eeff,#e8e0f8);border-bottom:2px solid var(--purple-border)}
+
+.tb-time{font-family:'DM Mono',monospace;font-size:11.5px;font-weight:500;white-space:nowrap;flex-shrink:0}
+.time-block.morning .tb-time{color:var(--green-dark)}
+.time-block.midday .tb-time{color:var(--amber)}
+.time-block.evening .tb-time{color:var(--blue-dark)}
+.time-block.sleep .tb-time{color:var(--purple)}
+
+.tb-title{font-family:'Lora',serif;font-size:18px;font-weight:600;flex:1}
+.time-block.morning .tb-title{color:var(--green-dark)}
+.time-block.midday .tb-title{color:var(--amber)}
+.time-block.evening .tb-title{color:var(--blue-dark)}
+.time-block.sleep .tb-title{color:var(--purple)}
+
+/* Context sub-blocks inside a time block */
+.ctx-block{border-bottom:1px solid var(--border-light)}
+.ctx-block:last-child{border-bottom:none}
+
+.ctx-hdr{display:flex;align-items:center;gap:0;background:var(--white);border-bottom:1px solid var(--border-light)}
+.ctx-label{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:8px 14px;min-width:148px;flex-shrink:0;border-right:1px solid var(--border-light)}
+.ctx-block.ctx-wake .ctx-label{color:var(--green-mid);background:#f5fbf3}
+.ctx-block.ctx-empty .ctx-label{color:#6b5c20;background:#fdf9ed}
+.ctx-block.ctx-practice .ctx-label{color:var(--green-dark);background:#edf6ea}
+.ctx-block.ctx-food .ctx-label{color:#5a7a20;background:#f2fbed}
+.ctx-block.ctx-supp .ctx-label{color:var(--blue-dark);background:#eef4fb}
+.ctx-block.ctx-listen .ctx-label{color:var(--amber);background:#fdf6e8}
+.ctx-block.ctx-meal .ctx-label{color:#7a4a10;background:#fdf6eb}
+.ctx-block.ctx-wind .ctx-label{color:var(--blue-dark);background:#edf3fb}
+.ctx-block.ctx-sleep-stack .ctx-label{color:var(--purple);background:#f5eeff}
+.ctx-block.ctx-sleep-prep .ctx-label{color:var(--purple);background:#f0eeff}
+.ctx-block.ctx-var .ctx-label{color:var(--text-muted);background:var(--cream);font-style:italic}
+
+/* ITEM ROWS inside context blocks */
+.item-rows{flex:1}
+.ir{display:flex;gap:8px;padding:6px 12px;border-bottom:1px solid var(--border-light);align-items:baseline;background:var(--white)}
+.ir:last-child{border-bottom:none}
+.ir-n{font-weight:500;color:var(--text);min-width:195px;flex-shrink:0;font-size:12.5px;line-height:1.4}
+.ir-d{color:var(--text-muted);flex:1;font-size:12.5px;line-height:1.4}
+.ir-t{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);flex-shrink:0;white-space:nowrap}
+.ir-t.phase{color:var(--amber)}
+.ir-t.temp{color:var(--rose)}
+
+/* Variation blocks (training / waterfall) */
+.var-block{background:var(--cream);border-bottom:1px solid var(--border-light)}
+.var-hdr{font-family:'DM Sans',sans-serif;font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);padding:6px 14px;border-bottom:1px solid var(--border-light);background:var(--cream)}
+.var-row{display:flex;gap:8px;padding:5px 12px;border-bottom:1px solid var(--border-light);font-size:12.5px;align-items:baseline;background:var(--white)}
+.var-row:last-child{border-bottom:none}
+.var-n{color:var(--text);font-weight:500;min-width:195px;flex-shrink:0}
+.var-d{color:var(--text-muted);flex:1;line-height:1.4}
+.var-t{font-family:'DM Mono',monospace;font-size:10px;color:var(--text-muted);flex-shrink:0}
+
+/* MODE CARDS */
+.mode-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}
+.mode-card{border-radius:9px;padding:12px 14px}
+.mode-green{background:#edf7ec;border:2px solid #8bc88a}.mode-green .mc-t{color:#2d6a28}
+.mode-yellow{background:#fdf8e8;border:2px solid #e8c848}.mode-yellow .mc-t{color:#8a6800}
+.mode-red{background:#fdf0f0;border:2px solid #e88080}.mode-red .mc-t{color:#a03030}
+.mc-t{font-family:'Lora',serif;font-size:14px;margin-bottom:3px}
+.mc-b{font-size:12.5px;color:var(--text-mid);line-height:1.45}
+
+/* RESPONSIVE */
+@media(max-width:960px){
+  #sidebar{transform:translateX(-100%)}
+  #sidebar.open{transform:translateX(0);box-shadow:4px 0 20px rgba(0,0,0,.1)}
+  #main{margin-left:0;padding:16px 14px 60px}
+  #menu-toggle{display:block}
+  .movements{grid-template-columns:1fr}
+  .mode-row{grid-template-columns:1fr}
+  .ir-n,.var-n{min-width:140px}
+  .ctx-label{min-width:110px}
+}
 </style>
 </head>
 <body>
 
-<button id="sidebar-toggle" onclick="toggleSidebar()">☰</button>
-<button id="scroll-top" onclick="scrollToTop()">↑</button>
+<header id="topbar">
+  <button id="menu-toggle" onclick="toggleSidebar()">☰</button>
+  <span class="logo">The Practice</span>
+  <nav class="top-links">
+    <a href="glossary.html" class="top-link">Glossary</a>
+    <a href="guides.html" class="top-link">Guides</a>
+    <a href="log.html" class="top-link">Journal</a>
+  </nav>
+</header>
 
-<div id="app">
-
-<!-- ═══════════════════════════════ SIDEBAR ═══════════════════════════════ -->
 <nav id="sidebar">
-  <div class="sidebar-header">
-    <div class="sidebar-title">The Practice</div>
-    <div class="sidebar-subtitle">Healing · Alignment · Awakening</div>
+  <div class="sb-downloads">
+    <a href="governing_framework_v3.txt" download class="dl-link">
+      <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 2v8M5 7l3 3 3-3"/><rect x="2" y="11" width="12" height="3" rx="1"/></svg>
+      Framework — Plain Text
+    </a>
+    <a href="the_practice_v2.txt" download class="dl-link">
+      <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 2v8M5 7l3 3 3-3"/><rect x="2" y="11" width="12" height="3" rx="1"/></svg>
+      Practice — Plain Text
+    </a>
   </div>
 
-  <div class="doc-tabs">
-    <button class="doc-tab active" onclick="showDoc('framework')">Framework</button>
-    <button class="doc-tab" onclick="showDoc('practice')">Practice</button>
+  <div class="sb-tabs">
+    <button class="sb-tab" id="tab-fw" onclick="showDoc('fw')">Framework</button>
+    <button class="sb-tab active" id="tab-pr" onclick="showDoc('pr')">Practice</button>
   </div>
 
-  <!-- Framework Nav -->
-  <div class="nav-section" id="framework-nav">
-    <div class="nav-group">
-      <div class="nav-group-header open" onclick="toggleGroup(this)">
-        <span>Foundation</span><span class="arrow">›</span>
-      </div>
-      <div class="nav-items open">
-        <a class="nav-item" href="#fw-core" onclick="navClick(this)">The Core</a>
-        <a class="nav-item" href="#fw-messenger" onclick="navClick(this)">The Condition as Messenger</a>
-        <a class="nav-item" href="#fw-philosophy" onclick="navClick(this)">The Governing Philosophy</a>
+  <!-- Framework nav -->
+  <div id="nav-fw" style="display:none">
+    <div class="ng">
+      <div class="ngl">Foundation</div>
+      <a class="ni" href="#fw-core" onclick="navClick(this,'fw')"><span class="nd dg"></span>The Core</a>
+      <a class="ni" href="#fw-messenger" onclick="navClick(this,'fw')"><span class="nd dg"></span>The Condition as Messenger</a>
+      <a class="ni" href="#fw-philosophy" onclick="navClick(this,'fw')"><span class="nd dg"></span>Governing Philosophy</a>
+      <a class="ni" href="#fw-movements" onclick="navClick(this,'fw')"><span class="nd dg"></span>Three Movements</a>
+    </div>
+    <div class="ng">
+      <button class="sec-toggle open" onclick="toggleSec(this)"><span class="nd da"></span>Principles<span class="ph-arrow">›</span></button>
+      <div class="sec-items open">
+        <a class="ni sub" href="#fw-listening" onclick="navClick(this,'fw')">The Listening Pier</a>
+        <a class="ni sub" href="#fw-vertical" onclick="navClick(this,'fw')">Vertical Alignment</a>
+        <a class="ni sub" href="#fw-love" onclick="navClick(this,'fw')">Love as Mechanism</a>
+        <a class="ni sub" href="#fw-incubation" onclick="navClick(this,'fw')">Incubation Principle</a>
+        <a class="ni sub" href="#fw-mechanistic" onclick="navClick(this,'fw')">Mechanistic Foundation</a>
       </div>
     </div>
-    <div class="nav-group">
-      <div class="nav-group-header open" onclick="toggleGroup(this)">
-        <span>The Spine</span><span class="arrow">›</span>
-      </div>
-      <div class="nav-items open">
-        <a class="nav-item" href="#fw-movements" onclick="navClick(this)">Three Living Movements</a>
-        <a class="nav-item nav-item-sub" href="#fw-descent" onclick="navClick(this)">Descent & Restoration</a>
-        <a class="nav-item nav-item-sub" href="#fw-alignment" onclick="navClick(this)">Alignment & Attunement</a>
-        <a class="nav-item nav-item-sub" href="#fw-embodiment" onclick="navClick(this)">Embodiment & Service</a>
-      </div>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-header" onclick="toggleGroup(this)">
-        <span>Principles</span><span class="arrow">›</span>
-      </div>
-      <div class="nav-items">
-        <a class="nav-item" href="#fw-listening" onclick="navClick(this)">The Listening Pier</a>
-        <a class="nav-item" href="#fw-vertical" onclick="navClick(this)">Vertical Alignment</a>
-        <a class="nav-item" href="#fw-love" onclick="navClick(this)">Love as Mechanism</a>
-        <a class="nav-item" href="#fw-incubation" onclick="navClick(this)">The Incubation Principle</a>
-        <a class="nav-item" href="#fw-mechanistic" onclick="navClick(this)">Mechanistic Foundation</a>
-      </div>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-header" onclick="toggleGroup(this)">
-        <span>Structure</span><span class="arrow">›</span>
-      </div>
-      <div class="nav-items">
-        <a class="nav-item" href="#fw-retreat" onclick="navClick(this)">The Retreat Provision</a>
-        <a class="nav-item" href="#fw-hierarchy" onclick="navClick(this)">Hierarchy of Support</a>
-        <a class="nav-item" href="#fw-remains" onclick="navClick(this)">What Remains / Changes</a>
-        <a class="nav-item" href="#fw-note" onclick="navClick(this)">A Note on This Document</a>
+    <div class="ng">
+      <button class="sec-toggle" onclick="toggleSec(this)"><span class="nd db"></span>Structure<span class="ph-arrow">›</span></button>
+      <div class="sec-items">
+        <a class="ni sub" href="#fw-retreat" onclick="navClick(this,'fw')">Retreat Provision</a>
+        <a class="ni sub" href="#fw-hierarchy" onclick="navClick(this,'fw')">Hierarchy of Support</a>
+        <a class="ni sub" href="#fw-remains" onclick="navClick(this,'fw')">What Remains / Changes</a>
+        <a class="ni sub" href="#fw-note" onclick="navClick(this,'fw')">A Note on This Document</a>
       </div>
     </div>
   </div>
 
-  <!-- Practice Nav -->
-  <div class="nav-section" id="practice-nav" style="display:none">
-    <div class="nav-group">
-      <div class="nav-group-header open" onclick="toggleGroup(this)">
-        <span>Opening</span><span class="arrow">›</span>
-      </div>
-      <div class="nav-items open">
-        <a class="nav-item" href="#pr-core" onclick="navClick(this)">The Core</a>
+  <!-- Practice nav -->
+  <div id="nav-pr">
+    <div class="ng">
+      <div class="ngl">Daily Schedule</div>
+      <a class="ni" href="#pr-core" onclick="navClick(this,'pr')"><span class="nd dg"></span>The Core</a>
+      <a class="ni" href="#pr-morning" onclick="navClick(this,'pr')"><span class="nd dg"></span>Morning — Wake to 8am</a>
+      <a class="ni" href="#pr-midday" onclick="navClick(this,'pr')"><span class="nd da"></span>Midday — 12–2pm</a>
+      <a class="ni" href="#pr-evening" onclick="navClick(this,'pr')"><span class="nd db"></span>Evening — 5pm on</a>
+      <a class="ni" href="#pr-sleep" onclick="navClick(this,'pr')"><span class="nd dp"></span>Before Sleep</a>
+    </div>
+    <div class="ng">
+      <div class="ngl">Navigation</div>
+      <a class="ni" href="#pr-modes" onclick="navClick(this,'pr')"><span class="nd dm"></span>Operating Modes</a>
+      <a class="ni" href="#pr-community" onclick="navClick(this,'pr')"><span class="nd dg"></span>Community Navigation</a>
+      <a class="ni" href="#pr-retreat" onclick="navClick(this,'pr')"><span class="nd dr"></span>Retreat Provision</a>
+    </div>
+    <div class="ng">
+      <button class="sec-toggle" onclick="toggleSec(this)"><span class="nd db"></span>Toolkit<span class="ph-arrow">›</span></button>
+      <div class="sec-items">
+        <a class="ni sub" href="#tk-structural" onclick="navClick(this,'pr')">T.1 Structural</a>
+        <a class="ni sub" href="#tk-medicine" onclick="navClick(this,'pr')">T.2 Plant Medicine</a>
+        <a class="ni sub" href="#tk-behavioral" onclick="navClick(this,'pr')">T.3 Behavioral Rewriting</a>
+        <a class="ni sub" href="#tk-sound" onclick="navClick(this,'pr')">T.4 Sound &amp; Voice</a>
+        <a class="ni sub" href="#tk-neuro" onclick="navClick(this,'pr')">T.5 Neuromodulation</a>
+        <a class="ni sub" href="#tk-intuitive" onclick="navClick(this,'pr')">T.6 Intuitive Development</a>
+        <a class="ni sub" href="#tk-research" onclick="navClick(this,'pr')">Research</a>
       </div>
     </div>
-    <div class="nav-group">
-      <div class="nav-group-header open" onclick="toggleGroup(this)">
-        <span>Part I — The Container</span><span class="arrow">›</span>
-      </div>
-      <div class="nav-items open">
-        <a class="nav-item" href="#pr-rhythm" onclick="navClick(this)">I.1 Daily Rhythm</a>
-        <a class="nav-item" href="#pr-community" onclick="navClick(this)">I.2 Community Navigation</a>
-        <a class="nav-item" href="#pr-retreat" onclick="navClick(this)">I.3 Retreat Provision</a>
-        <a class="nav-item" href="#pr-listening" onclick="navClick(this)">I.4 Listening Pier</a>
-        <a class="nav-item" href="#pr-relational" onclick="navClick(this)">I.5 Relational Practices</a>
-      </div>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-header" onclick="toggleGroup(this)">
-        <span>Part II — The Arc</span><span class="arrow">›</span>
-      </div>
-      <div class="nav-items">
-        <a class="nav-item" href="#pr-arc" onclick="navClick(this)">The Three Movements</a>
-      </div>
-    </div>
-    <div class="nav-group">
-      <div class="nav-group-header" onclick="toggleGroup(this)">
-        <span>Part III — The Toolkit</span><span class="arrow">›</span>
-      </div>
-      <div class="nav-items">
-        <a class="nav-item" href="#tk-structural" onclick="navClick(this)">T.1 Structural Interventions</a>
-        <a class="nav-item" href="#tk-medicine" onclick="navClick(this)">T.2 Plant Medicine</a>
-        <a class="nav-item" href="#tk-somatic" onclick="navClick(this)">T.3 Somatic & Breath</a>
-        <a class="nav-item" href="#tk-sound" onclick="navClick(this)">T.4 Sound & Voice</a>
-        <a class="nav-item" href="#tk-behavioral" onclick="navClick(this)">T.5 Behavioral Rewriting</a>
-        <a class="nav-item" href="#tk-neuro" onclick="navClick(this)">T.6 Neuromodulation</a>
-        <a class="nav-item" href="#tk-substrate" onclick="navClick(this)">T.7 Biological Substrate</a>
-        <a class="nav-item" href="#tk-relational" onclick="navClick(this)">T.8 Energy Medicine</a>
-        <a class="nav-item" href="#tk-intuitive" onclick="navClick(this)">T.9 Intuitive Development</a>
-        <a class="nav-item" href="#tk-research" onclick="navClick(this)">Research Foundation</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="sidebar-footer">
-    The Practice<br>
-    Healing · Alignment · Awakening Sensitivity<br>
-    April 2026 — Living Document
   </div>
 </nav>
 
-<!-- ═══════════════════════════════ MAIN ═══════════════════════════════ -->
 <main id="main">
 
-<!-- ══════════════ FRAMEWORK PANE ══════════════ -->
-<div class="doc-pane active" id="framework-pane">
+<!-- ══════════════════════════ PRACTICE (default) ══════════════════════════ -->
+<div class="doc-pane active" id="pane-pr">
 
-  <div class="doc-title">Governing Framework</div>
-  <div class="doc-subtitle">The Practice — Healing, Alignment, and Awakening Sensitivity</div>
-  <div class="doc-date">Written April 2026 · Living Document</div>
-
-  <div class="doc-intro">
-    This document is the living foundation from which The Practice grows. It is not The Practice itself — it is the soul behind it. Read this before reading The Practice. Return to it whenever The Practice starts to feel like something other than what it is.
-  </div>
-
-  <!-- THE CORE -->
-  <h2 class="section-title" id="fw-core">1. The Core</h2>
-  <p>Everything in this practice is in service of this:</p>
-
+<div class="section" id="pr-core">
+  <div class="stag tg">The Practice</div>
+  <h1 class="st">Daily Schedule</h1>
   <div class="core-box">
-    <div class="core-box-label">The Five Orientations</div>
+    <div class="cl">The Core — Everything in Service of This</div>
     <ul class="core-items">
       <li>Alignment</li>
       <li>Healthy sensitivity attunement</li>
@@ -1221,1083 +359,733 @@
       <li>Raising to high vibrational frequency</li>
     </ul>
   </div>
-
-  <p>This is not a set of goals to achieve in sequence. It is a way of being that the healing journey is moving toward — and that the journey itself, when inhabited rightly, already expresses.</p>
-  <p>The condition that initiated this inquiry is not the destination. The practice is the container that supports the becoming that the condition was always pointing toward.</p>
-  <p><em>This core is the compass. When any part of The Practice feels wrong — too heavy, too mechanical, too driven by urgency — return to these five orientations and ask: is what I am doing genuinely in service of this?</em></p>
-
-  <div class="section-divider"></div>
-
-  <!-- THE CONDITION AS MESSENGER -->
-  <h2 class="section-title" id="fw-messenger">2. The Condition as Messenger</h2>
-
-  <p>The sound sensitivity condition that has significantly affected daily life — shared spaces, shared meals, ordinary intimacy with others — is real, sometimes painful, and for a long time has felt like something to be defeated.</p>
-  <p><strong>It is not something to be defeated.</strong></p>
-  <p>It is a messenger. One that has been pointing — insistently, sometimes loudly, sometimes at great personal cost — toward something that needed attention. Not just a nervous system requiring calibration. A sensitivity that needed to be understood, honored, and brought into alignment with its true purpose.</p>
-  <p>The hypersensitivity that makes certain sounds overwhelming is the same sensitivity that, developed and aligned, becomes the capacity for deep attunement — to people, to subtle energy, to guidance, to the living intelligence that moves through all things.</p>
-
-  <div class="philosophy-quote">
-    <p>The healing is not the silencing of that signal.<br>It is the honoring of what it was pointing at.</p>
-    <p>When that alignment deepens, the signal naturally quiets — because it has been heard.</p>
-  </div>
-
-  <p>There will be moments when this larger perspective is not accessible — when the condition is simply painful and the elevated view feels very far away. The practice holds space for those moments too. The messenger does not require gratitude at every moment. It only asks that, over time, it be listened to.</p>
-
-  <div class="section-divider"></div>
-
-  <!-- THE GOVERNING PHILOSOPHY -->
-  <h2 class="section-title" id="fw-philosophy">3. The Governing Philosophy</h2>
-  <p><strong>The healing intelligence is already present.</strong></p>
-  <p>This practice does not create healing. It creates the conditions in which healing that is already seeking to happen can move through. The nervous system knows how to restore itself. The sensitivity knows what it is for. The body knows the way home.</p>
-  <p>The work is to stop interfering with that restoration and to actively support the conditions it needs.</p>
-  <p>This is not passive. Creating genuine conditions requires real effort, real discipline, real courage, and real love. But the orientation is fundamentally different from a plan designed to defeat a condition.</p>
-
-  <div class="philosophy-quote">
-    <p>This is not war. This is restoration.</p>
-  </div>
-
-  <p>The question this practice is organized around is not: <em>how do we reduce reactivity?</em></p>
-  <p>It is: <em>what restores alignment and develops the capacity to hold sensitivity as a gift rather than a wound?</em></p>
-  <p>Symptom reduction follows from this. It is not the goal. It is the natural byproduct of genuine alignment. In a practice organized around alignment, nothing is wasted. Difficult weeks are information. Slow periods are incubation. Everything is material for the journey.</p>
-
-  <div class="section-divider"></div>
-
-  <!-- THREE LIVING MOVEMENTS -->
-  <h2 class="section-title" id="fw-movements">4. The Three Living Movements</h2>
-  <p>This is not a ladder to be climbed. It is a spiral — three movements that breathe throughout the entire journey, each always present, each more emphasized at different moments. A single session can move through all three. A difficult week may call for return to the first. The arc is real but it is not linear. It is alive.</p>
-
-  <div class="movements-grid">
-    <div class="movement-card">
-      <div class="movement-number">I</div>
-      <div class="movement-name" id="fw-descent">Descent &amp; Restoration</div>
-      <div class="movement-desc">Go underground before acting. Protected withdrawal into the root layer. Quieting the noise of the surface world enough that deeper signals can be heard. This is not preparation for healing — it is the beginning of it.</div>
-    </div>
-    <div class="movement-card">
-      <div class="movement-number">II</div>
-      <div class="movement-name" id="fw-alignment">Alignment &amp; Attunement</div>
-      <div class="movement-desc">When genuine stillness is produced, something reorients. Not through effort — through the quiet the descent created. The overflowing source begins feeding the whole vertical system naturally. The heart of the practice.</div>
-    </div>
-    <div class="movement-card">
-      <div class="movement-number">III</div>
-      <div class="movement-name" id="fw-embodiment">Embodiment &amp; Service</div>
-      <div class="movement-desc">What has been developed is brought back into daily life. The sensitivity now oriented outward as gift rather than inward as wound. This movement is ongoing. It is what the practice was always for.</div>
-    </div>
-  </div>
-
-  <p>These three movements do not replace each other. They deepen together. They breathe throughout the entire journey. The community — even as the primary trigger environment — is simultaneously the primary field of practice for the third movement.</p>
-
-  <div class="section-divider"></div>
-
-  <!-- THE LISTENING PIER -->
-  <h2 class="section-title" id="fw-listening">5. The Listening Pier</h2>
-  <p>The most important structural element of this entire practice.</p>
-  <p>Developing felt-sense, deep listening, intuitive attunement, energy reading, and conscious connection with guidance beyond the physical is not one practice among many. It is the foundational skill that everything else serves and from which everything else takes its proper direction.</p>
-  <p>The sensitive faculty that the condition has been expressing in its dysregulated form is the same faculty being consciously developed here. The healing and the awakening are the same movement, traveling in the same direction.</p>
-  <p>The science and the spirit are not in conflict here. Interoception is the same neural pathway that behavioral rewriting works through. Dreams are memory consolidation. The theta-alpha state of deep meditation is precisely where unconscious material surfaces. Synchronicities are pattern recognition from a quieted mind. And plant medicine encounters are genuine dialogues with an intelligence that communicates.</p>
-
-  <div class="subsection-title">The Trust Hierarchy</div>
-  <ol class="trust-list">
-    <li><span class="trust-num">1</span><span class="trust-text">Direct felt sense and deep listening in the present moment</span></li>
-    <li><span class="trust-num">2</span><span class="trust-text">What emerged from plant medicine sessions and their integration</span></li>
-    <li><span class="trust-num">3</span><span class="trust-text">Dreams, synchronicities, and received inspiration and guidance</span></li>
-    <li><span class="trust-num">4</span><span class="trust-text">Trusted guides, practitioners, and community wisdom</span></li>
-    <li><span class="trust-num">5</span><span class="trust-text">The practice structure and neuroscience framework</span></li>
-    <li><span class="trust-num">6</span><span class="trust-text">External tools and support structures</span></li>
-  </ol>
-
-  <div class="inline-note">
-    The decision-making principle: Before any significant decision in this practice, the first question is not "what does the structure say?" — it is "what does deep listening say?" External sources inform. Internal sources govern.
-  </div>
-
-  <div class="section-divider"></div>
-
-  <!-- VERTICAL ALIGNMENT -->
-  <h2 class="section-title" id="fw-vertical">6. Vertical Alignment — The Primary Work</h2>
-  <p>One overflowing source feeds the whole vertical system. The energy centers of the body are not separate systems to be managed independently. They are a single column. When the vertical connection is restored, the whole system reorganizes.</p>
-  <p>The organizing question of this practice is not: <em>which intervention addresses which symptom?</em></p>
-  <p>It is: <em>what restores and deepens vertical flow?</em></p>
-  <p>The criterion is not mechanistic efficiency alone. It is: does this restore and deepen the column?</p>
-
-  <div class="subsection-title">What Restores the Column</div>
-  <ul class="bullet-list">
-    <li><strong>Sleep</strong> — not consolidation substrate, the primary alignment practice. The nightly descent where the column is most naturally permeable.</li>
-    <li><strong>Nourishment</strong> — food as an act of care for the instrument. The physical foundation of the column's clarity.</li>
-    <li><strong>Embodied movement and somatic practice</strong> — releasing chronic tension, restoring the body as an open channel.</li>
-    <li><strong>Movement in nature</strong> — physical practice in natural environment restores felt vertical aliveness in a way indoor practice cannot replicate.</li>
-    <li><strong>Deep meditative practice</strong> — accessing the threshold state where the column is naturally more permeable.</li>
-    <li><strong>Plant medicine</strong> — the full column becomes accessible. An encounter with intelligence that shows what genuine vertical openness feels like.</li>
-    <li><strong>Heart-opening work</strong> — the layer where love was replaced by fear. Where the interpersonal dimension of the condition lives.</li>
-    <li><strong>Structural nervous system support</strong> — when the sympathetic baseline is chronically elevated, the column is perpetually contracted. Structural floor-lowering is foundational.</li>
-    <li><strong>Community and genuine connection</strong> — real warmth, belonging, and love restore the column from the relational layer.</li>
-    <li><strong>Being of service</strong> — purpose beyond personal relief changes the quality of everything.</li>
-    <li><strong>Behavioral rewriting techniques</strong> — when vertical alignment is sufficiently present, available for writing new associations in the conditioned response layer.</li>
-  </ul>
-
-  <div class="section-divider"></div>
-
-  <!-- LOVE AS MECHANISM -->
-  <h2 class="section-title" id="fw-love">7. Love as Mechanism</h2>
-
-  <div class="philosophy-quote">
-    <p>Less struggle. More love.</p>
-    <p>This is precise, not poetic.</p>
-  </div>
-
-  <p>Behavioral rewriting works because a genuinely felt positive emotional state is neurologically incompatible with threat response. The new association that rewrites the old one must be felt in the body — warmth, expansion, genuine positive emotion. Love is not a supplement to the mechanism. Love is what the mechanism runs on.</p>
-  <p>In triggered moments: the shift from <em>what are they doing to me</em> toward <em>what is happening in me</em> is a movement toward self-compassion. The nervous system in a triggered state is not malfunctioning. It is frightened. Meeting it with warmth changes what is available in the very next moment.</p>
-  <p>The parts of the system organizing around the condition — the protectors generating reactivity, the vulnerability they protect — are met with curious, compassionate attention. They have been working very hard for a very long time. When they are genuinely heard, they begin to relax.</p>
-  <p>At the largest scale: healing done in the knowledge that it returns one more fully to others is healing of a different quality. The condition that has most impaired daily life is precisely about being present with other people. The healed sensitivity — attuned, skilled, loving — makes genuine presence possible. <strong>That is what this practice is for.</strong></p>
-
-  <div class="section-divider"></div>
-
-  <!-- THE INCUBATION PRINCIPLE -->
-  <h2 class="section-title" id="fw-incubation">8. The Incubation Principle</h2>
-  <p>Three eggs at the center. Twelve spirals of natural cycle surrounding them. Turtle wisdom overhead. Eyes closed, vision inward.</p>
-  <p>Eggs do not hatch faster with more effort. They hatch with warmth, stillness, and proper timing. Forcing emergence breaks them.</p>
-  <p>Slow is not failure. Slow is often the signal that something real is incubating beneath the surface — something that needs the full time it needs.</p>
-  <p>The most important changes in this practice happen underground — in sleep, in the gradual opening of the listening pier, in the accumulation of moments where sensitivity was met with curiosity rather than fear, in the quiet development of capacities that have no visible metric.</p>
-
-  <div class="inline-note">
-    Whenever the impulse to intensify, add, accelerate, or optimize arises — pause. Bring it to the listening pier first. Ask whether it arises from genuine felt readiness or from the old hypervigilant problem-solving mode that knows how to disguise itself as wisdom. Often it is the latter.
-  </div>
-
-  <div class="section-divider"></div>
-
-  <!-- THE MECHANISTIC FOUNDATION -->
-  <h2 class="section-title" id="fw-mechanistic">9. The Mechanistic Foundation — As Working Hypothesis</h2>
-  <p>The neuroscience is real and useful. It is not the authority.</p>
-  <p>The best currently available science describes a conditioned threat response that activates faster than conscious regulation can reach — involving the auditory system, threat-detection centers, the autonomic nervous system, and social-threat coding attached to specific people. Running ahead of everything is anticipatory activation — the system pre-mobilizing before any trigger occurs.</p>
-  <p>This map informs which tools are useful and in what sequence. It is genuinely valuable. And it is not the whole story.</p>
-  <p>Direct experience — what surfaces in sessions, in dreams, in deep listening, in the body, in guidance received through plant medicine and other channels — holds an authority that no external model fully captures.</p>
-  <p><strong>Where deep listening contradicts the map, follow the listening. The map is updated accordingly.</strong></p>
-  <p>The practice makes space for whatever the listening reveals — ancestral material, spiritual dimensions, relational dynamics with roots deeper than any remembered incident, energetic patterns that precede the personal history. It does not insist that the territory conform to the map.</p>
-
-  <div class="section-divider"></div>
-
-  <!-- THE RETREAT PROVISION -->
-  <h2 class="section-title" id="fw-retreat">10. The Retreat Provision</h2>
-  <p>There will be times when the greater perspective is temporarily lost. When the surface world is loud, the body depleted, the listening pier overwhelmed, the condition simply painful and the elevated view not accessible. These moments are not failures. They are part of the journey.</p>
-  <p>The retreat provision is the protected space — always available, always protective, requiring no justification to enter.</p>
-  <ul class="bullet-list">
-    <li><strong>Restorative embodied practices</strong> — restore the listening capacity when it has been overwhelmed. Do not require the elevated view. Create conditions for its return.</li>
-    <li><strong>Practical protective tools</strong> — allow participation in daily community life without unnecessary cost while the system recovers.</li>
-    <li><strong>Full pause on active rewiring</strong> — no intensification of any kind. Support doubled. This is not failure.</li>
-    <li><strong>Simple in-the-moment tools</strong> — always available in any difficult moment, requiring nothing except the breath already present.</li>
-  </ul>
-  <p>Stay in the retreat provision until the listening returns. Until the felt sense says: <em>I can hear again.</em> Then the journey continues from wherever it actually is — not from wherever a schedule says it should be.</p>
-
-  <div class="section-divider"></div>
-
-  <!-- HIERARCHY OF SUPPORT -->
-  <h2 class="section-title" id="fw-hierarchy">11. The Hierarchy of Support</h2>
-
-  <div class="hierarchy-block">
-    <div class="hierarchy-header">Permanent — Develop the Primary Instrument</div>
-    <div class="hierarchy-items">
-      <div class="hierarchy-item">Embodied daily practice — somatic, movement, breath</div>
-      <div class="hierarchy-item">Deep meditative practice (Yoga Nidra, breathwork)</div>
-      <div class="hierarchy-item">Movement in natural environment and natural elements</div>
-      <div class="hierarchy-item">Resistance and physical training</div>
-      <div class="hierarchy-item">Sleep — honored as primary alignment practice</div>
-      <div class="hierarchy-item">Nourishment — as self-love and instrument care</div>
-      <div class="hierarchy-item">Dream journaling and felt-sense development</div>
-      <div class="hierarchy-item">Energy reading and intuitive development</div>
-      <div class="hierarchy-item">Plant medicine sessions and integration</div>
-      <div class="hierarchy-item">Structured learning in intuitive and channeling development</div>
-      <div class="hierarchy-item">Genuine connection, community, and service</div>
-    </div>
-  </div>
-
-  <div class="hierarchy-block">
-    <div class="hierarchy-header">Transitional Support — Teach, Then Step Back</div>
-    <div class="hierarchy-items">
-      <div class="hierarchy-item">Biofeedback devices that teach felt sense of states the body learns to generate independently</div>
-      <div class="hierarchy-item">Neuromodulation tools that support nervous system during active rewriting</div>
-      <div class="hierarchy-item">Tracking tools that establish biological baseline</div>
-      <div class="hierarchy-item">Auditory retraining — completed, then maintained through natural sound environments</div>
-      <div class="hierarchy-item">Behavioral rewriting techniques — employed when alignment is present and timing is right</div>
-    </div>
-  </div>
-
-  <div class="hierarchy-block">
-    <div class="hierarchy-header">The Governing Layer</div>
-    <div class="hierarchy-items">
-      <div class="hierarchy-item">The listening pier — not a practice with a time slot. The orientation from which all other support is chosen, calibrated, and released.</div>
-    </div>
-  </div>
-
-  <div class="section-divider"></div>
-
-  <!-- WHAT REMAINS AND WHAT CHANGES -->
-  <h2 class="section-title" id="fw-remains">12. What Remains — And What Changes</h2>
-
-  <div class="quality-cards" style="grid-template-columns: 1fr 1fr;">
-    <div class="practice-card">
-      <div class="practice-card-title">What Remains</div>
-      <ul class="bullet-list" style="margin: 0;">
-        <li>The care and precision of all previous work</li>
-        <li>The mechanistic tools — repositioned, not discarded</li>
-        <li>Biological substrate support</li>
-        <li>Community navigation strategies</li>
-        <li>Structural nervous system intervention</li>
-        <li>Sleep architecture</li>
-        <li>The research foundation</li>
-        <li>The rigor and honesty of previous versions</li>
-      </ul>
-    </div>
-    <div class="practice-card">
-      <div class="practice-card-title">What Changes</div>
-      <ul class="bullet-list" style="margin: 0;">
-        <li>The relationship to all of it</li>
-        <li>The center: alignment and attunement, not CC</li>
-        <li>The language: restoration, not warfare</li>
-        <li>The relationship to time: patient wisdom, not urgency</li>
-        <li>The condition: named as messenger, not malfunction</li>
-        <li>The nervous system: instrument being attuned</li>
-        <li>The work: restoration, alignment, love</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="section-divider"></div>
-
-  <!-- A NOTE -->
-  <h2 class="section-title" id="fw-note">A Note on This Document</h2>
-
-  <div class="note-box">
-    <p>This framework emerged from a tarot reading by Lesley, April 12, 2026, and the conversation that followed.</p>
-    <p>Three cards from an unusual and beautiful deck.</p>
-    <p>A young Native American man lying underground among three bears and a salmon, his hand resting on his heart, four swords fixed into the living trunks of trees above him in a starry night.</p>
-    <p>A hooded woman in perfect alignment, energy centers lit from root to crown, cranes witnessing on either side, a great overflowing cup behind and above her in a sunlit lotus, filling three cups below.</p>
-    <p>A woman with eyes closed and a star at her third eye, three turtles with spiral shells circling her head, three unhatched eggs held in a nest at her center, surrounded by twelve spiraling segments of a year.</p>
-    <p>These images hold more of the truth of this practice than any mechanistic description ever could. Return to them whenever the document starts to feel like something other than what it is.</p>
-    <p class="gold">The tools are in the trees.<br>The source is already overflowing.<br>The eggs are warm.</p>
-  </div>
-
+  <div class="ig">Sequence governs. Clock does not. <strong>Irreducible minimum:</strong> one embodied practice · listening check-in · Yoga Nidra.</div>
 </div>
-<!-- END FRAMEWORK PANE -->
 
-<!-- ══════════════ PRACTICE PANE ══════════════ -->
-<div class="doc-pane" id="practice-pane">
+<!-- ─── MORNING ─── -->
+<div class="section" id="pr-morning">
 
-  <div class="doc-title">The Practice</div>
-  <div class="doc-subtitle">Healing, Alignment, and Awakening Sensitivity</div>
-  <div class="doc-date">Read the Governing Framework before reading this · Living Document</div>
+  <div class="time-block morning">
+    <div class="tb-hdr">
+      <span class="tb-time">Wake → 8am</span>
+      <span class="tb-title">Morning</span>
+    </div>
 
-  <div class="doc-intro">
-    Everything here flows from the Governing Framework. This is what you do — the daily container, the arc of the journey, and the full toolkit available when the listening pier calls for something specific. Hold it as a useful companion, not a fixed prescription.
+    <!-- ON WAKING -->
+    <div class="ctx-block ctx-wake">
+      <div class="ctx-hdr">
+        <div class="ctx-label">On Waking</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Bare feet on earth</span><span class="ir-d">Grass, soil, rock, sand — before anything else.</span></div>
+        <div class="ir"><span class="ir-n">Bright natural light</span><span class="ir-d">Outside preferred. Within minutes of waking.</span></div>
+        <div class="ir"><span class="ir-n">Cold shower finish</span><span class="ir-d">30 seconds.</span></div>
+        <div class="ir"><span class="ir-n">First question</span><span class="ir-d"><em>What is present right now?</em></span></div>
+      </div>
+    </div>
+
+    <!-- BEFORE FOOD / BEFORE ANYTHING -->
+    <div class="ctx-block ctx-empty">
+      <div class="ctx-hdr">
+        <div class="ctx-label">Before Food</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Morning pages</span><span class="ir-d">3 pages longhand stream-of-consciousness. Or: 5 sentences of genuine felt gratitude.</span></div>
+        <div class="ir"><span class="ir-n">Creatine 7.5g</span><span class="ir-d">In water.</span></div>
+        <div class="ir"><span class="ir-n">L. reuteri 1–2 tabs</span><span class="ir-d">Chew thoroughly. Do not swallow whole.</span></div>
+      </div>
+    </div>
+
+    <!-- PRACTICES -->
+    <div class="ctx-block ctx-practice">
+      <div class="ctx-hdr">
+        <div class="ctx-label">Practices</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">TRE</span><span class="ir-d">10–15 min neurogenic tremoring.</span><span class="ir-t">→ Guides</span></div>
+        <div class="ir"><span class="ir-n">Qi-Gong</span><span class="ir-d">15–20 min — shaking + slow flowing (Ba Duan Jin).</span><span class="ir-t">→ Guides</span></div>
+        <div class="ir"><span class="ir-n">Resonance breathing</span><span class="ir-d">15–20 min — 6 breaths/min with genuinely felt positive emotion simultaneously.</span><span class="ir-t">→ Guides</span></div>
+        <div class="ir"><span class="ir-n">Sound practice</span><span class="ir-d">Vocal toning or chanting — when called for.</span><span class="ir-t">→ T.4</span></div>
+      </div>
+    </div>
+
+    <!-- STILL EMPTY STOMACH — NMN -->
+    <div class="ctx-block ctx-empty">
+      <div class="ctx-hdr">
+        <div class="ctx-label">Still Empty Stomach</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">NMN 500mg sublingual</span><span class="ir-d">Dissolve under tongue 1–2 min. Before first food and before other supplements.</span><span class="ir-t phase">Month 2+</span></div>
+      </div>
+    </div>
+
+    <!-- WITH FIRST FOOD -->
+    <div class="ctx-block ctx-food">
+      <div class="ctx-hdr">
+        <div class="ctx-label">With First Food</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Krill oil 2–3 softgels</span><span class="ir-d">Phospholipid-form EPA+DHA. Skip on fish days.</span></div>
+        <div class="ir"><span class="ir-n">Algae oil 2–4 softgels</span><span class="ir-d">Combined EPA+DHA target with krill: 2–3g daily. Skip on fish days. Pause 1 week pre-SGB.</span></div>
+        <div class="ir"><span class="ir-n">Lion's Mane 2g</span><span class="ir-d">Dual-extracted only. Never skip — not weekends, not microdosing off-days.</span></div>
+        <div class="ir"><span class="ir-n">Bacopa 320mg</span><span class="ir-d">With food. Takes 4–6 weeks to reach full effect.</span><span class="ir-t phase">Week 3+</span></div>
+        <div class="ir"><span class="ir-n">D3/K2</span><span class="ir-d">2000–5000 IU D3 + 100mcg K2 MK-7. Requires fat for absorption.</span></div>
+        <div class="ir"><span class="ir-n">B-complex (methylated)</span><span class="ir-d">Confirm methylfolate and methylcobalamin on label. Morning only.</span></div>
+        <div class="ir"><span class="ir-n">B12 1000mcg sublingual</span><span class="ir-d">Methylcobalamin. Dissolve under tongue.</span></div>
+        <div class="ir"><span class="ir-n">Ashwagandha KSM-66 600mg</span><span class="ir-d">Skip on MDMA session days.</span><span class="ir-t phase">Phase 2+</span></div>
+        <div class="ir"><span class="ir-n">Lithium Orotate 5mg</span><span class="ir-d">Do not exceed 10mg/day.</span><span class="ir-t phase">Phase 2+</span></div>
+        <div class="ir"><span class="ir-n">NAC 600mg (1st dose)</span><span class="ir-d">Stop 3 days before MDMA. Resume 48h after.</span><span class="ir-t phase">Phase 2+</span></div>
+        <div class="ir"><span class="ir-n">Resveratrol 500mg</span><span class="ir-d">With fat. Weekdays only.</span><span class="ir-t phase">Consolidation+</span></div>
+      </div>
+    </div>
+
+    <!-- LISTENING CHECK-IN -->
+    <div class="ctx-block ctx-listen">
+      <div class="ctx-hdr">
+        <div class="ctx-label">Listening</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Dream journal</span><span class="ir-d">Review what arrived overnight before the day takes over.</span></div>
+        <div class="ir"><span class="ir-n">Matcha</span><span class="ir-d">With or after first food.</span></div>
+        <div class="ir"><span class="ir-n">Check-in</span><span class="ir-d"><em>What quality does this day have?</em></span></div>
+      </div>
+    </div>
+
+    <!-- TRAINING DAYS VARIATION -->
+    <div class="var-block">
+      <div class="var-hdr">Training Days — 3×/week (sequence adjustment)</div>
+      <div class="var-row"><span class="var-n">Sequence</span><span class="var-d">Training first → protein immediately after → TRE → Qi-Gong → Resonance breathing → NMN sublingual → first food + supplements</span></div>
+    </div>
+
+    <!-- WATERFALL DAYS VARIATION -->
+    <div class="var-block">
+      <div class="var-hdr">Waterfall Days — 2×/week (sequence adjustment)</div>
+      <div class="var-row"><span class="var-n">Sequence</span><span class="var-d">Morning practices → NMN sublingual → first food + supplements → waterfall run (Zone 2 + cold immersion). When unavailable: Zone 2 outdoors + cold shower.</span></div>
+    </div>
+
   </div>
+</div>
 
-  <!-- THE CORE -->
-  <div class="core-box" id="pr-core">
-    <div class="core-box-label">The Core — Everything in service of this</div>
-    <ul class="core-items">
-      <li>Alignment</li>
-      <li>Healthy sensitivity attunement</li>
-      <li>Love</li>
-      <li>Being of service</li>
-      <li>Raising to high vibrational frequency</li>
+<!-- ─── MIDDAY ─── -->
+<div class="section" id="pr-midday">
+
+  <div class="time-block midday">
+    <div class="tb-hdr">
+      <span class="tb-time">12–2pm</span>
+      <span class="tb-title">Midday</span>
+    </div>
+
+    <!-- 10AM MON-THU MICRODOSING -->
+    <div class="ctx-block ctx-supp">
+      <div class="ctx-hdr">
+        <div class="ctx-label">10am Mon–Thu</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Psilocybin 0.1–0.15g</span><span class="ir-d">With or after first food.</span><span class="ir-t phase">Microdosing period</span></div>
+        <div class="ir"><span class="ir-n">Niacin 100–200mg</span><span class="ir-d">Nicotinic acid (not niacinamide). 30 min after psilocybin.</span><span class="ir-t phase">Microdosing period</span></div>
+      </div>
+    </div>
+
+    <!-- BEFORE MEAL -->
+    <div class="ctx-block ctx-empty">
+      <div class="ctx-hdr">
+        <div class="ctx-label">Before Meal</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">ACV 1 tbsp</span><span class="ir-d">Apple cider vinegar in water. AMPK activation, blood sugar management.</span></div>
+      </div>
+    </div>
+
+    <!-- FIRST FULL MEAL -->
+    <div class="ctx-block ctx-meal">
+      <div class="ctx-hdr">
+        <div class="ctx-label">First Full Meal</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Fasting window ends</span><span class="ir-d">14–16 hours from last meal. First full meal at midday or after.</span></div>
+        <div class="ir"><span class="ir-n">Oily fish</span><span class="ir-d">Sardines, mackerel, or salmon. Skip omega-3 supplements on fish days.</span><span class="ir-t">2–3×/week</span></div>
+        <div class="ir"><span class="ir-n">Sulforaphane</span><span class="ir-d">Broccoli sprouts (raw) or broccoli. Chop 40 min before cooking; add mustard seed powder to restore enzymatic activity.</span></div>
+        <div class="ir"><span class="ir-n">Wheat germ 1–2 tbsp</span><span class="ir-d">Spermidine. Add to anything.</span></div>
+        <div class="ir"><span class="ir-n">Spice base</span><span class="ir-d">Turmeric (with black pepper + fat), ginger, oregano, garlic.</span></div>
+        <div class="ir"><span class="ir-n">Capers</span><span class="ir-d">Daily. Highest quercetin concentration. Add to anything.</span></div>
+        <div class="ir"><span class="ir-n">Oyster mushrooms</span><span class="ir-d">When available. Ergothioneine.</span></div>
+      </div>
+    </div>
+
+    <!-- WITH MEAL SUPPLEMENTS -->
+    <div class="ctx-block ctx-supp">
+      <div class="ctx-hdr">
+        <div class="ctx-label">With Meal</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Phosphatidylserine 300mg</span><span class="ir-d">Midday only — not evening (can interfere with sleep).</span><span class="ir-t phase">Month 2+</span></div>
+        <div class="ir"><span class="ir-n">NAC 600mg (2nd dose)</span><span class="ir-d">Second of two daily doses.</span><span class="ir-t phase">Phase 2+</span></div>
+        <div class="ir"><span class="ir-n">Berberine 500mg</span><span class="ir-d">3×/week. Not on resistance training days.</span><span class="ir-t phase">Consolidation+</span></div>
+      </div>
+    </div>
+
+    <!-- AFTERNOON PRACTICE -->
+    <div class="ctx-block ctx-practice">
+      <div class="ctx-hdr">
+        <div class="ctx-label">Afternoon</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Green tea</span><span class="ir-d">Kukicha or sencha. Space 1h from iron-rich meals.</span></div>
+        <div class="ir"><span class="ir-n">Receptive nature time</span><span class="ir-d">Unhurried time outdoors — no agenda except to receive. Sitting, watching, listening.</span></div>
+        <div class="ir"><span class="ir-n">Creative expression</span><span class="ir-d">Making something — any form. Not scheduled, when called for.</span></div>
+        <div class="ir"><span class="ir-n">Active rewriting work</span><span class="ir-d">Only when the felt sense is resourced and the listening pier confirms readiness. See T.3.</span><span class="ir-t">→ Toolkit</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── EVENING ─── -->
+<div class="section" id="pr-evening">
+
+  <div class="time-block evening">
+    <div class="tb-hdr">
+      <span class="tb-time">5pm on</span>
+      <span class="tb-title">Evening</span>
+    </div>
+
+    <!-- FINAL MEAL -->
+    <div class="ctx-block ctx-meal">
+      <div class="ctx-hdr">
+        <div class="ctx-label">Final Meal — by 6pm</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Strawberries</span><span class="ir-d">Fisetin (senolytic).</span><span class="ir-t">Weekly</span></div>
+        <div class="ir"><span class="ir-n">No food after 6pm</span><span class="ir-d">Fasting window begins here.</span></div>
+      </div>
+    </div>
+
+    <!-- WIND DOWN -->
+    <div class="ctx-block ctx-wind">
+      <div class="ctx-hdr">
+        <div class="ctx-label">Wind Down</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Warm shower</span><span class="ir-d">Lowers core body temperature — primary physiological trigger for sleep onset.</span></div>
+        <div class="ir"><span class="ir-n">Felt-sense check-in</span><span class="ir-d"><em>What is actually present right now?</em></span></div>
+        <div class="ir"><span class="ir-n">Synchronicities noted</span><span class="ir-d">Anything that arrived today. No interpretation required.</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ─── BEFORE SLEEP ─── -->
+<div class="section" id="pr-sleep">
+
+  <div class="time-block sleep">
+    <div class="tb-hdr">
+      <span class="tb-time">8–9pm</span>
+      <span class="tb-title">Before Sleep</span>
+    </div>
+
+    <!-- SLEEP STACK — 30-60 MIN BEFORE -->
+    <div class="ctx-block ctx-sleep-stack">
+      <div class="ctx-hdr">
+        <div class="ctx-label">30–60 min before sleep</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Magnesium L-Threonate 2000mg</span><span class="ir-d">Brain-specific magnesium delivery. Sleep depth and synaptic plasticity.</span></div>
+        <div class="ir"><span class="ir-n">Magnesium Glycinate 360mg</span><span class="ir-d">Elemental. Do not substitute oxide or citrate forms.</span></div>
+        <div class="ir"><span class="ir-n">Glycine 3g</span><span class="ir-d">Reduces core body temperature at sleep onset.</span></div>
+        <div class="ir"><span class="ir-n">Apigenin 50mg</span><span class="ir-d">Mild anxiolytic, promotes sleep onset. Avoid on nights drinking.</span></div>
+        <div class="ir"><span class="ir-n">Melatonin 0.5mg</span><span class="ir-d">First 4–6 weeks only. Taper by halving dose, then stop.</span><span class="ir-t temp">Temporary</span></div>
+      </div>
+    </div>
+
+    <!-- SLEEP PREP -->
+    <div class="ctx-block ctx-sleep-prep">
+      <div class="ctx-hdr">
+        <div class="ctx-label">Sleep Preparation</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Yoga Nidra</span><span class="ir-d"><strong>Every evening without exception.</strong> 20 min minimum. Must include open awareness of external sounds phase. Jennifer Piercy · Huberman NSDR · Ally Boothroyd.</span><span class="ir-t">→ Guides</span></div>
+        <div class="ir"><span class="ir-n">Screens off</span><span class="ir-d">Pink noise on. Blackout mask on.</span></div>
+        <div class="ir"><span class="ir-n">Target sleep onset</span><span class="ir-d">9:00–10:00pm. Fixed wake time.</span></div>
+      </div>
+    </div>
+
+    <!-- NIGHT WAKING -->
+    <div class="ctx-block ctx-sleep-prep">
+      <div class="ctx-hdr">
+        <div class="ctx-label">Night Waking</div>
+      </div>
+      <div class="item-rows">
+        <div class="ir"><span class="ir-n">Do not check phone</span><span class="ir-d">Put on sleep-specific Yoga Nidra track immediately. Stay in theta-alpha state even if sleep does not return.</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- OPERATING MODES -->
+<div class="section" id="pr-modes">
+  <div class="stag tg">Operating Quality</div>
+  <h1 class="st">How to Read the Day</h1>
+  <div class="mode-row">
+    <div class="mode-card mode-green">
+      <div class="mc-t">Resourced</div>
+      <div class="mc-b">Full engagement. Active work when called for. When a plasticity window is open simultaneously — maximum presence.</div>
+    </div>
+    <div class="mode-card mode-yellow">
+      <div class="mc-t">Frayed</div>
+      <div class="mc-b">Support day. All embodied practices. No active rewriting, no deliberate exposure, no intensification.</div>
+    </div>
+    <div class="mode-card mode-red">
+      <div class="mc-t">Overwhelmed</div>
+      <div class="mc-b">Retreat provision activates. Full stop on active work. Support doubled. → See below.</div>
+    </div>
+  </div>
+</div>
+
+<!-- COMMUNITY NAVIGATION -->
+<div class="section" id="pr-community">
+  <div class="stag tg">Community Navigation</div>
+  <h1 class="st">Moving Through Daily Life</h1>
+
+  <h2 class="s2 gl">Tools</h2>
+  <div class="ir" style="padding:6px 0;border-bottom:1px solid var(--border-light);display:flex;gap:8px;align-items:baseline"><span class="ir-n" style="min-width:160px">Sound support</span><span class="ir-d">Bone conduction headphones — barely perceptible pink noise. Earplugs as backup.</span></div>
+  <div class="ir" style="padding:6px 0;border-bottom:1px solid var(--border-light);display:flex;gap:8px;align-items:baseline"><span class="ir-n" style="min-width:160px">Seating</span><span class="ir-d">Edge or corner. Back to wall. Clear exit.</span></div>
+  <div class="ir" style="padding:6px 0;border-bottom:1px solid var(--border-light);display:flex;gap:8px;align-items:baseline"><span class="ir-n" style="min-width:160px">Post-context reset</span><span class="ir-d">2–5 min after any high-load context. Physiological sigh ×3, slow walk, or quiet standing.</span></div>
+  <div class="ir" style="padding:6px 0;display:flex;gap:8px;align-items:baseline"><span class="ir-n" style="min-width:160px">Meals</span><span class="ir-d">Arrive early or late. Short complete meal + clean exit is fully successful.</span></div>
+
+  <h2 class="s2 gl">The Three-Move Sequence — Any Triggered Moment</h2>
+  <div class="step-block">
+    <div class="step-row"><span class="step-num">1</span><span class="step-text"><strong>Physiological — 5 sec.</strong> Double inhale through nose → one long slow exhale. Vagal brake activated.</span></div>
+    <div class="step-row"><span class="step-num">2</span><span class="step-text"><strong>Orientation — 10 sec.</strong> Feet on floor. Body weight. One visible thing.</span></div>
+    <div class="step-row"><span class="step-num">3</span><span class="step-text"><strong>Listening — 10–20 sec.</strong> Where is this in the body? What shape before the story starts? Curiosity about the interior, not the source.</span></div>
+  </div>
+  <div class="ir" style="background:var(--rose-light);border:1px solid var(--rose-border);border-radius:7px;padding:9px 13px;font-size:13px;color:var(--text-mid)">If flooded after three moves: leave. Regulated exit is always correct.</div>
+
+  <h2 class="s2 gl">The Social Contract</h2>
+  <div class="card gl">
+    <p style="font-style:italic;font-size:13px">"I'm working through a sound sensitivity condition that significantly affects me in shared spaces. I'm doing structured work on it. In the meantime I'll sometimes be wearing headphones, adjusting where I sit, or stepping out briefly. This is deliberate and health-related, not social."</p>
+    <p style="font-size:11.5px;color:var(--text-muted);margin-top:6px">One conversation with core community leadership before active work begins.</p>
+  </div>
+</div>
+
+<!-- RETREAT PROVISION -->
+<div class="section" id="pr-retreat">
+  <div class="stag tr">Retreat Provision</div>
+  <h1 class="st">When to Stop and Reset</h1>
+  <p>Always available. No justification required. Stay until the felt sense says: <em>I can hear again.</em></p>
+  <div class="gate">
+    <div class="gate-title">Enter when three or more present — or any single one severe</div>
+    <ul>
+      <li>Sleep poor 3+ consecutive nights</li>
+      <li>Reactivity rising across days rather than settling</li>
+      <li>Active rewriting sessions consistently ending worse than they began</li>
+      <li>Growing dread or avoidance around any core practice</li>
+      <li>Rumination increasing rather than decreasing</li>
+      <li>The practice itself feels oppressive</li>
+      <li>Resentment toward the practice or the condition</li>
     </ul>
   </div>
+  <div class="h-block"><div class="h-body">
+    <div class="h-item"><strong>Active work:</strong> full suspension — no rewriting, no plant medicine, no intensive interventions</div>
+    <div class="h-item"><strong>Embodied practices:</strong> doubled — longer TRE, longer Yoga Nidra, more receptive nature time</div>
+    <div class="h-item"><strong>Substrate:</strong> supplements, nourishment, sleep continue unchanged</div>
+    <div class="h-item"><strong>Duration:</strong> minimum 48 hours, no maximum</div>
+  </div></div>
+</div>
 
-  <p>When anything feels wrong — too heavy, too mechanical, too driven by urgency — return here first.</p>
+<div class="phase-div"><span>Toolkit — When the Listening Pier Calls for It</span></div>
 
-  <div class="section-divider full"></div>
-
-  <!-- PART I -->
-  <div class="part-header">Part I</div>
-  <h1 class="section-title">The Container</h1>
-  <p>The container is built and tended daily. It is the conditions the healing and development require — not the work itself, but the ground the work grows from. The daily rhythm, community navigation, and retreat provision together create the environment in which alignment can deepen, sensitivity can develop, and the journey can unfold at its own pace.</p>
-
-  <!-- I.1 DAILY RHYTHM -->
-  <h2 class="section-title-sm" id="pr-rhythm">I.1 The Daily Rhythm</h2>
-  <p>Sequence governs. Clock does not. The order of the practices matters. The precise time is flexible. When the day disrupts the full sequence, the irreducible minimum is held.</p>
-
-  <div class="subsection-title">Waking and Grounding</div>
-  <p>Fixed wake time. The day begins with the body before the mind.</p>
-  <p><strong>Bare feet on earth</strong> — grass, soil, rock, sand — for a few minutes before anything else. Not ritual performance. A genuine return to physical ground. Free electrons, measurable anti-inflammatory effects, immediate parasympathetic shift. The Hamakua Coast is extraordinary medicine for this.</p>
-  <p>Bright natural light as soon as possible. Outside preferred. Cold water to finish the morning shower — vagal activation from below, the body awakening from the inside out.</p>
-  <p>On waking, before the shower: one slow breath and one question held without demanding an answer — <em>what is present right now?</em></p>
-
-  <div class="subsection-title">Morning Pages or Gratitude Practice</div>
-  <p>Before consuming any input — before phone, before news — three pages of longhand writing. Stream of consciousness, written at speed, not reread. Whatever is moving in the system gets onto the page and out of the way. Over time this clears the channel to intuitive guidance more reliably than almost anything else.</p>
-  <p>If three pages isn't available: five genuine sentences of felt gratitude — specific, physically felt rather than performed. Genuine gratitude directly shifts the nervous system's baseline frequency.</p>
-
-  <div class="subsection-title">TRE — Tension and Trauma Releasing Exercises (10–15 min)</div>
-  <p>The body's innate neurogenic tremoring — the natural shaking response that humans have largely learned to suppress — allowed to move through the system deliberately each morning. TRE activates the psoas and surrounding structures to produce a self-regulating tremor that discharges stored somatic tension from deep in the nervous system. For a nervous system that has been in chronic defensive posture, this is some of the deepest available somatic medicine. Full instructions in T.3.</p>
-
-  <div class="subsection-title">Qi-Gong (15–20 min)</div>
-  <p>Shaking practice followed by slow flowing movement. As the practice deepens, consider moving toward a more complete form — Ba Duan Jin (Eight Brocades) or simple Tai Chi — which develops the felt sense of qi moving through the body more fully. Full instructions in T.3.</p>
-
-  <div class="subsection-title">Resonance Frequency Breathing (15–20 min)</div>
-  <p>Six breaths per minute — five-second inhale, five-second exhale — with a genuinely felt positive emotion held in the body simultaneously. The breathing alone is insufficient. The felt emotion is what produces coherence. Supported initially by HeartMath biofeedback to learn what coherence actually feels like; once internalized, the breath practice stands alone. Most portable high-frequency practice in the entire document — available anywhere, anytime.</p>
-
-  <div class="subsection-title">Sound Practice (when called for)</div>
-  <p>Vocal toning, chanting, or receptive sound healing as part of the morning when the listening pier calls for it. This is one of the most direct available practices for reorienting the relationship with sound — not by managing the response to external sound, but by developing conscious relationship with sound through the body's own voice. Full entry points in T.4.</p>
-
-  <div class="subsection-title">The Listening Pier Morning Check-In</div>
-  <p>After the morning practices, with the matcha: a brief and genuine turn toward the listening pier. Dream journal reviewed. Synchronicities noted. The felt-sense question: <em>what quality does this day have?</em> Not analysis — reception.</p>
-
-  <div class="subsection-title">On Resistance Training Days</div>
-  <p>Training moves earlier — it precedes TRE and Qi-Gong, which then serve as post-training somatic processing. Protein immediately after training. Target: three times per week.</p>
-
-  <div class="subsection-title">On Waterfall Days</div>
-  <p>The waterfall run is the heart of the day. Zone 2 movement to the waterfall, full cold immersion, the return. Not exercise with a cold finish — a full encounter with the natural world that restores vertical aliveness from the root upward. BDNF elevation, vagal activation, bilateral sensory integration, cortisol rhythm anchoring, grounding. Nothing else in this practice produces this breadth of effect simultaneously. Target: two times per week.</p>
-
-  <div class="subsection-title">Receptive Nature Time</div>
-  <p>Unhurried, receptive time in natural surroundings with no agenda except to receive. Not the waterfall run. Simply being present in the living natural world with full sensory openness — sitting under a tree, standing near the ocean, watching light through leaves. One of the most direct practices available for developing the sensitive faculty.</p>
-
-  <div class="subsection-title">Creative Expression</div>
-  <p>Making something as a regular element of the day — not as leisure but as a genuine method for developing and expressing the sensitive faculty. Any form: writing, drawing, photography, music, movement. The sensitivity learns what it feels like to create rather than only to receive.</p>
-
-  <div class="subsection-title">The Evening Sequence</div>
-  <p>Final meal by 6pm. This anchors the sleep protocol and the overnight descent.</p>
-  <ul class="bullet-list">
-    <li>Sleep stack (magnesium, glycine, apigenin) 30–60 min before sleep</li>
-    <li>Warm shower — lowers core body temperature</li>
-    <li>Yoga Nidra — every evening without exception. The one practice that should not be skipped.</li>
-    <li>Screens off. Pink noise on. Blackout mask on. Sleep.</li>
-  </ul>
-
-  <div class="subsection-title">Night Waking</div>
-  <p>Do not check the phone. Put on the sleep-specific Yoga Nidra track immediately. Maintain the theta-alpha state even if sleep does not return. The cortisol-driven frustration loop that compounds night waking is interrupted by this single act.</p>
-
-  <div class="subsection-title">The Irreducible Minimum</div>
-  <div class="practice-card">
-    <p style="margin: 0;">On disrupted days, three things hold the container upright: one embodied morning practice — even five minutes of TRE. The listening pier check-in — even one breath and one question. Yoga Nidra before sleep — even twenty minutes.</p>
-  </div>
-
-  <div class="subsection-title">The Daily Operating Quality</div>
-  <div class="quality-cards">
-    <div class="quality-card green">
-      <div class="quality-label">Resourced</div>
-      <div class="quality-text">Full engagement. Active work when called for. When a plasticity window is open and the system is simultaneously resourced — maximum presence. This is the highest-value window in the practice.</div>
-    </div>
-    <div class="quality-card yellow">
-      <div class="quality-label">Frayed</div>
-      <div class="quality-text">A support day. All embodied practices. No active rewriting, no deliberate exposure, no intensification. Nourishment. Rest. Let the container hold without adding demand.</div>
-    </div>
-    <div class="quality-card red">
-      <div class="quality-label">Overwhelmed</div>
-      <div class="quality-text">The retreat provision activates. Full stop on active work. Support doubled. Not failure — the practice protecting what has been built.</div>
-    </div>
-  </div>
-
-  <!-- I.2 COMMUNITY NAVIGATION -->
-  <h2 class="section-title-sm" id="pr-community">I.2 Community Navigation</h2>
-  <p>The community is simultaneously the primary trigger environment and the primary relational healing field. These are not contradictions — they are the same living tension being worked through the practice.</p>
-
-  <div class="subsection-title">Before Any Shared Space</div>
-  <p>Brief check-in: resourced, frayed, or overwhelmed? On overwhelmed days, a solo meal or absence from a meeting is not avoidance — it is appropriate protection. On frayed days, full protective tools as default. On resourced days, engage lightly or fully as the system allows.</p>
-
-  <div class="subsection-title">Sound Support</div>
-  <p>Bone conduction headphones playing barely perceptible pink noise. Leave the ear canals open so speech is heard normally while keeping the thalamic scanning reflex occupied. Volume at the threshold of perception. Earplugs as backup on difficult days.</p>
-
-  <div class="subsection-title">Post-Context Reset</div>
-  <p>After any high-load shared context: two to five minutes before the next demand. Physiological sigh, slow walk, cold water on face, or simply standing somewhere quiet. This is physiological action, not analysis.</p>
-
-  <div class="subsection-title">The Three-Move Sequence — In Any Triggered Moment</div>
-
-  <div class="three-moves">
-    <div class="move-num">1</div>
-    <div class="move-content">
-      <div class="move-name">Physiological — First 5 seconds</div>
-      <div class="move-text">One physiological sigh. Double inhale through the nose — two sharp inhales stacking — then one long slow exhale. Mechanically activates the vagal brake. Hardware, not philosophy.</div>
-    </div>
-  </div>
-  <div class="three-moves">
-    <div class="move-num">2</div>
-    <div class="move-content">
-      <div class="move-name">Orientation — 10 seconds</div>
-      <div class="move-text">Feel the feet on the floor. Feel the weight of the body. One thing visible in the room. This tells the brainstem: I am here. I am not in danger. This is a room.</div>
-    </div>
-  </div>
-  <div class="three-moves">
-    <div class="move-num">3</div>
-    <div class="move-content">
-      <div class="move-name">Listening — 10–20 seconds</div>
-      <div class="move-text">Instead of contracting, bracing, or escaping — a moment of genuine curiosity about what is happening inside. Not about the sound. Where is it in the body? What shape and quality does it have, before the story starts? This is the beginning of a different relationship with the condition.</div>
-    </div>
-  </div>
-
-  <div class="inline-note">If the system is genuinely flooded after these three moves: leave. A regulated exit is always correct. The listening happens in the window before flooding, not after it. Under one minute. Most of it is silence.</div>
-
-  <div class="subsection-title">The Social Contract</div>
-  <div class="practice-card">
-    <p style="font-style: italic; margin: 0;">"I'm working through a sound sensitivity condition that significantly affects me in shared spaces. I'm doing structured work on it and expect it to improve meaningfully over time. In the meantime I'll sometimes be wearing headphones at meals or meetings, adjusting where I sit, or stepping out briefly. This is deliberate and health-related, not social. I don't need accommodation — just awareness."</p>
-    <p style="font-size: 15px; color: var(--text-muted); margin: 12px 0 0;">One conversation with core community leadership before active work begins. Done.</p>
-  </div>
-
-  <!-- I.3 RETREAT PROVISION -->
-  <h2 class="section-title-sm" id="pr-retreat">I.3 The Retreat Provision</h2>
-  <p>The retreat provision is always available, always protective, requiring no justification to enter. The only question: does the system need this right now?</p>
-
-  <div class="subsection-title">When to Enter</div>
-  <ul class="signal-list">
-    <li>Sleep poor three or more consecutive nights despite practices</li>
-    <li>Body tension and reactivity rising across days rather than settling</li>
-    <li>Active rewriting sessions consistently ending worse than they began</li>
-    <li>Growing dread or avoidance around any core practice</li>
-    <li>Rumination increasing rather than decreasing</li>
-    <li>The practice itself feeling oppressive rather than supportive</li>
-    <li>Resentment toward the practice or the condition</li>
-  </ul>
-
-  <div class="subsection-title">What the Retreat Provision Is</div>
-  <ul class="bullet-list">
-    <li>Full suspension of active rewriting, plant medicine, and any intensive interventions</li>
-    <li>Embodied practices doubled — longer TRE, longer Yoga Nidra, more receptive nature time</li>
-    <li>Practical protective tools in place for all community contexts. No heroics</li>
-    <li>Biological support maintained — supplements, nourishment, sleep continue regardless</li>
-    <li>Time in nature without agenda. No protocol analysis</li>
-  </ul>
-
-  <div class="subsection-title">Duration</div>
-  <p>Minimum 48 hours. No maximum. Stay until the felt sense says: <em>I can hear again.</em> First reengagement: short, low-stakes, gentle. If the retreat provision is needed repeatedly: the pace of the larger journey needs to slow. This is information, not failure.</p>
-
-  <!-- I.4 LISTENING PIER -->
-  <h2 class="section-title-sm" id="pr-listening">I.4 The Listening Pier in Daily Life</h2>
-
-  <div class="subsection-title">Dream Journal</div>
-  <p>Pen and paper by the bed. Whatever is present upon waking written before the day begins. Received, not analyzed. Patterns emerge over weeks. The dream intelligence becomes a recognized voice — one of the most reliable sources of guidance in the entire practice. Review periodically for recurring themes and persistent images.</p>
-
-  <div class="subsection-title">Daily Felt-Sense Check-In</div>
-  <p>Once each day, briefly: <em>what is actually present right now?</em> Anywhere, any posture. A genuine pause and a sincere question. The answer is not in words — it is in the quality of what arises in the body.</p>
-
-  <div class="subsection-title">Noticing Synchronicities</div>
-  <p>When something arrives that feels like signal — note it. The act of noticing and recording trains the attention that makes receiving more possible. No interpretation required immediately. The channel opens in proportion to how faithfully it is listened to.</p>
-
-  <div class="subsection-title">Energy Reading and Intuitive Development</div>
-  <p>Begins with noticing what is already arriving: the felt sense of a space before entering it, the quality of an interaction before words are spoken, the pull toward or away from something without rational basis. These are early signals from a faculty that has always been present.</p>
-  <p>As the capacity develops, its range naturally expands — from personal felt-sense to attunement with others, to broader fields of intelligence including non-physical intelligence. The direction of travel is always toward greater openness, following what the practice reveals. Specific resources in T.9.</p>
-
-  <div class="subsection-title">Morning Pages as Channel</div>
-  <p>Over time, morning pages often become more than clearing — they become a channel. Guidance, insight, and intelligence that doesn't feel like ordinary thought begins to arrive through the writing. This is a documented phenomenon in the sustained practice. When it begins to happen, receive it without overanalyzing.</p>
-
-  <!-- I.5 RELATIONAL PRACTICES -->
-  <h2 class="section-title-sm" id="pr-relational">I.5 Relational Practices</h2>
-  <p>The condition has most impaired the capacity for genuine presence with others. The third movement is about returning that capacity — as something developed and enriched, not merely restored.</p>
-
-  <div class="subsection-title">Authentic Relating and Circling</div>
-  <p>Structured relational practices that develop the capacity for genuine presence with others — real listening, real contact, real intimacy in a safe container. These directly develop what the condition has most impaired. Available through workshops, online courses, and practice groups.</p>
-
-  <div class="subsection-title">Nonviolent Communication (NVC)</div>
-  <p>A practice of genuine listening and genuine expression. Develops empathy — the capacity to sense what is alive in another person — directly aligned with the energy reading development the practice is building. Resource: <em>Nonviolent Communication</em> by Marshall Rosenberg.</p>
-
-  <div class="subsection-title">Community as Practice Ground</div>
-  <p>Every shared meal. Every meeting. Every moment of friction. These are the third movement asking to be inhabited — gently, imperfectly, with the tools available. The community is not the obstacle to healing. It is the field in which healing becomes embodied.</p>
-
-  <div class="section-divider full"></div>
-
-  <!-- PART II -->
-  <div class="part-header">Part II</div>
-  <h1 class="section-title" id="pr-arc">The Arc</h1>
-
-  <div class="doc-intro" style="margin-bottom: 32px;">
-    What follows is not a roadmap. It is an orientation. The actual arc of this practice will be revealed by the journey itself. It cannot be written in advance. When the territory and this description diverge, follow the territory. The listening pier governs.
-  </div>
-
-  <div class="arc-movement">
-    <div class="arc-movement-name">First Movement — Descent and Restoration</div>
-    <p>The journey begins underground. Not with intervention but with genuine descent — into the body, into stillness, into the root layer where the noise of the surface world cannot easily reach.</p>
-    <p>This movement tends to feel like: building, establishing, settling. The container taking shape. The morning rhythm finding its natural form. Sleep deepening. The body beginning to release chronic bracing. The listening pier opening in its earliest and most basic form.</p>
-    <p>Structural floor-lowering belongs here — the physiological expression of the descent, before behavioral work asks anything significant of the nervous system above the floor. Plant medicine in its orientation form — without agenda — belongs here.</p>
-    <p>Signs that this movement is deepening: the morning practices begin to feel like part of the day rather than tasks. Sleep is noticeably different. Something ambient has shifted slightly — hard to name but real.</p>
-  </div>
-
-  <div class="arc-movement">
-    <div class="arc-movement-name">Second Movement — Alignment and Attunement</div>
-    <p>When the container is genuinely established, something becomes possible that was not possible before. This movement tends to feel like: opening, deepening, sometimes intense, sometimes extraordinarily spacious.</p>
-    <p>The listening pier comes alive in ways the first movement only hinted at. Plant medicine shifts from orientation to genuine encounter. The energy reading and intuitive capacities begin to open in ways that feel real rather than aspirational.</p>
-    <p>The sound practices — toning, chanting, sound healing — begin to transform the relationship with sound itself. Active behavioral rewriting belongs here too — when alignment is present, when the felt sense says the time is right. As a precision instrument, not a schedule.</p>
-    <p>When the felt sense says the work has become oppressive rather than intense: the retreat provision. When the felt sense says there is more available: follow it.</p>
-  </div>
-
-  <div class="arc-movement">
-    <div class="arc-movement-name">Third Movement — Embodiment and Service</div>
-    <p>What has been developed becomes lived. The sensitivity that once fired as alarm now has a place to go — toward genuine attunement, toward service, toward the connection that was always its deepest desire.</p>
-    <p>The relational practices come into their fullest expression here. The energy reading capacity finds its natural outlet in service to others. The creative expression deepens. The condition may still arise — but its quality changes. From overwhelming reactivity to useful signal. From something that impairs presence to something that informs it.</p>
-    <p>This movement does not conclude the practice. It is what the practice was always for. The return upstream. The full spiral of the patient year. The hatched egg, finally, in the world.</p>
-  </div>
-
-  <div class="closing-lines" style="padding-top: 32px; border-top: 1px solid var(--divider); margin-top: 40px;">
-    <p>The arc is real. The journey fills it in.</p>
-  </div>
-
-  <div class="section-divider full"></div>
-
-  <!-- PART III -->
-  <div class="part-header">Part III</div>
-  <h1 class="section-title">The Toolkit</h1>
-
-  <div class="doc-intro" style="margin-bottom: 40px;">
-    The tools are available when the listening pier says they are called for. They are not the practice. They serve it. Use the Toolkit when something specific is being called for — not before.
-  </div>
-
-  <!-- T.1 STRUCTURAL -->
-  <div class="toolkit-section" id="tk-structural">
-    <button class="toolkit-toggle" onclick="toggleToolkit(this)">
-      <div class="toolkit-toggle-label">
-        <span class="toolkit-num">T.1</span>
-        <span class="toolkit-name">Structural Interventions</span>
+<!-- T.1 STRUCTURAL -->
+<div class="section" id="tk-structural">
+  <div class="stag tp">T.1</div>
+  <h1 class="st">Structural Interventions</h1>
+  <details>
+    <summary>Stellate Ganglion Block — DSR Protocol</summary>
+    <div class="dbi">
+      <div class="glance-card" style="margin-top:10px">
+        <div class="glance-row"><span class="glance-label">Protocol</span><span class="glance-val">DSR bilateral: right side first, left side 24–72 hours later</span></div>
+        <div class="glance-row"><span class="glance-label">Provider</span><span class="glance-val">Anesthesiologist or pain physician. <strong>Ultrasound guidance non-negotiable.</strong></span></div>
+        <div class="glance-row"><span class="glance-label">Horner's syndrome</span><span class="glance-val">Expected. Confirms effectiveness. Resolves within hours.</span></div>
+        <div class="glance-row"><span class="glance-label">Post-procedure</span><span class="glance-val">Rest Day 1. Notice ambient life from Day 2. Effect develops over 1–4 weeks.</span></div>
+        <div class="glance-row"><span class="glance-label">Pre-SGB pause</span><span class="glance-val">Krill, omega-3, NAC — 1 week before; resume 48h after. Microdosing — 7 days before. No alcohol 7 days before.</span></div>
       </div>
-      <span class="toolkit-arrow">▼</span>
-    </button>
-    <div class="toolkit-content">
-      <h3 class="subsection-title">Stellate Ganglion Block — DSR Protocol</h3>
-      <p>Structurally lowers the sympathetic baseline by temporarily interrupting overactivated NGF signaling in the stellate ganglion. The effect is a durable reset — not sedation or suppression — that can persist for months to years.</p>
-      <p>The DSR (Dual Sympathetic Reset) protocol: right stellate ganglion first, left side 24–72 hours later. The right side addresses amygdala reactivity and HPA axis overdrive. The left restores autonomic balance and parasympathetic coordination.</p>
-      <p><strong>Provider requirements:</strong> Anesthesiologist or pain physician experienced in SGB. Ultrasound guidance non-negotiable. Disclose all supplements and substances in advance.</p>
-      <p><strong>Horner's syndrome</strong> — temporary drooping of the eyelid, pupil constriction, mild flushing on the injected side — is normal and expected. It confirms the block reached the stellate ganglion effectively. Resolves within hours.</p>
-      <p>Post-procedure: rest Day 1. From Day 2, notice ambient life. The effect develops over 1–4 weeks.</p>
-
-      <div class="pause-rules">
-        <div class="pause-rules-title">Pre-SGB Supplement Pause</div>
-        <p>Pause 1 week before: krill oil, all omega-3 supplements, NAC, vitamin E. All resume 48 hours after the procedure.</p>
-        <p>Pause microdosing 7 days before. Space 72+ hours between any psilocybin macrodose and SGB. No alcohol 7 days before.</p>
-        <p>Continue normally: all other supplements.</p>
-      </div>
-
-      <h3 class="subsection-title" style="margin-top: 32px;">Baseline Biological Testing</h3>
-      <p>Before the practice begins in earnest:</p>
-      <ul class="bullet-list">
-        <li>Comprehensive bloodwork: metabolic panel, CBC, lipids with ApoB, full thyroid with TPO antibodies, hormones (testosterone, DHEA-S, cortisol), inflammation markers (hsCRP, homocysteine), micronutrients (vitamin D, B12, ferritin, zinc, magnesium RBC), blood glucose markers, IGF-1</li>
-        <li>HPA axis profile: salivary cortisol panel across four time points</li>
-        <li>Cellular NAD+ level: actual status before supplementation. Calibrates NMN dosing.</li>
+    </div>
+  </details>
+  <details>
+    <summary>Baseline Biological Testing</summary>
+    <div class="dbi">
+      <p style="margin-top:8px">Before the practice begins in earnest. Repeat at one year.</p>
+      <ul class="prose" style="font-size:13px">
+        <li>Comprehensive bloodwork — see Guides for full spec</li>
+        <li>Salivary cortisol panel across 4 time points</li>
+        <li>Cellular NAD+ level before supplementation begins</li>
       </ul>
-      <p>These form the pre-practice biological portrait. Repeat at one year. Trajectory over time is what matters.</p>
     </div>
-  </div>
+  </details>
+</div>
 
-  <!-- T.2 PLANT MEDICINE -->
-  <div class="toolkit-section" id="tk-medicine">
-    <button class="toolkit-toggle" onclick="toggleToolkit(this)">
-      <div class="toolkit-toggle-label">
-        <span class="toolkit-num">T.2</span>
-        <span class="toolkit-name">Plant Medicine</span>
-      </div>
-      <span class="toolkit-arrow">▼</span>
-    </button>
-    <div class="toolkit-content">
-      <div class="legal-box" style="margin-top: 0; margin-bottom: 24px;">
-        <div class="legal-title">Legal Note</div>
-        <p>Psilocybin and MDMA are Schedule I substances in the United States. Hawaii has no state-level decriminalization. Know your legal context. Hard contraindications: personal or family history of psychosis, schizophrenia, or bipolar I; current SSRIs, SNRIs, pharmaceutical lithium, or MAOIs; heart conditions; pregnancy.</p>
-      </div>
-
-      <h3 class="subsection-title">Psilocybin — Orientation Sessions</h3>
-      <p><strong>Dose:</strong> 1.5–2.0g. <strong>Intention:</strong> none. Arrive openly. No agenda beyond familiarity — learning how this medicine feels before it is ever asked to work.</p>
-      <p><strong>Setting:</strong> private, sacred if possible. Genuinely safe and unhurried. Sitter: a trusted, calm witness — not a guide.</p>
-      <p><strong>Integration (Days 1–3):</strong> rest. Journal if the impulse arises. Light movement from Day 2. Full supplement stack resumes.</p>
-
-      <h3 class="subsection-title">Psilocybin — Therapeutic Sessions</h3>
-      <p><strong>Dose:</strong> 2.0–3.5g, calibrating from experience. <strong>Intention:</strong> 1–3 sentences, honest and specific, offered with open hands.</p>
-      <p>Questions to offer the medicine: <em>What is this sensitivity for? What wants to emerge? What is being asked of me? What is ready to be released?</em></p>
-      <p><strong>Preparation:</strong> no alcohol 7 days, sleep 7.5–8.5 hours nightly, no 5-HTP or tryptophan 24 hours before. Pause microdosing 1 week before.</p>
-      <ul class="bullet-list">
-        <li><strong>Hours 0–2:</strong> Onset and surrender. Lie down. Eyes closed. Music that supports openness. No agenda. Allow.</li>
-        <li><strong>Hours 2–4:</strong> Peak. Stay horizontal. Allow whatever arises. The processing here is the work even without formal structure.</li>
-        <li><strong>Hours 4–5:</strong> If genuinely open: a brief gentle rewriting window. If still emotionally intense: skip. The session is the primary work.</li>
-        <li><strong>Hours 5–6:</strong> Integration landing. Journal, water, fruit, rest. No decisions, no screens.</li>
-      </ul>
-      <p><strong>Integration week:</strong> Day 1 rest. Days 2–7: The Pulse — most neurologically active window of the cycle. Sleep 8+ hours nightly. Dream journal particularly attentive throughout.</p>
-
-      <h3 class="subsection-title">Microdosing — Stamets Stack</h3>
-      <p><strong>Schedule:</strong> 4 days on (Mon–Thu), 3 days off. <strong>Dose:</strong> 0.1–0.15g psilocybin + 100–200mg niacin 30 minutes after. <strong>Timing:</strong> morning with or after food.</p>
-      <p>Sub-perceptual neuroplasticity enhancement. Pause 1 week before any macrodose session. Pause 7 days before SGB. Resume Day 4–5 after macrodose or MDMA integration.</p>
-
-      <h3 class="subsection-title">MDMA</h3>
-      <p><strong>Dose:</strong> 80–120mg. First session toward lower end. Minimum interval: 6 weeks. Maximum: two sessions in any 12-month period. A trusted sitter is strongly recommended.</p>
-      <p>MDMA targets the heart layer — where the interpersonal dimension of the condition lives, where specific people's sounds carry relational charge beyond the acoustic trigger.</p>
-      <p><strong>Preparation:</strong> stop NAC 3 days before. Skip ashwagandha on session day. No 5-HTP or tryptophan 24 hours before. Pause microdosing 1 week before. No alcohol 7 days before.</p>
-      <p><strong>Integration:</strong> Day 1 rest (MDMA disrupts REM 1–3 nights — maintain Yoga Nidra). Days 3–5: EMDR on specific interpersonal memories that arose. 5-HTP 100mg + EGCG 400mg for 3 days from 24 hours after. Resume microdosing Day 4–5.</p>
+<!-- T.2 PLANT MEDICINE -->
+<div class="section" id="tk-medicine">
+  <div class="stag tg">T.2</div>
+  <h1 class="st">Plant Medicine</h1>
+  <div class="ir">Psilocybin and MDMA are Schedule I in the US. Hawaii: no state decriminalization. Contraindications: psychosis / schizophrenia / bipolar I history; SSRIs, SNRIs, pharmaceutical lithium, MAOIs; heart conditions; pregnancy.</div>
+  <details>
+    <summary>Psilocybin — Orientation (1.5–2.0g)</summary>
+    <div class="dbi">
+      <p style="margin-top:8px">No intention. Arrive openly. Private, safe setting. Trusted witness. Day 1 integration: rest only.</p>
     </div>
-  </div>
-
-  <!-- T.3 SOMATIC -->
-  <div class="toolkit-section" id="tk-somatic">
-    <button class="toolkit-toggle" onclick="toggleToolkit(this)">
-      <div class="toolkit-toggle-label">
-        <span class="toolkit-num">T.3</span>
-        <span class="toolkit-name">Somatic and Breath Practices</span>
+  </details>
+  <details>
+    <summary>Psilocybin — Therapeutic (2.0–3.5g)</summary>
+    <div class="dbi">
+      <div class="glance-card" style="margin-top:10px">
+        <div class="glance-row"><span class="glance-label">Questions offered</span><span class="glance-val"><em>What is this sensitivity for? What wants to emerge? What is being asked of me? What is ready to be released?</em></span></div>
+        <div class="glance-row"><span class="glance-label">Preparation</span><span class="glance-val">No alcohol 7 days. No 5-HTP/tryptophan 24h before. Pause microdosing 1 week before.</span></div>
+        <div class="glance-row"><span class="glance-label">Session arc</span><span class="glance-val">0–2h onset → 2–4h peak → 4–5h optional gentle rewriting → 5–6h integration landing</span></div>
+        <div class="glance-row"><span class="glance-label">Integration week</span><span class="glance-val">Day 1 rest. Days 2–7: The Pulse — most neurologically active window. Sleep 8+ hours nightly.</span></div>
       </div>
-      <span class="toolkit-arrow">▼</span>
-    </button>
-    <div class="toolkit-content">
-      <h3 class="subsection-title">TRE Full Instructions</h3>
-      <p>Lie on back, soles of feet together, knees falling outward. Allow the inner thigh muscles to begin tremoring naturally — this typically takes 2–5 minutes of holding the position. Once tremoring begins, allow it to spread and move through the body without directing or suppressing it. Stay curious and present. 10–15 minutes.</p>
-      <p>To intensify: slowly raise the hips off the floor. Lower if tremoring becomes overwhelming. The body regulates intensity when allowed to.</p>
-      <p>Come to stillness. Legs flat, arms at sides. Notice the body for 2–3 minutes before moving.</p>
-      <p>On days of illness: 5 minutes only or gentle shaking from standing. If tremoring moves into strong emotion: allow it, stay with the breath, let it complete.</p>
-      <p>Over time TRE becomes available in other positions — standing, sitting — as the body learns the tremoring mechanism.</p>
-
-      <h3 class="subsection-title">Somatic Release — Simplified (7–10 min)</h3>
-      <p><strong>Constructive rest (5 min):</strong> lie on back, knees bent, feet flat, hands on lower belly. Allow lower back to release toward floor. Breathe into the hands. Jaw released, eyes soft.</p>
-      <p><strong>Diaphragmatic reset (2–3 min):</strong> inhale 4 counts into belly, pause 2 counts, exhale 6 counts. Allow jaw and shoulders to release on each exhale.</p>
-
-      <h3 class="subsection-title">Somatic Release — Full (20–25 min, before active sessions)</h3>
-      <p>Constructive rest (5 min) → Psoas release (5 min — one knee drops slowly outward, hold 2 min each side) → Hip circles (3 min each direction and figure-eights) → Shoulder and neck release (3 min — slow semicircles forward only, shrugs, jaw drops) → Diaphragmatic reset with audible release (3 min) → Integration in standing (2 min).</p>
-      <p>Do not force sharp pain. Psoas release should feel like release, not stretch.</p>
-
-      <h3 class="subsection-title">Qi-Gong Protocol</h3>
-      <p><strong>Shaking (3–5 min):</strong> feet shoulder-width, knees slightly bent. Gentle rhythmic bouncing — allowing the body to vibrate softly. Arms loose. Jaw released. Allow the body to shake rather than making it shake.</p>
-      <p><strong>Slow flowing (10–15 min):</strong> Eight Brocades (Ba Duan Jin) or consistent Tai Chi warm-up sequence. Slow, intentional movement with coordinated breath. Exhale on exertion, inhale on opening.</p>
-
-      <h3 class="subsection-title">Breathwork</h3>
-      <p><strong>Wim Hof Method:</strong> 30–40 deep full inhalations followed by full releases (not forced exhales). After the final release, hold the breath out as long as comfortable. Then one full recovery breath held 15 seconds. Three rounds. Builds autonomic resilience and reduces baseline inflammation.</p>
-      <p><strong>Holotropic-style breathing:</strong> sustained connected breathing at elevated pace for 20–45 minutes, lying down with evocative music. Opens access to non-ordinary states. Best done with a trained facilitator initially. Approach with same respect and intention as plant medicine.</p>
     </div>
-  </div>
-
-  <!-- T.4 SOUND -->
-  <div class="toolkit-section" id="tk-sound">
-    <button class="toolkit-toggle" onclick="toggleToolkit(this)">
-      <div class="toolkit-toggle-label">
-        <span class="toolkit-num">T.4</span>
-        <span class="toolkit-name">Sound Healing and Voice Work</span>
+  </details>
+  <details>
+    <summary>MDMA (80–120mg)</summary>
+    <div class="dbi">
+      <div class="glance-card" style="margin-top:10px">
+        <div class="glance-row"><span class="glance-label">Interval</span><span class="glance-val">Minimum 6 weeks between. Maximum 2 per 12 months. Trusted sitter recommended.</span></div>
+        <div class="glance-row"><span class="glance-label">Preparation</span><span class="glance-val">Stop NAC 3 days before. Skip ashwagandha on session day. No 5-HTP/tryptophan 24h before. No alcohol 7 days before.</span></div>
+        <div class="glance-row"><span class="glance-label">Integration</span><span class="glance-val">Day 1 rest (maintain Yoga Nidra). Days 3–5: EMDR on interpersonal memories that arose. 5-HTP 100mg + EGCG 400mg for 3 days from 24h after.</span></div>
       </div>
-      <span class="toolkit-arrow">▼</span>
-    </button>
-    <div class="toolkit-content">
-      <p>This category addresses the condition from its most direct angle: developing a new relationship with sound through the body itself. Not by managing the response to external sound — by developing conscious relationship with sound from the inside out.</p>
-
-      <h3 class="subsection-title">Vocal Toning</h3>
-      <p>Sustained single tones — vowels or sacred syllables — held and allowed to resonate through the body. Begin with "A" (as in "ah"): sit comfortably, full breath, let the sound emerge and sustain for 10–20 seconds. Feel where it resonates. Move through E, I, O, U with the same quality of attention.</p>
-      <p>The seed mantras of the chakra system (LAM, VAM, RAM, YAM, HAM, OM) work through the same principle: sustained vibration experienced from the inside. 5–10 minutes of daily toning begins to transform the relationship with sound at a fundamental level.</p>
-
-      <h3 class="subsection-title">Chanting</h3>
-      <p>Longer-form sustained vocal practice — mantras repeated for 10–20 minutes, kirtan, Gregorian chant, or devotional singing in any resonant tradition. The specific tradition matters less than the sustained quality of attention and the physical experience of vibration moving through the body.</p>
-
-      <h3 class="subsection-title">Sound Healing as Receiver</h3>
-      <p>Sound baths using singing bowls (crystal or Tibetan), gongs, tuning forks, or other vibrational instruments. Lying down, eyes closed, fully receptive. The body responding to frequencies rather than defending against them. For someone whose condition has been about a dysregulated response to sound, this is retraining at the most fundamental level.</p>
-      <p>A regular sound bath practice — monthly or more — belongs in this practice when accessible. A personal quality singing bowl is a lifetime tool worth acquiring.</p>
-
-      <h3 class="subsection-title">Safe and Sound Protocol (SSP)</h3>
-      <p>A 5-hour auditory intervention using music processed to enhance the human vocal frequency range. Retrains the neural circuits governing auditory safety detection — specifically the stapedius muscle's ability to dampen threat-associated frequencies. Operates upstream of the conditioned response at the auditory hardware level.</p>
-      <p><strong>Platform:</strong> Unyte-iLs (licensed provider required for primary course). 30–60 minutes per session over 1–2 weeks. Lie down, headphones only, no multitasking. Do not run active rewriting sessions on SSP days.</p>
-      <p>After the primary course: 20–30 minutes daily of music in the human vocal frequency range — acoustic folk, unprocessed vocal harmonies, classical violin — in an alert, receptive state. This ongoing practice maintains and deepens the auditory safety training. It is also, simply, a beautiful daily practice.</p>
     </div>
+  </details>
+</div>
+
+<!-- T.3 BEHAVIORAL -->
+<div class="section" id="tk-behavioral">
+  <div class="stag ta">T.3</div>
+  <h1 class="st">Behavioral and Psychological Rewriting</h1>
+  <div class="ia">Employed when vertical alignment is present and the listening pier confirms readiness. Full protocols → Guides</div>
+  <div class="tk-list">
+    <div class="tk-item"><span class="tk-label">Counterconditioning</span><span class="tk-note">Entry: SUDs 0–2, body tension &lt;4/10. Positive resource library + trigger hierarchy. 2–3×/week max.</span><span class="tk-tag prec">Precision</span></div>
+    <div class="tk-item"><span class="tk-label">The Pulse</span><span class="tk-note">72h post plant medicine = highest-value rewriting window. Day 1 rest always. Days 2–3 maximum productive rewriting.</span><span class="tk-tag prec">Precision</span></div>
+    <div class="tk-item"><span class="tk-label">EMDR</span><span class="tk-note">Interpersonal layer — memories where the trigger is relational. Bilateral audio app. Headphones required.</span><span class="tk-tag prec">Precision</span></div>
+    <div class="tk-item"><span class="tk-label">IFS</span><span class="tk-note">Parts met with curious compassionate attention. Contact, not correction. Resource: <em>No Bad Parts</em>.</span><span class="tk-tag perm">Permanent</span></div>
+    <div class="tk-item"><span class="tk-label">Propranolol</span><span class="tk-note">10–20mg, 60–90 min before session. Target distress: 5–7. Requires prescription. Log 24h re-rating.</span><span class="tk-tag prec">Precision</span></div>
+    <div class="tk-item"><span class="tk-label">ACT Defusion</span><span class="tk-note">"I notice I am having the thought that…" Daily ambient practice. Resource: <em>The Happiness Trap</em>.</span><span class="tk-tag perm">Permanent</span></div>
+    <div class="tk-item"><span class="tk-label">Somatic Release — Full</span><span class="tk-note">20–25 min before active rewriting sessions. → Guides</span><span class="tk-tag prec">Precision</span></div>
   </div>
+</div>
 
-  <!-- T.5 BEHAVIORAL -->
-  <div class="toolkit-section" id="tk-behavioral">
-    <button class="toolkit-toggle" onclick="toggleToolkit(this)">
-      <div class="toolkit-toggle-label">
-        <span class="toolkit-num">T.5</span>
-        <span class="toolkit-name">Behavioral and Psychological Rewriting</span>
-      </div>
-      <span class="toolkit-arrow">▼</span>
-    </button>
-    <div class="toolkit-content">
-      <p>These are precision instruments. Employed when vertical alignment is sufficiently present and the listening pier confirms readiness. Not before. Not on a schedule.</p>
-
-      <h3 class="subsection-title">Counterconditioning — The Entry Condition</h3>
-      <p>Two non-negotiable conditions before any rewriting session: subjective distress level 0–2 (0–10 scale) and body tension below 4/10. Reached through resonance frequency breathing for 3–5 minutes. If not achievable in 5 minutes: frayed day. No session.</p>
-
-      <h3 class="subsection-title">Building the Resource Library</h3>
-      <p><strong>Positive resource library (15–20 items):</strong> music, nature sounds, or sensory experiences that reliably produce genuinely felt positive emotion in the body. Test each — does it produce an actual physical shift? If not, it does not qualify. Draw from personal history.</p>
-      <p><strong>Trigger sound library:</strong> organized by distress level. FOAMS database (Zenodo DOI: 10.5281/zenodo.4813431) — 32 validated files across 8 sound classes. Freesound.org and yt-dlp for additional sourcing. Self-recording for person-specific sounds.</p>
-
-      <h3 class="subsection-title">Basic Technique</h3>
-      <ol class="steps-list">
-        <li>Full somatic release sequence</li>
-        <li>Resonance frequency breathing 3–5 min. Confirm entry condition met.</li>
-        <li>Neuropod if using — start 2–3 min before session</li>
-        <li>Begin positive resource. 2–3 min. Wait for genuinely felt positive state.</li>
-        <li>Introduce trigger sound at low volume. Positive resource dominant. Hold 2–4 min. Positive state must remain felt throughout.</li>
-        <li>Remove trigger. Return to positive resource. Let state rebuild fully — minimum 2 min.</li>
-        <li>Repeat 4–6 times. Stop if distress rises above 4 or positive state cannot be recovered.</li>
-        <li>End on positive resource only. Final 2 minutes.</li>
-        <li>Brief note: distress before, after, one observation.</li>
-      </ol>
-      <p>Session frequency when using: 2–3 per week at most. Quality of entry matters more than frequency.</p>
-
-      <h3 class="subsection-title">The Pulse Principle</h3>
-      <p>72 hours after a plant medicine session: highest-value rewriting window of the cycle. BDNF elevated. Default mode network grip loosened. Day 1 is always rest. Days 2–3 are the most productive rewriting time.</p>
-
-      <h3 class="subsection-title">EMDR</h3>
-      <p>For the interpersonal layer — memories where the trigger is not just acoustic but relational. Use a bilateral audio app (alternating left-right tones at 1 Hz). Headphones required.</p>
-      <p>Target one specific memory. Rate distress 0–10. Bring fully to mind. Start bilateral audio. Hold memory while tones run in 30-second sets. Notice what shifts. Check in after each set. Continue if distress is reducing. Close and ground if stable or rising after 3–4 sets. When distress reaches 0–2: install a brief positive cognition. Grounding: 5 breaths, 5 things visible, feet on floor.</p>
-      <p>Working with a trained EMDR therapist is preferable for high-charge memories.</p>
-
-      <h3 class="subsection-title">IFS — Internal Family Systems</h3>
-      <p>For the parts of the system organizing around the condition — met with curious, compassionate attention. Not correction. Contact.</p>
-      <p><em>Entry:</em> sit quietly. Notice where the condition lives in the body. Ask that sensation: what are you protecting? What are you afraid would happen if you weren't here? Listen without demanding answers.</p>
-      <p>The first session producing genuine contact with a protective part — not resolution, contact — is a significant step. Resource: <em>No Bad Parts</em> (Richard Schwartz).</p>
-
-      <h3 class="subsection-title">Propranolol-Assisted Reconsolidation</h3>
-      <p>When a conditioned response is reactivated, it briefly becomes labile and can be modified. Propranolol impairs re-storage of the emotional component while preserving the factual memory. Requires prescription. 10–20mg per session, 60–90 minutes before a rewriting session.</p>
-      <p>Target distress during session: 5–7. Log each session including the 24-hour re-rating — the most meaningful data point. Not within 48 hours of plant medicine. Not with asthma, bradycardia, or hypotension.</p>
-
-      <h3 class="subsection-title">ACT and Anti-Rumination</h3>
-      <p><strong>ACT defusion:</strong> when trigger-related thoughts arise, prefix silently — "I notice I am having the thought that..." Creates distance without suppression. <em>The Happiness Trap</em> by Russ Harris.</p>
-      <p><strong>Anti-rumination:</strong> when the loop is recognized — pattern interrupt immediately (stand up, change room, cold water, physiological sigh). Then ACT defusion. For persistent loops with something real: 5–10 minutes, pen and paper, write it out, then close the notebook.</p>
-    </div>
+<!-- T.4 SOUND -->
+<div class="section" id="tk-sound">
+  <div class="stag tg">T.4</div>
+  <h1 class="st">Sound Healing and Voice Work</h1>
+  <div class="tk-list">
+    <div class="tk-item"><span class="tk-label">Vocal Toning</span><span class="tk-note">Sustained vowels and sacred syllables resonating through the body. 5–10 min when called for.</span><span class="tk-tag perm">Permanent</span></div>
+    <div class="tk-item"><span class="tk-label">Chanting</span><span class="tk-note">Mantras, kirtan, or devotional singing. 10–20 min.</span><span class="tk-tag perm">Permanent</span></div>
+    <div class="tk-item"><span class="tk-label">Sound Healing — Receiving</span><span class="tk-note">Sound baths — singing bowls, gongs, tuning forks. Monthly or more when accessible.</span><span class="tk-tag perm">Permanent</span></div>
+    <div class="tk-item"><span class="tk-label">SSP — Primary Course</span><span class="tk-note">5 hours via Unyte-iLs licensed provider. Once. No rewriting sessions on SSP days.</span><span class="tk-tag trans">Transitional</span></div>
+    <div class="tk-item"><span class="tk-label">SSP — Ongoing</span><span class="tk-note">20–30 min daily: acoustic folk, unprocessed vocal harmonies, classical violin.</span><span class="tk-tag perm">Permanent</span></div>
   </div>
+</div>
 
-  <!-- T.6 NEUROMODULATION -->
-  <div class="toolkit-section" id="tk-neuro">
-    <button class="toolkit-toggle" onclick="toggleToolkit(this)">
-      <div class="toolkit-toggle-label">
-        <span class="toolkit-num">T.6</span>
-        <span class="toolkit-name">Neuromodulation and Biofeedback</span>
-      </div>
-      <span class="toolkit-arrow">▼</span>
-    </button>
-    <div class="toolkit-content">
-      <p>These tools develop or amplify biological capacities that the embodied practices are also building. They are transitional support — each teaches the body a capacity, and steps back as that capacity is internalized.</p>
-
-      <h3 class="subsection-title">HRV Biofeedback — HeartMath Inner Balance</h3>
-      <p>Used to learn the felt sense of cardiac coherence. Once internalized, resonance frequency breathing is the primary practice. Use daily for 4–6 weeks. <strong>Always Free Session mode</strong> — never the guided programs. Always through headphones, never speaker. Compatible with Elite HRV app as alternative.</p>
-
-      <h3 class="subsection-title">HRV Tracking</h3>
-      <p>To establish the biological baseline. Use for 6–8 weeks to understand starting conditions, then transition to periodic confirmation as felt sense becomes primary.</p>
-      <ul class="bullet-list">
-        <li><strong>Option A:</strong> Wearable with sleep tracking — continuous data. Switch if it disrupts sleep.</li>
-        <li><strong>Option B:</strong> Morning chest strap — Polar H10, 5 min each morning.</li>
-        <li><strong>Option C:</strong> Weekly spot-check — fingertip pulse oximeter. Sufficient for trend tracking.</li>
-      </ul>
-
-      <h3 class="subsection-title">tVNS — Neuropod / Nurosym</h3>
-      <p>Clips to the tragus of the left ear. Gentle electrical pulses to the auricular branch of the vagus nerve. Amplifies vagal tone during rewriting sessions. A precision tool, not a session requirement — use when it genuinely enhances the session without distraction. The goal is to not need it. Not during driving. Not during plant medicine sessions.</p>
-
-      <h3 class="subsection-title">tDCS — ActivaDose or equivalent</h3>
-      <p>Upregulates excitability of the left dorsolateral prefrontal cortex. Applied 20 minutes before a rewriting session. Anodal: left dlPFC (position F3). Reference: right supraorbital. Settings: 1.5–2.0 mA. Hold as a precision tool for periods of intensive rewriting work. Not within 5 hours of sleep. Not within 24 hours of plant medicine. Not during retreat provision.</p>
-    </div>
+<!-- T.5 NEURO -->
+<div class="section" id="tk-neuro">
+  <div class="stag tb">T.5</div>
+  <h1 class="st">Neuromodulation and Biofeedback</h1>
+  <div class="tk-list">
+    <div class="tk-item"><span class="tk-label">HeartMath Inner Balance</span><span class="tk-note">Learn felt sense of coherence. Daily 4–6 weeks. Free Session mode only. Headphones always. Then resonance breathing takes over.</span><span class="tk-tag trans">Transitional</span></div>
+    <div class="tk-item"><span class="tk-label">HRV Tracking</span><span class="tk-note">Establish baseline 6–8 weeks. Wearable / Polar H10 / weekly spot-check. Felt sense takes over.</span><span class="tk-tag trans">Transitional</span></div>
+    <div class="tk-item"><span class="tk-label">tVNS — Neuropod / Nurosym</span><span class="tk-note">Left ear tragus. During rewriting when it enhances without distraction. Goal: to not need it.</span><span class="tk-tag trans">Transitional</span></div>
+    <div class="tk-item"><span class="tk-label">tDCS — ActivaDose</span><span class="tk-note">20 min before rewriting sessions. F3 anodal, right supraorbital. 1.5–2.0 mA. Not within 5h of sleep. Not within 24h of plant medicine.</span><span class="tk-tag prec">Precision</span></div>
   </div>
+</div>
 
-  <!-- T.7 SUBSTRATE -->
-  <div class="toolkit-section" id="tk-substrate">
-    <button class="toolkit-toggle" onclick="toggleToolkit(this)">
-      <div class="toolkit-toggle-label">
-        <span class="toolkit-num">T.7</span>
-        <span class="toolkit-name">Biological Substrate Support</span>
-      </div>
-      <span class="toolkit-arrow">▼</span>
-    </button>
-    <div class="toolkit-content">
-      <h3 class="subsection-title">Supplement Stack</h3>
-      <div class="inline-note">Introduce additions one at a time. Pay genuine attention to the felt effect of each before adding the next. A sensitive nervous system developing subtle perception benefits from fewer inputs. The essential core is enough for most of the practice.</div>
-
-      <table class="supps-table">
-        <tr>
-          <th>Timing</th>
-          <th>Supplement</th>
-          <th>Purpose</th>
-        </tr>
-        <tr>
-          <td class="timing">On waking</td>
-          <td>Creatine 7.5g</td>
-          <td>Brain energy metabolism, sensory processing. Critical in plant-forward diets.</td>
-        </tr>
-        <tr>
-          <td class="timing">On waking</td>
-          <td>L. reuteri 1–2 tabs, chewed</td>
-          <td>Oxytocin via vagal nerve signaling. Chew — do not swallow whole.</td>
-        </tr>
-        <tr>
-          <td class="timing">Morning with food</td>
-          <td>NMN 500mg sublingual (Month 2+)</td>
-          <td>NAD+ precursor. Dissolve under tongue on empty stomach.</td>
-        </tr>
-        <tr>
-          <td class="timing">Morning with food</td>
-          <td>Krill oil 2–3 softgels + Algae oil 2–4 softgels</td>
-          <td>EPA+DHA in phospholipid form. Combined target: 2–3g daily. Skip on fish days.</td>
-        </tr>
-        <tr>
-          <td class="timing">Morning with food</td>
-          <td>Lion's Mane 2g (dual-extracted)</td>
-          <td>NGF upregulation and synaptogenesis. Never skip.</td>
-        </tr>
-        <tr>
-          <td class="timing">Morning with food (Week 3+)</td>
-          <td>Bacopa 320mg</td>
-          <td>Extinction learning. Takes 4–6 weeks to reach full effect.</td>
-        </tr>
-        <tr>
-          <td class="timing">Morning with food</td>
-          <td>D3/K2 (2000–5000 IU + 100mcg MK-7)</td>
-          <td>Neuroplasticity substrate. Take with fat.</td>
-        </tr>
-        <tr>
-          <td class="timing">Morning only</td>
-          <td>B-complex (methylated) + B12 1000mcg sublingual</td>
-          <td>Methylation support, neurotransmitter synthesis. Essential in plant-forward diets.</td>
-        </tr>
-        <tr>
-          <td class="timing">Midday with food</td>
-          <td>Phosphatidylserine 300mg (Month 2+)</td>
-          <td>Cortisol blunting, fear extinction support. Not evening.</td>
-        </tr>
-        <tr>
-          <td class="timing">Active rewriting phase</td>
-          <td>Ashwagandha KSM-66 600mg + Lithium Orotate 5mg + NAC 600mg ×2</td>
-          <td>HPA regulation, BDNF, glutamate modulation. See pause rules.</td>
-        </tr>
-        <tr>
-          <td class="timing">10am Mon–Thu (microdosing)</td>
-          <td>Psilocybin 0.1–0.15g + Niacin 100–200mg (30 min after)</td>
-          <td>Sub-perceptual neuroplasticity enhancement.</td>
-        </tr>
-        <tr>
-          <td class="timing">Bedtime</td>
-          <td>Magnesium L-Threonate 2000mg + Magnesium Glycinate 360mg</td>
-          <td>Sleep depth, synaptic plasticity. Do not substitute oxide or citrate.</td>
-        </tr>
-        <tr>
-          <td class="timing">Bedtime</td>
-          <td>Glycine 3g + Apigenin 50mg</td>
-          <td>Core temperature reduction at sleep onset. Mild anxiolytic, sleep onset.</td>
-        </tr>
-        <tr>
-          <td class="timing">Bedtime (first 4–6 weeks only)</td>
-          <td>Melatonin 0.5mg</td>
-          <td>Establish initial sleep rhythm only. Taper by halving dose then stop.</td>
-        </tr>
-        <tr>
-          <td class="timing">Consolidation phase</td>
-          <td>Resveratrol 500mg (weekdays) + Berberine 500mg (3×/week)</td>
-          <td>Sirtuin activation, AMPK activation. Not on training days (berberine).</td>
-        </tr>
-      </table>
-
-      <div class="pause-rules" style="margin-top: 24px;">
-        <div class="pause-rules-title">Key Pause Rules</div>
-        <p><strong>Pre-SGB:</strong> krill, omega-3, NAC pause 1 week. Resume 48h after.</p>
-        <p><strong>Pre-MDMA:</strong> NAC stops 3 days before. Ashwagandha skipped on session day. No 5-HTP or tryptophan 24h before.</p>
-        <p><strong>Post-MDMA:</strong> 5-HTP 100mg + EGCG 400mg for 3 days from 24h after. MDMA-specific only — not after psilocybin.</p>
-        <p><strong>Fish days:</strong> skip krill and omega-3. <strong>Training days:</strong> no berberine.</p>
-      </div>
-
-      <h3 class="subsection-title">Nutrition</h3>
-      <p><strong>Principle:</strong> nourish the instrument. Food as an act of care for the body the practice depends on.</p>
-      <p><strong>Fasting window:</strong> 14–16 hours daily. First full meal at midday or after. Final meal by 6pm.</p>
-      <ul class="bullet-list">
-        <li>Oily fish (sardines, mackerel, salmon) 2–3×/week — 1500–2000mg EPA+DHA per 100g. Skip omega-3 supplements on fish days.</li>
-        <li>Oyster mushrooms: ergothioneine — longevity antioxidant</li>
-        <li>Broccoli sprouts (raw) or broccoli: sulforaphane. Chop 40 min before cooking; add mustard seed powder to restore enzymatic activity.</li>
-        <li>Wheat germ 1–2 tbsp daily: spermidine — cellular renewal</li>
-        <li>Daily spice base: turmeric with black pepper and fat, ginger, oregano, garlic</li>
-        <li>Capers: highest quercetin concentration. Add to anything.</li>
-        <li>Strawberries: fisetin — senolytic. Weekly.</li>
-        <li>Apple cider vinegar 1 tbsp before meals: AMPK activation</li>
-        <li>Green tea afternoon: space 1 hour from iron-rich meals</li>
-      </ul>
-
-      <h3 class="subsection-title">Tracking and Measurement</h3>
-      <p>The primary instrument is felt sense. Data confirms or questions it. Any tracking that has become a burden is simplified or dropped.</p>
-      <ul class="bullet-list">
-        <li><strong>Weekly:</strong> re-rate full trigger hierarchy. One sentence capturing the week's quality. Brief session note immediately after each rewriting session.</li>
-        <li><strong>Monthly:</strong> A-MISO-S questionnaire (baseline 18). HRV trend direction.</li>
-        <li><strong>Quarterly:</strong> avoidance inventory — what situations are still being avoided or heavily managed? The shrinking of this list is the most meaningful functional outcome.</li>
-        <li><strong>Biological testing:</strong> full bloodwork, salivary cortisol, and cellular NAD+ before practice begins. Repeat at one year with added Omega-3 Index (OmegaQuant) and epigenetic age test.</li>
-      </ul>
-
-      <h3 class="subsection-title">Grounding and Earthing</h3>
-      <p>Bare feet on earth daily — grass, soil, rock, sand. Even 5 minutes. Free electrons from the earth's surface have measurable anti-inflammatory effects. The felt effect is immediate. The Hamakua Coast offers extraordinary grounding opportunities.</p>
-    </div>
+<!-- T.6 INTUITIVE -->
+<div class="section" id="tk-intuitive">
+  <div class="stag tp">T.6</div>
+  <h1 class="st">Intuitive Development</h1>
+  <div class="glance-card">
+    <div class="glance-row"><span class="glance-label">Channeling / Intuitive</span><span class="glance-val"><em>Making the Connection</em> — Suzanne Giezman. Primary structured curriculum.</span></div>
+    <div class="glance-row"><span class="glance-label">Community Practice</span><span class="glance-val">Small trusted settings — curiosity, playfulness, service. Beginning intimate and low-stakes.</span></div>
+    <div class="glance-row"><span class="glance-label">Expanded Field</span><span class="glance-val">Bashar (Darryl Anka) — ET intelligence and non-physical guidance.</span></div>
+    <div class="glance-row"><span class="glance-label">Quantum Field</span><span class="glance-val">Dr. Joe Dispenza — generating and sustaining elevated states as a primary mode of being.</span></div>
+    <div class="glance-row"><span class="glance-label">Nature Communication</span><span class="glance-val">Attunement with animals and the natural world. The Hamakua Coast.</span></div>
+    <div class="glance-row"><span class="glance-label">Reiki</span><span class="glance-val">Sensing and working with the body's energy field through a qualified teacher.</span></div>
+    <div class="glance-row"><span class="glance-label">Authentic Relating / NVC</span><span class="glance-val">Genuine presence with others. Workshops and practice groups. Resource: Rosenberg.</span></div>
   </div>
+</div>
 
-  <!-- T.8 RELATIONAL -->
-  <div class="toolkit-section" id="tk-relational">
-    <button class="toolkit-toggle" onclick="toggleToolkit(this)">
-      <div class="toolkit-toggle-label">
-        <span class="toolkit-num">T.8</span>
-        <span class="toolkit-name">Relational and Energy Medicine Practices</span>
-      </div>
-      <span class="toolkit-arrow">▼</span>
-    </button>
-    <div class="toolkit-content">
-      <h3 class="subsection-title">Authentic Relating and Circling</h3>
-      <p>Structured relational practices that develop the capacity for genuine presence with others — real listening, real contact, real intimacy in a safe container. Available through workshops, online courses, and practice groups. Among the most powerful available supports for the third movement.</p>
-
-      <h3 class="subsection-title">Nonviolent Communication (NVC)</h3>
-      <p>A practice of genuine listening and genuine expression. Develops empathy — the capacity to sense what is alive in another person — directly aligned with the energy reading development the practice is building. Core resource: <em>Nonviolent Communication</em> by Marshall Rosenberg.</p>
-
-      <h3 class="subsection-title">Energy Medicine — Reiki</h3>
-      <p>Learning to consciously sense, move, and work with the body's energy field, received through a lineage with a qualified teacher. Reiki develops through the hands, in contact with others. It is inherently a service practice. It directly develops the energy reading capacity in a way that purely receptive practices cannot. Receiving Reiki regularly from a practitioner is available regardless of whether one is learning to offer it — both are valuable.</p>
-    </div>
-  </div>
-
-  <!-- T.9 INTUITIVE -->
-  <div class="toolkit-section" id="tk-intuitive">
-    <button class="toolkit-toggle" onclick="toggleToolkit(this)">
-      <div class="toolkit-toggle-label">
-        <span class="toolkit-num">T.9</span>
-        <span class="toolkit-name">Intuitive Development Resources</span>
-      </div>
-      <span class="toolkit-arrow">▼</span>
-    </button>
-    <div class="toolkit-content">
-      <div class="inline-note">These resources are held lightly — as starting points that the listening pier will refine over time. What is named here is available. What the practice actually calls for will be revealed by the journey.</div>
-
-      <h3 class="subsection-title">Structured Channeling and Intuitive Communication</h3>
-      <p><em>Making the Connection</em> — Suzanne Giezman. The primary structured container for developing channeling and intuitive communication. A real curriculum with a teacher to return to consistently.</p>
-
-      <h3 class="subsection-title">Community Practice</h3>
-      <p>Practicing in small, trusted settings — held in curiosity, playfulness, and genuine service to others. Beginning intimate and low-stakes. A few trusted community members. The MDMA-received encouragement to practice with community was specific and worth honoring.</p>
-
-      <h3 class="subsection-title">Expanded Field Attunement</h3>
-      <p>Bashar (Darryl Anka): transmissions and meditations for expanding attunement toward ET intelligence and non-physical guidance. Opens the listening pier toward frequencies and dimensions body-focused practices alone cannot reach.</p>
-
-      <h3 class="subsection-title">Elevated Emotion and Quantum Field</h3>
-      <p>Dr. Joe Dispenza: structured practices for deliberately generating and sustaining elevated emotional and energetic states as a primary mode of being. Directly supports the high vibrational frequency core of this practice.</p>
-
-      <h3 class="subsection-title">Animal and Nature Communication</h3>
-      <p>Practices for attunement with animals and the natural world — a gentle, accessible entry into non-verbal, non-physical communication. The Hamakua Coast is a powerful environment for this.</p>
-
-      <h3 class="subsection-title">The General Principle</h3>
-      <p>The development of intuitive capacity is nonlinear. It opens in unexpected moments, in states of genuine rest and receptivity rather than effortful practice. The same conditions that support healing — genuine stillness, reduced sympathetic activation, open awareness — are the conditions that support the opening of intuitive capacity.</p>
-      <p><em>They are the same work.</em></p>
-    </div>
-  </div>
-
-  <!-- RESEARCH -->
-  <div class="toolkit-section" id="tk-research">
-    <button class="toolkit-toggle" onclick="toggleToolkit(this)">
-      <div class="toolkit-toggle-label">
-        <span class="toolkit-num"></span>
-        <span class="toolkit-name">Research Foundation</span>
-      </div>
-      <span class="toolkit-arrow">▼</span>
-    </button>
-    <div class="toolkit-content">
-      <div class="ref-category">Misophonia</div>
-      <ul class="ref-list">
+<!-- RESEARCH -->
+<div class="section" id="tk-research">
+  <div class="stag dm" style="color:var(--text-muted)">Research</div>
+  <h1 class="st">Research Foundation</h1>
+  <details>
+    <summary>Misophonia and Counterconditioning</summary>
+    <div class="dbi">
+      <ul class="prose" style="font-size:12.5px;margin-top:8px">
         <li>Kumar, S., et al. (2021). The motor basis for misophonia. <em>Journal of Neuroscience</em>, 41(26), 5762–5770.</li>
-        <li>Schröder, A., Vulink, N., & Denys, D. (2013). Misophonia: Diagnostic criteria. <em>PLOS ONE</em>, 8(1), e54706.</li>
+        <li>Schröder, A., Vulink, N., &amp; Denys, D. (2013). Misophonia: Diagnostic criteria. <em>PLOS ONE</em>, 8(1), e54706.</li>
         <li>Wu, M.S., et al. (2014). Misophonia: Incidence and clinical correlates. <em>Journal of Clinical Psychology</em>, 70(10), 994–1007.</li>
-        <li>Schröder, A., et al. (2017). CBT is effective in misophonia [A-MISO-S validation]. <em>Journal of Affective Disorders</em>, 217, 289–294.</li>
-        <li>FOAMS database. Zenodo. DOI: 10.5281/zenodo.4813431</li>
-      </ul>
-      <div class="ref-category">Counterconditioning and Fear Extinction</div>
-      <ul class="ref-list">
+        <li>Schröder, A., et al. (2017). CBT is effective in misophonia [A-MISO-S]. <em>Journal of Affective Disorders</em>, 217, 289–294.</li>
+        <li>FOAMS. Zenodo. DOI: 10.5281/zenodo.4813431</li>
         <li>Bouton, M.E. (2004). Context and behavioral processes in extinction. <em>Learning and Memory</em>, 11(5), 485–494.</li>
-        <li>Milad, M.R., & Quirk, G.J. (2012). Fear extinction as a model for translational neuroscience. <em>Annual Review of Psychology</em>, 63, 129–151.</li>
-        <li>Craske, M.G., et al. (2014). Maximizing exposure therapy: An inhibitory learning approach. <em>Behaviour Research and Therapy</em>, 58, 10–23.</li>
+        <li>Milad, M.R., &amp; Quirk, G.J. (2012). Fear extinction as a model for translational neuroscience. <em>Annual Review of Psychology</em>, 63, 129–151.</li>
       </ul>
-      <div class="ref-category">Stellate Ganglion Block</div>
-      <ul class="ref-list">
-        <li>Mulvaney, S.W., et al. (2020). Stellate ganglion block improves refractory PTSD. <em>Military Medicine</em>, 185(9-10), e1823–e1826.</li>
-        <li>Lipov, E., et al. (2013). Relief of PTSD symptoms by stellate ganglion block. <em>Journal of Clinical Anesthesia</em>, 25(2), 158–160.</li>
-      </ul>
-      <div class="ref-category">Psilocybin</div>
-      <ul class="ref-list">
-        <li>Carhart-Harris, R., et al. (2021). Trial of psilocybin versus escitalopram. <em>New England Journal of Medicine</em>, 384, 1402–1411.</li>
-        <li>Ly, C., et al. (2018). Psychedelics promote structural and functional neural plasticity. <em>Cell Reports</em>, 23(11), 3170–3182.</li>
-        <li>Griffiths, R.R., et al. (2016). Psilocybin produces substantial and sustained decreases in depression and anxiety. <em>Journal of Psychopharmacology</em>, 30(12), 1181–1197.</li>
-      </ul>
-      <div class="ref-category">MDMA and Propranolol</div>
-      <ul class="ref-list">
-        <li>Mitchell, J.M., et al. (2021). MDMA-assisted therapy for severe PTSD. <em>Nature Medicine</em>, 27, 1025–1033.</li>
-        <li>Kindt, M., Soeter, M., & Vervliet, B. (2009). Beyond extinction: Erasing human fear responses. <em>Nature Neuroscience</em>, 12(3), 256–258.</li>
-      </ul>
-      <div class="ref-category">TRE, Sleep, Neuroplasticity, Omega-3, HRV, tVNS, Yoga Nidra, Grounding</div>
-      <ul class="ref-list">
+    </div>
+  </details>
+  <details>
+    <summary>Plant Medicine, SGB, Propranolol, TRE, Sleep, HRV, Substrate, Yoga Nidra, Grounding</summary>
+    <div class="dbi">
+      <ul class="prose" style="font-size:12.5px;margin-top:8px">
+        <li>Mulvaney, S.W., et al. (2020). SGB improves refractory PTSD. <em>Military Medicine</em>, 185(9-10), e1823–e1826.</li>
+        <li>Carhart-Harris, R., et al. (2021). Psilocybin vs escitalopram. <em>NEJM</em>, 384, 1402–1411.</li>
+        <li>Ly, C., et al. (2018). Psychedelics promote neural plasticity. <em>Cell Reports</em>, 23(11), 3170–3182.</li>
+        <li>Mitchell, J.M., et al. (2021). MDMA-assisted therapy for PTSD. <em>Nature Medicine</em>, 27, 1025–1033.</li>
+        <li>Kindt, M., Soeter, M., &amp; Vervliet, B. (2009). Beyond extinction. <em>Nature Neuroscience</em>, 12(3), 256–258.</li>
         <li>Berceli, D. (2008). <em>The Revolutionary Trauma Release Process</em>. Namaste Publishing.</li>
-        <li>Walker, M.P., & Stickgold, R. (2004). Sleep-dependent learning and memory consolidation. <em>Neuron</em>, 44(1), 121–133.</li>
-        <li>Diekelmann, S., & Born, J. (2010). The memory function of sleep. <em>Nature Reviews Neuroscience</em>, 11(2), 114–126.</li>
+        <li>Walker, M.P., &amp; Stickgold, R. (2004). Sleep-dependent memory consolidation. <em>Neuron</em>, 44(1), 121–133.</li>
         <li>Cotman, C.W., et al. (2007). Exercise builds brain health. <em>Trends in Neurosciences</em>, 30(9), 464–472.</li>
         <li>Dyall, S.C. (2015). Long-chain omega-3 fatty acids and the brain. <em>Frontiers in Aging Neuroscience</em>, 7, 52.</li>
-        <li>Lehrer, P.M., & Gevirtz, R. (2014). Heart rate variability biofeedback. <em>Frontiers in Psychology</em>, 5, 756.</li>
-        <li>Yap, J.Y.Y., et al. (2020). Critical review of transcutaneous vagus nerve stimulation. <em>Frontiers in Neuroscience</em>, 14, 284.</li>
-        <li>Kjaer, T.W., et al. (2002). Increased dopamine tone during meditation-induced change of consciousness. <em>Brain Research: Cognitive Brain Research</em>, 13(2), 255–259.</li>
-        <li>Chevalier, G., et al. (2012). Earthing: Health implications of reconnecting the human body to the earth's surface electrons. <em>Journal of Environmental and Public Health</em>.</li>
+        <li>Lehrer, P.M., &amp; Gevirtz, R. (2014). HRV biofeedback. <em>Frontiers in Psychology</em>, 5, 756.</li>
+        <li>Yap, J.Y.Y., et al. (2020). tVNS critical review. <em>Frontiers in Neuroscience</em>, 14, 284.</li>
+        <li>Kjaer, T.W., et al. (2002). Dopamine tone during meditation. <em>Brain Research</em>, 13(2), 255–259.</li>
+        <li>Chevalier, G., et al. (2012). Earthing. <em>Journal of Environmental and Public Health</em>.</li>
         <li>Porges, S.W. (2011). <em>The Polyvagal Theory</em>. W.W. Norton.</li>
-        <li>Stough, C., et al. (2001). Chronic effects of Bacopa monniera on cognitive function. <em>Psychopharmacology</em>, 156(4), 481–484.</li>
+        <li>Stough, C., et al. (2001). Bacopa monniera. <em>Psychopharmacology</em>, 156(4), 481–484.</li>
+      </ul>
+    </div>
+  </details>
+  <div class="ir" style="margin-top:12px">
+    <strong>Legal and Safety.</strong> Psilocybin and MDMA are Schedule I in the US. Hawaii: no state decriminalization. Contraindications: psychosis / schizophrenia / bipolar I history; SSRIs, SNRIs, pharmaceutical lithium, MAOIs; heart conditions; pregnancy. SGB requires experienced physician and full medical history review. Ultrasound guidance non-negotiable. Nothing in this document is medical advice.
+  </div>
+</div>
+
+</div>
+<!-- END PRACTICE -->
+
+<!-- ══════════════════════════ FRAMEWORK ══════════════════════════ -->
+<div class="doc-pane" id="pane-fw">
+
+<div class="section" id="fw-core">
+  <div class="stag tg">Governing Framework</div>
+  <h1 class="st">The Practice — Healing, Alignment &amp; Awakening Sensitivity</h1>
+  <p style="font-size:13px;color:var(--text-muted)">The living foundation from which The Practice grows. Read this before The Practice. Return to it whenever The Practice starts to feel like something other than what it is. Written April 2026.</p>
+  <div class="core-box">
+    <div class="cl">Five Orientations — Everything in Service of This</div>
+    <ul class="core-items">
+      <li>Alignment</li>
+      <li>Healthy sensitivity attunement</li>
+      <li>Love</li>
+      <li>Being of service</li>
+      <li>Raising to high vibrational frequency</li>
+    </ul>
+  </div>
+  <div class="ig"><strong>The compass.</strong> When any part of The Practice feels wrong — too heavy, too mechanical, too urgent — return to these five and ask: is what I am doing genuinely in service of this?</div>
+</div>
+
+<div class="section" id="fw-messenger">
+  <div class="stag tg">2</div>
+  <h1 class="st">The Condition as Messenger</h1>
+  <p>The sound sensitivity condition is real, sometimes painful, and for a long time has felt like something to be defeated. <strong>It is not something to be defeated.</strong> It is a messenger pointing toward a sensitivity that needed to be understood, honored, and brought into alignment with its true purpose.</p>
+  <p>The hypersensitivity that makes certain sounds overwhelming is the same sensitivity that, developed and aligned, becomes the capacity for deep attunement — to people, to subtle energy, to guidance, to the living intelligence that moves through all things.</p>
+  <div class="ig">The healing is not the silencing of that signal. It is the honoring of what it was pointing at. When alignment deepens, the signal naturally quiets — because it has been heard.</div>
+</div>
+
+<div class="section" id="fw-philosophy">
+  <div class="stag tg">3</div>
+  <h1 class="st">The Governing Philosophy</h1>
+  <p><strong>The healing intelligence is already present.</strong> This practice creates the conditions in which healing that is already seeking to happen can move through.</p>
+  <div class="ig" style="text-align:center"><strong>This is not war. This is restoration.</strong></div>
+  <p>The organizing question is not <em>how do we reduce reactivity?</em> — it is <em>what restores alignment and develops the capacity to hold sensitivity as a gift rather than a wound?</em></p>
+</div>
+
+<div class="section" id="fw-movements">
+  <div class="stag tg">4</div>
+  <h1 class="st">The Three Living Movements</h1>
+  <p>Not a ladder — a spiral. Three movements that breathe throughout the entire journey.</p>
+  <div class="movements">
+    <div class="mv m1">
+      <div class="mv-num">I</div>
+      <h3>Descent &amp; Restoration</h3>
+      <p>Go underground before acting. Quiet the noise enough that deeper signals can be heard. Lower the floor. Build genuine safety. <em>This is not preparation for healing — it is the beginning of it.</em></p>
+    </div>
+    <div class="mv m2">
+      <div class="mv-num">II</div>
+      <h3>Alignment &amp; Attunement</h3>
+      <p>When genuine stillness is produced, something reorients — not through effort. The overflowing source feeds the whole vertical system naturally. Where conscious attunement is developed.</p>
+    </div>
+    <div class="mv m3">
+      <div class="mv-num">III</div>
+      <h3>Embodiment &amp; Service</h3>
+      <p>What has been developed is brought back into daily life. The sensitivity oriented outward as gift. The community is simultaneously the primary trigger environment and the primary field of practice.</p>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="fw-listening">
+  <div class="stag ta">5</div>
+  <h1 class="st">The Listening Pier</h1>
+  <p>Developing felt-sense, deep listening, intuitive attunement, energy reading, and conscious connection with guidance beyond the physical is the foundational skill that everything else serves.</p>
+  <h2 class="s2 al">The Trust Hierarchy</h2>
+  <div style="margin:8px 0">
+    <div class="trust-row"><span class="trust-n">1</span><span class="trust-t">Direct felt sense and deep listening in the present moment</span></div>
+    <div class="trust-row"><span class="trust-n">2</span><span class="trust-t">What emerged from plant medicine sessions and their integration</span></div>
+    <div class="trust-row"><span class="trust-n">3</span><span class="trust-t">Dreams, synchronicities, and received inspiration and guidance</span></div>
+    <div class="trust-row"><span class="trust-n">4</span><span class="trust-t">Trusted guides, practitioners, and community wisdom</span></div>
+    <div class="trust-row"><span class="trust-n">5</span><span class="trust-t">The practice structure and neuroscience framework</span></div>
+    <div class="trust-row"><span class="trust-n">6</span><span class="trust-t">External tools and support structures</span></div>
+  </div>
+  <div class="ia"><strong>Before any significant decision:</strong> External sources inform. Internal sources govern.</div>
+</div>
+
+<div class="section" id="fw-vertical">
+  <div class="stag ta">6</div>
+  <h1 class="st">Vertical Alignment — The Primary Work</h1>
+  <p>The organizing question: not <em>which intervention addresses which symptom</em> — but <em>what restores and deepens vertical flow?</em></p>
+  <div class="h-block">
+    <div class="h-hdr">What Restores the Column</div>
+    <div class="h-body">
+      <div class="h-item"><strong>Sleep</strong> — primary alignment practice; nightly descent where the column is most naturally permeable</div>
+      <div class="h-item"><strong>Nourishment</strong> — food as care for the instrument; physical foundation of the column's clarity</div>
+      <div class="h-item"><strong>Embodied movement and somatic practice</strong> — releasing chronic tension, restoring the body as open channel</div>
+      <div class="h-item"><strong>Movement in nature</strong> — restores felt vertical aliveness in a way indoor practice cannot replicate</div>
+      <div class="h-item"><strong>Deep meditative practice</strong> — accessing the threshold state where the column is naturally more permeable</div>
+      <div class="h-item"><strong>Plant medicine</strong> — the full column becomes accessible; encounter with intelligence showing what genuine vertical openness feels like</div>
+      <div class="h-item"><strong>Heart-opening work</strong> — the layer where love was replaced by fear; where the interpersonal dimension of the condition lives</div>
+      <div class="h-item"><strong>Structural nervous system support</strong> — floor-lowering so everything above can breathe more freely</div>
+      <div class="h-item"><strong>Community and genuine connection</strong> — real warmth and love restore the column from the relational layer</div>
+      <div class="h-item"><strong>Being of service</strong> — purpose beyond personal relief changes the quality and direction of everything</div>
+      <div class="h-item"><strong>Behavioral rewriting</strong> — when alignment is present, precision technique for writing new associations</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="fw-love">
+  <div class="stag ta">7</div>
+  <h1 class="st">Love as Mechanism</h1>
+  <div class="ig" style="text-align:center"><strong>Less struggle. More love. This is precise, not poetic.</strong></div>
+  <p>Behavioral rewriting works because a genuinely felt positive emotional state is neurologically incompatible with threat response. Love is what the mechanism runs on.</p>
+  <p>In triggered moments: the shift from <em>what are they doing to me</em> toward <em>what is happening in me</em> is a movement toward self-compassion. The nervous system in a triggered state is not malfunctioning. It is frightened.</p>
+</div>
+
+<div class="section" id="fw-incubation">
+  <div class="stag ta">8</div>
+  <h1 class="st">The Incubation Principle</h1>
+  <p>Eggs do not hatch faster with more effort — they hatch with warmth, stillness, and proper timing. Slow is not failure.</p>
+  <div class="ia"><strong>When the impulse to intensify, add, or accelerate arises</strong> — pause. Bring it to the listening pier first. Ask whether it arises from genuine felt readiness or from the old hypervigilant problem-solving mode.</div>
+</div>
+
+<div class="section" id="fw-mechanistic">
+  <div class="stag tb">9</div>
+  <h1 class="st">The Mechanistic Foundation — As Working Hypothesis</h1>
+  <p>The neuroscience is real and useful. It is not the authority. The science describes a conditioned threat response activating faster than conscious regulation can reach — auditory system, threat-detection centers, autonomic nervous system, social-threat coding, anticipatory activation.</p>
+  <div class="ib"><strong>Where deep listening contradicts the map, follow the listening.</strong> The map is updated accordingly.</div>
+</div>
+
+<div class="section" id="fw-retreat">
+  <div class="stag tr">10</div>
+  <h1 class="st">The Retreat Provision</h1>
+  <p>Always available, always protective, requiring no justification. Stay until the felt sense says: <em>I can hear again.</em></p>
+  <div class="h-block"><div class="h-body">
+    <div class="h-item"><strong>Restorative embodied practices</strong> — restore the listening capacity when overwhelmed</div>
+    <div class="h-item"><strong>Practical protective tools</strong> — allow participation without unnecessary cost while the system recovers</div>
+    <div class="h-item"><strong>Full pause on active rewiring</strong> — no intensification; support doubled</div>
+    <div class="h-item"><strong>Simple in-the-moment tools</strong> — always available; requiring only the breath</div>
+  </div></div>
+</div>
+
+<div class="section" id="fw-hierarchy">
+  <div class="stag tb">11</div>
+  <h1 class="st">The Hierarchy of Support</h1>
+  <div class="h-block">
+    <div class="h-hdr">Permanent — Develop the Primary Instrument</div>
+    <div class="h-body">
+      <div class="h-item">Embodied daily practice — somatic, movement, breath</div>
+      <div class="h-item">Deep meditative practice (Yoga Nidra, breathwork)</div>
+      <div class="h-item">Movement in natural environment and natural elements</div>
+      <div class="h-item">Sleep — honored as primary alignment practice</div>
+      <div class="h-item">Nourishment — as self-love and instrument care</div>
+      <div class="h-item">Dream journaling and felt-sense development</div>
+      <div class="h-item">Energy reading and intuitive development</div>
+      <div class="h-item">Plant medicine sessions and integration</div>
+      <div class="h-item">Structured learning in intuitive and channeling development</div>
+      <div class="h-item">Genuine connection, community, and service</div>
+    </div>
+  </div>
+  <div class="h-block">
+    <div class="h-hdr ah">Transitional Support — Teach, Then Step Back</div>
+    <div class="h-body">
+      <div class="h-item">Biofeedback devices — teach felt sense of states the body learns to generate independently</div>
+      <div class="h-item">Neuromodulation tools — support nervous system during active rewriting</div>
+      <div class="h-item">Tracking tools — establish biological baseline</div>
+      <div class="h-item">Behavioral rewriting techniques — employed when alignment is present and timing is right</div>
+    </div>
+  </div>
+</div>
+
+<div class="section" id="fw-remains">
+  <div class="stag tb">12</div>
+  <h1 class="st">What Remains — And What Changes</h1>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+    <div class="card gl"><div class="ct">What Remains</div>
+      <ul class="prose" style="font-size:12.5px">
+        <li>The care and precision of all previous work</li><li>The mechanistic tools — repositioned, not discarded</li>
+        <li>Biological substrate support</li><li>Community navigation strategies</li>
+        <li>Structural nervous system intervention</li><li>Sleep architecture — elevated</li><li>The research foundation</li>
+      </ul>
+    </div>
+    <div class="card al"><div class="ct">What Changes</div>
+      <ul class="prose" style="font-size:12.5px">
+        <li>The relationship to all of it</li><li>The center: alignment and attunement</li>
+        <li>The language: restoration, not warfare</li><li>The relationship to time: patience, not urgency</li>
+        <li>The condition: messenger, not malfunction</li><li>The nervous system: instrument being attuned</li>
       </ul>
     </div>
   </div>
+</div>
 
-  <div class="legal-box" style="margin-top: 40px;">
-    <div class="legal-title">Legal and Safety Note</div>
-    <p>Psilocybin and MDMA are Schedule I substances in the United States. Hawaii has no state-level decriminalization. Know your legal context before proceeding.</p>
-    <p>Hard contraindications for psilocybin and MDMA: personal or family history of psychosis, schizophrenia, or bipolar I; current SSRIs, SNRIs, pharmaceutical lithium, or MAOIs; heart conditions; pregnancy.</p>
-    <p>Stellate Ganglion Block requires an experienced physician and full medical history review. Insist on ultrasound guidance. Nothing in this document is medical advice.</p>
+<div class="section" id="fw-note">
+  <div class="stag tp">Note</div>
+  <h1 class="st">On This Document</h1>
+  <div style="background:linear-gradient(135deg,#f5eeff,#ede4f8);border:1px solid var(--purple-border);border-radius:10px;padding:18px 22px">
+    <p style="font-size:13px;color:var(--text-mid)">This framework emerged from a tarot reading by Lesley, April 12, 2026. Three cards: a young Native American man lying underground among three bears and a salmon, hand on his heart, swords fixed into living tree trunks. A hooded woman in perfect alignment, energy centers lit root to crown, a great overflowing cup filling three cups below. A woman with closed eyes, three turtles with spiral shells, three unhatched eggs at her center, twelve spiraling segments of a year surrounding her.</p>
+    <p style="margin-top:8px;font-style:italic;color:var(--purple);font-size:13.5px">The tools are in the trees. The source is already overflowing. The eggs are warm.</p>
   </div>
-
-  <div class="closing-lines">
-    <p>The tools are in the trees.</p>
-    <p>The source is already overflowing.</p>
-    <p>The eggs are warm.</p>
-    <p class="em" style="margin-top: 24px;">The Practice · April 2026 · Living Document</p>
-  </div>
+</div>
 
 </div>
-<!-- END PRACTICE PANE -->
+<!-- END FRAMEWORK -->
 
 </main>
-</div>
 
 <script>
-  // Show/hide documents
-  function showDoc(doc) {
-    document.querySelectorAll('.doc-pane').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.doc-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById(doc + '-pane').classList.add('active');
-    document.getElementById(doc + '-nav').style.display = 'block';
-    event.target.classList.add('active');
-
-    // Toggle nav sections
-    const other = doc === 'framework' ? 'practice' : 'framework';
-    document.getElementById(other + '-nav').style.display = 'none';
-  }
-
-  // Toggle nav group
-  function toggleGroup(header) {
-    header.classList.toggle('open');
-    const items = header.nextElementSibling;
-    items.classList.toggle('open');
-  }
-
-  // Toggle toolkit section
-  function toggleToolkit(btn) {
-    btn.classList.toggle('open');
-    const content = btn.nextElementSibling;
-    content.classList.toggle('open');
-  }
-
-  // Nav click highlight
-  function navClick(link) {
-    document.querySelectorAll('.nav-item').forEach(l => l.classList.remove('active'));
-    link.classList.add('active');
-    if (window.innerWidth < 900) {
-      document.getElementById('sidebar').classList.remove('open');
+function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open')}
+function toggleSec(btn){btn.classList.toggle('open');btn.nextElementSibling.classList.toggle('open')}
+function showDoc(doc){
+  document.getElementById('pane-fw').classList.toggle('active',doc==='fw');
+  document.getElementById('pane-pr').classList.toggle('active',doc==='pr');
+  document.getElementById('nav-fw').style.display=doc==='fw'?'':'none';
+  document.getElementById('nav-pr').style.display=doc==='pr'?'':'none';
+  document.getElementById('tab-fw').classList.toggle('active',doc==='fw');
+  document.getElementById('tab-pr').classList.toggle('active',doc==='pr');
+}
+function navClick(el,doc){
+  document.querySelectorAll('#nav-'+doc+' .ni').forEach(n=>n.classList.remove('active'));
+  el.classList.add('active');
+  if(window.innerWidth<960)document.getElementById('sidebar').classList.remove('open');
+}
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.id;
+      const doc=document.getElementById('pane-fw').classList.contains('active')?'fw':'pr';
+      document.querySelectorAll('#nav-'+doc+' .ni').forEach(l=>{
+        l.classList.toggle('active',l.getAttribute('href')==='#'+id);
+      });
     }
-  }
-
-  // Mobile sidebar
-  function toggleSidebar() {
-    document.getElementById('sidebar').classList.toggle('open');
-  }
-
-  // Scroll to top
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  // Show scroll-to-top button
-  window.addEventListener('scroll', () => {
-    const btn = document.getElementById('scroll-top');
-    btn.classList.toggle('visible', window.scrollY > 400);
   });
-
-  // Highlight active nav item on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        document.querySelectorAll('.nav-item').forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-        });
-      }
-    });
-  }, { rootMargin: '-20% 0px -70% 0px' });
-
-  document.querySelectorAll('[id]').forEach(el => {
-    if (el.id) observer.observe(el);
-  });
+},{rootMargin:'-15% 0px -75% 0px'});
+document.querySelectorAll('[id]').forEach(el=>{if(el.id)obs.observe(el)});
 </script>
-
 </body>
 </html>
