@@ -1,14 +1,14 @@
 ================================================================================
-THE NERVOUS SYSTEM REWIRING & WELLNESS PROTOCOL
+THE MISOPHONIA REWIRING & WELLNESS PROTOCOL
 Version 10.0
 
-A Personal Neuroplasticity, Longevity & Healing Program — Built for One
+A Personal Neuroplasticity, Healing & Wellness Program — Built for One
 Specific Person
 
-Plant Medicine · Behavioral Rewriting · Neuromodulation · Somatic Release
-HRV Biofeedback · Stellate Ganglion Block · Safe and Sound Protocol
-Yoga Nidra · Pulsed Supplementation · Whole-Food Plant-Forward Nutrition
-Fasting · NAD+ · Longevity · Cellular Renewal · Gut-Brain Axis
+Psilocybin · MDMA · Behavioral Counterconditioning · HRV Biofeedback
+tVNS · tDCS · Stellate Ganglion Block
+Safe and Sound Protocol · Yoga Nidra · Somatic Release · Whole-Food
+Nutrition · Fasting · Spermidine · NAD+ · Cellular Renewal
 ================================================================================
 
 
@@ -283,9 +283,7 @@ and any SGB procedure.
 Continue normally:
 — Magnesium (all forms), Lion's Mane, Bacopa, Creatine,
   NMN, B-complex, B12, D3/K2, Ashwagandha, Lithium Orotate,
-  Phosphatidylserine, L. reuteri, Alpha-GPC, Selenomethionine,
-  Pterostilbene, Sulforaphane, Zinc picolinate, Multi-strain
-  probiotic, Apigenin, Glycine, Tart cherry concentrate
+  Phosphatidylserine, L. reuteri
 
 Stop alcohol 7 days before.
 
@@ -318,7 +316,7 @@ should begin with the following already in place:
 
 □ Full Phase 1 supplement stack ordered and on hand
 □ Sleep protocol running: blackout mask, pink noise, sleep stack
-□ Mouth taping — pending trial (see Section 4C; trial when ready)
+□ Mouth taping trialed — see Section 4C
 □ Yoga Nidra nightly — 20-minute tracks established
 □ Morning practice progression: somatic release begins Week 3,
   Qi-Gong begins Week 4
@@ -422,97 +420,66 @@ SUPPLEMENT QUICK REFERENCE — CROSS-PHASE STACK TABLE
 ================================================================================
 
 Key:  ● Active    ○ Not yet introduced    — Pause per protocol
-      (P) Pulsed: Mon–Fri only    * Mid-phase introduction
-      ‡ Time-limited    → Replaced by
+      (P) Pulsed / situational use only
 
-TIER 1 — ESSENTIAL / IRREPLACEABLE (no food equivalent at protocol doses)
-──────────────────────────────────────────────────────────────────────────
 SUPPLEMENT                   Ph0   Ph1   Ph2   Ph3   Ph4   Ph5
 ──────────────────────────────────────────────────────────────
 Creatine 7.5g                  ●     ●     ●     ●     ●     ●
 L. reuteri 1–2 tabs            ●     ●     ●     ●     ●     ●
 NMN 500mg sublingual           ○     ●*    ●     ●     ●     ●
+Krill oil 2–3 softgels         ○     ●     ●     ●     —†    ●
+Algae oil 2–4 softgels         ○     ●     ●     ●     —†    ●
 Lion's Mane 2g                 ●     ●     ●     ●     ●     ●
 Bacopa 320mg                   ○     ●*    ●     ●     ●     ●
-Ashwagandha 600mg              ○     ○     ●   (P)   (P)   (P)
+Ashwagandha 600mg              ○     ○     ●     ●     ●     ●
 Lithium Orotate 5mg            ○     ○     ●     ●     ●     ●
-B12 1000mcg sublingual         ●     ●     ●     ●     ●     ●
-Mag L-Threonate 2000mg         ●     ●     ●     ●     ●     ●
-Mag Glycinate 360mg el.        ●     ●     ●     ●     ●     ●
-Glycine 5g                     ●     ●     ●     ●     ●     ●
-
-TIER 2 — CONDITIONAL (reduceable or replaceable with consistent food use)
-──────────────────────────────────────────────────────────────────────────
-SUPPLEMENT                   Ph0   Ph1   Ph2   Ph3   Ph4   Ph5
-──────────────────────────────────────────────────────────────
-Krill oil 2–3 softgels         ○     ●     ●     ●    —†    ●
-Algae/fish oil top-up          ○     ●     ●     ●    —†    ●
-Alpha-GPC 300mg                ○     ●     ●     ●     ●     ●
-Selenomethionine 200mcg        ○     ●     ●     ●     ●     ●
+NAC 600mg x2                   ○     ○     ●     ●     ●     ●
 D3/K2                          ●     ●     ●     ●     ●     ●
 B-complex                      ●     ●     ●     ●     ●     ●
+B12 sublingual                 ●     ●     ●     ●     ●     ●
 Phosphatidylserine 300mg       ○     ●*    ●     ●     ●     ●
-Zinc picolinate 15mg           ○     ●*    ●     ●     ●     ●
-Sulforaphane 10mg              ○     ●     ●     ●     ●     ●
-Multi-strain probiotic         ○     ●     ●     ●     ●     ●
+Mag L-Threonate 2000mg         ●     ●     ●     ●     ●     ●
+Mag Glycinate 360mg el.        ●     ●     ●     ●     ●     ●
+Glycine 3g                     ●     ●     ●     ●     ●     ●
 Apigenin 50mg                  ●     ●     ●     ●     ●     ●
 Melatonin 0.5mg                ○     ●‡    ○     ○     ○     ○
-
-TIER 3 — PULSED / PATHWAY ACTIVATORS (hormetic; Mon–Fri; food can skip)
-──────────────────────────────────────────────────────────────────────────
-SUPPLEMENT                   Ph0   Ph1   Ph2   Ph3   Ph4   Ph5
-──────────────────────────────────────────────────────────────
-Pterostilbene 50mg             ○    (P)   (P)   (P)   (P)   →R
-Resveratrol 500mg (R)          ○     ○     ○     ○     ○    (P)
-NAC 600mg x2                   ○     ○    (P)   (P)   (P)   (P)
-Berberine 500mg                ○     ○     ○     ○     ○    (P)
-
-TIER 4 — PHASE-SPECIFIC / SITUATIONAL
-──────────────────────────────────────────────────────────────────────────
-SUPPLEMENT                   Ph0   Ph1   Ph2   Ph3   Ph4   Ph5
-──────────────────────────────────────────────────────────────
-Psilocybin microdose           ○     ○     ○    (P)   (P)   (P)
-Niacin flush (microdose)       ○     ○     ○    (P)   (P)   (P)
-5-HTP + EGCG (post-MDMA)       ○     ○     ○    (P)   (P)    ○
-Tart cherry (food/supp)        ○    ●‡     ●     ●     ●     ●
-Beetroot extract               ○    (P)   (P)   (P)   (P)   (P)
+Psilocybin microdose           ○     ○     ○     ●     ●     ●
+Niacin flush                   ○     ○     ○     ●     ●     ●
+Resveratrol 500mg              ○     ○     ○     ○     ○     ●
+Berberine 500mg                ○     ○     ○     ○     ○     ●
+5-HTP + EGCG (post-MDMA)       ○     ○     ○     (P)   (P)   ○
 
 ──────────────────────────────────────────────────────────────
 NOTES
 
-* Mid-phase introduction: NMN Month 2 | Bacopa Week 3 |
-  Phosphatidylserine Month 2 | Zinc picolinate Week 3
-† Pause 1 week before SGB course; resume 48 hours after
-‡ Time-limited — Melatonin: first 4–6 weeks of Phase 1 only,
-  then taper and stop. Tart cherry: food form begins at same
-  transition point and continues permanently.
-→R Pterostilbene discontinued in Phase 5 when Resveratrol begins
-(P) For Ashwagandha: daily in Phase 2; Mon–Fri from Phase 3+
-    For NAC, Pterostilbene: Mon–Fri throughout their active phases
-    For Resveratrol, Berberine: weekdays only per pulsing principle
+* Introduced mid-phase: NMN Month 2, Bacopa Week 3,
+  Phosphatidylserine Month 2
+† Pause 1 week before SGB course; resume 48 hours after final
+  SGB session of the course
+‡ First 4–6 weeks of Phase 1 only, then taper and stop
 
 SUBSTANCE-SPECIFIC PAUSE RULES
 
-Pre-SGB: pause krill oil, algae oil or fish oil (omega-3 top-up),
-NAC, vitamin E, resveratrol (Phase 5 only) 1 week before.
-No microdosing 7 days before. Space at least 72 hours between
-macrodose session and SGB. Full protocol in Section 1B.
+Pre-SGB: pause krill, omega-3 triglyceride top-up, NAC, vitamin E,
+resveratrol (Phase 5 only) 1 week before. No microdosing 7 days
+before. Space at least 72 hours between macrodose session and SGB.
+Full protocol in Section 1B.
 
-Pre-macrodose: no 5-HTP or tryptophan in 24 hours before.
-Pause microdosing 1 week before. Full supplement stack continues.
+Pre-macrodose: no 5-HTP or tryptophan in 24 hours before. Pause
+microdosing 1 week before. Full supplement stack continues.
 
 Pre-MDMA session: stop NAC 3 days before. Skip Ashwagandha on
 session day. No 5-HTP or tryptophan in 24 hours before. Pause
 microdosing 1 week before.
 
 Post-MDMA session: 5-HTP 100mg + EGCG 400mg for 3 days beginning
-24 hours after. Resume NAC 48 hours after. MDMA-specific
+24 hours after. Resume NAC 48 hours after. This is MDMA-specific
 serotonin replenishment — not used after psilocybin sessions.
 
 Post-session microdosing: resume Day 4–5 after both macrodose and
 MDMA sessions, once the experience has fully settled.
 
-Fish days: skip krill oil and omega-3 top-up (algae oil or fish oil).
+Fish days: skip krill and omega-3 top-up supplements.
 Resistance training days: no berberine.
 
 
@@ -628,15 +595,11 @@ like a task is not yet infrastructure.
 ──────────────────────────
 
 Week 1: Meeting support (bone conduction headphones + pink noise)
-from Day 1. Sleep protocol from Day 1. Core supplements begin —
-full Week 1 wave including new additions: Alpha-GPC, Selenomethionine,
-Multi-strain probiotic (see 4J for complete list). HRV tracking
-begins.
+from Day 1. Sleep protocol from Day 1. Core supplements begin.
+HRV tracking begins — establish baseline.
 
-Week 2: Sulforaphane 10mg. Pterostilbene 50mg.
-
-Week 3: Simplified somatic release (10 min morning). Bacopa 320mg.
-Zinc picolinate 15mg added to lunch.
+Week 3: Simplified somatic release (10 min morning). Bacopa
+added to supplement stack.
 
 Week 4: Qi-Gong (15 min morning). Trigger hierarchy mapping begins.
 
@@ -645,8 +608,6 @@ Phosphatidylserine added. SSP primary course booked and run.
 
 Throughout Phase 1: one or two orientation macrodose sessions —
 unstructured, no therapeutic agenda.
-
-Full supplement introduction order and timing: Section 4J.
 
 
 4B. Meeting Support
@@ -697,17 +658,16 @@ Yoga Nidra — 20-minute sleep track standard nights;
 Screens off
 In bed: pink noise on, blackout mask on
 
-MOUTH TAPING — PENDING TRIAL
+MOUTH TAPING
 
-Not yet trialed. When ready: apply a small strip of soft medical
+Worth trialing for 1–2 weeks. Apply a small strip of soft medical
 paper tape (3M Micropore or equivalent) vertically over the center
-of the lips. Trial for 1–2 weeks. If it improves sleep depth or
-reduces night waking, continue. If it produces discomfort or
-anxiety, discontinue — the other sleep elements are sufficient.
+of the lips. If it improves sleep depth or reduces night waking,
+continue. If it produces discomfort or anxiety, discontinue.
 
 Nasal breathing activates parasympathetic tone, produces nitric
 oxide, and may reduce the cortisol-driven arousals associated with
-night waking. Most people adapt within 2–3 nights.
+night waking.
 
 BLACKOUT MASK
 
@@ -740,7 +700,8 @@ MDMA: disrupts REM 1–3 nights after — expected; maintain Yoga Nidra.
 tDCS: not within 5 hours of sleep time.
 Skipping Yoga Nidra: the most common reason the night-waking
   pattern returns.
-Late meals: final meal by 6:00pm.
+Late meals: last real meal by 2:45pm. Optional closer by 4:15pm
+  only if genuinely underfueled. Nothing after 4:15pm.
 
 
 4D. Morning Practices
@@ -964,580 +925,201 @@ nervous system's response to the substrate work in Phase 1.
 4J. Supplement Stack — Phase 1
 ────────────────────────────────
 
+Introduce in waves. If any addition produces unexpected effects,
+hold it and reassess before continuing.
+
 For food equivalents, gap-filling foods, and food-supplement
 interaction rules, see Sections 14E–14F.
 
-ON PULSING
-
-Many supplements in this protocol work via hormetic signaling —
-they activate stress-response pathways (sirtuins, AMPK, Nrf2,
-HPA axis modulation) that require a contrast between stimulus and
-recovery to function properly. Constant daily input can blunt
-receptor sensitivity and create compensatory downregulation —
-the same mechanism that makes chronic stress without recovery
-counterproductive. David Sinclair's resveratrol research (old
-mice on every-other-day dosing significantly outlived both daily
-and control groups) is the clearest data point; berberine's
-interference with training adaptations is another expression of
-the same principle.
-
-The practical rule: supplements that work via pathway activation
-rather than nutrient repletion benefit from weekly off-days or
-alternate-day dosing. Supplements that work via saturation or
-nutrient gap-filling (creatine, magnesium, B12, omega-3s,
-minerals) do not benefit from pulsing and should run daily.
-
-Specific pulsing protocols are noted in each supplement's entry.
-The general pattern for hormetic supplements in this stack is
-Monday–Friday on, Saturday–Sunday off — this aligns naturally
-with the community rhythm and the resistance training schedule
-without requiring active tracking.
-
 ON OMEGA-3 SOURCES
 
-Daily target: 2–3g EPA+DHA total.
-Krill oil (phospholipid form): covers ~0.7–1.1g.
-Top-up needed: ~1–2g additional (triglyceride form).
+This protocol's neuroplasticity targets require sustained high
+levels of EPA and DHA in phospholipid form for neuronal membrane
+incorporation. DHA is the dominant fatty acid in the brain's gray
+matter and myelin. During intensive neuroplasticity work, neuronal
+membranes are being actively remodeled — the availability of DHA
+in phospholipid form directly affects how efficiently new synaptic
+connections form and stabilize.
 
-Krill oil is the only practical phospholipid EPA+DHA source —
-it crosses into neural tissue more efficiently for membrane
-incorporation during active neuroplasticity work. The triglyceride
-top-up provides dose adequacy.
+Algae oil provides EPA and DHA in triglyceride form, well absorbed
+and raises blood levels effectively. Krill oil provides them in
+phospholipid form, which crosses into neural tissue more efficiently.
+There is no plant-based phospholipid EPA+DHA source available in
+supplement form — krill oil is the only practical source of this
+delivery mechanism.
 
-TOP-UP SOURCE — EITHER IS VALID:
-Algae oil: ~300–500mg EPA+DHA per 2-softgel serving (check your
-brand label). Clean, vegan. 2–4 softgels to reach target.
-Fish oil: ~1000mg EPA+DHA per 2-softgel serving (typical). Higher
-density per softgel — 1–2 softgels to reach target. No functional
-difference vs. algae oil at equivalent dose.
-
-Practical rule: check your specific products' EPA+DHA content on
-the label and adjust quantity to reach the combined 2–3g/day
-target. On days eating oily fish (~100g sardines/mackerel/salmon =
-~1500–2000mg EPA+DHA): skip both krill and top-up supplements.
+Oily fish (sardines, mackerel, salmon) provides EPA+DHA at
+~1500–2000mg per 100g. Fish is used occasionally rather than as
+a staple — algae oil carries this load daily. On fish days: skip
+both krill and algae oil supplements. On mackerel days: also skip
+or halve phosphatidylserine — mackerel provides ~480mg PS per 100g
+(see Section 14F).
 
 INTRODUCTION WAVES
 
-Introduce in sequence. If any addition produces unexpected effects,
-hold at that wave and reassess before continuing.
+Week 1: Creatine, L. reuteri, krill oil, omega-3 top-up, Lion's Mane,
+D3/K2, B-complex, B12, magnesium L-threonate, magnesium glycinate,
+glycine, apigenin. Melatonin 0.5mg (first 4–6 weeks, then taper).
 
-Week 1: Creatine, L. reuteri, krill oil, algae oil or fish oil
-(omega-3 top-up), Lion's Mane, D3/K2, B-complex, B12,
-magnesium L-threonate, magnesium glycinate, glycine 5g,
-apigenin, melatonin 0.5mg (first 4–6 weeks, then taper).
-Also: Alpha-GPC 300mg, Selenomethionine 200mcg, multi-strain
-probiotic 25–50bn CFU.
-
-Week 2: Sulforaphane 10mg. Pterostilbene 50mg.
-
-Week 3: Bacopa 320mg. Zinc picolinate 15mg (with lunch — never
-on an empty stomach).
+Week 3: Bacopa 320mg.
 
 Month 2: NMN 500mg sublingual. Phosphatidylserine 300mg.
-Also: acquire beetroot extract — keep on hand for situational
-use before intensive work blocks or training (not a daily standing
-item; see 4K and 14E).
 
 DAILY SUPPLEMENT TIMING — PHASE 1
 
 ━━━ ON WAKING ━━━
 
-Creatine — 7.5g in water with Liquid IV
+Creatine — 7.5g in water
   Brain energy metabolism, sensory processing efficiency.
   Critical in plant-forward diets where dietary creatine is absent.
-  Take during or immediately after the toilet and shower window
-  (~30 min after waking). This is the only thing in this window.
-  Do not add ACV here — it is mechanism-less without carbohydrate-
-  containing food and causes unnecessary GI load on a fasting stomach.
-  ACV belongs immediately before the 10am smoothie (Section 4K).
 
 L. reuteri (BioGaia Gastrus) — 1–2 tabs, chewed thoroughly
   Stimulates oxytocin via vagal nerve signaling. Chew — do not
   swallow whole. Refrigerate.
-  Timing with Sensodyne: take L. reuteri before brushing, not after.
-  Sensodyne Anti-Gingivitis contains stannous fluoride — an
-  antibacterial agent. Chew the tablet, let it sit in a clean
-  oral environment for 3–5 minutes, then brush. This preserves
-  colonization benefit in both the oral and gut microbiome.
 
-━━━ 10AM (with blueberry smoothie) ━━━
+━━━ MORNING (with food) ━━━
 
-NMN — 500mg sublingual (Month 2 onward) [TIER 1 — ESSENTIAL]
+NMN — 500mg sublingual (Month 2 onward)
   NAD+ precursor. Dissolve under tongue 1–2 minutes before other
   supplements, on empty stomach if possible.
-  Your current powder: 0.3g per serving = 300mg. This is within
-  the effective therapeutic range. Options: take 0.3g (300mg) as
-  the daily serving, or measure 0.5g for the full 500mg target.
-  Either is valid — 300mg is well-supported; 500mg is the upper
-  end of the studied range. No food equivalent at either dose.
-  SKIP IF: never — essential regardless.
 
-Krill oil — 2–3 softgels [TIER 2 — CONDITIONAL]
+Krill oil — 2–3 softgels
   (~720–1080mg EPA+DHA in phospholipid form)
-  SKIP IF: eating oily fish today (~100g sardines/mackerel/salmon
-  covers the full omega-3 target). Skip both krill AND top-up.
 
-Omega-3 triglyceride top-up — algae oil OR fish oil [TIER 2 — CONDITIONAL]
-  Algae oil: 2–4 softgels (~300–500mg EPA+DHA per 2 softgels — check label).
-  Fish oil: 1–2 softgels (~1000mg EPA+DHA per 2 softgels — check label).
-  Combined target with krill: 2–3g EPA+DHA daily total.
-  On mackerel days: also skip or halve phosphatidylserine
-  (~480mg PS per 100g mackerel — Section 14F).
+Omega-3 triglyceride top-up — 2–4 softgels
+  Algae oil.
+  Combined daily target: 2–3g EPA+DHA from krill + top-up together.
+  Skip both on days eating oily fish. On mackerel days, also skip
+  or halve phosphatidylserine — mackerel ~480mg PS per 100g
+  (Section 14F).
   Pause 1 week before SGB; resume 48 hours after.
-  SKIP IF: oily fish eaten today (see above).
 
 Lion's Mane — 2g (dual-extracted only; specify beta-glucan content)
-  [TIER 1 — ESSENTIAL]
   NGF upregulation and synaptogenesis. Synergistic with psilocybin.
   Never skip — not weekends, not microdosing off-cycles.
-  SKIP IF: never at full dose — on fresh grow station harvest days
-  (100–150g sautéed) halve the supplement dose only.
+  Grow station: on fresh harvest days (100–150g sautéed), halve
+  the supplement dose — fresh provides meaningful but less
+  concentrated NGF support than dual-extracted.
 
 Bacopa (Synapsa or Bacognize) — 320mg with food (Week 3 onward)
-  [TIER 1 — ESSENTIAL]
   Extinction learning — the most directly relevant supplement
   evidence for the type of learning CC produces.
   Takes 4–6 weeks to reach full effect.
-  SKIP IF: never — no food equivalent.
 
-D3/K2 — 2000–5000 IU D3 + 100mcg K2 (MK-7 form) [TIER 2 — CONDITIONAL]
+D3/K2 — 2000–5000 IU D3 + 100mcg K2 (MK-7 form)
   Neuroplasticity substrate, immune regulation.
-  Take with fat-containing food (smoothie nut butter handles this).
-  SKIP K2 IF: 10g natto eaten today (10g natto = 100mcg K2 MK-7).
-  REDUCE D3 IF: UV-exposed shiitake 100g (reduces by 1,000–2,000 IU)
-  or 15–30 min midday Hawaii sun (significant natural production).
-  D3 always taken at some dose; K2 component is the skippable part.
+  Take with fat-containing food.
+  K2: 10g natto = 100mcg MK-7 — skip K2 on natto days.
+  D3: reduced proportionally by UV-exposed shiitake (1,000–2,000 IU
+  per 100g gill-side sun, 2–4 hrs) or midday Hawaii sun (Section 14E).
 
-B-complex — 1 capsule (methylated forms) [TIER 1 — ESSENTIAL]
-  Morning only — energizing B vitamins interfere with sleep.
-  SKIP IF: never at supplement level. Nutritional yeast (2 tbsp)
-  and liver (weekly if included) meaningfully reduce the gap but
-  do not replace the methylated forms (methylfolate, methylcobalamin).
+B-complex — 1 capsule (methylated forms — confirm methylfolate
+  and methylcobalamin on label)
+  Morning only.
 
-B12 — 1000mcg sublingual methylcobalamin [TIER 1 — ESSENTIAL]
-  Essential on a plant-forward protocol. Dissolve under tongue
-  simultaneously with NMN.
-  SKIP IF: never — no plant-based food reliably delivers
-  therapeutic methylcobalamin. The B12 in nutritional yeast
-  is incidental, not therapeutic.
+B12 — 1000mcg sublingual methylcobalamin
+  Essential in plant-forward diets. Dissolve under tongue.
 
-Alpha-GPC — 300mg [TIER 2 — CONDITIONAL]
-  Choline delivery. Acetylcholine synthesis, neuronal membrane
-  integrity, methylation support.
-  SKIP IF: soy or sunflower lecithin granules (1 tbsp) in today's
-  smoothie — granules provide ~375mg choline in phospholipid form,
-  which is sufficient. Skip or halve when lecithin is present.
+━━━ AFTERNOON (with meal) ━━━
 
-Selenomethionine — 200mcg [TIER 2 — CONDITIONAL]
-  Glutathione peroxidase, thyroid T4→T3 conversion, neuroprotection.
-  SKIP IF: 2–3 Brazil nuts eaten today (~100–200mcg selenium).
-  ⚑ Do not take both supplement and Brazil nuts on same day —
-  upper tolerable selenium intake is 400mcg/day.
-
-Pterostilbene — 50mg (Phases 1–4; weekdays Mon–Fri only) [TIER 3 — PULSED]
-  BDNF via sirtuin pathway. Weekdays only per pulsing principle.
-  Discontinued in Phase 5 when resveratrol begins.
-  SKIP IF: 150g+ blueberries/blackberries in today's smoothie.
-  Also skip on weekends (Sat–Sun) — built into the pulsing pattern.
-
-Sulforaphane — 10mg (active form with myrosinase included) [TIER 2 — CONDITIONAL]
-  Nrf2 activation. Use Avmacol, Prostaphane, or Jarrow BroccoMax.
-  Do not shift earlier on training days — 10am is already ~3.5h
-  post-training, which is the adequate antioxidant separation.
-  SKIP IF: raw broccoli sprouts ~30g eaten today, or broccoli
-  chopped 40 min before eating with mustard powder added.
-
-Multi-strain probiotic — 25–50 billion CFU [TIER 2 — CONDITIONAL]
-  Microbiome diversity. L. acidophilus, L. rhamnosus, B. longum,
-  B. bifidum minimum. Rotate brands every 1–2 months.
-  SKIP IF: never completely — but consistent daily kimchi +
-  sauerkraut + miso meaningfully reduces but does not replace.
-  Both supplement and fermented foods run simultaneously.
-
-━━━ AFTERNOON (with lunch ~1:30–2pm) ━━━
-
-Phosphatidylserine — 300mg (Month 2 onward) [TIER 2 — CONDITIONAL]
+Phosphatidylserine — 300mg (Month 2 onward)
   Cortisol blunting, fear extinction support.
   Not in the evening — can occasionally interfere with sleep.
-  SKIP IF: mackerel eaten today (~62g mackerel = 300mg PS).
-  Reduce if: white beans (2 cups ~214mg PS) at this meal.
-
-Zinc picolinate — 15mg (Week 3 onward) [TIER 2 — CONDITIONAL]
-  BDNF synthesis, testosterone, immune function, glutathione
-  peroxidase alongside NAC and selenomethionine.
-  ⚑ Never empty stomach — take with lunch. Always.
-  Copper interaction: add copper + ceruloplasmin to Year 1 panel.
-  SKIP IF: never completely — pumpkin seeds (30g = ~7mg zinc)
-  reduce the gap but don't cover the protocol dose. Run supplement
-  regardless; treat pumpkin seeds as additive.
 
 ━━━ BEDTIME (30–60 min before sleep) ━━━
 
-Magnesium L-Threonate — 2000mg [TIER 1 — ESSENTIAL]
+Magnesium L-Threonate — 2000mg
   Brain-specific magnesium delivery. Sleep depth, synaptic
-  plasticity. This form is not in food — essential regardless.
-  SKIP IF: never.
+  plasticity.
 
 Magnesium Glycinate — 360mg elemental (3 × 120mg capsules)
-  [TIER 2 — CONDITIONAL]
   Calming, sleep architecture, muscle relaxation.
   Do not substitute oxide or citrate forms.
-  SKIP IF / REDUCE: pumpkin seeds 30g (~150mg Mg) + dark
-  chocolate 30g (~64mg Mg) + cooked spinach 1 cup (~157mg Mg)
-  together provide ~370mg elemental Mg — on days all three are
-  eaten, reduce to 1–2 capsules rather than 3.
 
-Glycine — 5g [TIER 1 — ESSENTIAL]
-  Primary: reduces core body temperature at sleep onset, improves
-  sleep quality and next-morning alertness.
-  Longevity: David Sinclair (PhD on glycine) takes 5g daily for
-  one-carbon metabolism and DNA methylation — glycine controls
-  methylation of the epigenome, potentially slowing information
-  loss independently of the sleep mechanism.
-  SKIP IF: never — no vegan food source delivers 5g glycine
-  reliably. Essential regardless of diet.
+Glycine — 3g
+  Reduces core body temperature at sleep onset. Improves sleep
+  quality and next-morning alertness.
 
-Apigenin — 50mg [TIER 2 — CONDITIONAL]
+Apigenin — 50mg
   Mild anxiolytic, promotes sleep onset.
   May potentiate alcohol — avoid on nights drinking.
-  SKIP IF: 1 artichoke head eaten today (~70mg apigenin) or 7g
-  celery seed in today's cooking (~50mg apigenin). Either fully
-  covers the supplement dose.
+  Food: 1 artichoke head (~70mg) or 7g celery seed in cooking
+  replaces this supplement that day (Section 14E).
 
-Melatonin — 0.5mg [TIME-LIMITED — Weeks 1–6 only]
-  Establishes the initial sleep rhythm. Taper by halving dose
-  over 1–2 weeks at Weeks 4–6, then stop. The sleep protocol
-  — not melatonin — is the permanent mechanism.
-  SKIP IF: after the taper is complete.
-
-Tart cherry concentrate — 1 tbsp in warm water [FOOD-BASED]
-  Active after melatonin taper (Weeks 4–6 onward, permanent).
-  The only significant dietary melatonin source. Also: anthocyanins,
-  quercetin, training recovery support.
-  SKIP IF: sleep protocol architecture (Yoga Nidra, warm shower,
-  blackout, pink noise) carries the mechanism — tart cherry is
-  supportive, not load-bearing. But take it when available.
+Melatonin — 0.5mg (first 4–6 weeks only, then taper and stop)
+  Low dose is as effective as high dose for sleep onset. Use only
+  to establish the initial rhythm. The sleep protocol — not
+  melatonin — is the long-term mechanism.
 
 
 4K. Phase 1 Daily Rhythm
 ─────────────────────────
 
-Sequence governs. The clock does not. What follows maps the
-actual daily rhythm to the actual supplement and food schedule —
-when things are taken, in what order, and why the order matters.
+Sequence governs. The clock does not. Adapt to the actual day.
+The order matters — the exact time does not. See Section 3 for
+operating modes.
 
-THE FIVE DAILY WINDOWS
+RESISTANCE TRAINING DAYS (three per week)
 
-The day has five nutritional and supplement windows. Everything
-in the stack lives in exactly one of them.
+Wake. Fixed time. Bright light immediately.
+Creatine + L. reuteri
+Resistance training — 30–45 minutes
+Meal 1 (~6:30am): NMN sublingual 5 min before → protein
+  smoothie with full supplement stack (krill, omega-3 top-up,
+  Lion's Mane, Bacopa from Week 3, D3/K2, B-complex, B12,
+  lecithin granules). Matcha with or after.
+Somatic release — simplified (10 min) from Week 3
+Qi-Gong — shaking + flowing (15 min) from Week 4
+Resonance frequency breathing / HeartMath (from Month 2) — 20 min
+Morning meeting — meeting support on
+Meal 2 (11:30am): Light. Zinc from Week 3. NAC 2nd dose
+  (Phase 2+, Mon–Fri).
+Meal 3 / Main Meal (2:45pm): ACV 1 tbsp immediately before →
+  full whole-food meal → PS (Month 2 onward) · spice parcel ·
+  fermented rotation · dark chocolate.
+Optional closer (4:15pm): Only if genuinely underfueled. Small.
+  Last calories of the day — nothing after this.
+Free time / leadership meeting (Mon — meeting support on)
+Bedtime supplements
+Warm shower
+Yoga Nidra — 20-minute sleep track
+Screens off
+Sleep: pink noise on, blackout mask on
 
-  (1) Wake window — creatine + electrolyte drink only
-  (2) 10am — full primary supplement load with blueberry smoothie
-  (3) Lunch ~1:30–2pm — afternoon supplements with full meal
-  (4) Dinner ~5:30–6pm — fermented foods, natto, no supplements
-  (5) Bedtime ~8:30pm — sleep stack
+AEROBIC / WATERFALL DAYS (target two per week)
 
-──────────────────────────────────────────────
-
-WINDOW 1 — WAKE (~30 min after waking)
-
-The toilet and shower window is the first 30 minutes. Only two
-things happen here: the wake drink and L. reuteri.
-
-WAKE DRINK
-
-Current: creatine 7.5g mixed into a Liquid IV packet in water.
-Use the existing Liquid IV stockpile through. When it runs out,
-transition to the Morning Ground batch blend below — same job,
-meaningfully better mineral profile, no synthetics, genuinely
-pleasant to drink.
-
-ACV does not go here — mechanism-less without food, unnecessary
-GI load on a fasting stomach. It belongs at 10am immediately
-before the smoothie.
-
-─────
-
-MORNING GROUND — HOMEMADE WAKE BLEND
-(Transition to this when Liquid IV stockpile is exhausted.)
-
-One scoop in 400–500ml water. Stir 15 seconds. Done.
-Color: clear to pale gold. Flavor: clean mineral tartness,
-light citrus note, lightly sweet with a slight cooling finish.
-Nothing unpleasant. Nothing synthetic.
-
-Mechanistic design: the sodium:glucose ratio activates the
-sodium-glucose cotransporter (SGLT2), pulling water and
-electrolytes across the gut wall faster than plain water —
-the same ORS mechanism as Liquid IV, at a lower, cleaner
-glucose dose. Celtic salt (sel gris, fine ground) replaces
-Himalayan pink — genuinely higher mineral complexity from
-clay-contact harvesting in Brittany. Blackstrap molasses
-powder adds copper (directly relevant to the zinc picolinate
-entry), iron, calcium, and natural sugars. Magnesium malate
-dissolves cleanly in cold water and supports the citric acid
-cycle at wake time — mechanistically distinct from and
-complementary to the bedtime magnesium stack.
-
-PER SERVING (one heaping tablespoon, ~11–12g total):
-
-  Creatine monohydrate (Creapure)    7.5g
-  Celtic salt fine ground            0.6g   Sodium ~575mg; trace minerals
-  Cream of tartar                    0.6g   Potassium ~495mg
-  Blackstrap molasses powder         1.5g   Copper ~0.1mg; iron ~2mg;
-                                             calcium ~50mg; Mg ~20mg
-  Magnesium malate powder            0.5g   Mg ~50mg elemental; citric
-                                             acid cycle support
-  Ascorbic acid (vitamin C powder)   0.25g  Tartness; C; natural
-                                             preservative for the batch
-  Malic acid                         0.2g   Clean tartness; citric cycle
-  Dextrose (pure glucose)            1.0g   SGLT2 cotransport activation
-  Xylitol                            0.5g   Sweetness; oral microbiome
-                                             support (pre-brushing)
-  Monk fruit extract                 0.05g  Primary sweetness balance
-
-BATCH PREPARATION (30 servings — once a month, ~10 minutes):
-
-  Creatine monohydrate    225g
-  Celtic salt (fine)       18g
-  Cream of tartar          18g
-  Blackstrap molasses pd   45g
-  Magnesium malate pd      15g
-  Ascorbic acid            7.5g
-  Malic acid               6g
-  Dextrose                 30g
-  Xylitol                  15g
-  Monk fruit extract       1.5g
-
-  Total: ~381g — fits in a wide-mouth pint mason jar.
-
-  Method: add smallest quantities first (monk fruit, malic acid,
-  ascorbic acid, magnesium malate, blackstrap powder, xylitol,
-  salt, cream of tartar), then creatine last — largest volume
-  helps compress and mix everything when you shake. Seal and
-  shake 30–45 seconds. Open, stir with a dry spoon to break
-  any settled layers. Seal and shake again. Label with date.
-
-  Storage: cool, dry, away from direct light. Shelf-stable
-  60+ days. Shake before each use — fine powders settle.
-
-  Scoop: one heaping standard tablespoon or a dedicated 12g
-  scoop. Marginal variation (11–13g) is inconsequential.
-
-SALT NOTE:
-Celtic fine ground (sel gris, Le Paludier or Selina Naturally)
-in the batch — genuinely higher magnesium and trace mineral
-content from clay-lined salt pan harvesting. Himalayan pink
-is mostly marketing at trace-mineral quantities. Maldon is
-for the table and kitchen only — its pyramid crystal structure
-and clean bright finish are wasted dissolved in a drink.
-
-─────
-
-L. reuteri 1–2 tabs — chewed thoroughly, before brushing.
-Sensodyne Anti-Gingivitis contains stannous fluoride — an
-antibacterial agent. Sequence: chew the tablet, let it sit
-in the oral environment 3–5 minutes, then brush. The xylitol
-in the wake drink during this window further supports the oral
-microbiome conditions in the same direction.
-
-Bare feet on earth — grass, soil, rock, sand. Even 5 minutes
-before the morning practices begins the nervous system shift
-from below. The Hamakua Coast makes this effortless.
-
-──────────────────────────────────────────────
-
-MORNING PRACTICES (before 8am meeting)
-
-Somatic release — simplified (10 min, from Week 3)
-Qi-Gong — shaking + flowing (15 min, from Week 4)
-Resonance frequency breathing / HeartMath (20 min, from Month 2)
-Matcha: with or just after practices.
-8:00am: morning meeting — meeting support on.
-
-ON RESISTANCE TRAINING DAYS:
-Training moves before practices — not after.
-
-  Wake → creatine + L. reuteri (wake window as above)
-  Resistance training — 30–45 min
-  Protein smoothie immediately after training
-    (simple: plant protein + plant milk only — no supplements
-    in this drink; gut is in recovery mode post-training)
-  Somatic release → Qi-Gong → resonance frequency breathing
-  Matcha → morning meeting
-
-Full supplement stack waits for the 10am window.
-NMN needs near-empty stomach for best sublingual absorption —
-3.5 hours after the post-training protein smoothie is adequate.
-Do not take the morning stack with the post-training smoothie.
-
-──────────────────────────────────────────────
-
-WINDOW 2 — 10AM (with blueberry smoothie)
-
-This is the primary daily supplement load. The smoothie is
-the food anchor for all fat-soluble supplements and capsules.
-
-Before the smoothie — sublinguals first (1–2 min before):
-  NMN 500mg sublingual — dissolve under tongue. Empty or near-
-  empty stomach gives best NAD+ precursor absorption.
-  B12 1000mcg sublingual — dissolve simultaneously with NMN.
-
-Immediately before the smoothie:
-  ACV — 1 tbsp in a small glass of water. Right before a
-  carbohydrate meal for AMPK activation and blood sugar
-  management. This is the correct position.
-
-Build the smoothie:
-  Vegan protein powder
-  Blueberries 100–150g (frozen is fine)
-  Soy milk or other plant milk
-  Mixed nut butter 2–3 tbsp (fat for D3/K2 absorption)
-  Ground flaxseed 1–2 tbsp (ALA, lignans)
-  Wheat germ 1–2 tbsp (spermidine)
-  Soy or sunflower lecithin granules 1 tbsp (choline ~375mg)
-  Pomegranate concentrate 30ml (urolithin A precursors)
-  Blackstrap molasses powder 1 tsp (copper ~0.1mg, iron ~2mg,
-    calcium ~50mg, natural minerals; integrates with nut butter
-    flavor; fat present for mineral absorption)
-  Amla powder small pinch (vitamin C, antioxidants; bright note)
-
-With the smoothie — take all of these together:
-  Krill oil — 2–3 softgels
-  Algae oil or fish oil — check label for EPA+DHA; reach 2–3g/day combined with krill
-  Lion's Mane — 2g
-  D3/K2 — fat from nut butter handles absorption
-  B-complex — 1 capsule (methylated forms)
-  Alpha-GPC — 300mg
-  Selenomethionine — 200mcg
-  Pterostilbene — 50mg (weekdays Mon–Fri only; Phases 1–4)
-  Sulforaphane — 10mg
-  Multi-strain probiotic — 25–50bn CFU
-  Bacopa — 320mg (from Week 3)
-
-Alongside: walnuts 30g and Brazil nuts 2–3 — with the smoothie
-or as a small snack immediately after.
-
-CONDITIONAL SKIPS ON THIS WINDOW:
-  Fish days: skip krill and omega-3 top-up (algae oil or fish oil).
-  Natto at dinner today: skip K2 component of D3/K2.
-  Lecithin in smoothie: skip or halve Alpha-GPC.
-  Brazil nuts just eaten: skip selenomethionine.
-  150g+ berries in smoothie: skip pterostilbene.
-  Broccoli sprouts or broccoli at lunch: skip sulforaphane.
-  Weekends (Sat–Sun): skip NAC first dose, pterostilbene,
-    and ashwagandha (Phase 3+) — pulsed Mon–Fri only.
-
-──────────────────────────────────────────────
-
-WINDOW 3 — LUNCH (~1:30–2pm)
-
-Phosphatidylserine — 300mg (from Month 2)
-  Skip on mackerel days.
-Zinc picolinate — 15mg (from Week 3; with food, not empty stomach)
-  A few hours' separation from the morning B-complex is ideal.
-NAC — 600mg second dose (from Phase 2 onward; weekdays only)
-  On weekends (Sat–Sun): skip both NAC doses — pulsed Mon–Fri.
-
-SPICE PARCEL — take with first bites of lunch:
-  Turmeric + pippali (long pepper) + black cumin + ginger —
-  wrapped in a blate pape and swallowed with the first mouthful
-  of food. The fat in the meal handles curcumin bioavailability
-  (requires fat + piperine — pippali is the piperine source).
-  Without fat and piperine, curcumin absorption is under 1%.
-  Pre-make a week's supply: lay out 7 blate pape squares, add
-  a small pinch of each spice to each square, fold and seal.
-  Keep in a small container near the lunch area. One parcel,
-  swallowed in a second, zero daily measuring.
-  Garlic and oregano belong in cooking — not in the parcel.
-
-Foods for this meal (use what is accessible):
-  Leafy greens or arugula — nitrate load, folate.
-  Legumes — lentils, chickpeas, black beans. Protein, folate,
-    resistant starch, partial PS contribution.
-  Broccoli sprouts (raw, no cooking needed) or broccoli.
-  Nutritional yeast 2 tbsp — stir into soup, dressing, or grains.
-  Pumpkin seeds 30g — on a salad or as a side.
-  Capers — add to anything.
-  Dulse flakes — sprinkle over salads, grain bowls, miso soup,
-    avocado. Iodine ~75–150mcg per ¼ tsp. Use Atlantic dulse
-    only (Maine Coast Sea Vegetables or equivalent) — Pacific
-    seaweed has documented radioactive iodine concerns post-2011.
-    No cooking required. Faint ocean/umami note; undetectable in
-    strongly flavored food.
-
-Green tea (kukicha or sencha): afternoon, 2–3 hours before
-sleep. Space 1 hour from iron-rich parts of the meal.
-
-Beetroot extract — situational. On days with an intensive work
-block or training session beginning ~2 hours later, take one
-dose (~500mg nitrate) with this meal for cerebrovascular effect.
-Not a daily standing item.
-
-──────────────────────────────────────────────
-
-WINDOW 4 — DINNER (~5:30–6pm, hard stop at 6pm)
-
-No supplements at dinner. This window is food only.
-
-Natto 10g — stir into rice, miso soup, or a grain bowl. On days
-  natto is included, the K2 component of D3/K2 (already taken
-  at 10am) was optional — the D3 always taken regardless.
-Fermented rotation — one of: kimchi, sauerkraut, miso. Rotate
-  rather than defaulting to one source for strain diversity.
-Dark chocolate 85%+ — 20–30g. Natural post-dinner position.
-Tart cherry concentrate 1 tbsp in warm water — 30–60 min after
-  dinner, before the bedtime stack. Active after melatonin taper
-  at Weeks 4–6. If unavailable, sleep protocol carries it.
-
-──────────────────────────────────────────────
-
-WINDOW 5 — BEDTIME (~8:30pm, 30–60 min before sleep)
-
-Magnesium L-Threonate — 2000mg
-Magnesium Glycinate — 360mg elemental
-Glycine — 5g
-Apigenin — 50mg (skip if artichoke or celery seed in today's meals)
-Melatonin — 0.5mg (Weeks 1–6 only; taper over 1–2 weeks, stop)
-Tart cherry concentrate — 1 tbsp in warm water (after taper, ongoing)
-
-Then: warm shower → Yoga Nidra 20 min minimum → screens off →
-pink noise on, blackout mask on → sleep.
-
-──────────────────────────────────────────────
-
-AEROBIC / WATERFALL DAYS
-
-Same five windows with one change: first food is the 10am
-smoothie — the fast extends naturally after the waterfall run.
-
-  Wake → creatine + L. reuteri (wake window)
-  Grounding — bare feet
-  Somatic release → Qi-Gong → resonance frequency breathing
-  Matcha
-  Waterfall: Zone 2 climb + cold plunge 3–5 min (50 min total)
-    When unavailable: any Zone 2 effort 45 min + cold shower 30–60 sec
-  Return, change
-  Morning meeting — meeting support on
-  10am: full supplement window with smoothie (Window 2, as above)
-  Lunch ~1:30–2pm (Window 3)
-  Dinner ~5:30–6pm (Window 4)
-  Bedtime stack (Window 5)
-
-──────────────────────────────────────────────
+Wake. Bright light.
+Creatine + L. reuteri
+Somatic release — simplified (10 min) from Week 3
+Qi-Gong — 15 min from Week 4
+Resonance frequency breathing / HeartMath (from Month 2) — 20 min
+Matcha (early morning, fasted — acceptable on aerobic days)
+Morning meeting — meeting support on. Fast extends.
+Waterfall post-meeting (~9:15am): Zone 2 climb + cold plunge
+  3–5 min (50 min total). When unavailable: Zone 2 effort
+  45 min + cold shower 30–60 sec.
+Return, change
+Meal 1 (11:30am) — First food of the day: NMN sublingual 5 min
+  before → full supplement stack. Fasting window: 19h+ from
+  previous day's closer. BDNF elevated from waterfall.
+Meal 2 / Main Meal (2:45pm): ACV 1 tbsp immediately before →
+  full whole-food meal → PS (Month 2 onward) · spice parcel ·
+  fermented rotation · dark chocolate.
+Optional closer (4:15pm): Only if genuinely underfueled.
+  Last calories of the day — nothing after this.
+Bedtime supplements → warm shower → Yoga Nidra → screens off
+  → sleep
 
 WEEKEND
 
-Same five windows. No fixed meeting. Sequence over clock.
-One moderate exercise session. Yoga Nidra every night.
-
-──────────────────────────────────────────────
+Same morning supplements and practices. No fixed meeting.
+Resonance frequency breathing as normal. One moderate exercise
+session. Yoga Nidra nightly. Sequence over clock.
 
 TRAVEL AND DISRUPTED DAYS
 
 Non-negotiables that travel:
-— Creatine + L. reuteri (wake)
-— Pre-measured morning and bedtime supplement packets
+— Morning and bedtime supplements
 — Yoga Nidra (phone and headphones)
 — Blackout mask
 — Meeting support headphones
@@ -1545,12 +1127,8 @@ Non-negotiables that travel:
 Practices that adapt:
 — Somatic release: 5-minute floor version works anywhere.
 — Qi-Gong: 5 minutes of shaking is better than nothing.
-— Resonance frequency breathing: available anywhere, no device.
-
-The 10am smoothie is hardest to maintain while traveling. Fallback:
-take the supplement stack with any meal containing fat — a handful
-of walnuts and Brazil nuts provides sufficient fat for D3/K2
-absorption and covers two protocol foods simultaneously.
+— Resonance frequency breathing: available anywhere, no device
+  required.
 
 
 4L. Signs Phase 1 Is Working
@@ -1999,62 +1577,46 @@ Avoid: macrodose days, MDMA days, with alcohol, daily use.
 6G. Supplement Additions — Phase 2
 ─────────────────────────────────────
 
-Ashwagandha (KSM-66) — 600mg morning with food [TIER 1 — ESSENTIAL]
+Ashwagandha (KSM-66) — 600mg morning with food
   HPA axis regulation, cortisol blunting, stress resilience.
-  Pulsing: daily in Phase 2. From Phase 3 onward: Mon–Fri only,
-  weekends off. Prevents HPA accommodation over months.
   Continue on macrodose days. Skip on MDMA session days.
-  SKIP IF: never during active phases — no food equivalent.
 
-Lithium Orotate — 5mg morning with food [TIER 1 — ESSENTIAL]
+Lithium Orotate — 5mg morning with food
   Hippocampal neurogenesis and BDNF upregulation at nutritional
   doses. Do not exceed 10mg/day.
-  SKIP IF: never — not available from food at this dose.
 
-NAC — 600mg morning + 600mg midday [TIER 3 — PULSED]
-  Glutamate modulation, antioxidant/glutathione support.
-  Mon–Fri only: weekend break preserves ROS signaling for
-  training adaptations. Both doses after training on training days.
+NAC — 600mg morning + 600mg midday
+  Glutamate modulation, antioxidant support.
   Stop 3 days before MDMA. Resume 48 hours after.
   Continue on psilocybin macrodose days.
-  SKIP IF: weekends (Sat–Sun) built into pulsing pattern.
-  No food equivalent at therapeutic dose.
 
 COMPLETE DAILY STACK — PHASE 2
 
 ━━━ ON WAKING ━━━
-Creatine — 7.5g (with Liquid IV → transition to Morning Ground)
-L. reuteri — 1–2 tabs chewed (before brushing — 3–5 min gap)
+Creatine — 7.5g
+L. reuteri — 1–2 tabs chewed
 
-━━━ 10AM (with blueberry smoothie) ━━━
-NMN — 500mg sublingual (first, before smoothie)
-B12 — 1000mcg sublingual (simultaneously with NMN)
+━━━ MORNING (with food) ━━━
+NMN — 500mg sublingual, before other supplements
 Krill oil — 2–3 softgels
-Algae oil or fish oil — check label for EPA+DHA; reach 2–3g/day combined with krill
+Algae oil — 2–4 softgels
 Lion's Mane — 2g
 Bacopa — 320mg
-Ashwagandha (KSM-66) — 600mg (daily Phase 2; Mon–Fri Phase 3+)
+Ashwagandha (KSM-66) — 600mg
 Lithium Orotate — 5mg
-NAC — 600mg first dose (Mon–Fri only)
+NAC — 600mg (first dose)
 D3/K2 — 2000–5000 IU D3 + 100mcg K2 MK-7
 B-complex — 1 capsule
-Alpha-GPC — 300mg
-Selenomethionine — 200mcg
-Pterostilbene — 50mg (Mon–Fri only)
-Sulforaphane — 10mg
-Multi-strain probiotic — 25–50bn CFU
+B12 — 1000mcg sublingual
 
-━━━ AFTERNOON (with lunch ~1:30–2pm) ━━━
-NAC — 600mg second dose (Mon–Fri only)
+━━━ MIDDAY (with meal) ━━━
+NAC — 600mg (second dose)
 Phosphatidylserine — 300mg
-Zinc picolinate — 15mg
-Spice parcel (blate pape) — turmeric + pippali + black cumin
-  + ginger; swallowed with first bites of lunch
 
 ━━━ BEDTIME ━━━
 Magnesium L-Threonate — 2000mg
 Magnesium Glycinate — 360mg elemental
-Glycine — 5g
+Glycine — 3g
 Apigenin — 50mg
 
 
@@ -2064,11 +1626,6 @@ Apigenin — 50mg
 Sequence governs. Clock does not. Phase 2 adds the CC session
 to the afternoon window 2–3 times per week. Everything else
 continues as established in Phase 1.
-
-Full daily rhythm including all five supplement windows, smoothie
-build, spice parcel, and operational detail: Section 4K. That
-section is the master reference for the daily schedule — what
-follows covers only what is new or changed in Phase 2.
 
 CC SESSION BLOCK (CC days — afternoon)
 
@@ -2383,45 +1940,35 @@ Niacin flush — 100–200mg
 COMPLETE DAILY STACK — PHASE 3
 
 ━━━ ON WAKING ━━━
-Creatine — 7.5g (with Liquid IV → Morning Ground)
-L. reuteri — 1–2 tabs chewed (before brushing — 3–5 min gap)
+Creatine — 7.5g
+L. reuteri — 1–2 tabs chewed
 
-━━━ 10AM (with blueberry smoothie) ━━━
-NMN — 500mg sublingual (first, before smoothie)
-B12 — 1000mcg sublingual (simultaneously with NMN)
+━━━ MORNING (with food) ━━━
+NMN — 500mg sublingual
 Krill oil — 2–3 softgels
-Algae oil or fish oil — check label for EPA+DHA; reach 2–3g/day combined with krill
+Algae oil — 2–4 softgels
 Lion's Mane — 2g
 Bacopa — 320mg
-Ashwagandha (KSM-66) — 600mg (Mon–Fri only from Phase 3)
+Ashwagandha (KSM-66) — 600mg
 Lithium Orotate — 5mg
-NAC — 600mg first dose (Mon–Fri only)
+NAC — 600mg (first dose)
 D3/K2 — 2000–5000 IU D3 + 100mcg K2 MK-7
 B-complex — 1 capsule
-Alpha-GPC — 300mg
-Selenomethionine — 200mcg
-Pterostilbene — 50mg (Mon–Fri only)
-Sulforaphane — 10mg
-Multi-strain probiotic — 25–50bn CFU
+B12 — 1000mcg sublingual
 
-━━━ 10AM (Mon–Thu microdosing days — 30 min after smoothie) ━━━
+━━━ 10:00AM (Mon–Thu) ━━━
 Psilocybin — 0.1–0.15g
-Niacin flush — 100–200mg (30 min after psilocybin)
+Niacin flush — 100–200mg
 
-━━━ AFTERNOON (with lunch ~1:30–2pm) ━━━
-NAC — 600mg second dose (Mon–Fri only)
+━━━ MIDDAY (with meal) ━━━
+NAC — 600mg (second dose)
 Phosphatidylserine — 300mg
-Zinc picolinate — 15mg
-Spice parcel (blate pape) — turmeric + pippali + black cumin
-  + ginger; swallowed with first bites of lunch
 
 ━━━ BEDTIME ━━━
 Magnesium L-Threonate — 2000mg
 Magnesium Glycinate — 360mg elemental
-Glycine — 5g
+Glycine — 3g
 Apigenin — 50mg
-Tart cherry concentrate — 1 tbsp in warm water (after melatonin
-  taper, ongoing)
 
 
 7I. Phase 3 Daily Rhythm
@@ -2432,22 +1979,19 @@ Sequence governs. Clock does not.
 RESISTANCE TRAINING DAYS
 
 Wake. Fixed time. Bright light immediately.
-Creatine + L. reuteri (wake window as per Section 4K)
+Creatine + L. reuteri
 Resistance training — 30–45 minutes
-Protein smoothie immediately after (protein + plant milk only)
-Full supplement stack at 10am smoothie window — see Section 4K
-  for complete list. NMN sublingual first, then all smoothie
-  supplements. Pulsing: skip NAC, pterostilbene, ashwagandha on
-  weekends.
+Meal 1 (~6:30am): NMN sublingual 5 min before → protein
+  smoothie with full supplement stack (krill, omega-3 top-up,
+  Lion's Mane, Bacopa, Ashwagandha, Lithium Orotate, NAC 1st
+  dose, D3/K2, B-complex, B12). Matcha with or after.
 Somatic release — full sequence (10–15 min)
 Qi-Gong — 15 min
 Resonance frequency breathing — 20 min
-Matcha
 Morning meeting — meeting support on
 
-Microdosing (Mon–Thu): psilocybin + niacin flush at 10:00am
-WORK BLOCK 1
-Lunch. NAC second dose + Phosphatidylserine.
+Microdosing (Mon–Thu): psilocybin + niacin flush at ~10am
+Meal 2 (11:30am): Light. NAC 2nd dose + Zinc.
 
 CC DAYS — AFTERNOON (3–4x per week)
 
@@ -2461,15 +2005,16 @@ Post-CC note (2 min): SUDs before/after, observations.
 EMDR — 15–20 min (2–3x per week)
 IFS — 15–20 min (1–2x per week, post-EMDR or standalone)
 
-Propranolol days (propranolol taken at lunch):
+Propranolol days (propranolol taken at 11:30am with Meal 2):
 Somatic release — full sequence
 tDCS — 20 min during propranolol wait window
 CC session — 90 min after propranolol dose. Nuropod.
 Post-CC note. EMDR/IFS if scheduled.
 
-WORK BLOCK 2
+Main Meal (2:45pm): ACV 1 tbsp before → full whole-food meal →
+  Phosphatidylserine · spice parcel · fermented rotation.
+Optional closer (4:15pm): Only if underfueled. Last calories.
 Free time / leadership meeting Mon
-Final meal — by 6:00pm
 Bedtime supplements → warm shower → Yoga Nidra 30–35 min
   → screens off → sleep
 
@@ -2480,18 +2025,20 @@ Creatine + L. reuteri
 Somatic release — full (10–15 min)
 Qi-Gong — 15 min
 Resonance frequency breathing — 20 min
-Morning supplements. Matcha.
-Waterfall: Zone 2 + cold plunge 3–5 min (50 min total).
+Matcha (early morning, fasted — acceptable on aerobic days)
+Morning meeting — meeting support on. Fast extends.
+Waterfall post-meeting (~9:15am): Zone 2 + cold plunge 3–5 min
+  (50 min total). When unavailable: Zone 2 + cold shower 30–60 sec.
 Return, change
-Morning meeting — meeting support on
-Microdosing (Mon–Thu). WORK BLOCK 1 (first meal 10:00am or
-  later — maintain fast).
-Lunch. NAC second dose + Phosphatidylserine.
-WORK BLOCK 2
+Microdosing (Mon–Thu) at ~10am
+Meal 1 (11:30am) — First food: NMN sublingual 5 min before →
+  full supplement stack. Fasting window: 19h+.
 CC session (when scheduled): somatic release (full, 20–25 min)
   → tDCS (20 min) → CC with Nuropod → EMDR/IFS if scheduled.
   On non-CC days: free time, gentle walk, rest.
-Final meal — by 6:00pm
+Main Meal (2:45pm): ACV 1 tbsp before → full whole-food meal →
+  Phosphatidylserine · spice parcel · fermented rotation.
+Optional closer (4:15pm): Only if underfueled. Last calories.
 Bedtime supplements → warm shower → Yoga Nidra 30–35 min
   → screens off → sleep
 
@@ -2910,70 +2457,53 @@ contexts by choice as re-entry progresses.
 9E. Supplement Additions — Phase 5
 ─────────────────────────────────────
 
-━━━ 10AM (weekdays only — with smoothie) ━━━
-Resveratrol — 500mg, with fat-containing food [TIER 3 — PULSED]
-  Sirtuin activation, NAD+ pathway support. Synergistic with NMN.
-  Weekdays only per pulsing principle. Replaces pterostilbene when
-  Phase 5 begins — do not run both simultaneously.
-  SKIP IF: weekends (Sat–Sun) — built into the pulsing pattern.
-  No complete food equivalent at 500mg; blueberries and red wine
-  are natural sources but not at therapeutic doses.
+━━━ MORNING (weekdays only — pulse) ━━━
+Resveratrol — 500mg, with fat-containing food
+  Sirtuin activation, NAD+ pathway support.
+  Synergistic with NMN. Not daily long-term — weekdays only.
 
 ━━━ WITH MEALS (3x per week — not on resistance training days) ━━━
-Berberine — 500mg [TIER 3 — PULSED]
+Berberine — 500mg
   AMPK activation, blood sugar regulation, metabolic health.
-  Not on resistance training days — may blunt anabolic signaling.
-  SKIP IF: training day (skip entirely); weekday non-training days only.
-  No food equivalent at therapeutic dose.
 
 ━━━ FOOD-BASED SENOLYTICS (daily) ━━━
 Capers: highest quercetin food source. Add to anything.
 Strawberries: fisetin — senolytic. Eat weekly.
-Both are in Section 14C as standing daily foods. Phase 5
-emphasizes deliberate daily inclusion as the protocol lightens.
 
 COMPLETE DAILY STACK — PHASE 5
 
 ━━━ ON WAKING ━━━
-Creatine — 7.5g (Morning Ground batch blend)
-L. reuteri — 1–2 tabs chewed (before brushing — 3–5 min gap)
+Creatine — 7.5g
+L. reuteri — 1–2 tabs chewed
 
-━━━ 10AM (with blueberry smoothie) ━━━
-NMN — 500mg sublingual (first, before smoothie)
-B12 — 1000mcg sublingual (simultaneously with NMN)
+━━━ MORNING (with food) ━━━
+NMN — 500mg sublingual
 Krill oil — 2–3 softgels
-Algae oil or fish oil — check label for EPA+DHA; reach 2–3g/day combined with krill
+Algae oil — 2–4 softgels
 Lion's Mane — 2g
 Bacopa — 320mg
-Ashwagandha (KSM-66) — 600mg (Mon–Fri only)
+Ashwagandha (KSM-66) — 600mg
 Lithium Orotate — 5mg
-NAC — 600mg first dose (Mon–Fri only)
+NAC — 600mg (first dose)
 D3/K2 — 2000–5000 IU D3 + 100mcg K2 MK-7
 B-complex — 1 capsule
-Alpha-GPC — 300mg
-Selenomethionine — 200mcg
-Resveratrol — 500mg (Mon–Fri, with fat; replaces pterostilbene)
-Sulforaphane — 10mg
-Multi-strain probiotic — 25–50bn CFU
+B12 — 1000mcg sublingual
+Resveratrol — 500mg (weekdays, with fat)
 
-━━━ 10AM (Mon–Thu microdosing days — 30 min after smoothie) ━━━
+━━━ 10:00AM (Mon–Thu, microdosing days) ━━━
 Psilocybin — 0.1–0.15g
-Niacin flush — 100–200mg (30 min after psilocybin)
+Niacin flush — 100–200mg
 
-━━━ AFTERNOON (with lunch ~1:30–2pm) ━━━
-NAC — 600mg second dose (Mon–Fri only)
+━━━ MIDDAY (with meal) ━━━
+NAC — 600mg (second dose)
 Phosphatidylserine — 300mg
-Zinc picolinate — 15mg
 Berberine — 500mg (3x per week, non-training days)
-Spice parcel (blate pape) — turmeric + pippali + black cumin
-  + ginger; swallowed with first bites of lunch
 
 ━━━ BEDTIME ━━━
 Magnesium L-Threonate — 2000mg
 Magnesium Glycinate — 360mg elemental
-Glycine — 5g (ongoing)
+Glycine — 3g
 Apigenin — 50mg
-Tart cherry concentrate — 1 tbsp in warm water (ongoing)
 
 
 9F. Signs Phase 5 Is Working
@@ -3010,17 +2540,12 @@ Embodied morning block: permanent.
 Yoga Nidra: every evening. Permanent.
 Waterfall run: two per week as long as possible.
 Supplements: full Phase 5 stack, reassessed annually via
-  bloodwork. Likely permanent fixtures: Lion's Mane, krill +
-  algae oil, magnesium stack, creatine, Alpha-GPC, selenomethionine,
-  sulforaphane, zinc picolinate, multi-strain probiotic.
-  Reassess annually: Ashwagandha, Lithium Orotate, NAC, Bacopa
-  (all may reduce in dose as the nervous system stabilizes).
+  bloodwork. Lion's Mane, krill + omega-3, magnesium, and
+  creatine are likely permanent fixtures.
 
-What can be released over time: pterostilbene (already stepped
-  back in Phase 5 when resveratrol begins), kava (if anticipatory
-  dread has substantially reduced), propranolol prescription
-  (when specifically needed only), meeting support in most
-  contexts.
+What can be released over time: kava (if anticipatory dread has
+substantially reduced), propranolol prescription (when
+specifically needed only), meeting support in most contexts.
 
 The protocol has served its purpose when daily life — community
 meetings, shared meals, shared living spaces — is navigated
@@ -3349,18 +2874,25 @@ cover.
 14B. Fasting Window
 ────────────────────
 
-Target: 14–16 hours daily. On waterfall/aerobic days, extend
-naturally — first meal at 10:00am or later.
+Target: 15–16 hours daily minimum. On aerobic/waterfall days,
+extend naturally — first food at 11:30am after the waterfall
+(19h+ from the previous day's 4:15pm closer).
 
 The fasting window activates autophagy and AMPK signaling,
 upregulates BDNF, and improves insulin sensitivity. These are
 not abstract benefits — they directly affect the efficiency of
 every CC session.
 
-Practical anchor: first meal after morning meeting on aerobic
-days. On resistance training days, protein smoothie immediately
-post-training (muscle protein synthesis, not a meal break), full
-meal later.
+Practical anchors:
+— Resistance training days: Meal 1 is the post-training protein
+  smoothie (~6:30am) with the full supplement stack. Meal 2 at
+  11:30am (light). Main Meal at 2:45pm. Last calories 4:15pm.
+— Aerobic/waterfall days: meeting fasted, waterfall fasted,
+  first food at 11:30am post-waterfall. Main Meal at 2:45pm.
+  Last calories 4:15pm. Fasting window reaches 19h+.
+
+ACV (1 tbsp) immediately before the 2:45pm Main Meal — the
+carb-heaviest meal of the day, not on an empty stomach.
 
 
 14C. Core Foods — Daily Baseline
@@ -3372,10 +2904,9 @@ OMEGA-3 AND NEURAL MEMBRANE SUPPORT
 Oily fish — sardines, mackerel, salmon (occasional, 1–2x per
 week when practical):
 ~1500–2000mg EPA+DHA per 100g. Fish is the exception, not the
-anchor — the daily omega-3 top-up (algae oil or fish oil) carries
-this load on non-fish days. When fish is eaten: skip krill oil
-and the omega-3 top-up supplement. On mackerel specifically:
-also skip or halve phosphatidylserine (~480mg PS per 100g mackerel).
+anchor — algae oil carries this load daily. When fish is eaten:
+skip krill oil and algae oil supplements. On mackerel specifically:
+skip or halve phosphatidylserine (~480mg PS per 100g mackerel).
 See Section 14F.
 
 Walnuts — 30g daily:
@@ -3488,58 +3019,11 @@ provides anthocyanins and quercetin, and reduces exercise-induced
 inflammation — relevant alongside resistance training. Add to
 warm water as part of the bedtime sequence.
 
-Apple cider vinegar — 1 tbsp immediately before the 10am
-smoothie:
-AMPK activation, blood sugar management. Must be taken with
-food — this is the correct window. Not in the wake drink.
+Apple cider vinegar — 1 tbsp before meals:
+AMPK activation, blood sugar management.
 
-SPICE PROTOCOL
-
-Turmeric is mechanistically important but almost entirely
-wasted without fat and piperine. Without both, curcumin
-bioavailability is under 1%. The delivery solution:
-
-Blate pape spice parcel (daily, with lunch):
-Turmeric, pippali (long pepper — piperine source, more
-bioavailable than standard black pepper), black cumin seed
-(nigella sativa — thymoquinone), ginger. Small pinch of each
-folded into a blate pape square and swallowed whole with the
-first bites of lunch. The fat in the meal provides absorption
-conditions. Pre-make 7 parcels on Sunday — one per day, done
-for the week. Zero daily measuring, zero taste, full
-bioavailability.
-
-Garlic and oregano — cooking only:
-Garlic's allicin activates on mechanical damage (chopping/
-crushing) and needs heat or direct contact with food to
-express fully. Oregano is an aromatic that belongs in cooked
-food. Both go in meals when kitchen access allows.
-
-Amla powder — in the smoothie (small pinch daily):
-Bright vitamin C, polyphenols, antioxidants. Cold preserves
-its polyphenol profile better than heat. Already in the
-smoothie build. Keep it there.
-
-Blackstrap molasses powder — in the smoothie (1 tsp daily):
-Copper ~0.1mg per tsp (directly relevant to the zinc picolinate
-copper-depletion concern), iron ~2mg, calcium ~50mg, magnesium
-~20mg, natural trace minerals. The fat from nut butter improves
-mineral absorption. Rich, slightly bitter molasses note blends
-naturally with blueberries and nut butter. Use unsulphured
-blackstrap powder (Anthony's or Prescribed for Life). This is
-not the same as regular molasses — blackstrap specifically is
-the triple-processed mineral-dense byproduct.
-
-On salt quality:
-Celtic salt (sel gris, fine ground) is the protocol salt for
-cooking and the Morning Ground wake blend. It has genuinely
-higher magnesium and trace mineral complexity than Himalayan
-pink — the clay-lined salt pan contact during harvesting in
-Brittany is real. Source: Le Paludier or Selina Naturally
-Celtic Grey. Maldon is for the table and finishing — its
-pyramid crystal structure and clean bright taste are for food,
-not dissolving in drinks. Two salts, two entirely different
-jobs, both genuinely the best at what they do.
+Spice base daily — turmeric (with black pepper + fat), ginger,
+oregano, garlic: anti-inflammatory, NF-kB modulation, AMPK.
 
 
 14D. Core Foods — Kitchen Access
@@ -3629,223 +3113,97 @@ station produces these. Heat-stable; powder form also works.
 ──────────────────────────────────────
 
 PART 1 — SUPPLEMENTS WITH FOOD EQUIVALENTS
-(When food is available, supplement may be skipped or reduced as noted.)
 
-Supplement             | Food equivalent             | Qty to hit dose       | Action
+Supplement             | Food                        | Qty to hit dose       | Action
 ───────────────────────────────────────────────────────────────────────────────────────
 Algae oil (EPA+DHA)    | Oily fish (occasional)      | 100g = protocol dose  | Skip on fish days
 Krill oil              | Oily fish (occasional)      | 100g covers EPA+DHA   | Skip on fish days
                        |                             | (phospholipid form    |
-                       |                             | limited in vegan diet)|
+                       |                             | limited vegan context)|
 Phosphatidylserine     | Mackerel                    | ~62g = 300mg PS       | Skip PS on mackerel
-300mg                  | White beans (partial)       | 2 cups ~214mg PS      | days; reduce on
-                       |                             |                       | heavy bean days
-K2 MK-7 100mcg         | Natto                       | 10g = 100mcg K2       | Skip K2 component
-                       |                             |                       | on natto days
+300mg                  |                             |                       | days
+K2 MK-7 100mcg         | Natto                       | 10g = 100mcg K2       | Skip K2 on natto
+                       |                             |                       | days — full replace
 D3 2000–5000 IU        | Hawaii midday sun           | 15–30 min = ~10,000   | Reduce D3
                        | + UV-exposed shiitake       | IU; shiitake 100g =   | proportionally
                        |                             | 1,000–2,000 IU        |
-Alpha-GPC 300mg        | Lecithin granules 1 tbsp    | ~375mg choline in     | Skip or halve
-(choline)              | in smoothie                 | phospholipid form     | Alpha-GPC when
-                       | Edamame 100g (~63mg)        | (granules sufficient) | granules are in
-                       | Tofu, tempeh (partial)      |                       | smoothie
-Selenomethionine       | Brazil nuts                 | 2–3 nuts =            | Skip supplement
-200mcg                 |                             | ~100–200mcg           | on Brazil nut days
 Apigenin 50mg          | Artichoke (1 head = ~70mg)  | 1 artichoke           | Skip supplement
-                       | Celery seed (7g = ~50mg)    | 7g in cooking         | that day
-Sulforaphane 10mg      | Raw broccoli sprouts ~30g   | ~30g raw sprouts      | Skip supplement
-                       | or broccoli (chopped 40min) | or 1 cup broccoli     | on sprout/broccoli
-                       |                             | with mustard powder   | days
-Pterostilbene 50mg     | Blueberries/blackberries    | 150g+ daily           | Skip supplement
-(Phases 1–4)           |                             |                       | on heavy berry days
-Zinc picolinate 15mg   | Pumpkin seeds 30g (~7mg)    | 30g seeds = ~7mg      | Additive only —
-                       | + legumes, tempeh           | (partial coverage)    | supplement runs
-                       |                             |                       | regardless
+                       | or celery seed (7g = ~50mg) | 7g in cooking         | that day
 Magnesium Glycinate    | Pumpkin seeds 30g (150mg)   | Combined ~370mg       | Reduce Mg Glycinate
-360mg elemental        | + dark choc 30g (64mg)      | elemental from food   | proportionally.
+360mg elemental        | + dark choc 30g (64mg)      | elemental             | proportionally.
                        | + spinach 1 cup (157mg)     |                       | Mg L-Threonate
                        |                             |                       | brain form stays.
-Melatonin 0.5mg        | Tart cherry concentrate     | 1 tbsp evening        | Tart cherry takes
-                       |                             |                       | over after Wk 4–6
-                       |                             |                       | taper; food only
-Glycine 5g           | None (vegan protocol)       | No vegan food         | Supplement
-                       |                             | reaches 5g reliably   | essential always
-Dulse flakes           | Iodine ~75–150mcg           | No supplement in      | Sprinkle on savory
-(¼ tsp Atlantic)       | per ¼ tsp; iron, trace      | stack covers iodine   | food daily; Atlantic
-                       | minerals                    | — food is the source  | source only
-Blackstrap molasses    | Copper ~0.1mg per tsp;      | No supplement in      | In smoothie daily;
-powder (1 tsp)         | iron ~2mg; calcium ~50mg;   | stack covers copper   | directly offsets
-                       | magnesium ~20mg             | — food is the source  | zinc-depletion risk
+Melatonin 0.5mg        | Tart cherry concentrate     | 1 tbsp evening        | After supplement
+                       |                             |                       | discontinued Wk 4–6,
+                       |                             |                       | food maintains the
+                       |                             |                       | mechanism
+Glycine 3g             | None (vegan protocol)       | No vegan food         | Supplement
+                       |                             | reaches 3g reliably   | essential
 
-PART 2 — FOODS FILLING GAPS THE SUPPLEMENT STACK NOW COVERS
-(These were gaps; dedicated fallback supplements have been added.)
+PART 2 — FOODS FILLING GAPS THE SUPPLEMENT STACK DOESN'T COVER
 
-Food                   | Gap filled                  | Fallback supplement   | Dose if food absent
-───────────────────────────────────────────────────────────────────────────────────────
-Lecithin granules/     | Choline — acetylcholine     | Alpha-GPC             | 300mg with smoothie
-edamame/tofu           | synthesis, membrane         |                       |
-                       | integrity, methylation      |                       |
-Brazil nuts            | Selenium — glutathione      | Selenomethionine      | 200mcg with smoothie
-                       | peroxidase, thyroid         |                       |
-                       | T4→T3, neuroprotection      |                       |
-Broccoli sprouts/      | Sulforaphane — Nrf2         | Sulforaphane 10mg     | 10mg with smoothie
-broccoli               | activation, neuro-          | (active form with     |
-                       | protection, anti-inflam.    | myrosinase included)  |
-Blueberries 150g+      | Pterostilbene/anthocyanins  | Pterostilbene 50mg    | 50mg with smoothie
-                       | → BDNF via sirtuin          | (Mon–Fri; Phases 1–4; | (Mon–Fri only)
-                       |                             | resveratrol Phase 5)  |
-Pumpkin seeds 30g      | Zinc — BDNF synthesis,      | Zinc picolinate 15mg  | 15mg with lunch
-                       | testosterone, glutathione   |                       |
-                       | peroxidase alongside NAC    |                       |
-Multi-strain           | Microbiome diversity —      | Multi-strain          | 25–50bn CFU with
-fermented foods        | GABA substrate, serotonin   | probiotic             | smoothie; rotate
-(kimchi, sauerkraut,   | precursors, SCFA for        |                       | brands every 1–2
-miso)                  | neuroinflammation           |                       | months
+The following address mechanisms not currently covered by any
+supplement in the protocol:
 
-PART 3 — GAPS WITH NO FULL SUPPLEMENT EQUIVALENT
-(Food is the only practical source; supplement is situational or optional.)
+Lecithin granules (1 tbsp): Choline ~375mg as phosphatidyl-
+choline. Acetylcholine synthesis, neuronal membrane integrity,
+methylation. The most significant micronutrient gap for a
+plant-forward protocol — not in the supplement stack.
 
-Beets + arugula → dietary nitrates → nitric oxide pathway:
-  No supplement fully replicates the nitrate → nitrite → NO
-  cascade from whole food. Fallback: beetroot extract capsules
-  ~500mg nitrate, or citrulline malate 3–6g (different pathway,
-  same NO production goal). Situational use before intensive
-  work blocks or training — not a daily standing item.
+Brazil nuts (2–3): Selenium ~100–200mcg. Glutathione peroxidase
+activity (the system NAC serves), thyroid T4→T3 conversion,
+neuroprotection. Not currently supplemented.
 
-Pomegranate + walnuts → ellagitannins → urolithin A → mitophagy:
-  Urolithin A 500mg (Mitopure/Timeline) bypasses gut conversion
-  entirely. Expensive (~$60–80/month); treat as intermittent
-  rather than daily if cost is a constraint. The NMN/NAD+ stack
-  covers adjacent longevity mechanisms — urolithin A is additive,
-  not essential.
+Beets + arugula: Dietary nitrates → nitric oxide. Cerebrovascular
+dilation, brain oxygenation, training performance. The NO pathway
+exercise and cold immersion activate is supported from below by
+dietary nitrates through a separate mechanism.
 
-Tart cherry → melatonin maintenance post-taper:
-  After the melatonin supplement ends, tart cherry is the
-  preferred source. If unavailable: the sleep protocol itself
-  (Yoga Nidra, warm shower, blackout, pink noise, fixed wake
-  time) carries the architecture. Melatonin was scaffolding.
+Pomegranate + walnuts: Ellagitannins → urolithin A. Mitophagy.
+Distinct from and complementary to the NMN/NAD+ longevity stack.
+Not available as a meaningful supplement equivalent.
 
-Dark chocolate 85%+ → magnesium + flavanols:
-  Flavanols (epicatechin, cerebrovascular support) have no
-  direct supplement equivalent at the same level of evidence.
-  Magnesium is covered by the stack. Dark chocolate earns its
-  place specifically for the flavanol-BDNF mechanism — eat it
-  when available.
+Tart cherry: Melatonin (post-taper maintenance), anthocyanins,
+exercise recovery support.
 
-Fermented natto → spermidine (in addition to K2):
-  Wheat germ in the smoothie already covers spermidine daily.
-  The K2 from natto has a supplement fallback (K2 MK-7 in
-  D3/K2). The probiotic aspect is covered by the multi-strain
-  supplement. Natto is genuinely additive — a density of
-  benefit in 10g — but not load-bearing when unavailable.
+Blueberries/blackberries: Pterostilbene → BDNF, sirtuin primer
+before Phase 5 resveratrol begins; complementary after.
 
-Dulse flakes → iodine:
-  No supplement in the current stack covers iodine. Dulse is
-  the primary source. If unavailable for extended periods,
-  consider adding kelp tablets (150–300mcg iodine) or ensuring
-  iodized salt is in rotation. Atlantic dulse only — Pacific
-  seaweed has documented radioactive iodine concerns post-2011.
+Fermented rotation (natto, kimchi, sauerkraut, miso): Microbiome
+diversity beyond L. reuteri — GABA substrate, serotonin precursor
+environment, short-chain fatty acids for neuroinflammation.
+
+Pumpkin seeds: Zinc ~7mg daily. Not currently supplemented.
+Essential for BDNF synthesis, testosterone, glutathione
+peroxidase alongside NAC.
 
 
 14F. Key Interactions
 ──────────────────────
 
-FISH AND OMEGA-3
-Fish days: skip krill oil and omega-3 top-up (algae oil or fish oil).
+Fish days: skip krill oil and algae oil supplements.
 Mackerel days: also skip or halve phosphatidylserine
-  (~480mg PS per 100g mackerel covers the 300mg dose).
-
-FOOD REPLACEMENTS — SKIP SUPPLEMENT WHEN:
-Natto 10g eaten: skip K2 component of D3/K2. Take D3 as normal.
-Artichoke (1 head) or celery seed (7g) in cooking: skip apigenin.
-Lecithin granules in smoothie: skip or halve Alpha-GPC.
-Brazil nuts (2–3) eaten today: skip selenomethionine.
-Broccoli sprouts 30g raw or broccoli (chop 40 min): skip sulforaphane.
-Blueberries/blackberries 150g+ in smoothie: skip pterostilbene.
-UV-exposed shiitake 100g: reduce D3 supplement by 1,000–2,000 IU.
-Fresh lion's mane harvest (100–150g sautéed): halve Lion's Mane dose.
-Blackstrap molasses powder 1 tsp in smoothie: copper contribution
-  is additive to supplement stack, does not require any skip.
-  It directly reduces zinc-depletion risk from zinc picolinate.
-
-PULSING RULES (Mon–Fri on; Sat–Sun off)
-NAC — both doses: weekdays only. Weekend break preserves ROS
-  signaling for training adaptations and HPA recovery.
-Pterostilbene: weekdays only. Sirtuin-pathway supplements
-  benefit from pulsing; mirrors the resveratrol pattern.
-Ashwagandha: daily in Phase 2; Mon–Fri from Phase 3 onward.
-  Weekend break prevents HPA accommodation over months.
-Resveratrol (Phase 5): weekdays only — already the protocol
-  pattern; confirmed correct per Sinclair pulsing principle.
-Berberine (Phase 5): 3x per week — already pulsed; never on
-  training days regardless of which days those fall.
-
-SUPPLEMENTS THAT DO NOT BENEFIT FROM PULSING (run daily):
-Creatine, magnesium stack, B-complex, B12, D3/K2, krill oil,
-algae oil, Lion's Mane, Bacopa, Lithium Orotate, Alpha-GPC,
-selenomethionine, sulforaphane, multi-strain probiotic, L.
-reuteri, zinc picolinate (run daily; pulsing not established
-for mineral supplementation at these doses).
-
-TRAINING DAY ANTIOXIDANT TIMING
-NAC: take both doses after training completes, not before.
-  On the rare occasion training falls in the afternoon, delay
-  the morning dose until post-training. The antioxidant effect
-  can blunt ROS signaling that drives training adaptations.
-Sulforaphane: 10am window is already ~3.5 hours post-training
-  on training days. Do not shift it earlier. This gap is
-  adequate; the current timing is already correct.
-Pterostilbene: 10am smoothie timing is sufficient separation
-  from morning training. No change needed.
-
-TURMERIC BIOAVAILABILITY (non-negotiable)
-Turmeric without fat and piperine: curcumin absorption <1%.
-Always deliver via blate pape with a fat-containing meal —
-the fat in lunch handles absorption; pippali (long pepper) is
-the piperine source. Never take turmeric in water or on an
-empty stomach. Pre-make a week of spice parcels on Sunday to
-eliminate daily friction.
-
-DULSE AND IODINE
-Dulse: sprinkle on savory food daily — no timing constraint.
-  Space 2+ hours from thyroid medication if any is prescribed.
-  Atlantic dulse only — Pacific seaweed has radioactive iodine
-  concerns post-2011.
-Iodine interaction with selenium: both are essential for
-  thyroid function; the selenomethionine supplement and dulse
-  work synergistically here, not competitively.
-
-SALT QUALITY
-Celtic fine ground (sel gris) in the Morning Ground batch and
-in cooking. Genuinely higher magnesium and trace mineral
-complexity from clay-lined salt pan harvesting in Brittany.
-Maldon for the table and finishing only — pyramid crystal
-structure and clean finish are for food, not drinks.
-Both are premium; each has a specific domain.
-
-SPECIFIC INTERACTIONS
-Zinc-copper: sustained zinc at 15mg/day can deplete copper
-  over months. Blackstrap molasses powder in the smoothie
-  (~0.1mg copper/tsp) provides daily offset. Monitor via
-  bloodwork — copper and ceruloplasmin added to Year 1 panel
-  (Section 15D). Do not exceed 15mg/day zinc.
-Green tea and iron: space 1 hour either side of iron-rich
-  meals or iron supplements.
-ACV: immediately before the 10am smoothie only.
-Resveratrol (Phase 5): weekdays only; replaces pterostilbene.
-NAC with MDMA: stop 3 days before. Resume 48h after.
-Ashwagandha with MDMA: skip on session day only.
-Brazil nuts: 2–3 per day maximum — 400mcg/day upper tolerable
-  selenium limit; 3+ nuts approaches it.
-Lecithin granules: in smoothie, tasteless and colorless.
-Pomegranate concentrate: no known interactions; timing flexible.
-Tart cherry concentrate: evening wind-down, 30–60 min before
-  sleep. Compatible with the Mg/Glycine/Apigenin stack.
-Beetroot extract (situational): 90–120 min before intensive
-  work block or training. Not daily.
-Blackstrap molasses powder: in smoothie daily. No interactions
-  with any protocol supplement. The natural sugars contribute
-  to the smoothie's carbohydrate context — not a concern.
+  (~480mg PS per 100g mackerel covers the 300mg supplement dose).
+Natto days: skip K2 MK-7 supplement. D3 still taken as normal.
+Artichoke (1 head) or celery seed (7g) in cooking: skip apigenin
+  supplement that day.
+UV-exposed shiitake (100g): reduce D3 supplement by 1,000–2,000 IU.
+Fresh lion's mane harvest (100–150g sautéed): halve Lion's Mane
+  supplement dose that day.
+Green tea and iron: space 1 hour either side of iron-rich meals.
+Berberine: not on resistance training days.
+NMN: empty stomach or before other morning food for sublingual
+  absorption.
+D3/K2: with fat-containing food. On natto days, D3 is still taken.
+Magnesium: at bedtime. Pumpkin seeds and dark chocolate can be
+  consumed at any time.
+Brazil nuts: 2–3 per day maximum. Selenium toxicity threshold
+  applies above 3 nuts (upper tolerable intake 400mcg/day).
+Lecithin granules: with or before first meal.
+Pomegranate concentrate: no known interactions with protocol
+  supplements.
+Tart cherry: take in the evening wind-down. Supports sleep
+  onset — does not interfere with it.
 
 
 ================================================================================
@@ -3901,25 +3259,15 @@ Phase 4 (if logistics allow): repeat cortisol and bloodwork.
 Year 1 completion: full bloodwork, salivary cortisol, NAD+,
 Omega-3 Index (OmegaQuant — mail-in, no physician required),
 epigenetic age test (TruAge or Elysium Index).
-Add to Year 1 panel: copper, ceruloplasmin, serum selenium.
-  Copper/ceruloplasmin: zinc supplementation at 15mg/day can
-  deplete copper over months — Year 1 is the right time to
-  verify the balance is maintained. If copper is low, reduce
-  zinc picolinate to 10mg/day or add copper glycinate 1–2mg.
-  Serum selenium: confirms selenomethionine is reaching target
-  range (120–150 mcg/L serum) without overshooting.
 
-Year 2+: full panel annually, including copper, ceruloplasmin,
-and selenium as standing additions given ongoing zinc and
-selenium supplementation.
+Year 2+: full panel annually.
 
 Supplement washout before draws:
 2 weeks before: Lugol's iodine (if used), high-dose biotin.
 48–72 hours before: creatine, zinc, magnesium forms, NMN.
 Morning of draw: D3/K2, Ashwagandha, resveratrol as normal.
-No change: B12, krill, algae oil, Bacopa, Lion's Mane, NAC,
-  L. reuteri, Alpha-GPC, selenomethionine, pterostilbene,
-  sulforaphane, multi-strain probiotic.
+No change: B12, krill, omega-3 top-up, Bacopa, Lion's Mane,
+  NAC, L. reuteri.
 
 ================================================================================
 SECTION 16 — RESEARCH REFERENCES AND BIBLIOGRAPHY
