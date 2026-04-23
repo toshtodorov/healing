@@ -3,18 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Log — Misophonia Protocol V9.3</title>
+<title>Log — Protocol V10</title>
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--cream:#faf8f4;--white:#fff;--border:#e4e0d8;--border-light:#f4f0e8;--text:#2a2824;--text-mid:#4a4540;--text-muted:#8a7f70;--green-dark:#2d4a28;--green-mid:#4a7a42;--green-light:#e8f0e5;--green-border:#b8d4b0;--amber:#b87a1a;--amber-light:#fdf3e0;--rose:#a83050;--rose-light:#fdf0f3;--topbar-h:54px}
+:root{
+  --cream:#faf8f4;--white:#fff;--border:#e4e0d8;--border-light:#f4f0e8;
+  --text:#2a2824;--text-mid:#4a4540;--text-muted:#8a7f70;
+  --green-dark:#2d4a28;--green-mid:#4a7a42;--green-light:#e8f0e5;--green-border:#b8d4b0;
+  --amber:#b87a1a;--amber-light:#fdf3e0;
+  --rose:#a83050;--rose-light:#fdf0f3;
+  --topbar-h:54px
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--cream);color:var(--text);line-height:1.65;font-size:14px}
 h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
 
-/* ── TOPBAR ── */
-#topbar{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;gap:0;padding:0 18px;border-bottom:2px solid #1a3018}
+/* TOPBAR */
+#topbar{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--topbar-h);background:var(--green-dark);display:flex;align-items:center;padding:0 18px;border-bottom:2px solid #1a3018}
 .logo-link{display:flex;align-items:center;gap:7px;text-decoration:none;flex-shrink:0;cursor:pointer;padding:0 4px}
 .logo{font-family:'Lora',serif;font-size:14px;font-weight:600;color:#e8f4e4;white-space:nowrap}
 .logo-mobile{display:none;font-family:'Lora',serif;font-size:14px;font-weight:600;color:#e8f4e4;white-space:nowrap}
@@ -24,37 +31,42 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
 .sat-link{font-family:'DM Sans',sans-serif;font-size:10.5px;font-weight:500;padding:4px 11px;border-radius:20px;text-decoration:none;color:#c8e8c0;border:1px solid rgba(255,255,255,.18);transition:all .15s;white-space:nowrap}
 .sat-link:hover{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.35)}
 .sat-link.active{background:rgba(255,255,255,.18);color:#fff}
-/* Mobile dropdown */
 #mobile-dropdown{display:none;position:fixed;top:var(--topbar-h);left:0;right:0;z-index:299;background:var(--green-dark);border-bottom:2px solid #1a3018;padding:8px 16px 12px;flex-direction:column;gap:4px}
 #mobile-dropdown.open{display:flex}
 #mobile-dropdown a{color:#c8e8c0;border:1px solid rgba(255,255,255,.15);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;padding:10px 16px;border-radius:8px;text-decoration:none;text-align:center;transition:background .12s}
-#mobile-dropdown a:hover,#mobile-dropdown a.active{background:rgba(255,255,255,.18);color:#fff}
-/* Mobile: show short title + chevron, hide long title + sat-links */
-@media(max-width:680px){
-  .logo{display:none}
-  .logo-mobile{display:block}
-  .logo-chevron{display:block}
-  .sat-links{display:none}
-}
-
-/* TOPBAR */
+#mobile-dropdown a:hover{background:rgba(255,255,255,.18);color:#fff}
+@media(max-width:680px){.logo{display:none}.logo-mobile{display:block}.logo-chevron{display:block}.sat-links{display:none}}
 
 /* PAGE */
 .page{margin-top:var(--topbar-h);padding:28px 24px 80px;max-width:780px;margin-left:auto;margin-right:auto}
 
 /* INPUT ROW */
-.input-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-#entry-input{flex:1;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);background:var(--white);border:1px solid var(--border);border-radius:9px;padding:9px 14px;line-height:1.5;resize:none;height:40px;overflow:hidden;outline:none;transition:border-color .15s}
+.input-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:4px}
+#entry-input{
+  flex:1;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--text);
+  background:var(--white);border:1px solid var(--border);border-radius:9px;
+  padding:9px 14px;line-height:1.55;resize:none;height:40px;overflow:hidden;
+  outline:none;transition:border-color .15s
+}
 #entry-input:focus{border-color:var(--green-mid)}
 #entry-input::placeholder{color:var(--text-muted)}
-.btn-save{font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;padding:7px 16px;border-radius:8px;border:1px solid var(--green-border);background:var(--green-light);color:var(--green-dark);cursor:pointer;transition:all .15s;white-space:nowrap;flex-shrink:0}
+.btn-save{
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;
+  padding:7px 16px;border-radius:8px;border:1px solid var(--green-border);
+  background:var(--green-light);color:var(--green-dark);cursor:pointer;
+  transition:all .15s;white-space:nowrap;flex-shrink:0;margin-top:0
+}
 .btn-save:hover{background:var(--green-dark);color:#fff;border-color:var(--green-dark)}
 .btn-save:disabled{opacity:.4;cursor:not-allowed}
 
+/* HINT */
+.input-hint{font-size:10.5px;color:var(--text-muted);margin-bottom:14px;padding-left:2px}
+
 /* STATUS */
-.status{font-size:11.5px;height:18px;color:var(--text-muted);margin-bottom:18px}
+.status{font-size:11.5px;height:18px;color:var(--text-muted);margin-bottom:14px;min-height:18px}
 .status.ok{color:var(--green-mid)}
 .status.err{color:var(--rose)}
+.status.saving{color:var(--amber)}
 
 /* ENTRIES HEADER */
 .entries-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
@@ -73,7 +85,7 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
 .entry-meta{display:flex;align-items:center;gap:8px;margin-bottom:7px}
 .entry-date{font-family:'DM Mono',monospace;font-size:10.5px;color:var(--green-mid);font-weight:500}
 .entry-edited{font-size:10px;color:var(--text-muted);font-style:italic}
-.entry-text{font-size:13.5px;color:var(--text-mid);line-height:1.7;white-space:pre-wrap;word-break:break-word;padding-right:52px}
+.entry-text{font-size:13.5px;color:var(--text-mid);line-height:1.7;white-space:pre-wrap;word-break:break-word;padding-right:56px}
 .entry-actions{position:absolute;top:10px;right:12px;display:flex;gap:4px;opacity:0;transition:opacity .15s}
 .entry:hover .entry-actions,.entry.editing .entry-actions{opacity:1}
 .act-btn{background:none;border:none;cursor:pointer;padding:4px 7px;border-radius:5px;font-size:13px;color:var(--text-muted);transition:all .15s;line-height:1}
@@ -91,24 +103,11 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
 .empty p{font-size:13px}
 .loading{text-align:center;padding:28px;color:var(--text-muted);font-size:13px}
 
-@media(max-width:600px){
-  .page{padding:18px 14px 60px}
-  
-}
+/* RETRY BUTTON */
+.btn-retry{display:inline-block;font-size:11.5px;font-weight:500;padding:4px 12px;border-radius:6px;border:1px solid var(--rose-border,#e8b0c0);background:var(--rose-light);color:var(--rose);cursor:pointer;margin-left:8px;transition:all .12s}
+.btn-retry:hover{background:var(--rose);color:#fff}
 
-/* ── MOBILE ── */
-@media(max-width:700px){
-  
-  
-  
-  
-  
-}
-@media(max-width:430px){
-  
-  
-  
-}
+@media(max-width:600px){.page{padding:18px 14px 60px}}
 </style>
 </head>
 <body>
@@ -128,20 +127,23 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
     <a href="shopping.html" class="sat-link">Shopping</a>
   </nav>
 </header>
+
 <div id="mobile-dropdown">
-  <a href="protocol.html" class="">Protocol</a>
-  <a href="cheatsheet.html" class="">Cheat Sheet</a>
-  <a href="glossary.html" class="">Glossary</a>
-  <a href="exercises.html" class="">Exercises</a>
-  <a href="diet.html" class="">Diet</a>
-  <a href="shopping.html" class="">Shopping</a>
+  <a href="protocol.html">Protocol</a>
+  <a href="cheatsheet.html">Cheat Sheet</a>
+  <a href="glossary.html">Glossary</a>
+  <a href="exercises.html">Exercises</a>
+  <a href="diet.html">Diet</a>
+  <a href="shopping.html">Shopping</a>
 </div>
+
 <div class="page">
 
   <div class="input-row">
     <textarea id="entry-input" placeholder="Note something…" rows="1"></textarea>
     <button class="btn-save" id="submit-btn" onclick="saveEntry()">Save</button>
   </div>
+  <div class="input-hint">Enter to save &nbsp;·&nbsp; Shift+Enter for new line &nbsp;·&nbsp; Esc to clear</div>
   <div class="status" id="status"></div>
 
   <div class="entries-head">
@@ -158,67 +160,103 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
 </div>
 
 <script>
-const BIN_ID = '69d807ebaaba882197e00c09';
-const API_KEY = '69d80706856a68218917c639';
+// ── CONFIG ────────────────────────────────────────────────────────────────
+// JSONBin.io v3
+// X-Master-Key  → required for PUT (write/update)
+// X-Access-Key  → sufficient for GET (read)
+const BIN_ID     = '69d807ebaaba882197e00c09';
+const MASTER_KEY = '69d80706856a68218917c639';  // used for writes
+const ACCESS_KEY = '69d80706856a68218917c639';  // used for reads (same key works)
 const BASE = 'https://api.jsonbin.io/v3/b/' + BIN_ID;
-const HEADERS = {'Content-Type':'application/json','X-Access-Key':API_KEY};
 
-let entries = [];
+// Headers — the critical fix: writes must use X-Master-Key
+const READ_HEADERS  = { 'X-Access-Key': ACCESS_KEY };
+const WRITE_HEADERS = { 'Content-Type': 'application/json', 'X-Master-Key': MASTER_KEY };
+
+let entries  = [];
 let editingId = null;
+let pendingText = null;  // hold text while retrying on error
 
-// ── LOAD ──────────────────────────────────────────────────────────────
+// ── LOAD ──────────────────────────────────────────────────────────────────
 async function loadEntries() {
   try {
-    const r = await fetch(BASE + '/latest', {headers:{'X-Access-Key':API_KEY}});
-    if (!r.ok) throw new Error();
+    const r = await fetch(BASE + '/latest', { headers: READ_HEADERS });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
     const data = await r.json();
     entries = Array.isArray(data.record) ? data.record : [];
     renderEntries();
   } catch(e) {
     document.getElementById('entries-list').innerHTML =
-      '<div class="empty"><div class="empty-icon">&#9888;</div><p>Could not load. Check connection.</p></div>';
+      '<div class="empty"><div class="empty-icon">&#9888;</div><p>Could not load entries. Check connection and try refreshing.</p></div>';
   }
 }
 
-// ── SAVE NEW ──────────────────────────────────────────────────────────
-async function saveEntry() {
+// ── SAVE NEW ──────────────────────────────────────────────────────────────
+async function saveEntry(textOverride) {
   const input = document.getElementById('entry-input');
-  const text = input.value.trim();
+  const text  = (textOverride || input.value).trim();
   if (!text) return;
+
   const btn = document.getElementById('submit-btn');
   btn.disabled = true;
-  setStatus('Saving…', '');
-  const now = new Date();
-  const entry = {id:now.getTime(), text, ts:now.toISOString(), display:formatDate(now)};
+  pendingText = text;
+  setStatus('Saving…', 'saving');
+
+  const now   = new Date();
+  const entry = { id: now.getTime(), text, ts: now.toISOString(), display: formatDate(now) };
   const updated = [entry, ...entries];
+
   try {
-    const r = await fetch(BASE, {method:'PUT', headers:HEADERS, body:JSON.stringify(updated)});
-    if (!r.ok) throw new Error();
+    const r = await fetch(BASE, {
+      method: 'PUT',
+      headers: WRITE_HEADERS,
+      body: JSON.stringify(updated)
+    });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
     entries = updated;
     input.value = '';
+    resetHeight(input);
+    pendingText = null;
     renderEntries();
     setStatus('Saved.', 'ok');
     setTimeout(() => setStatus('', ''), 2500);
   } catch(e) {
-    setStatus('Save failed.', 'err');
+    // Show error with retry button — keep the text in input so nothing is lost
+    input.value = pendingText;
+    resetHeight(input);
+    setStatus('Save failed — <button class="btn-retry" onclick="retryPending()">Retry</button>', 'err');
   }
   btn.disabled = false;
 }
 
-// ── DELETE ────────────────────────────────────────────────────────────
+function retryPending() {
+  if (!pendingText) return;
+  const input = document.getElementById('entry-input');
+  input.value = pendingText;
+  saveEntry(pendingText);
+}
+
+// ── DELETE ────────────────────────────────────────────────────────────────
 async function deleteEntry(id) {
   if (!confirm('Delete this entry?')) return;
   const updated = entries.filter(e => e.id !== id);
   try {
-    const r = await fetch(BASE, {method:'PUT', headers:HEADERS, body:JSON.stringify(updated)});
-    if (!r.ok) throw new Error();
+    const r = await fetch(BASE, {
+      method: 'PUT',
+      headers: WRITE_HEADERS,
+      body: JSON.stringify(updated)
+    });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
     entries = updated;
     if (editingId === id) editingId = null;
     renderEntries();
-  } catch(e) { alert('Delete failed.'); }
+  } catch(e) {
+    setStatus('Delete failed.', 'err');
+    setTimeout(() => setStatus('', ''), 3000);
+  }
 }
 
-// ── EDIT ──────────────────────────────────────────────────────────────
+// ── EDIT ──────────────────────────────────────────────────────────────────
 function startEdit(id) {
   editingId = id;
   renderEntries();
@@ -231,21 +269,28 @@ async function saveEdit(id) {
   if (!ta) return;
   const text = ta.value.trim();
   if (!text) return;
-  const updated = entries.map(e => e.id === id ? {...e, text, edited:true} : e);
+  const updated = entries.map(e => e.id === id ? { ...e, text, edited: true } : e);
   try {
-    const r = await fetch(BASE, {method:'PUT', headers:HEADERS, body:JSON.stringify(updated)});
-    if (!r.ok) throw new Error();
+    const r = await fetch(BASE, {
+      method: 'PUT',
+      headers: WRITE_HEADERS,
+      body: JSON.stringify(updated)
+    });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
     entries = updated;
     editingId = null;
     renderEntries();
-  } catch(e) { alert('Save failed.'); }
+  } catch(e) {
+    setStatus('Edit save failed.', 'err');
+    setTimeout(() => setStatus('', ''), 3000);
+  }
 }
 
 function cancelEdit() { editingId = null; renderEntries(); }
 
-// ── RENDER ────────────────────────────────────────────────────────────
+// ── RENDER ────────────────────────────────────────────────────────────────
 function renderEntries() {
-  const query = (document.getElementById('search-input').value || '').toLowerCase();
+  const query    = (document.getElementById('search-input').value || '').toLowerCase();
   const filtered = query ? entries.filter(e => e.text.toLowerCase().includes(query)) : entries;
 
   const countEl = document.getElementById('entries-count');
@@ -256,72 +301,99 @@ function renderEntries() {
   const list = document.getElementById('entries-list');
   if (filtered.length === 0) {
     list.innerHTML = entries.length === 0
-      ? '<div class="empty"><div class="empty-icon">&#9998;</div><p>No entries yet.</p></div>'
+      ? '<div class="empty"><div class="empty-icon">&#9998;</div><p>No entries yet. Start writing above.</p></div>'
       : '<div class="empty"><div class="empty-icon">&#9906;</div><p>No matches.</p></div>';
     return;
   }
 
   list.innerHTML = filtered.map(e => {
-    const isEditing = e.id === editingId;
+    const isEditing   = e.id === editingId;
     const editedBadge = e.edited ? '<span class="entry-edited">edited</span>' : '';
     const body = isEditing
       ? '<textarea class="edit-area" id="edit-' + e.id + '">' + escHtml(e.text) + '</textarea>'
       : '<div class="entry-text">' + escHtml(e.text) + '</div>';
     const actions = isEditing
-      ? '<div class="entry-actions"><button class="act-btn confirm" onclick="saveEdit(' + e.id + ')" title="Save changes">&#10003;</button><button class="act-btn" onclick="cancelEdit()" title="Cancel">&#10005;</button></div>'
-      : '<div class="entry-actions"><button class="act-btn" onclick="startEdit(' + e.id + ')" title="Edit">&#9998;</button><button class="act-btn del" onclick="deleteEntry(' + e.id + ')" title="Delete">&#10005;</button></div>';
+      ? '<div class="entry-actions">'
+          + '<button class="act-btn confirm" onclick="saveEdit(' + e.id + ')" title="Save">&#10003;</button>'
+          + '<button class="act-btn" onclick="cancelEdit()" title="Cancel">&#10005;</button>'
+          + '</div>'
+      : '<div class="entry-actions">'
+          + '<button class="act-btn" onclick="startEdit(' + e.id + ')" title="Edit">&#9998;</button>'
+          + '<button class="act-btn del" onclick="deleteEntry(' + e.id + ')" title="Delete">&#10005;</button>'
+          + '</div>';
     return '<div class="entry' + (isEditing ? ' editing' : '') + '">'
-      + '<div class="entry-meta"><span class="entry-date">' + (e.display || e.ts) + '</span>' + editedBadge + '</div>'
+      + '<div class="entry-meta"><span class="entry-date">' + escHtml(e.display || e.ts) + '</span>' + editedBadge + '</div>'
       + body + actions + '</div>';
   }).join('');
 }
 
-// ── HELPERS ───────────────────────────────────────────────────────────
+// ── HELPERS ───────────────────────────────────────────────────────────────
 function formatDate(d) {
-  const days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-  const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-  const pad = n => String(n).padStart(2,'0');
-  return days[d.getDay()]+' '+d.getDate()+' '+months[d.getMonth()]+' '+d.getFullYear()+' · '+pad(d.getHours())+':'+pad(d.getMinutes());
-}
-function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function setStatus(msg, type) {
-  const el = document.getElementById('status');
-  el.textContent = msg; el.className = 'status ' + type;
+  const days   = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const pad    = n => String(n).padStart(2, '0');
+  return days[d.getDay()] + ' ' + d.getDate() + ' ' + months[d.getMonth()] + ' '
+       + d.getFullYear() + ' · ' + pad(d.getHours()) + ':' + pad(d.getMinutes());
 }
 
-// ── KEYBOARD ──────────────────────────────────────────────────────────
-document.getElementById('entry-input').addEventListener('keydown', e => {
-  if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') saveEntry();
-  if (e.key === 'Escape') { e.target.value = ''; }
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function setStatus(html, type) {
+  const el = document.getElementById('status');
+  el.innerHTML  = html;
+  el.className  = 'status ' + type;
+}
+
+function resetHeight(el) {
+  el.style.height = '40px';
+}
+
+// ── KEYBOARD — main input ─────────────────────────────────────────────────
+document.getElementById('entry-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();      // stop newline
+    saveEntry();
+    return;
+  }
+  if (e.key === 'Escape') {
+    this.value = '';
+    resetHeight(this);
+    pendingText = null;
+    setStatus('', '');
+  }
 });
 
-// Auto-expand textarea on input
+// Auto-expand textarea
 document.getElementById('entry-input').addEventListener('input', function() {
   this.style.height = '40px';
   if (this.scrollHeight > 40) this.style.height = this.scrollHeight + 'px';
 });
 
-// ── INIT ──────────────────────────────────────────────────────────────
+// ── INIT ──────────────────────────────────────────────────────────────────
 loadEntries();
 </script>
 
-
-
 <script>
 (function(){
-  var toggle = document.getElementById('mobile-menu-toggle');
+  var toggle   = document.getElementById('mobile-menu-toggle');
   var dropdown = document.getElementById('mobile-dropdown');
-  if(!toggle || !dropdown) return;
-  toggle.addEventListener('click', function(e){
-    e.stopPropagation();
+  if (!toggle || !dropdown) return;
+  toggle.addEventListener('click', function(e) {
+    if (window.innerWidth > 680) return;
+    e.preventDefault(); e.stopPropagation();
     var open = dropdown.classList.toggle('open');
     toggle.classList.toggle('open', open);
   });
-  document.addEventListener('click', function(){
+  document.addEventListener('click', function() {
     dropdown.classList.remove('open');
     toggle.classList.remove('open');
   });
-  dropdown.addEventListener('click', function(e){ e.stopPropagation(); });
+  dropdown.addEventListener('click', function(e) { e.stopPropagation(); });
 })();
 </script>
 </body>
