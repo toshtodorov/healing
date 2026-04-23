@@ -162,32 +162,59 @@ h1,h2,h3{font-family:'Lora',Georgia,serif;font-weight:500}
 <script>
 // ── CONFIG ────────────────────────────────────────────────────────────────
 // JSONBin.io v3
-// X-Master-Key  → required for PUT (write/update)
+// X-Master-Key  → required for PUT (write/update)  — GET THE REAL ONE FROM jsonbin.io DASHBOARD
 // X-Access-Key  → sufficient for GET (read)
 const BIN_ID     = '69d807ebaaba882197e00c09';
-const MASTER_KEY = '69d80706856a68218917c639';  // used for writes
-const ACCESS_KEY = '69d80706856a68218917c639';  // used for reads (same key works)
-const BASE = 'https://api.jsonbin.io/v3/b/' + BIN_ID;
+const MASTER_KEY = '$2a$10$wdlngEGx.NkLGc8.oaHmPuQnR.vjlX9DN01vsulTI2VFNlV0bB5wC';
+const ACCESS_KEY = '69d80706856a68218917c639';
+const BASE       = 'https://api.jsonbin.io/v3/b/' + BIN_ID;
+const CACHE_KEY  = 'protocol-log-cache-v1';
 
-// Headers — the critical fix: writes must use X-Master-Key
 const READ_HEADERS  = { 'X-Access-Key': ACCESS_KEY };
 const WRITE_HEADERS = { 'Content-Type': 'application/json', 'X-Master-Key': MASTER_KEY };
 
-let entries  = [];
+let entries   = [];
 let editingId = null;
-let pendingText = null;  // hold text while retrying on error
+let pendingText = null;
+
+// ── LOCAL CACHE ───────────────────────────────────────────────────────────
+function cacheRead() {
+  try { const s = localStorage.getItem(CACHE_KEY); return s ? JSON.parse(s) : null; }
+  catch(e) { return null; }
+}
+function cacheWrite(data) {
+  try { localStorage.setItem(CACHE_KEY, JSON.stringify(data)); } catch(e) {}
+}
 
 // ── LOAD ──────────────────────────────────────────────────────────────────
+// Render from localStorage cache immediately (instant), then fetch from
+// JSONBin in background and update if data has changed.
 async function loadEntries() {
+  const cached = cacheRead();
+  if (cached && Array.isArray(cached)) {
+    entries = cached;
+    renderEntries();
+    setStatus('Syncing…', 'saving');
+  } else {
+    document.getElementById('entries-list').innerHTML = '<div class="loading">Loading…</div>';
+  }
   try {
     const r = await fetch(BASE + '/latest', { headers: READ_HEADERS });
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const data = await r.json();
-    entries = Array.isArray(data.record) ? data.record : [];
+    const fresh = Array.isArray(data.record) ? data.record : [];
+    entries = fresh;
+    cacheWrite(fresh);
     renderEntries();
+    setStatus('', '');
   } catch(e) {
-    document.getElementById('entries-list').innerHTML =
-      '<div class="empty"><div class="empty-icon">&#9888;</div><p>Could not load entries. Check connection and try refreshing.</p></div>';
+    if (entries.length > 0) {
+      setStatus('Offline — showing cached entries.', 'err');
+      setTimeout(() => setStatus('', ''), 4000);
+    } else {
+      document.getElementById('entries-list').innerHTML =
+        '<div class="empty"><div class="empty-icon">&#9888;</div><p>Could not load. Check connection and refresh.</p></div>';
+    }
   }
 }
 
@@ -214,6 +241,7 @@ async function saveEntry(textOverride) {
     });
     if (!r.ok) throw new Error('HTTP ' + r.status);
     entries = updated;
+    cacheWrite(entries);
     input.value = '';
     resetHeight(input);
     pendingText = null;
@@ -221,10 +249,10 @@ async function saveEntry(textOverride) {
     setStatus('Saved.', 'ok');
     setTimeout(() => setStatus('', ''), 2500);
   } catch(e) {
-    // Show error with retry button — keep the text in input so nothing is lost
-    input.value = pendingText;
+    input.value = pendingText || input.value;
     resetHeight(input);
-    setStatus('Save failed — <button class="btn-retry" onclick="retryPending()">Retry</button>', 'err');
+    const code = e.message || 'network error';
+    setStatus(code + ' — check master key &nbsp;<button class="btn-retry" onclick="retryPending()">Retry</button>', 'err');
   }
   btn.disabled = false;
 }
@@ -248,6 +276,7 @@ async function deleteEntry(id) {
     });
     if (!r.ok) throw new Error('HTTP ' + r.status);
     entries = updated;
+    cacheWrite(entries);
     if (editingId === id) editingId = null;
     renderEntries();
   } catch(e) {
@@ -278,6 +307,7 @@ async function saveEdit(id) {
     });
     if (!r.ok) throw new Error('HTTP ' + r.status);
     entries = updated;
+    cacheWrite(entries);
     editingId = null;
     renderEntries();
   } catch(e) {
